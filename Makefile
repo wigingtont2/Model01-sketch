@@ -58,6 +58,8 @@ compile: ${OUTPUT_PATH}
 		src/$(SKETCH).ino
 	@cp $(BUILD_PATH)/$(SKETCH).ino.hex $(HEX_FILE_PATH)
 	@cp $(BUILD_PATH)/$(SKETCH).ino.elf $(ELF_FILE_PATH)
+	@ln -sf $(OUTPUT_FILE_PREFIX).hex $(OUTPUT_PATH)/${SKETCH}-latest.hex
+	@ln -sf $(OUTPUT_FILE_PREFIX).elf $(OUTPUT_PATH)/${SKETCH}-latest.elf
 	@rm -rf "${BUILD_PATH}"
 
 size: compile
