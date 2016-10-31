@@ -49,6 +49,9 @@ namespace algernon {
   void
   EventHandler::press (uint8_t index) {
     uint16_t keycode = keymap->lookup (index);
+    cRGB color = {0xa0, 0xa0, 0xa0};
+
+    M01::EventHandler::Full::set_color (index, color);
 
     if (keycode == KC_ESC) {
       if (Akela::TapDance::Component::OneShotMod::isOneShotActive ()) {
@@ -72,6 +75,9 @@ namespace algernon {
   void
   EventHandler::release (uint8_t index) {
     uint16_t keycode = keymap->lookup (index);
+    cRGB color = {0, 0, 0};
+
+    M01::EventHandler::Full::set_color (index, color);
 
     if (Akela::TapDance::Component::OneShotMod::release (HID, keymap, index, keycode))
       return;
