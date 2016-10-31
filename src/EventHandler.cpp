@@ -91,6 +91,48 @@ namespace algernon {
   EventHandler::loop () {
     Akela::TapDance::Component::OneShotMod::loop (HID, keymap);
     M01::EventHandler::Full::loop ();
+
+    static const uint8_t modIndexMap[] PROGMEM = {
+      57, // KC_LCTL
+      39, // KC_LSFT
+      38, // KC_LALT
+      55, // KC_LGUI
+      57, // KC_RCTL
+      39, // KC_RSFT
+      38, // KC_RALT
+      55, // KC_RGUI
+    };
+
+    for (uint8_t kc = KC_LCTL; kc <= KC_RGUI; kc++) {
+      cRGB color = {0, 0, 0};
+      uint8_t modIndex = pgm_read_byte (modIndexMap + kc - KC_LCTL);
+
+      if (HID->isModifierActive (kc)) {
+        switch (kc) {
+        case KC_LCTL:
+        case KC_RCTL:
+          color = {0x00, 0x80, 0xff};
+          break;
+
+        case KC_LSFT:
+        case KC_RSFT:
+          color = {0xff, 0x00, 0x00};
+          break;
+
+        case KC_LALT:
+        case KC_RALT:
+          color = {0x00, 0xff, 0x80};
+          break;
+
+        case KC_LGUI:
+        case KC_RGUI:
+          color = {0xff, 0xff, 0x00};
+          break;
+        }
+      }
+
+      M01::EventHandler::Full::set_color (modIndex, color);
+    }
   }
 
   void
