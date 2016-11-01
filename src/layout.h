@@ -18,13 +18,6 @@
 
 #pragma once
 
-enum {
-  DVORAK,
-  ADORE,
-  NAV,
-  HUN
-};
-
 static const uint16_t keymap[][64] PROGMEM = {
   [DVORAK] = KEYMAP (
    // left hand

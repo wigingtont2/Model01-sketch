@@ -22,6 +22,13 @@
 #include <Akela-TapDance.h>
 
 enum {
+  DVORAK,
+  ADORE,
+  NAV,
+  HUN
+};
+
+enum {
   AM_1 = FM(0),
   AM_2,
   AM_3,
