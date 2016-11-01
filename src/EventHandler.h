@@ -96,6 +96,7 @@ namespace algernon {
   private:
     using Akela::TapDance::Component::OneShotMod::loop;
     using Akela::TapDance::Component::TapDance::loop;
+    using Akela::EventHandler::LayerComponent::loop;
 
     void handleNums (Akela::AbstractHID *hid,
                      uint8_t macroIndex,
