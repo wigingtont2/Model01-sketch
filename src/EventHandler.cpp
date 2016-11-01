@@ -151,19 +151,42 @@ namespace algernon {
   void
   EventHandler::colorNavLayer () {
     M01::KeyMap *km = (M01::KeyMap *)keymap;
-    cRGB color = {0x00, 0xff, 0x00};
 
     if (km->layer () != NAV) {
       for (uint8_t col = 1; col < 6; col++) {
-        setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 0, col), {0, 0, 0}, color);
-        setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 0, col), {0, 0, 0}, color);
+        setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 0, col), {0, 0, 0}, {0, 0xff, 0});
+        setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 0, col), {0, 0, 0}, {0, 0xff, 0});
       }
+
+      for (uint8_t col = 2; col <= 4; col++)
+        setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 1, col), {0, 0, 0}, {0, 0xff, 0xff});
+      for (uint8_t col = 3; col <= 5; col++)
+        setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 2, col), {0, 0, 0}, {0, 0xff, 0xff});
+
+      setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 4, 2), {0, 0, 0}, {0, 0xff, 0xff});
+      setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 4, 3), {0, 0, 0}, {0, 0xff, 0xff});
+
+      setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 4, 0), {0, 0, 0}, {0xff, 0xff, 0});
+      setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 4, 1), {0, 0, 0}, {0xff, 0xff, 0});
+      setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 4, 3), {0, 0, 0}, {0xff, 0xff, 0});
     }
 
     for (uint8_t col = 1; col < 6; col++) {
       setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 0, col), {0, 0xff, 0});
       setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 0, col), {0, 0xff, 0});
     }
+
+    for (uint8_t col = 2; col <= 4; col++)
+      setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 1, col), {0, 0xff, 0xff});
+    for (uint8_t col = 3; col <= 5; col++)
+      setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 2, col), {0, 0xff, 0xff});
+
+    setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 4, 2), {0, 0xff, 0xff});
+    setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 4, 3), {0, 0xff, 0xff});
+
+    setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 4, 0), {0xff, 0xff, 0});
+    setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 4, 1), {0xff, 0xff, 0});
+    setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 4, 3), {0xff, 0xff, 0});
   }
 
   void
