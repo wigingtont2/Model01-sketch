@@ -67,7 +67,11 @@ namespace algernon {
   public:
     EventHandler (Akela::AbstractHID *hid, Akela::LayeredKeyMap *keymap,
                   M01::Scanner *scanner)
-      : M01::EventHandler::Full (hid, keymap, scanner) {};
+      : M01::EventHandler::Full (hid, keymap, scanner) {
+      for (uint8_t i = 0; i < 64; i++) {
+        LEDColors[i] = {0, 0, 0};
+      }
+    };
 
     virtual void press (uint8_t index);
     virtual void release (uint8_t index);
@@ -75,6 +79,9 @@ namespace algernon {
     virtual void loop ();
 
   protected:
+    virtual void setColor (uint8_t index, cRGB color);
+    virtual void setColor (uint8_t index, cRGB targetColor, cRGB actualColor);
+
     virtual void macroAction (Akela::AbstractHID *hid,
                               Akela::KeyMap *keymap,
                               uint8_t macroIndex,
@@ -97,6 +104,8 @@ namespace algernon {
     using Akela::TapDance::Component::OneShotMod::loop;
     using Akela::TapDance::Component::TapDance::loop;
     using Akela::EventHandler::LayerComponent::loop;
+
+    cRGB LEDColors[64];
 
     void handleNums (Akela::AbstractHID *hid,
                      uint8_t macroIndex,

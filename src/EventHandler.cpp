@@ -47,11 +47,26 @@ static const uint16_t _hun_accent_map[] PROGMEM = {
 namespace algernon {
 
   void
+  EventHandler::setColor (uint8_t index, cRGB color) {
+    M01::EventHandler::Full::setColor (index, color);
+    LEDColors[index] = color;
+  }
+
+  void
+  EventHandler::setColor (uint8_t index, cRGB targetColor, cRGB actualColor) {
+    if (LEDColors[index].r == actualColor.r &&
+        LEDColors[index].g == actualColor.g &&
+        LEDColors[index].b == actualColor.b)
+      setColor (index, targetColor);
+  }
+
+  void
   EventHandler::press (uint8_t index) {
     uint16_t keycode = keymap->lookup (index);
     cRGB color = {0xa0, 0xa0, 0xa0};
 
-    M01::EventHandler::Full::setColor (index, color);
+    // Change the color only if it was off
+    setColor (index, color, {0, 0, 0});
 
     if (keycode == KC_ESC) {
       if (Akela::TapDance::Component::OneShotMod::isOneShotActive ()) {
@@ -77,7 +92,8 @@ namespace algernon {
     uint16_t keycode = keymap->lookup (index);
     cRGB color = {0, 0, 0};
 
-    M01::EventHandler::Full::setColor (index, color);
+    // change color only if it was grey-ish
+    setColor (index, color, {0xa0, 0xa0, 0xa0});
 
     if (Akela::TapDance::Component::OneShotMod::unregister_code (HID, keymap, keycode))
       return;
@@ -131,7 +147,7 @@ namespace algernon {
         }
       }
 
-      M01::EventHandler::Full::setColor (modIndex, color);
+      setColor (modIndex, color);
     }
   }
 
