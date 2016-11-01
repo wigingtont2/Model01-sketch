@@ -157,8 +157,6 @@ namespace algernon {
     if (!pressed)
       return;
 
-    M01::HID::Full *HID = (M01::HID::Full *)hid;
-
     if (hid->isModifierActive (KC_LSFT)) {
       bool needShiftRestore = true;
 
@@ -169,7 +167,9 @@ namespace algernon {
 
       hid->release (KC_LSFT);
 
-      HID->press (M01::HID::CONSUMER, HID_CONSUMER_SCAN_PREVIOUS_TRACK);
+      M01::EventHandler::Full::register_code (CC_PRV);
+      hid->sendReport ();
+      M01::EventHandler::Full::unregister_code (CC_PRV);
 
       if (needShiftRestore)
         hid->press (KC_LSFT);
@@ -177,7 +177,9 @@ namespace algernon {
       return;
     }
 
-    HID->press (M01::HID::CONSUMER, HID_CONSUMER_SCAN_NEXT_TRACK);
+    M01::EventHandler::Full::register_code (CC_NXT);
+    hid->sendReport ();
+    M01::EventHandler::Full::unregister_code (CC_NXT);
   }
 
   void
