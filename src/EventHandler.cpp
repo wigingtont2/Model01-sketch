@@ -64,9 +64,9 @@ namespace algernon {
       }
     }
 
-    if (Akela::TapDance::Component::OneShotMod::press (HID, keymap, index, keycode))
+    if (Akela::TapDance::Component::OneShotMod::register_code (HID, keymap, keycode))
       return;
-    if (Akela::TapDance::Component::OneShotLayer::press (HID, keymap, index, keycode))
+    if (Akela::TapDance::Component::OneShotLayer::register_code (HID, keymap, keycode))
       return;
 
     M01::EventHandler::Full::press (index);
@@ -79,9 +79,9 @@ namespace algernon {
 
     M01::EventHandler::Full::set_color (index, color);
 
-    if (Akela::TapDance::Component::OneShotMod::release (HID, keymap, index, keycode))
+    if (Akela::TapDance::Component::OneShotMod::unregister_code (HID, keymap, keycode))
       return;
-    if (Akela::TapDance::Component::OneShotLayer::release (HID, keymap, index, keycode))
+    if (Akela::TapDance::Component::OneShotLayer::unregister_code (HID, keymap, keycode))
       return;
 
     M01::EventHandler::Full::release (index);

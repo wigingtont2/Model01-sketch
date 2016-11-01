@@ -69,18 +69,12 @@ namespace algernon {
                   M01::Scanner *scanner)
       : M01::EventHandler::Full (hid, keymap, scanner) {};
 
-    using Akela::TapDance::Component::OneShotMod::press;
-    using Akela::TapDance::Component::OneShotLayer::press;
-    using Akela::TapDance::Component::TapDance::press;
     virtual void press (uint8_t index);
-
-    using Akela::TapDance::Component::OneShotMod::release;
-    using Akela::TapDance::Component::OneShotLayer::release;
-    using Akela::TapDance::Component::TapDance::release;
     virtual void release (uint8_t index);
 
     virtual void loop ();
 
+  protected:
     virtual void macroAction (Akela::AbstractHID *hid,
                               Akela::KeyMap *keymap,
                               uint8_t macroIndex,
