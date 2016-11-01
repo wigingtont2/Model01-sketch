@@ -104,10 +104,7 @@ namespace algernon {
   }
 
   void
-  EventHandler::loop () {
-    Akela::TapDance::Component::OneShotMod::loop (HID, keymap);
-    M01::EventHandler::Full::loop ();
-
+  EventHandler::colorModifiers () {
     static const uint8_t modIndexMap[] PROGMEM = {
       57, // KC_LCTL
       39, // KC_LSFT
@@ -149,6 +146,14 @@ namespace algernon {
 
       setColor (modIndex, color);
     }
+  }
+
+  void
+  EventHandler::loop () {
+    Akela::TapDance::Component::OneShotMod::loop (HID, keymap);
+    M01::EventHandler::Full::loop ();
+
+    colorModifiers ();
   }
 
   void

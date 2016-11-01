@@ -107,6 +107,8 @@ namespace algernon {
 
     cRGB LEDColors[64];
 
+    void colorModifiers ();
+
     void handleNums (Akela::AbstractHID *hid,
                      uint8_t macroIndex,
                      bool pressed);
