@@ -158,10 +158,10 @@ namespace algernon {
         setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 0, col), {0, 0, 0}, {0, 0xff, 0});
       }
 
-      for (uint8_t col = 2; col <= 4; col++)
-        setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 1, col), {0, 0, 0}, {0, 0xff, 0xff});
-      for (uint8_t col = 3; col <= 5; col++)
-        setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 2, col), {0, 0, 0}, {0, 0xff, 0xff});
+      for (uint8_t row = 1; row <= 2; row++) {
+        for (uint8_t col = 2; col <= 4; col++)
+          setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, row, col), {0, 0, 0}, {0, 0xff, 0xff});
+      }
 
       setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 4, 2), {0, 0, 0}, {0, 0xff, 0xff});
       setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 4, 3), {0, 0, 0}, {0, 0xff, 0xff});
@@ -176,10 +176,10 @@ namespace algernon {
       setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 0, col), {0, 0xff, 0});
     }
 
-    for (uint8_t col = 2; col <= 4; col++)
-      setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 1, col), {0, 0xff, 0xff});
-    for (uint8_t col = 3; col <= 5; col++)
-      setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 2, col), {0, 0xff, 0xff});
+    for (uint8_t row = 1; row <= 2; row++) {
+      for (uint8_t col = 2; col <= 4; col++)
+        setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, row, col), {0, 0xff, 0xff});
+    }
 
     setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 4, 2), {0, 0xff, 0xff});
     setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 4, 3), {0, 0xff, 0xff});
