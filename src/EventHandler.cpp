@@ -44,29 +44,94 @@ static const uint16_t _hun_accent_map[] PROGMEM = {
   KC_QUOT, // HU_II
 };
 
+static const uint8_t LayerBaseColorMap[][64] PROGMEM = {
+  [DVORAK] = {
+    0, 0, 0, 0, 0, 0, 0,  0, 0,  0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0,  0, 0,  0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0,  0, 0,  0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0,  0, 0,  0, 0, 0, 0, 0, 0, 0,
+  },
+  [ADORE] = {
+    0, 0, 0, 0, 0, 0, 0,  0, 0,  0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0,  0, 0,  0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0,  0, 0,  0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0,  0, 0,  0, 0, 0, 0, 0, 0, 0,
+  },
+  [NAV] = {
+    0, 1, 1, 1, 1, 1, 0,  9, 0,  0, 1, 1, 1, 1, 1, 0,
+    0, 0, 0, 0, 0, 0, 0,  9,10,  0, 0,10,10,10, 0, 0,
+    0, 0, 0, 0, 0, 0, 0,  0,10,  0, 0,10,10,10, 0, 0,
+    0, 0, 0, 0, 0, 0, 0,  9, 0,  0, 0, 0, 0, 0, 0, 0,
+  },
+  [HUN] = {
+    0, 0, 0, 0, 0, 0, 0,  0, 0,  0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0,  0, 0,  0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0,  0, 0,  0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0,  0, 0,  0, 0, 0, 0, 0, 0, 0,
+  },
+};
+
 namespace algernon {
+  static const cRGB colorMap[] PROGMEM = {
+    [Color::OFF]      = {0, 0, 0},
+    [Color::RED]      = {0xff, 0, 0},
+    [Color::GREEN]    = {0, 0x80, 0},
+    [Color::BROWN]    = {0xa5, 0x2a, 0x2a},
+    [Color::BLUE]     = {0, 0, 0xff},
+    [Color::PURPLE]   = {0x80, 0, 0x80},
+    [Color::GREY]     = {0x80, 0x80, 0x80},
+    [Color::LIGHTRED] = {0xff, 0x66, 0x66},
+    [Color::LIME]     = {0x00, 0xff, 0},
+    [Color::YELLOW]   = {0xff, 0xff, 0},
+    [Color::CYAN]     = {0, 0xff, 0xff},
+    [Color::PINK]     = {0xff, 0xc0, 0xcb},
+    [Color::WHITE]    = {0xff, 0xff, 0xff},
+  };
 
   void
-  EventHandler::setColor (uint8_t index, cRGB color) {
-    M01::EventHandler::Full::setColor (index, color);
-    LEDColors[index] = color;
+  EventHandler::setColor (uint8_t index, int colorIndex) {
+    cRGB color = getColor (colorIndex);
+
+    if (LEDColors[index] != colorIndex) {
+      LEDColors[index] = colorIndex;
+      M01::EventHandler::Full::setColor (index, color);
+    }
+  }
+
+  cRGB
+  EventHandler::getColor (uint8_t colorIndex) {
+    cRGB color;
+
+    color.r = pgm_read_byte (colorMap + colorIndex * 3);
+    color.g = pgm_read_byte (colorMap + colorIndex * 3 + 1);
+    color.b = pgm_read_byte (colorMap + colorIndex * 3 + 2);
+
+    return color;
   }
 
   void
-  EventHandler::setColor (uint8_t index, cRGB targetColor, cRGB actualColor) {
-    if (LEDColors[index].r == actualColor.r &&
-        LEDColors[index].g == actualColor.g &&
-        LEDColors[index].b == actualColor.b)
-      setColor (index, targetColor);
+  EventHandler::blendColor (uint8_t index, int colorIndex) {
+    cRGB color = getColor (LEDColors[index]);
+
+    if (colorIndex == Color::OFF) {
+      // set the original color...
+    } else {
+      cRGB add = getColor (colorIndex);
+
+      // compute the combined base + add color
+      color.r = min(color.r + add.r, 255);
+      color.g = min(color.g + add.g, 255);
+      color.b = min(color.b + add.b, 255);
+    }
+
+    M01::EventHandler::Full::setColor (index, color);
   }
 
   void
   EventHandler::press (uint8_t index) {
     uint16_t keycode = keymap->lookup (index);
-    cRGB color = {0xa0, 0xa0, 0xa0};
 
-    // Change the color only if it was off
-    setColor (index, color, {0, 0, 0});
+    blendColor (index, Color::GREY);
 
     if (keycode == KC_ESC) {
       if (Akela::TapDance::Component::OneShotMod::isOneShotActive ()) {
@@ -90,10 +155,9 @@ namespace algernon {
   void
   EventHandler::release (uint8_t index) {
     uint16_t keycode = keymap->lookup (index);
-    cRGB color = {0, 0, 0};
 
     // change color only if it was grey-ish
-    setColor (index, color, {0xa0, 0xa0, 0xa0});
+    blendColor (index, Color::OFF);
 
     if (Akela::TapDance::Component::OneShotMod::unregister_code (HID, keymap, keycode))
       return;
@@ -117,29 +181,29 @@ namespace algernon {
     };
 
     for (uint8_t kc = KC_LCTL; kc <= KC_RGUI; kc++) {
-      cRGB color = {0, 0, 0};
+      int color = Color::OFF;
       uint8_t modIndex = pgm_read_byte (modIndexMap + kc - KC_LCTL);
 
       if (HID->isModifierActive (kc)) {
         switch (kc) {
         case KC_LCTL:
         case KC_RCTL:
-          color = {0x00, 0x80, 0xff};
+          color = Color::BLUE;
           break;
 
         case KC_LSFT:
         case KC_RSFT:
-          color = {0xff, 0x00, 0x00};
+          color = Color::RED;
           break;
 
         case KC_LALT:
         case KC_RALT:
-          color = {0x00, 0xff, 0x80};
+          color = Color::GREEN;
           break;
 
         case KC_LGUI:
         case KC_RGUI:
-          color = {0xff, 0xff, 0x00};
+          color = Color::BROWN;
           break;
         }
       }
@@ -149,44 +213,15 @@ namespace algernon {
   }
 
   void
-  EventHandler::colorNavLayer () {
+  EventHandler::colorLayers () {
     M01::KeyMap *km = (M01::KeyMap *)keymap;
+    uint8_t layer = km->layer ();
 
-    if (km->layer () != NAV) {
-      for (uint8_t col = 1; col < 6; col++) {
-        setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 0, col), {0, 0, 0}, {0, 0xff, 0});
-        setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 0, col), {0, 0, 0}, {0, 0xff, 0});
-      }
+    for (uint8_t i = 0; i < 64; i++) {
+      uint8_t colorIndex = pgm_read_byte (LayerBaseColorMap + layer * 64 + i);
 
-      for (uint8_t row = 1; row <= 2; row++) {
-        for (uint8_t col = 2; col <= 4; col++)
-          setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, row, col), {0, 0, 0}, {0, 0xff, 0xff});
-      }
-
-      setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 4, 2), {0, 0, 0}, {0, 0xff, 0xff});
-      setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 4, 3), {0, 0, 0}, {0, 0xff, 0xff});
-
-      setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 4, 0), {0, 0, 0}, {0xff, 0xff, 0});
-      setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 4, 1), {0, 0, 0}, {0xff, 0xff, 0});
-      setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 4, 3), {0, 0, 0}, {0xff, 0xff, 0});
+      setColor (i, colorIndex);
     }
-
-    for (uint8_t col = 1; col < 6; col++) {
-      setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 0, col), {0, 0xff, 0});
-      setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 0, col), {0, 0xff, 0});
-    }
-
-    for (uint8_t row = 1; row <= 2; row++) {
-      for (uint8_t col = 2; col <= 4; col++)
-        setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, row, col), {0, 0xff, 0xff});
-    }
-
-    setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 4, 2), {0, 0xff, 0xff});
-    setColor (keyToMatrix (M01::EventHandler::Base::RIGHT, 4, 3), {0, 0xff, 0xff});
-
-    setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 4, 0), {0xff, 0xff, 0});
-    setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 4, 1), {0xff, 0xff, 0});
-    setColor (keyToMatrix (M01::EventHandler::Base::LEFT, 4, 3), {0xff, 0xff, 0});
   }
 
   void
@@ -194,8 +229,8 @@ namespace algernon {
     Akela::TapDance::Component::OneShotMod::loop (HID, keymap);
     M01::EventHandler::Full::loop ();
 
+    colorLayers ();
     colorModifiers ();
-    colorNavLayer ();
   }
 
   void

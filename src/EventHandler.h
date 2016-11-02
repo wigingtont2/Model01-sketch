@@ -66,6 +66,25 @@ enum {
 };
 
 namespace algernon {
+  namespace Color {
+    enum {
+      OFF,
+      RED,
+      GREEN,
+      BROWN,
+      BLUE,
+      PURPLE,
+      GREY,
+
+      LIGHTRED,
+      LIME,
+      YELLOW,
+      CYAN,
+      PINK,
+      WHITE
+    };
+  };
+
   class EventHandler :
     public M01::EventHandler::Full,
     public Akela::TapDance::Component::OneShotMod,
@@ -76,7 +95,7 @@ namespace algernon {
                   M01::Scanner *scanner)
       : M01::EventHandler::Full (hid, keymap, scanner) {
       for (uint8_t i = 0; i < 64; i++) {
-        LEDColors[i] = {0, 0, 0};
+        LEDColors[i] = Color::OFF;
       }
     };
 
@@ -86,8 +105,8 @@ namespace algernon {
     virtual void loop ();
 
   protected:
-    virtual void setColor (uint8_t index, cRGB color);
-    virtual void setColor (uint8_t index, cRGB targetColor, cRGB actualColor);
+    virtual void setColor (uint8_t index, int color);
+    virtual void blendColor (uint8_t index, int color);
 
     virtual void macroAction (Akela::AbstractHID *hid,
                               Akela::KeyMap *keymap,
@@ -112,10 +131,11 @@ namespace algernon {
     using Akela::TapDance::Component::TapDance::loop;
     using Akela::EventHandler::LayerComponent::loop;
 
-    cRGB LEDColors[64];
+    uint8_t LEDColors[64];
+    cRGB getColor (uint8_t colorIndex);
 
     void colorModifiers ();
-    void colorNavLayer ();
+    void colorLayers ();
 
     void handleNums (Akela::AbstractHID *hid,
                      uint8_t macroIndex,
