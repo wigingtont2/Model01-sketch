@@ -91,7 +91,7 @@ namespace algernon {
     public Akela::TapDance::Component::OneShotLayer,
     public Akela::TapDance::Component::TapDance {
   public:
-    EventHandler (Akela::AbstractHID *hid, Akela::LayeredKeyMap *keymap,
+    EventHandler (Akela::AbstractHID *hid, Akela::KeyMap::Layered *keymap,
                   M01::Scanner *scanner)
       : M01::EventHandler::Full (hid, keymap, scanner) {
       for (uint8_t i = 0; i < 64; i++) {
@@ -109,20 +109,20 @@ namespace algernon {
     virtual void blendColor (uint8_t index, int color);
 
     virtual void macroAction (Akela::AbstractHID *hid,
-                              Akela::KeyMap *keymap,
+                              Akela::KeyMap::Basic *keymap,
                               uint8_t macroIndex,
                               bool pressed);
 
     virtual void tapDanceCycle (Akela::AbstractHID *,
-                                Akela::KeyMap *,
+                                Akela::KeyMap::Basic *,
                                 uint8_t,
                                 uint8_t) {};
     virtual void tapDanceFinish (Akela::AbstractHID *hid,
-                                 Akela::KeyMap *keymap,
+                                 Akela::KeyMap::Basic *keymap,
                                  uint8_t tapIndex,
                                  uint8_t counter);
     virtual void tapDanceRelease (Akela::AbstractHID *hid,
-                                  Akela::KeyMap *keymap,
+                                  Akela::KeyMap::Basic *keymap,
                                   uint8_t tapIndex,
                                   uint8_t counter);
 
