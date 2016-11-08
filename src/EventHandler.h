@@ -109,20 +109,20 @@ namespace algernon {
     virtual void blendColor (uint8_t index, int color);
 
     virtual void macroAction (Akela::AbstractHID *hid,
-                              Akela::KeyMap::Basic *keymap,
+                              Akela::KeyMap::Abstract *keymap,
                               uint8_t macroIndex,
                               bool pressed);
 
     virtual void tapDanceCycle (Akela::AbstractHID *,
-                                Akela::KeyMap::Basic *,
+                                Akela::KeyMap::Abstract *,
                                 uint8_t,
                                 uint8_t) {};
     virtual void tapDanceFinish (Akela::AbstractHID *hid,
-                                 Akela::KeyMap::Basic *keymap,
+                                 Akela::KeyMap::Abstract *keymap,
                                  uint8_t tapIndex,
                                  uint8_t counter);
     virtual void tapDanceRelease (Akela::AbstractHID *hid,
-                                  Akela::KeyMap::Basic *keymap,
+                                  Akela::KeyMap::Abstract *keymap,
                                   uint8_t tapIndex,
                                   uint8_t counter);
 

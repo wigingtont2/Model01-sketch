@@ -235,7 +235,7 @@ namespace algernon {
 
   void
   EventHandler::macroAction (Akela::AbstractHID *hid,
-                             Akela::KeyMap::Basic *,
+                             Akela::KeyMap::Abstract *,
                              uint8_t macroIndex,
                              bool pressed) {
     switch (FM(macroIndex)) {
@@ -393,7 +393,7 @@ namespace algernon {
 
   void
   EventHandler::tapDanceFinish (Akela::AbstractHID *hid,
-                                Akela::KeyMap::Basic *,
+                                Akela::KeyMap::Abstract *,
                                 uint8_t tapIndex,
                                 uint8_t counter) {
     switch (tapIndex) {
@@ -455,7 +455,7 @@ namespace algernon {
 
   void
   EventHandler::tapDanceRelease (Akela::AbstractHID *hid,
-                                 Akela::KeyMap::Basic *,
+                                 Akela::KeyMap::Abstract *,
                                  uint8_t tapIndex,
                                  uint8_t counter) {
     switch (tapIndex) {
