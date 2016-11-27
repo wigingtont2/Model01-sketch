@@ -48,6 +48,8 @@ enum {
   M_8,
   M_9,
   M_0,
+
+  M_LOCK,
 };
 
 #define MO(layer) (Key){ KEY_FLAGS | SYNTHETIC | SWITCH_TO_KEYMAP, MOMENTARY_OFFSET + layer }
@@ -103,10 +105,10 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,Key_volumeDown ,Key_volumeUp ,___ ,Key_volumeMute
    ,___
 
-   ,NIY ,Key_F10 ,Key_F2     ,Key_F4      ,Key_F6     ,Key_F8 ,XXX
-   ,XXX ,XXX     ,Key_Home   ,Key_UpArrow ,Key_End    ,XXX  ,XXX
-        ,XXX     ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX  ,XXX
-   ,___ ,XXX     ,XXX        ,XXX         ,XXX        ,XXX  ,XXX
+   ,M(M_LOCK) ,Key_F10 ,Key_F2     ,Key_F4      ,Key_F6     ,Key_F8 ,XXX
+   ,XXX       ,XXX     ,Key_Home   ,Key_UpArrow ,Key_End    ,XXX  ,XXX
+              ,XXX     ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX  ,XXX
+   ,___       ,XXX     ,XXX        ,XXX         ,XXX        ,XXX  ,XXX
 
    ,___ ,Key_PageDn ,Key_PageUp ,XXX
    ,___
@@ -297,6 +299,8 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   switch (macroIndex) {
   case M_1 ... M_0:
     return handleNumRow (macroIndex, keyState);
+  case M_LOCK:
+    return MACRO (D(LGUI), T(L), U(LGUI), END);
   }
 
   return MACRO_NONE;
