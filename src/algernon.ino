@@ -245,6 +245,63 @@ static Akela::OneShotMods    oneShotMods;
 static Akela::OneShotLayers  oneShotLayers;
 static Akela::Unicode        unicode;
 
+static const macro_t *handleNumRow (uint8_t macroIndex, uint8_t keyState) {
+  if (key_toggled_off (keyState))
+    return MACRO_NONE;
+
+  uint8_t kc = Key_1.rawKey;
+  bool shifted = Keyboard.isModifierActive (Key_LShift.rawKey) ||
+    Keyboard.isModifierActive (Key_RShift.rawKey);
+
+
+  if (!shifted) {
+    kc += macroIndex;
+    return MACRO (MACRO_ACTION_STEP_KEYDOWN, kc, MACRO_ACTION_END);
+  }
+
+  switch (macroIndex) {
+  case M_9:
+  case M_8:
+    return MACRO_NONE;
+  case M_7:
+    kc += 1;
+    break;
+  case M_5:
+    kc += 7;
+    break;
+  case M_3:
+    kc += 5;
+    break;
+  case M_1:
+    kc += 3;
+    break;
+
+  case M_0:
+    kc += 4;
+    break;
+  case M_2:
+    kc += 0;
+    break;
+  case M_4:
+    kc += 2;
+    break;
+  case M_6:
+    kc += 6;
+    break;
+  }
+
+  return MACRO (MACRO_ACTION_STEP_KEYDOWN, kc, MACRO_ACTION_END);
+}
+
+const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
+  switch (macroIndex) {
+  case M_1 ... M_0:
+    return handleNumRow (macroIndex, keyState);
+  }
+
+  return MACRO_NONE;
+}
+
 void
 setup () {
   oneShotMods.enableAuto();
