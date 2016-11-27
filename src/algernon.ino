@@ -302,10 +302,27 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   return MACRO_NONE;
 }
 
+static bool handleEsc (Key mappedKey, byte row, byte col, uint8_t keyState) {
+  if (mappedKey.raw != Key_Esc.raw ||
+      (keyState & INJECTED) ||
+      !key_toggled_on (keyState))
+    return false;
+
+  if (!oneShotMods.isActive () &&
+      !oneShotLayers.isActive ())
+    return false;
+
+  oneShotMods.cancel ();
+  oneShotLayers.cancel ();
+
+  return true;
+}
+
 void
 setup () {
   oneShotMods.enableAuto();
   oneShotLayers.enableAuto();
+  event_handler_hook_add (handleEsc);
 
   Keyboardio.setup(KEYMAP_SIZE);
   colorMapEffect.activate ();
