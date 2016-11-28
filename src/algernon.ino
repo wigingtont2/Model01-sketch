@@ -28,6 +28,10 @@
 
 #include <LED-Off.h>
 
+#define Dr(k) MACRO_ACTION_STEP_KEYDOWN, k >> 8, (k << 8) >> 8
+#define Ur(k) MACRO_ACTION_STEP_KEYUP, k >> 8, (k << 8) >> 8
+#define Tr(k) Dr(k), Ur(k)
+
 #include "Hungarian.h"
 
 // LAYERS
@@ -297,12 +301,37 @@ void magicToggleADORE (uint32_t leftHand, uint32_t rightHand) {
   }
 }
 
+void magicCsilla (uint32_t leftHand, uint32_t rightHand) {
+  Macros.play (MACRO (D(LShift), T(C), U(LShift),
+                      T(S),
+                      T(I),
+                      T(L),
+                      T(L),
+                      Tr(HUN_AA),
+                      T(M),
+                      T(A),
+                      T(S),
+                      T(S),
+                      T(Z),
+                      T(O),
+                      T(N),
+                      T(Y),
+                      T(K),
+                      Tr(HUN_AA),
+                      T(M),
+                      END));
+}
+
 Akela::MagicCombo::dictionary_t dictionary[] = {
   // palm keys + ADORE
   {R3C6 | R2C1  | R2C2 | R2C3, // left hand
    R3C9 | R2C10 | R2C11,       // right hand
    magicToggleADORE            // callback
-  }
+  },
+  // palm keys + CS (Dvorak)
+  {R3C6,
+   R3C9 | R1C12 | R2C14,
+   magicCsilla}
 };
 
 Akela::MagicCombo magicCombos (dictionary);
