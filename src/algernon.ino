@@ -331,7 +331,11 @@ Akela::MagicCombo::dictionary_t dictionary[] = {
   // palm keys + CS (Dvorak)
   {R3C6,
    R3C9 | R1C12 | R2C14,
-   magicCsilla}
+   magicCsilla},
+  // palm keys + CS (ADORE)
+  {R3C6 | R1C3,
+   R3C9 | R2C14,
+   magicCsilla},
 };
 
 Akela::MagicCombo magicCombos (dictionary);
