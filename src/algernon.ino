@@ -36,7 +36,8 @@ enum {
   _DVORAK,
   _ADORE,
   _NAV,
-  _HUN
+  _HUN,
+  _EMPTY
 };
 
 // MACROS
@@ -115,7 +116,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,___       ,XXX     ,XXX        ,XXX         ,XXX        ,XXX  ,XXX
 
    ,___ ,Key_PageDn ,Key_PageUp ,XXX
-   ,___
+   ,MO(_EMPTY)
   ),
 
   [_HUN] = KEYMAP_STACKED
@@ -126,7 +127,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,XXX ,XXX       ,R(HUN_OU)  ,XXX       ,R(HUN_UU)  ,XXX       ,XXX
 
    ,XXX ,___ ,___ ,___
-   ,___
+   ,MO(_EMPTY)
 
    ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
    ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
@@ -136,6 +137,24 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,XXX ,XXX ,XXX ,XXX
    ,___
   ),
+
+  [_EMPTY] = KEYMAP_STACKED
+  (
+    XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX
+   ,___
+
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+        ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+
+   ,XXX ,XXX ,XXX ,XXX
+   ,___
+   ),
 };
 
 // Colors
@@ -229,6 +248,25 @@ const uint8_t colorMap[][ROWS][COLS] PROGMEM = {
    ,TRNS ,TRNS ,RED  ,TRNS ,RED  ,TRNS ,TRNS
    ,TRNS ,RED  ,RED  ,RED  ,RED  ,RED
    ,TRNS ,TRNS ,RED  ,TRNS ,RED  ,TRNS ,TRNS
+
+   ,TRNS ,TRNS ,TRNS ,TRNS
+   ,TRNS
+
+   ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+   ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+         ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+   ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+
+   ,TRNS ,TRNS ,TRNS ,TRNS
+   ,TRNS
+  ),
+
+  [_EMPTY] = KEYMAP_STACKED
+  (
+    TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+   ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+   ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+   ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
 
    ,TRNS ,TRNS ,TRNS ,TRNS
    ,TRNS
