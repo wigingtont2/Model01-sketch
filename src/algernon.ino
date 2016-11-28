@@ -184,7 +184,7 @@ const cRGB colors[] PROGMEM = {
   [YELLOW]      = {0xff, 0xff, 0x00},
 };
 
-const uint8_t colorMap[][ROWS][COLS] PROGMEM = {
+static const uint8_t colorMap[KEYMAP_SIZE][ROWS][COLS] PROGMEM = {
   [_DVORAK] = KEYMAP_STACKED
   (
     OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
