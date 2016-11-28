@@ -251,6 +251,24 @@ static Akela::OneShotMods    oneShotMods;
 static Akela::OneShotLayers  oneShotLayers;
 static Akela::Unicode        unicode;
 
+void magicToggleADORE (uint32_t leftHand, uint32_t rightHand) {
+  if (Layer.isOn (_ADORE)) {
+    Layer.defaultLayer (_DVORAK);
+  } else {
+    Layer.defaultLayer (_ADORE);
+  }
+}
+
+Akela::MagicCombo::dictionary_t dictionary[] = {
+  // palm keys + ADORE
+  {R3C6 | R2C1  | R2C2 | R2C3, // left hand
+   R3C9 | R2C10 | R2C11,       // right hand
+   magicToggleADORE            // callback
+  }
+};
+
+Akela::MagicCombo magicCombos (dictionary);
+
 static const macro_t *handleNumRow (uint8_t macroIndex, uint8_t keyState) {
   if (key_toggled_off (keyState))
     return MACRO_NONE;
