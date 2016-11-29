@@ -25,6 +25,7 @@
 #include <Akela-Heatmap.h>
 #include <Akela-Unicode.h>
 #include <Akela-MagicCombo.h>
+#include <Akela-ShapeShifter.h>
 
 #include <LED-Off.h>
 
@@ -46,17 +47,6 @@ enum {
 
 // MACROS
 enum {
-  M_1,
-  M_2,
-  M_3,
-  M_4,
-  M_5,
-  M_6,
-  M_7,
-  M_8,
-  M_9,
-  M_0,
-
   M_LOCK,
 };
 
@@ -68,18 +58,18 @@ enum {
 const Key keymaps[][ROWS][COLS] PROGMEM = {
   [_DVORAK] = KEYMAP_STACKED
   (
-    Key_F11       ,M(M_9)    ,M(M_7)    ,M(M_5)     ,M(M_3) ,M(M_1) ,NIY
-   ,Key_Backtick  ,Key_Quote ,Key_Comma ,Key_Period ,Key_P  ,Key_Y  ,NIY
-   ,Key_Tab       ,Key_A     ,Key_O     ,Key_E      ,Key_U  ,Key_I
-   ,Key_playPause ,Key_Slash ,Key_Q     ,Key_J      ,Key_K  ,Key_X  ,Key_LAlt
+    Key_F11       ,Key_9     ,Key_7     ,Key_5      ,Key_3 ,Key_1 ,NIY
+   ,Key_Backtick  ,Key_Quote ,Key_Comma ,Key_Period ,Key_P ,Key_Y ,NIY
+   ,Key_Tab       ,Key_A     ,Key_O     ,Key_E      ,Key_U ,Key_I
+   ,Key_playPause ,Key_Slash ,Key_Q     ,Key_J      ,Key_K ,Key_X ,Key_LAlt
 
    ,NIY ,Key_Backspace ,Key_LShift ,Key_Esc
    ,MO(_NAV)
 
-   ,NIY       ,M(M_0) ,M(M_2) ,M(M_4) ,M(M_6) ,M(M_8) ,NIY
-   ,NIY       ,Key_F  ,Key_G  ,Key_C  ,Key_R  ,Key_L  ,Key_Backslash
-              ,Key_D  ,Key_H  ,Key_T  ,Key_N  ,Key_S  ,Key_Equals
-   ,Key_LCtrl ,Key_B  ,Key_M  ,Key_W  ,Key_V  ,Key_Z  ,Key_stop
+   ,NIY       ,Key_0 ,Key_2 ,Key_4 ,Key_6 ,Key_8 ,NIY
+   ,NIY       ,Key_F ,Key_G ,Key_C ,Key_R ,Key_L ,Key_Backslash
+              ,Key_D ,Key_H ,Key_T ,Key_N ,Key_S ,Key_Equals
+   ,Key_LCtrl ,Key_B ,Key_M ,Key_W ,Key_V ,Key_Z ,Key_stop
 
    ,Key_LGUI ,Key_Enter ,Key_Space ,Key_Minus
    ,MO(_HUN)
@@ -87,18 +77,18 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
 
   [_ADORE] = KEYMAP_STACKED
   (
-    Key_F11       ,M(M_9) ,M(M_7) ,M(M_5)     ,M(M_3)    ,M(M_1) ,NIY
-   ,Key_Backslash ,Key_X  ,Key_W  ,Key_C      ,Key_H     ,Key_F  ,NIY
-   ,Key_Tab       ,Key_A  ,Key_O  ,Key_E      ,Key_I     ,Key_U
-   ,Key_playPause ,Key_Z  ,Key_Q  ,Key_Quote  ,Key_Comma ,Key_Period  ,Key_LAlt
+    Key_F11       ,Key_9 ,Key_7 ,Key_5      ,Key_3     ,Key_1       ,NIY
+   ,Key_Backslash ,Key_X ,Key_W ,Key_C      ,Key_H     ,Key_F       ,NIY
+   ,Key_Tab       ,Key_A ,Key_O ,Key_E      ,Key_I     ,Key_U
+   ,Key_playPause ,Key_Z ,Key_Q ,Key_Quote  ,Key_Comma ,Key_Period  ,Key_LAlt
 
    ,NIY ,Key_Backspace ,Key_LShift ,Key_Esc
    ,MO(_NAV)
 
-   ,NIY       ,M(M_0) ,M(M_2) ,M(M_4) ,M(M_6) ,M(M_8)     ,NIY
-   ,NIY       ,Key_M  ,Key_G  ,Key_L  ,Key_P  ,Key_Slash ,Key_Backslash
-              ,Key_D  ,Key_R  ,Key_T  ,Key_N  ,Key_S     ,Key_Equals
-   ,Key_LCtrl ,Key_B  ,Key_K  ,Key_V  ,Key_Y  ,Key_J     ,Key_stop
+   ,NIY       ,Key_0 ,Key_2 ,Key_4 ,Key_6 ,Key_8     ,NIY
+   ,NIY       ,Key_M ,Key_G ,Key_L ,Key_P ,Key_Slash ,Key_Backslash
+              ,Key_D ,Key_R ,Key_T ,Key_N ,Key_S     ,Key_Equals
+   ,Key_LCtrl ,Key_B ,Key_K ,Key_V ,Key_Y ,Key_J     ,Key_stop
 
    ,Key_LGUI ,Key_Enter ,Key_Space ,Key_Minus
    ,MO(_HUN)
@@ -293,6 +283,24 @@ static Akela::OneShotMods    oneShotMods;
 static Akela::OneShotLayers  oneShotLayers;
 static Akela::Unicode        unicode;
 
+static const Akela::ShapeShifter::dictionary_t shapeShifterDictionary[] = {
+  {Key_9, Key_NoKey},
+  {Key_7, Key_2},
+  {Key_5, Key_8},
+  {Key_3, Key_6},
+  {Key_1, Key_4},
+
+  {Key_0, Key_5},
+  {Key_2, Key_1},
+  {Key_4, Key_3},
+  {Key_6, Key_7},
+  {Key_8, Key_NoKey},
+
+  {Key_NoKey, Key_NoKey},
+};
+
+static Akela::ShapeShifter shapeShifter (shapeShifterDictionary);
+
 void magicToggleADORE (uint32_t leftHand, uint32_t rightHand) {
   if (Layer.isOn (_ADORE)) {
     Layer.defaultLayer (_DVORAK);
@@ -340,58 +348,8 @@ Akela::MagicCombo::dictionary_t dictionary[] = {
 
 Akela::MagicCombo magicCombos (dictionary);
 
-static const macro_t *handleNumRow (uint8_t macroIndex, uint8_t keyState) {
-  if (key_toggled_off (keyState))
-    return MACRO_NONE;
-
-  uint8_t kc = Key_1.rawKey;
-  bool shifted = Keyboard.isModifierActive (Key_LShift.rawKey) ||
-    Keyboard.isModifierActive (Key_RShift.rawKey);
-
-
-  if (!shifted) {
-    kc += macroIndex;
-    return MACRO (MACRO_ACTION_STEP_KEYDOWN, kc, MACRO_ACTION_END);
-  }
-
-  switch (macroIndex) {
-  case M_9:
-  case M_8:
-    return MACRO_NONE;
-  case M_7:
-    kc += 1;
-    break;
-  case M_5:
-    kc += 7;
-    break;
-  case M_3:
-    kc += 5;
-    break;
-  case M_1:
-    kc += 3;
-    break;
-
-  case M_0:
-    kc += 4;
-    break;
-  case M_2:
-    kc += 0;
-    break;
-  case M_4:
-    kc += 2;
-    break;
-  case M_6:
-    kc += 6;
-    break;
-  }
-
-  return MACRO (MACRO_ACTION_STEP_KEYDOWN, kc, MACRO_ACTION_END);
-}
-
 const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   switch (macroIndex) {
-  case M_1 ... M_0:
-    return handleNumRow (macroIndex, keyState);
   case M_LOCK:
     return MACRO (D(LGUI), T(L), U(LGUI), END);
   }
