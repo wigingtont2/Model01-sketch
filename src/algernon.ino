@@ -16,6 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <Keyboardio-MouseKeys.h>
 #include <Keyboardio-Macros.h>
 #include <KeyboardioFirmware.h>
 
@@ -52,6 +53,7 @@ enum {
 
 #define MO(layer) (Key){ KEY_FLAGS | SYNTHETIC | SWITCH_TO_KEYMAP, MOMENTARY_OFFSET + layer }
 #define R(n) (Key){.raw = n}
+#define MW(d) Key_mouseWarp ## d
 
 #define NIY Key_NoKey
 
@@ -97,8 +99,8 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
   [_NAV] = KEYMAP_STACKED
   (
     ___ ,Key_F9 ,Key_F7 ,Key_F5 ,Key_F3 ,Key_F1 ,XXX
-   ,XXX ,XXX    ,XXX    ,XXX    ,XXX    ,XXX    ,XXX
-   ,XXX ,XXX    ,XXX    ,XXX    ,XXX    ,XXX
+   ,XXX ,XXX    ,XXX    ,XXX    ,MW(NW) ,MW(NE) ,XXX
+   ,XXX ,XXX    ,XXX    ,XXX    ,MW(SW) ,MW(SE)
    ,XXX ,XXX    ,XXX    ,XXX    ,XXX    ,XXX    ,___
 
    ,Key_volumeDown ,Key_volumeUp ,___ ,Key_volumeMute
