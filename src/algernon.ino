@@ -27,6 +27,7 @@
 #include <Akela-Unicode.h>
 #include <Akela-MagicCombo.h>
 #include <Akela-ShapeShifter.h>
+#include <Akela-TapDance.h>
 
 #include <LED-Off.h>
 
@@ -51,6 +52,16 @@ enum {
   M_LOCK,
 };
 
+// Tap-dance
+enum {
+  TMUX,
+  TMUXP,
+  LPB,
+  RPB,
+  COLON,
+  MNP,
+};
+
 #define MO(layer) (Key){ KEY_FLAGS | SYNTHETIC | SWITCH_TO_KEYMAP, MOMENTARY_OFFSET + layer }
 #define R(n) (Key){.raw = n}
 #define MW(d) Key_mouseWarp ## d
@@ -60,16 +71,16 @@ enum {
 const Key keymaps[][ROWS][COLS] PROGMEM = {
   [_DVORAK] = KEYMAP_STACKED
   (
-    Key_F11       ,Key_9     ,Key_7     ,Key_5      ,Key_3 ,Key_1 ,NIY
-   ,Key_Backtick  ,Key_Quote ,Key_Comma ,Key_Period ,Key_P ,Key_Y ,NIY
+    Key_F11       ,Key_9     ,Key_7     ,Key_5      ,Key_3 ,Key_1 ,TD(TMUX)
+   ,Key_Backtick  ,Key_Quote ,Key_Comma ,Key_Period ,Key_P ,Key_Y ,TD(LPB)
    ,Key_Tab       ,Key_A     ,Key_O     ,Key_E      ,Key_U ,Key_I
    ,Key_playPause ,Key_Slash ,Key_Q     ,Key_J      ,Key_K ,Key_X ,Key_LAlt
 
-   ,NIY ,Key_Backspace ,Key_LShift ,Key_Esc
+   ,TD(COLON) ,Key_Backspace ,Key_LShift ,Key_Esc
    ,MO(_NAV)
 
-   ,NIY       ,Key_0 ,Key_2 ,Key_4 ,Key_6 ,Key_8 ,NIY
-   ,NIY       ,Key_F ,Key_G ,Key_C ,Key_R ,Key_L ,Key_Backslash
+   ,TD(TMUXP) ,Key_0 ,Key_2 ,Key_4 ,Key_6 ,Key_8 ,TD(MNP)
+   ,TD(RPB)   ,Key_F ,Key_G ,Key_C ,Key_R ,Key_L ,Key_Backslash
               ,Key_D ,Key_H ,Key_T ,Key_N ,Key_S ,Key_Equals
    ,Key_LCtrl ,Key_B ,Key_M ,Key_W ,Key_V ,Key_Z ,Key_stop
 
@@ -79,16 +90,16 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
 
   [_ADORE] = KEYMAP_STACKED
   (
-    Key_F11       ,Key_9 ,Key_7 ,Key_5      ,Key_3     ,Key_1       ,NIY
-   ,Key_Backslash ,Key_X ,Key_W ,Key_C      ,Key_H     ,Key_F       ,NIY
+    Key_F11       ,Key_9 ,Key_7 ,Key_5      ,Key_3     ,Key_1       ,TD(TMUX)
+   ,Key_Backslash ,Key_X ,Key_W ,Key_C      ,Key_H     ,Key_F       ,TD(LPB)
    ,Key_Tab       ,Key_A ,Key_O ,Key_E      ,Key_I     ,Key_U
    ,Key_playPause ,Key_Z ,Key_Q ,Key_Quote  ,Key_Comma ,Key_Period  ,Key_LAlt
 
-   ,NIY ,Key_Backspace ,Key_LShift ,Key_Esc
+   ,TD(COLON) ,Key_Backspace ,Key_LShift ,Key_Esc
    ,MO(_NAV)
 
-   ,NIY       ,Key_0 ,Key_2 ,Key_4 ,Key_6 ,Key_8     ,NIY
-   ,NIY       ,Key_M ,Key_G ,Key_L ,Key_P ,Key_Slash ,Key_Backslash
+   ,TD(TMUXP) ,Key_0 ,Key_2 ,Key_4 ,Key_6 ,Key_8     ,TD(MNP)
+   ,TD(RPB)   ,Key_M ,Key_G ,Key_L ,Key_P ,Key_Slash ,Key_Backslash
               ,Key_D ,Key_R ,Key_T ,Key_N ,Key_S     ,Key_Equals
    ,Key_LCtrl ,Key_B ,Key_K ,Key_V ,Key_Y ,Key_J     ,Key_stop
 
@@ -373,6 +384,84 @@ static bool handleEsc (Key mappedKey, byte row, byte col, uint8_t keyState) {
   oneShotLayers.cancel ();
 
   return true;
+}
+
+static Akela::TapDance tapDance;
+
+static void tapDanceTMUX (uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
+  if (tapDanceAction != Akela::TapDance::Release)
+    return;
+
+  Key key;
+
+  if (tapCount == 1) {
+    key.flags = KEY_FLAGS | LALT_HELD;
+    key.rawKey = Key_Space.rawKey;
+  } else {
+    key.flags = KEY_FLAGS | CTRL_HELD;
+    key.rawKey = Key_A.rawKey;
+  }
+
+  press_key (key);
+  Keyboard.sendReport ();
+  release_key (key);
+  Keyboard.sendReport ();
+}
+
+static void tapDanceTMUXPane (uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
+  if (tapDanceAction != Akela::TapDance::Release)
+    return;
+
+  Key key;
+
+  // Alt + Space
+  key.flags = KEY_FLAGS | LALT_HELD;
+  key.raw = Key_Space.rawKey;
+  press_key (key);
+  Keyboard.sendReport ();
+  press_key (key);
+  Keyboard.sendReport ();
+
+
+  // P, or Z
+
+  key.raw = Key_P.raw;
+  if (tapCount == 2)
+    key.raw = Key_Z.raw;
+
+  press_key (key);
+  Keyboard.sendReport ();
+  release_key (key);
+  Keyboard.sendReport ();
+}
+
+void tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
+  switch (tapDanceIndex) {
+  case TMUX:
+    return tapDanceTMUX (tapCount, tapDanceAction);
+  case TMUXP:
+    return tapDanceTMUXPane (tapCount, tapDanceAction);
+
+  case LPB:
+    return tapDanceActionKeys (tapDance, tapCount, tapDanceAction,
+                               Key_LBracket,
+                               (Key){ KEY_FLAGS | SHIFT_HELD, HID_KEYBOARD_9_AND_LEFT_PAREN });
+  case RPB:
+    return tapDanceActionKeys (tapDance, tapCount, tapDanceAction,
+                               Key_RBracket,
+                               (Key){ KEY_FLAGS | SHIFT_HELD, HID_KEYBOARD_0_AND_RIGHT_PAREN });
+
+
+  case COLON:
+    return tapDanceActionKeys (tapDance, tapCount, tapDanceAction,
+                               (Key){ KEY_FLAGS | SHIFT_HELD, HID_KEYBOARD_SEMICOLON_AND_COLON },
+                               Key_Semicolon);
+
+  case MNP:
+    return tapDanceActionKeys (tapDance, tapCount, tapDanceAction,
+                               Key_nextTrack,
+                               Key_prevTrack);
+  }
 }
 
 void
