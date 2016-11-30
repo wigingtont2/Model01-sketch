@@ -364,7 +364,8 @@ Akela::MagicCombo magicCombos (dictionary);
 const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   switch (macroIndex) {
   case M_LOCK:
-    return MACRO (D(LGUI), T(L), U(LGUI), END);
+    if (key_toggled_on(keyState))
+      return MACRO (D(LGUI), T(L), U(LGUI), END);
   }
 
   return MACRO_NONE;
