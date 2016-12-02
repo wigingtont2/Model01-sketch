@@ -31,10 +31,6 @@
 
 #include <LED-Off.h>
 
-#define Dr(k) MACRO_ACTION_STEP_KEYDOWN, k >> 8, (k << 8) >> 8
-#define Ur(k) MACRO_ACTION_STEP_KEYUP, k >> 8, (k << 8) >> 8
-#define Tr(k) Dr(k), Ur(k)
-
 #include "Hungarian.h"
 
 // LAYERS
@@ -328,7 +324,7 @@ void magicCsilla (uint32_t leftHand, uint32_t rightHand) {
                       T(I),
                       T(L),
                       T(L),
-                      Tr(HUN_AA),
+                      Tr((Key){.raw = HUN_AA}),
                       T(M),
                       T(A),
                       T(S),
@@ -338,7 +334,7 @@ void magicCsilla (uint32_t leftHand, uint32_t rightHand) {
                       T(N),
                       T(Y),
                       T(K),
-                      Tr(HUN_AA),
+                      Tr((Key){.raw = HUN_AA}),
                       T(M),
                       END));
 }
