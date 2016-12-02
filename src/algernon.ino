@@ -43,11 +43,6 @@ enum {
   _EMPTY
 };
 
-// MACROS
-enum {
-  M_LOCK,
-};
-
 // Tap-dance
 enum {
   TMUX,
@@ -113,10 +108,10 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,Key_volumeDown ,Key_volumeUp ,___ ,Key_volumeMute
    ,___
 
-   ,M(M_LOCK) ,Key_F10 ,Key_F2     ,Key_F4      ,Key_F6     ,Key_F8 ,XXX
-   ,XXX       ,XXX     ,Key_Home   ,Key_UpArrow ,Key_End    ,XXX  ,XXX
-              ,XXX     ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX  ,XXX
-   ,___       ,XXX     ,XXX        ,XXX         ,XXX        ,XXX  ,XXX
+   ,LGUI(Key_L) ,Key_F10 ,Key_F2     ,Key_F4      ,Key_F6     ,Key_F8 ,XXX
+   ,XXX         ,XXX     ,Key_Home   ,Key_UpArrow ,Key_End    ,XXX  ,XXX
+                ,XXX     ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX  ,XXX
+   ,___         ,XXX     ,XXX        ,XXX         ,XXX        ,XXX  ,XXX
 
    ,___ ,Key_PageDn ,Key_PageUp ,XXX
    ,MO(_EMPTY)
@@ -319,7 +314,7 @@ void magicToggleADORE (uint32_t leftHand, uint32_t rightHand) {
 }
 
 void magicCsilla (uint32_t leftHand, uint32_t rightHand) {
-  Macros.play (MACRO (D(LShift), T(C), U(LShift),
+  Macros.play (MACRO (Tr(LSHIFT(Key_C)),
                       T(S),
                       T(I),
                       T(L),
@@ -356,16 +351,6 @@ Akela::MagicCombo::dictionary_t dictionary[] = {
 };
 
 Akela::MagicCombo magicCombos (dictionary);
-
-const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
-  switch (macroIndex) {
-  case M_LOCK:
-    if (key_toggled_on(keyState))
-      return MACRO (D(LGUI), T(L), U(LGUI), END);
-  }
-
-  return MACRO_NONE;
-}
 
 static bool handleEsc (Key mappedKey, byte row, byte col, uint8_t keyState) {
   if (mappedKey.raw != Key_Esc.raw ||
