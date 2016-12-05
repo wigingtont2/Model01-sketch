@@ -279,14 +279,6 @@ static const uint8_t colorMap[KEYMAP_SIZE][ROWS][COLS] PROGMEM = {
   ),
 };
 
-static LEDOff                ledOffEffect;
-static Akela::ColormapEffect colorMapEffect(colors, colorMap);
-static Akela::Heatmap        heatMapEffect;
-
-static Akela::OneShotMods    oneShotMods;
-static Akela::OneShotLayers  oneShotLayers;
-static Akela::Unicode        unicode;
-
 static const Akela::ShapeShifter::dictionary_t shapeShifterDictionary[] = {
   {Key_9, Key_NoKey},
   {Key_7, Key_2},
@@ -302,8 +294,6 @@ static const Akela::ShapeShifter::dictionary_t shapeShifterDictionary[] = {
 
   {Key_NoKey, Key_NoKey},
 };
-
-static Akela::ShapeShifter shapeShifter (shapeShifterDictionary);
 
 void magicToggleADORE (uint32_t leftHand, uint32_t rightHand) {
   if (Layer.isOn (_ADORE)) {
@@ -350,25 +340,21 @@ Akela::MagicCombo::dictionary_t dictionary[] = {
    magicCsilla},
 };
 
-Akela::MagicCombo magicCombos (dictionary);
-
 static bool handleEsc (Key mappedKey, byte row, byte col, uint8_t keyState) {
   if (mappedKey.raw != Key_Esc.raw ||
       (keyState & INJECTED) ||
       !key_toggled_on (keyState))
     return false;
 
-  if (!oneShotMods.isActive () &&
-      !oneShotLayers.isActive ())
+  if (!OneShotMods.isActive () &&
+      !OneShotLayers.isActive ())
     return false;
 
-  oneShotMods.cancel ();
-  oneShotLayers.cancel ();
+  OneShotMods.cancel ();
+  OneShotLayers.cancel ();
 
   return true;
 }
-
-static Akela::TapDance tapDance;
 
 static void tapDanceTMUX (uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
   if (tapDanceAction != Akela::TapDance::Release)
@@ -425,35 +411,41 @@ void tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, Akela::TapDance::A
     return tapDanceTMUXPane (tapCount, tapDanceAction);
 
   case LPB:
-    return tapDanceActionKeys (tapDance, tapCount, tapDanceAction,
+    return tapDanceActionKeys (tapCount, tapDanceAction,
                                Key_LBracket,
                                (Key){ KEY_FLAGS | SHIFT_HELD, HID_KEYBOARD_9_AND_LEFT_PAREN });
   case RPB:
-    return tapDanceActionKeys (tapDance, tapCount, tapDanceAction,
+    return tapDanceActionKeys (tapCount, tapDanceAction,
                                Key_RBracket,
                                (Key){ KEY_FLAGS | SHIFT_HELD, HID_KEYBOARD_0_AND_RIGHT_PAREN });
 
 
   case COLON:
-    return tapDanceActionKeys (tapDance, tapCount, tapDanceAction,
+    return tapDanceActionKeys (tapCount, tapDanceAction,
                                (Key){ KEY_FLAGS | SHIFT_HELD, HID_KEYBOARD_SEMICOLON_AND_COLON },
                                Key_Semicolon);
 
   case MNP:
-    return tapDanceActionKeys (tapDance, tapCount, tapDanceAction,
+    return tapDanceActionKeys (tapCount, tapDanceAction,
                                Key_nextTrack,
                                Key_prevTrack);
   }
 }
 
+static LEDOff                ledOffEffect;
+
 void
 setup () {
-  oneShotMods.enableAuto();
-  oneShotLayers.enableAuto();
+  ColormapEffect.configure (colors, colorMap);
+  OneShotMods.enableAuto();
+  OneShotLayers.enableAuto();
+  ShapeShifter.configure (shapeShifterDictionary);
+  MagicCombo.configure (dictionary);
+
   event_handler_hook_add (handleEsc);
 
   Keyboardio.setup(KEYMAP_SIZE);
-  colorMapEffect.activate ();
+  ColormapEffect.activate ();
 }
 
 void
