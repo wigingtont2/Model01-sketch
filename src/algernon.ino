@@ -20,6 +20,7 @@
 #include <Keyboardio-Macros.h>
 #include <KeyboardioFirmware.h>
 
+#include <Akela-Leader.h>
 #include <Akela-OneShot.h>
 #include <Akela-Colormap.h>
 #include <Akela-KeyLogger.h>
@@ -51,6 +52,8 @@ enum {
   RPB,
   COLON,
   MNP,
+
+  HLEAD,
 };
 
 #define MO(layer) (Key){ KEY_FLAGS | SYNTHETIC | SWITCH_TO_KEYMAP, MOMENTARY_OFFSET + layer }
@@ -76,7 +79,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,Key_LCtrl ,Key_B ,Key_M ,Key_W ,Key_V ,Key_Z ,Key_stop
 
    ,Key_LGUI ,Key_Enter ,Key_Space ,Key_Minus
-   ,MO(_HUN)
+   ,TD(HLEAD)
   ),
 
   [_ADORE] = KEYMAP_STACKED
@@ -95,7 +98,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,Key_LCtrl ,Key_B ,Key_K ,Key_V ,Key_Y ,Key_J     ,Key_stop
 
    ,Key_LGUI ,Key_Enter ,Key_Space ,Key_Minus
-   ,MO(_HUN)
+   ,TD(HLEAD)
   ),
 
   [_NAV] = KEYMAP_STACKED
@@ -403,6 +406,32 @@ static void tapDanceTMUXPane (uint8_t tapCount, Akela::TapDance::ActionType tapD
   Keyboard.sendReport ();
 }
 
+static void tapDanceHUNLeader (uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
+  Key key;
+
+  if (tapCount == 1)
+    key.raw = OSL (_HUN).raw;
+  else if (tapCount == 2)
+    key.raw = LEAD (0).raw;
+  else
+    return;
+
+  switch (tapDanceAction) {
+  case Akela::TapDance::Release:
+    handle_key_event (key, 255, 255, WAS_PRESSED);
+    break;
+  case Akela::TapDance::Timeout:
+  case Akela::TapDance::Interrupt:
+    handle_key_event (key, 255, 255, IS_PRESSED);
+    break;
+  case Akela::TapDance::Hold:
+    handle_key_event (key, 255, 255, IS_PRESSED | WAS_PRESSED);
+    break;
+  default:
+    break;
+  }
+}
+
 void tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
   switch (tapDanceIndex) {
   case TMUX:
@@ -429,8 +458,116 @@ void tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, Akela::TapDance::A
     return tapDanceActionKeys (tapCount, tapDanceAction,
                                Key_nextTrack,
                                Key_prevTrack);
+
+  case HLEAD:
+    return tapDanceHUNLeader (tapCount, tapDanceAction);
   }
 }
+
+static void leaderGergo (uint8_t seqIndex) {
+  Macros.play (MACRO (Tr(LSHIFT(Key_G)),
+                      T(E),
+                      T(J),
+                      T(G),
+                      Tr((Key){.raw = HUN_ODA}),
+                      Tr((Key){.raw = HUN_ODA}),
+                      Tr((Key){.raw = HUN_ODA}),
+                      END));
+}
+
+static void leaderYay (uint8_t seqIndex) {
+  Macros.play (MACRO (T(Backslash),
+                      T(O),
+                      T(Slash),
+                      END));
+}
+
+static void leaderShruggy (uint8_t seqIndex) {
+  Unicode.type (0xaf);
+  Macros.play (MACRO (T(Backslash),
+                      D(RShift),
+                      T(Minus),
+                      T(9),
+                      U(RShift),
+                      END));
+  Unicode.type (0x30c4);
+  Macros.play (MACRO (D(RShift),
+                      T(0),
+                      T(Minus),
+                      U(RShift),
+                      T(Slash),
+                      END));
+  Unicode.type (0xaf);
+}
+
+// Leaders
+enum {
+  LEAD_UNICODE_LAMBDA,
+  LEAD_UNICODE_POOP,
+  LEAD_UNICODE_ROFL,
+  LEAD_UNICODE_KISS,
+  LEAD_UNICODE_SNOWMAN,
+  LEAD_UNICODE_COFFEE,
+  LEAD_UNICODE_HEART,
+  LEAD_UNICODE_BOLT,
+  LEAD_UNICODE_PI,
+  LEAD_UNICODE_MOUSE,
+  LEAD_UNICODE_MICRO,
+
+  LEAD_UNICODE_START,
+
+  LEAD_CSILLA,
+  LEAD_GERGO,
+  LEAD_YAY,
+  LEAD_SHRUGGY,
+};
+
+static const uint32_t unicodeTable[] PROGMEM = {
+  [LEAD_UNICODE_LAMBDA]  = 0x03bb,
+  [LEAD_UNICODE_POOP]    = 0x1f4a9,
+  [LEAD_UNICODE_ROFL]    = 0x1f923,
+  [LEAD_UNICODE_KISS]    = 0x1f619,
+  [LEAD_UNICODE_SNOWMAN] = 0x2603,
+  [LEAD_UNICODE_COFFEE]  = 0x2615,
+  [LEAD_UNICODE_HEART]   = 0x2764,
+  [LEAD_UNICODE_BOLT]    = 0x26a1,
+  [LEAD_UNICODE_PI]      = 0x03c0,
+  [LEAD_UNICODE_MOUSE]   = 0x1f401,
+  [LEAD_UNICODE_MICRO]   = 0x00b5,
+};
+
+static void leaderUnicode (uint8_t seqIndex) {
+  if (seqIndex == LEAD_UNICODE_START)
+    return Unicode.start ();
+
+  uint32_t code = pgm_read_dword (unicodeTable[seqIndex]);
+  Unicode.type_code (code);
+  Unicode.end ();
+
+  Leader.reset ();
+}
+
+static const Akela::Leader::dictionary_t leaderDictionary[] = LDICT
+  (
+   [LEAD_UNICODE_LAMBDA]  = {LSEQ (LEAD(0), Key_L), leaderUnicode},
+   [LEAD_UNICODE_POOP]    = {LSEQ (LEAD(0), Key_U, Key_P, Key_O, Key_O, Key_P), leaderUnicode},
+   [LEAD_UNICODE_ROFL]    = {LSEQ (LEAD(0), Key_U, Key_R, Key_O, Key_F, Key_L), leaderUnicode},
+   [LEAD_UNICODE_KISS]    = {LSEQ (LEAD(0), Key_U, Key_K, Key_I, Key_S, Key_S), leaderUnicode},
+   [LEAD_UNICODE_SNOWMAN] = {LSEQ (LEAD(0), Key_U, Key_S, Key_N, Key_O, Key_W, Key_M, Key_A, Key_N), leaderUnicode},
+   [LEAD_UNICODE_COFFEE]  = {LSEQ (LEAD(0), Key_U, Key_C, Key_O, Key_F, Key_F, Key_E, Key_E), leaderUnicode},
+   [LEAD_UNICODE_HEART]   = {LSEQ (LEAD(0), Key_U, Key_H, Key_E, Key_A, Key_R, Key_T), leaderUnicode},
+   [LEAD_UNICODE_BOLT]    = {LSEQ (LEAD(0), Key_U, Key_B, Key_O, Key_L, Key_T), leaderUnicode},
+   [LEAD_UNICODE_PI]      = {LSEQ (LEAD(0), Key_U, Key_P, Key_I), leaderUnicode},
+   [LEAD_UNICODE_MOUSE]   = {LSEQ (LEAD(0), Key_U, Key_M, Key_O, Key_U, Key_S, Key_E), leaderUnicode},
+   [LEAD_UNICODE_MICRO]   = {LSEQ (LEAD(0), Key_U, Key_M, Key_I, Key_C, Key_R, Key_O), leaderUnicode},
+
+   [LEAD_UNICODE_START]   = {LSEQ (LEAD(0), Key_U), leaderUnicode},
+
+   [LEAD_CSILLA]          = {LSEQ (LEAD(0), Key_C), (Akela::Leader::action_t) magicCsilla},
+   [LEAD_GERGO]           = {LSEQ (LEAD(0), Key_G), leaderGergo},
+   [LEAD_YAY]             = {LSEQ (LEAD(0), Key_Y), leaderYay},
+   [LEAD_SHRUGGY]         = {LSEQ (LEAD(0), Key_S), leaderShruggy}
+  );
 
 static LEDOff                ledOffEffect;
 
@@ -439,6 +576,7 @@ setup () {
   ColormapEffect.configure (colors, colorMap);
   OneShotMods.enableAuto();
   OneShotLayers.enableAuto();
+  Leader.configure (leaderDictionary);
   ShapeShifter.configure (shapeShifterDictionary);
   MagicCombo.configure (dictionary);
 
