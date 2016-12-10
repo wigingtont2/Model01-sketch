@@ -547,26 +547,26 @@ static void leaderUnicode (uint8_t seqIndex) {
   Leader.reset ();
 }
 
-static const Akela::Leader::dictionary_t leaderDictionary[] = LDICT
+static const Akela::Leader::dictionary_t leaderDictionary[] = LEADER_DICT
   (
-   [LEAD_UNICODE_LAMBDA]  = {LSEQ (LEAD(0), Key_L), leaderUnicode},
-   [LEAD_UNICODE_POOP]    = {LSEQ (LEAD(0), Key_U, Key_P, Key_O, Key_O, Key_P), leaderUnicode},
-   [LEAD_UNICODE_ROFL]    = {LSEQ (LEAD(0), Key_U, Key_R, Key_O, Key_F, Key_L), leaderUnicode},
-   [LEAD_UNICODE_KISS]    = {LSEQ (LEAD(0), Key_U, Key_K, Key_I, Key_S, Key_S), leaderUnicode},
-   [LEAD_UNICODE_SNOWMAN] = {LSEQ (LEAD(0), Key_U, Key_S, Key_N, Key_O, Key_W, Key_M, Key_A, Key_N), leaderUnicode},
-   [LEAD_UNICODE_COFFEE]  = {LSEQ (LEAD(0), Key_U, Key_C, Key_O, Key_F, Key_F, Key_E, Key_E), leaderUnicode},
-   [LEAD_UNICODE_HEART]   = {LSEQ (LEAD(0), Key_U, Key_H, Key_E, Key_A, Key_R, Key_T), leaderUnicode},
-   [LEAD_UNICODE_BOLT]    = {LSEQ (LEAD(0), Key_U, Key_B, Key_O, Key_L, Key_T), leaderUnicode},
-   [LEAD_UNICODE_PI]      = {LSEQ (LEAD(0), Key_U, Key_P, Key_I), leaderUnicode},
-   [LEAD_UNICODE_MOUSE]   = {LSEQ (LEAD(0), Key_U, Key_M, Key_O, Key_U, Key_S, Key_E), leaderUnicode},
-   [LEAD_UNICODE_MICRO]   = {LSEQ (LEAD(0), Key_U, Key_M, Key_I, Key_C, Key_R, Key_O), leaderUnicode},
+   [LEAD_UNICODE_LAMBDA]  = {LEADER_SEQ (LEAD(0), Key_L), leaderUnicode},
+   [LEAD_UNICODE_POOP]    = {LEADER_SEQ (LEAD(0), Key_U, Key_P, Key_O, Key_O, Key_P), leaderUnicode},
+   [LEAD_UNICODE_ROFL]    = {LEADER_SEQ (LEAD(0), Key_U, Key_R, Key_O, Key_F, Key_L), leaderUnicode},
+   [LEAD_UNICODE_KISS]    = {LEADER_SEQ (LEAD(0), Key_U, Key_K, Key_I, Key_S, Key_S), leaderUnicode},
+   [LEAD_UNICODE_SNOWMAN] = {LEADER_SEQ (LEAD(0), Key_U, Key_S, Key_N, Key_O, Key_W, Key_M, Key_A, Key_N), leaderUnicode},
+   [LEAD_UNICODE_COFFEE]  = {LEADER_SEQ (LEAD(0), Key_U, Key_C, Key_O, Key_F, Key_F, Key_E, Key_E), leaderUnicode},
+   [LEAD_UNICODE_HEART]   = {LEADER_SEQ (LEAD(0), Key_U, Key_H, Key_E, Key_A, Key_R, Key_T), leaderUnicode},
+   [LEAD_UNICODE_BOLT]    = {LEADER_SEQ (LEAD(0), Key_U, Key_B, Key_O, Key_L, Key_T), leaderUnicode},
+   [LEAD_UNICODE_PI]      = {LEADER_SEQ (LEAD(0), Key_U, Key_P, Key_I), leaderUnicode},
+   [LEAD_UNICODE_MOUSE]   = {LEADER_SEQ (LEAD(0), Key_U, Key_M, Key_O, Key_U, Key_S, Key_E), leaderUnicode},
+   [LEAD_UNICODE_MICRO]   = {LEADER_SEQ (LEAD(0), Key_U, Key_M, Key_I, Key_C, Key_R, Key_O), leaderUnicode},
 
-   [LEAD_UNICODE_START]   = {LSEQ (LEAD(0), Key_U), leaderUnicode},
+   [LEAD_UNICODE_START]   = {LEADER_SEQ (LEAD(0), Key_U), leaderUnicode},
 
-   [LEAD_CSILLA]          = {LSEQ (LEAD(0), Key_C), (Akela::Leader::action_t) magicCsilla},
-   [LEAD_GERGO]           = {LSEQ (LEAD(0), Key_G), leaderGergo},
-   [LEAD_YAY]             = {LSEQ (LEAD(0), Key_Y), leaderYay},
-   [LEAD_SHRUGGY]         = {LSEQ (LEAD(0), Key_S), leaderShruggy}
+   [LEAD_CSILLA]          = {LEADER_SEQ (LEAD(0), Key_C), (Akela::Leader::action_t) magicCsilla},
+   [LEAD_GERGO]           = {LEADER_SEQ (LEAD(0), Key_G), leaderGergo},
+   [LEAD_YAY]             = {LEADER_SEQ (LEAD(0), Key_Y), leaderYay},
+   [LEAD_SHRUGGY]         = {LEADER_SEQ (LEAD(0), Key_S), leaderShruggy}
   );
 
 static LEDOff                ledOffEffect;
