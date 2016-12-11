@@ -407,29 +407,30 @@ static void tapDanceTMUXPane (uint8_t tapCount, Akela::TapDance::ActionType tapD
 }
 
 static void tapDanceHUNLeader (uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
-  Key key;
-
-  if (tapCount == 1)
-    key.raw = OSL (_HUN).raw;
-  else if (tapCount == 2)
-    key.raw = LEAD (0).raw;
-  else
-    return;
+  uint8_t keyState = 0;
 
   switch (tapDanceAction) {
   case Akela::TapDance::Release:
-    handle_key_event (key, 255, 255, WAS_PRESSED);
+    keyState = WAS_PRESSED;
     break;
   case Akela::TapDance::Timeout:
   case Akela::TapDance::Interrupt:
-    handle_key_event (key, 255, 255, IS_PRESSED);
+    keyState = IS_PRESSED;
     break;
   case Akela::TapDance::Hold:
-    handle_key_event (key, 255, 255, IS_PRESSED | WAS_PRESSED);
+    keyState = IS_PRESSED | WAS_PRESSED;
     break;
   default:
     break;
   }
+
+  if (keyState == 0)
+    return;
+
+  if (tapCount == 1)
+    OneShotLayers.inject (OSL (_HUN), keyState);
+  else if (tapCount == 2)
+    Leader.inject (LEAD (0), keyState);
 }
 
 void tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
