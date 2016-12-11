@@ -548,7 +548,7 @@ static void leaderUnicode (uint8_t seqIndex) {
   Leader.reset ();
 }
 
-static const Akela::Leader::dictionary_t leaderDictionary[] = LEADER_DICT
+static const Akela::Leader::dictionary_t leaderDictionary[] PROGMEM = LEADER_DICT
   (
    [LEAD_UNICODE_LAMBDA]  = {LEADER_SEQ (LEAD(0), Key_L), leaderUnicode},
    [LEAD_UNICODE_POOP]    = {LEADER_SEQ (LEAD(0), Key_U, Key_P, Key_O, Key_O, Key_P), leaderUnicode},
