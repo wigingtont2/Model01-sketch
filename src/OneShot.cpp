@@ -25,6 +25,9 @@ namespace algernon {
   namespace OneShot {
     void
     configure (void) {
+      Akela::USE (OneShotMods);
+      Akela::USE (OneShotLayers);
+
       OneShotMods.enableAuto();
       OneShotLayers.enableAuto();
     }

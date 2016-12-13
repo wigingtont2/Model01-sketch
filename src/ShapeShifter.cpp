@@ -38,6 +38,8 @@ namespace algernon {
 
     void
     configure (void) {
+      Akela::USE (::ShapeShifter);
+
       ::ShapeShifter.configure (dictionary);
     }
   };

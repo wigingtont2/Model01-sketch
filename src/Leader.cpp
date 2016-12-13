@@ -163,6 +163,10 @@ namespace algernon {
 
     void
     configure (void) {
+      Akela::USE (::Leader);
+      Akela::USE (::Unicode);
+
+      ::Unicode.setup ();
       ::Leader.configure (dictionary);
     }
 

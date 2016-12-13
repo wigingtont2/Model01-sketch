@@ -148,6 +148,8 @@ namespace algernon {
 
     void
     configure (void) {
+      Akela::USE (ColormapEffect);
+
       ColormapEffect.configure (colors, colorMap);
       ColormapEffect.activate ();
     }

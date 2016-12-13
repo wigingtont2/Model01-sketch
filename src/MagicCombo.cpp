@@ -75,6 +75,8 @@ namespace algernon {
 
     void
     configure (void) {
+      Akela::USE (::MagicCombo);
+
       ::MagicCombo.configure (dictionary);
     }
   };

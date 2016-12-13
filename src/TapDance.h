@@ -33,3 +33,9 @@ enum {
 };
 
 extern void tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction);
+
+namespace algernon {
+  namespace TapDance {
+    void configure (void);
+  };
+};

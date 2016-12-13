@@ -152,14 +152,17 @@ static bool handleEsc (Key mappedKey, byte row, byte col, uint8_t keyState) {
 
 void
 setup () {
-  algernon::OneShot::configure ();
+  Akela::USE (KeyLogger);
   algernon::Leader::configure ();
+  algernon::OneShot::configure ();
   algernon::ShapeShifter::configure ();
   algernon::MagicCombo::configure ();
+  algernon::TapDance::configure ();
 
   event_handler_hook_add (handleEsc);
 
   Keyboardio.setup(KEYMAP_SIZE);
+
   algernon::Colormap::configure ();
 }
 

@@ -130,3 +130,12 @@ tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, Akela::TapDance::Action
     return algernon::TapDance::HUNLeader (tapCount, tapDanceAction);
   }
 }
+
+namespace algernon {
+  namespace TapDance {
+    void
+    configure (void) {
+      Akela::USE (::TapDance);
+    }
+  };
+};
