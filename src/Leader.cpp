@@ -133,7 +133,7 @@ namespace algernon {
         return ::Unicode.start ();
 
       uint32_t code = pgm_read_dword (unicodeTable[seqIndex]);
-      ::Unicode.type_code (code);
+      ::Unicode.typeCode (code);
       ::Unicode.end ();
 
       ::Leader.reset ();

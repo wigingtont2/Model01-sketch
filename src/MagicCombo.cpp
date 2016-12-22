@@ -26,8 +26,14 @@
 namespace algernon {
   namespace MagicCombo {
 
+    enum {
+      ADORE,
+      CsillaDvorak,
+      CsillaADORE,
+    };
+
     static void
-    toggleADORE (uint32_t leftHand, uint32_t rightHand) {
+    toggleADORE () {
       if (Layer.isOn (_ADORE)) {
         Layer.defaultLayer (_DVORAK);
       } else {
@@ -36,7 +42,7 @@ namespace algernon {
     }
 
     static void
-    Csilla (uint32_t leftHand, uint32_t rightHand) {
+    Csilla () {
       Macros.play (MACRO (Tr(LSHIFT(Key_C)),
                           T(S),
                           T(I),
@@ -59,18 +65,14 @@ namespace algernon {
 
     static Akela::MagicCombo::dictionary_t dictionary[] = {
       // palm keys + ADORE
-      {R3C6 | R2C1  | R2C2 | R2C3, // left hand
-       R3C9 | R2C10 | R2C11,       // right hand
-       toggleADORE            // callback
-      },
+      [ADORE] = {R3C6 | R2C1  | R2C2 | R2C3,
+                 R3C9 | R2C10 | R2C11},
       // palm keys + CS (Dvorak)
-      {R3C6,
-       R3C9 | R1C12 | R2C14,
-       Csilla},
+      [CsillaDvorak] = {R3C6,
+                        R3C9 | R1C12 | R2C14},
       // palm keys + CS (ADORE)
-      {R3C6 | R1C3,
-       R3C9 | R2C14,
-       Csilla},
+      [CsillaADORE] = {R3C6 | R1C3,
+                       R3C9 | R2C14},
     };
 
     void
@@ -81,3 +83,15 @@ namespace algernon {
     }
   };
 };
+
+void magicComboActions (uint8_t comboIndex, uint32_t leftHand, uint32_t rightHand) {
+  switch (comboIndex) {
+  case algernon::MagicCombo::ADORE:
+    algernon::MagicCombo::toggleADORE ();
+    break;
+  case algernon::MagicCombo::CsillaDvorak:
+  case algernon::MagicCombo::CsillaADORE:
+    algernon::MagicCombo::Csilla ();
+    break;
+  }
+}
