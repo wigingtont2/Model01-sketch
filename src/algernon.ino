@@ -38,8 +38,6 @@
 #define R(n) (Key){.raw = n}
 #define MW(d) Key_mouseWarp ## d
 
-#define NIY Key_NoKey
-
 const Key keymaps[][ROWS][COLS] PROGMEM = {
   [_DVORAK] = KEYMAP_STACKED
   (
