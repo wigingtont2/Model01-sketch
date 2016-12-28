@@ -19,6 +19,7 @@
 #pragma once
 
 #include <stdint.h>
+#include <Akela-OneShot.h>
 
 #define MO(layer) (Key){ KEY_FLAGS | SYNTHETIC | SWITCH_TO_KEYMAP, MOMENTARY_OFFSET + layer }
 

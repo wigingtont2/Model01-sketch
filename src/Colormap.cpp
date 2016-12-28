@@ -37,16 +37,16 @@ namespace algernon {
       TRNS = Akela::ColormapEffect::Transparent,
     };
 
-    const cRGB colors[] PROGMEM = {
+    static const cRGB colors[] PROGMEM = {
       [OFF]         = {0x00, 0x00, 0x00},
-      [FAINT_RED]   = {0x40, 0x00, 0x00},
+      [FAINT_RED]   = {0x00, 0x00, 0x40},
       [FAINT_GREEN] = {0x00, 0x40, 0x00},
-      [FAINT_BLUE]  = {0x00, 0x00, 0x40},
-      [CYAN]        = {0x00, 0x88, 0xff},
-      [RED]         = {0xff, 0x00, 0x00},
-      [BLUE]        = {0x00, 0x00, 0xff},
-      [NAVY]        = {0x00, 0x00, 0x80},
-      [YELLOW]      = {0xff, 0xff, 0x00},
+      [FAINT_BLUE]  = {0x40, 0x00, 0x00},
+      [CYAN]        = {0xff, 0x88, 0x00},
+      [RED]         = {0x00, 0x00, 0xff},
+      [BLUE]        = {0xff, 0x00, 0x00},
+      [NAVY]        = {0x80, 0x00, 0x00},
+      [YELLOW]      = {0x00, 0xff, 0xff},
     };
 
     static const uint8_t colorMap[LAYER_MAX][ROWS][COLS] PROGMEM = {
@@ -62,7 +62,7 @@ namespace algernon {
 
        ,OFF        ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
        ,OFF        ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+                   ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
        ,FAINT_BLUE ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
 
        ,OFF ,OFF ,OFF ,OFF
@@ -81,7 +81,7 @@ namespace algernon {
 
        ,OFF        ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
        ,OFF        ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+                   ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
        ,FAINT_BLUE ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
 
        ,OFF ,OFF ,OFF ,OFF
@@ -100,7 +100,7 @@ namespace algernon {
 
        ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
        ,TRNS ,TRNS ,NAVY ,BLUE ,NAVY ,TRNS ,TRNS
-       ,TRNS ,BLUE ,BLUE ,BLUE ,TRNS ,TRNS
+             ,TRNS ,BLUE ,BLUE ,BLUE ,TRNS ,TRNS
        ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
 
        ,TRNS ,NAVY ,NAVY ,TRNS
@@ -119,7 +119,7 @@ namespace algernon {
 
        ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
        ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
-       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+             ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
        ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
 
        ,TRNS ,TRNS ,TRNS ,TRNS
@@ -138,7 +138,7 @@ namespace algernon {
 
        ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
        ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
-       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+             ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
        ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
 
        ,TRNS ,TRNS ,TRNS ,TRNS
@@ -148,8 +148,7 @@ namespace algernon {
 
     void
     configure (void) {
-      Akela::USE (ColormapEffect);
-
+      Keyboardio.use (&ColormapEffect, NULL);
       ColormapEffect.configure (colors, colorMap);
       ColormapEffect.activate ();
     }

@@ -32,9 +32,11 @@ enum {
   HUNGARIAN_LAST = HUN_IA,
 };
 
-class Hungarian_ {
+class Hungarian_ : public KeyboardioPlugin {
  public:
   Hungarian_ (void);
+
+  virtual void begin (void) final;
 };
 
 static Hungarian_ Hungarian;

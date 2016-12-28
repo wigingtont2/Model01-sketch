@@ -31,27 +31,28 @@ typedef enum {
   IA,
 } HungarianSymbol;
 
-static bool
+static Key
 handleHungarian (Key mappedKey, byte row, byte col, uint8_t keyState) {
-  if (keyState & INJECTED)
-    return false;
-
-  if (mappedKey.raw < HUNGARIAN_FIRST && mappedKey.raw > HUNGARIAN_LAST)
-    return false;
+  if (mappedKey.raw < HUNGARIAN_FIRST || mappedKey.raw > HUNGARIAN_LAST)
+    return mappedKey;
 
   if (!key_toggled_on (keyState))
-    return true;
+    return Key_NoKey;
 
   bool needShift = Keyboard.isModifierActive (Key_LShift.rawKey);
 
   Keyboard.press (Key_RAlt.rawKey);
   Keyboard.sendReport ();
+  delay (10);
   Keyboard.release (Key_RAlt.rawKey);
   Keyboard.sendReport ();
+  delay (10);
 
   HungarianSymbol symbol = (HungarianSymbol) (mappedKey.raw - HUNGARIAN_FIRST);
   Key accent;
   uint8_t kc = 0;
+
+  accent.flags = KEY_FLAGS;
 
   switch (symbol) {
   case AA:
@@ -99,18 +100,33 @@ handleHungarian (Key mappedKey, byte row, byte col, uint8_t keyState) {
   else
     Keyboard.release (Key_LShift.rawKey);
   Keyboard.sendReport ();
+  delay(10);
+
+  Keyboard.press (accent.rawKey);
+  Keyboard.sendReport ();
+  Keyboard.release (accent.rawKey);
+  Keyboard.sendReport ();
 
   if (needShift)
     Keyboard.press (Key_LShift.rawKey);
   else
     Keyboard.release (Key_LShift.rawKey);
 
+  delay (10);
   Keyboard.press (kc);
   Keyboard.sendReport ();
+  delay(10);
+  Keyboard.release (kc);
+  Keyboard.sendReport ();
+  delay (10);
 
-  return true;
+  return Key_NoKey;
 }
 
 Hungarian_::Hungarian_ (void) {
+}
+
+void
+Hungarian_::begin (void) {
   event_handler_hook_add (handleHungarian);
 }

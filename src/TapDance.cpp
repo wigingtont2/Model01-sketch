@@ -135,7 +135,7 @@ namespace algernon {
   namespace TapDance {
     void
     configure (void) {
-      Akela::USE (::TapDance);
+      Keyboardio.use (&::TapDance, NULL);
     }
   };
 };

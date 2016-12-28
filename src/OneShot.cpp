@@ -25,27 +25,23 @@ namespace algernon {
   namespace OneShot {
     void
     configure (void) {
-      Akela::USE (OneShotMods);
-      Akela::USE (OneShotLayers);
-
-      OneShotMods.enableAuto();
-      OneShotLayers.enableAuto();
+      //::OneShot.enableAuto();
+      Keyboardio.use (&::OneShot, NULL);
     }
 
     void
     activateHUN (uint8_t keyState) {
-      OneShotLayers.inject (OSL (_HUN), keyState);
+      ::OneShot.inject (OSL (_HUN), keyState);
     }
 
     bool
     isActive (void) {
-      return OneShotMods.isActive () || OneShotLayers.isActive ();
+      return ::OneShot.isActive ();
     }
 
     void
     cancel (void) {
-      OneShotMods.cancel ();
-      OneShotLayers.cancel ();
+      ::OneShot.cancel ();
     }
   };
 };

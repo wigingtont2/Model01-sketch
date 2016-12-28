@@ -63,7 +63,7 @@ namespace algernon {
                           END));
     }
 
-    static Akela::MagicCombo::dictionary_t dictionary[] = {
+    static const Akela::MagicCombo::dictionary_t dictionary[] PROGMEM = {
       // palm keys + ADORE
       [ADORE] = {R3C6 | R2C1  | R2C2 | R2C3,
                  R3C9 | R2C10 | R2C11},
@@ -77,7 +77,7 @@ namespace algernon {
 
     void
     configure (void) {
-      Akela::USE (::MagicCombo);
+      Keyboardio.use (&::MagicCombo, NULL);
 
       ::MagicCombo.configure (dictionary);
     }

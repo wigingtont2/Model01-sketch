@@ -16,16 +16,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#define AKELA_HOSTOS_GUESSER 1
+
 #include <Keyboardio-MouseKeys.h>
 #include <Keyboardio-Macros.h>
 #include <KeyboardioFirmware.h>
 
 #include "Layers.h"
 
-#include "LEDOff.h"
+#include "LED-Off.h"
+#include "LED-ChaseEffect.h"
+#include "LED-RainbowEffect.h"
+
 #include "Colormap.h"
 #include <Akela-Heatmap.h>
 
+#include <Akela-HostOS.h>
+#include <Akela-Unicode.h>
 #include <Akela-KeyLogger.h>
 #include "Leader.h"
 #include "OneShot.h"
@@ -134,22 +141,30 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ),
 };
 
-static bool handleEsc (Key mappedKey, byte row, byte col, uint8_t keyState) {
+static Key handleEsc (Key mappedKey, byte row, byte col, uint8_t keyState) {
   if (mappedKey.raw != Key_Esc.raw ||
       (keyState & INJECTED) ||
       !key_toggled_on (keyState))
-    return false;
+    return mappedKey;
 
   if (!algernon::OneShot::isActive ())
-    return false;
+    return mappedKey;
 
   algernon::OneShot::cancel ();
 
-  return true;
+  return Key_NoKey;
 }
 
 void setup () {
-  Akela::USE (KeyLogger);
+  Serial.begin(9600);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB
+  }
+
+  //Keyboardio.use (&KeyLogger, NULL);
+
+  Keyboardio.use (&Hungarian, NULL);
+
   algernon::Leader::configure ();
   algernon::OneShot::configure ();
   algernon::ShapeShifter::configure ();
@@ -159,6 +174,11 @@ void setup () {
   event_handler_hook_add (handleEsc);
 
   Keyboardio.setup (KEYMAP_SIZE);
+
+  Keyboardio.use (&LEDOff, &LEDRainbowWaveEffect, &LEDChaseEffect,
+                  //&HeatmapEffect,
+
+                  NULL);
 
   algernon::Colormap::configure ();
 }
