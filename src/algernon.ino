@@ -155,11 +155,38 @@ static Key handleEsc (Key mappedKey, byte row, byte col, uint8_t keyState) {
   return Key_NoKey;
 }
 
+static void activeModColorHook (bool postClear) {
+  if (postClear)
+    return;
+
+  for (byte r = 0; r < ROWS; r++) {
+    for (byte c = 0; c < COLS; c++) {
+      Key k = Layer.lookup (r, c);
+
+      if (k.raw >= Akela::Ranges::OSM_FIRST && k.raw <= Akela::Ranges::OSM_LAST) {
+        uint8_t idx = k.raw - Akela::Ranges::OSM_FIRST;
+        k.flags = 0;
+        k.rawKey = Key_LCtrl.rawKey + idx;
+      }
+
+      if (k.raw < Key_LCtrl.raw || k.raw > Key_RGUI.raw)
+        continue;
+
+      if (Keyboard.isModifierActive (k.rawKey))
+        led_set_crgb_at (r, c, (cRGB) {0xff, 0xff, 0xff});
+      else
+        led_set_crgb_at (r, c, (cRGB) {0, 0, 0});
+    }
+  }
+}
+
 void setup () {
   Serial.begin(9600);
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB
   }
+  loop_hook_add (activeModColorHook);
+
 
   //Keyboardio.use (&KeyLogger, NULL);
 
