@@ -73,8 +73,11 @@ namespace algernon {
                           T(I),
                           T(L),
                           T(L),
-                          Tr((Key){.raw = HUN_AA}),
-                          T(M),
+                          END));
+
+      handle_key_event ((Key){.raw = HUN_AA}, 255, 255, IS_PRESSED | INJECTED);
+
+      Macros.play (MACRO (T(M),
                           T(A),
                           T(S),
                           T(S),
@@ -83,8 +86,11 @@ namespace algernon {
                           T(N),
                           T(Y),
                           T(K),
-                          Tr((Key){.raw = HUN_AA}),
-                          T(M),
+                          END));
+
+      handle_key_event ((Key){.raw = HUN_AA}, 255, 255, IS_PRESSED | INJECTED);
+
+      Macros.play (MACRO (T(M),
                           END));
     }
 
