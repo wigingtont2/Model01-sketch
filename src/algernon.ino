@@ -182,11 +182,8 @@ static void activeModColorHook (bool postClear) {
 
 void setup () {
   Serial.begin(9600);
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB
-  }
-  loop_hook_add (activeModColorHook);
 
+  loop_hook_add (activeModColorHook);
 
   //Keyboardio.use (&KeyLogger, NULL);
 
