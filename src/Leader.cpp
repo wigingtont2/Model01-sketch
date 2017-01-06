@@ -173,7 +173,7 @@ namespace algernon {
 
     void
     configure (void) {
-      Keyboardio.use (&::Leader, &::Unicode, NULL);
+      Keyboardio.use (&::Leader, &::HostOS, &::Unicode, NULL);
 
       ::Leader.configure (dictionary);
     }
