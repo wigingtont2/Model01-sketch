@@ -30,7 +30,6 @@
 #include "Colormap.h"
 #include <Akela-Heatmap.h>
 
-#include <Akela-HostOS.h>
 #include <Akela-Unicode.h>
 #include <Akela-KeyLogger.h>
 #include "Leader.h"
