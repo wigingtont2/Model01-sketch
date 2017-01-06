@@ -25,7 +25,7 @@ namespace algernon {
   namespace OneShot {
     void
     configure (void) {
-      //::OneShot.enableAuto();
+      ::OneShot.enableAuto();
       Keyboardio.use (&::OneShot, NULL);
     }
 
