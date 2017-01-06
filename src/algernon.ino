@@ -19,7 +19,6 @@
 #define AKELA_HOSTOS_GUESSER 1
 
 #include <Keyboardio-MouseKeys.h>
-#include <Keyboardio-Macros.h>
 #include <KeyboardioFirmware.h>
 
 #include "Layers.h"
