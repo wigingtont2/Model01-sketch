@@ -172,8 +172,6 @@ static void activeModColorHook (bool postClear) {
 
       if (Keyboard.isModifierActive (k.keyCode))
         led_set_crgb_at (r, c, (cRGB) {0xff, 0xff, 0xff});
-      else
-        led_set_crgb_at (r, c, (cRGB) {0, 0, 0});
     }
   }
 }
