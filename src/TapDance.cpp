@@ -68,33 +68,6 @@ namespace algernon {
       release_key (key);
       Keyboard.sendReport ();
     }
-
-    static void HUNLeader (uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
-      uint8_t keyState = 0;
-
-      switch (tapDanceAction) {
-      case Akela::TapDance::Release:
-        keyState = WAS_PRESSED;
-        break;
-      case Akela::TapDance::Timeout:
-      case Akela::TapDance::Interrupt:
-        keyState = IS_PRESSED;
-        break;
-      case Akela::TapDance::Hold:
-        keyState = IS_PRESSED | WAS_PRESSED;
-        break;
-      default:
-        break;
-      }
-
-      if (keyState == 0)
-        return;
-
-      if (tapCount == 1)
-        algernon::OneShot::activateHUN (keyState);
-      else if (tapCount == 2)
-        algernon::Leader::activatePalm (keyState);
-    }
   }
 }
 
@@ -125,9 +98,6 @@ tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, Akela::TapDance::Action
     return tapDanceActionKeys (tapCount, tapDanceAction,
                                Key_nextTrack,
                                Key_prevTrack);
-
-  case HLEAD:
-    return algernon::TapDance::HUNLeader (tapCount, tapDanceAction);
   }
 }
 

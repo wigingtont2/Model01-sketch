@@ -59,10 +59,10 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,TD(TMUXP) ,Key_0 ,Key_2 ,Key_4 ,Key_6 ,Key_8 ,TD(MNP)
    ,TD(RPB)   ,Key_F ,Key_G ,Key_C ,Key_R ,Key_L ,Key_Backslash
               ,Key_D ,Key_H ,Key_T ,Key_N ,Key_S ,Key_Equals
-   ,Key_LCtrl ,Key_B ,Key_M ,Key_W ,Key_V ,Key_Z ,Key_stop
+   ,Key_LCtrl ,Key_B ,Key_M ,Key_W ,Key_V ,Key_Z ,LEAD(MAIN)
 
    ,Key_LGUI ,Key_Enter ,Key_Space ,Key_Minus
-   ,TD(HLEAD)
+   ,MO(_HUN)
   ),
 
   [_ADORE] = KEYMAP_STACKED
@@ -78,10 +78,10 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,TD(TMUXP) ,Key_0 ,Key_2 ,Key_4 ,Key_6 ,Key_8     ,TD(MNP)
    ,TD(RPB)   ,Key_M ,Key_G ,Key_L ,Key_P ,Key_Slash ,Key_Backslash
               ,Key_D ,Key_R ,Key_T ,Key_N ,Key_S     ,Key_Equals
-   ,Key_LCtrl ,Key_B ,Key_K ,Key_V ,Key_Y ,Key_J     ,Key_stop
+   ,Key_LCtrl ,Key_B ,Key_K ,Key_V ,Key_Y ,Key_J     ,LEAD(MAIN)
 
    ,Key_LGUI ,Key_Enter ,Key_Space ,Key_Minus
-   ,TD(HLEAD)
+   ,MO(_HUN)
   ),
 
   [_NAV] = KEYMAP_STACKED
@@ -190,13 +190,13 @@ void setup () {
 
   //Keyboardio.use (&KeyLogger, NULL);
 
-  Keyboardio.use (&Hungarian, NULL);
-
+  algernon::TapDance::configure ();
   algernon::Leader::configure ();
   algernon::OneShot::configure ();
   algernon::ShapeShifter::configure ();
   algernon::MagicCombo::configure ();
-  algernon::TapDance::configure ();
+
+  Keyboardio.use (&Hungarian, NULL);
 
   event_handler_hook_add (handleEsc);
 

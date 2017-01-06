@@ -28,8 +28,6 @@ enum {
   RPB,
   COLON,
   MNP,
-
-  HLEAD,
 };
 
 extern void tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction);

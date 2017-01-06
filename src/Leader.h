@@ -21,13 +21,11 @@
 #include <Akela-Leader.h>
 
 enum {
-  PALM,
+  MAIN,
 };
 
 namespace algernon {
   namespace Leader {
     void configure (void);
-
-    void activatePalm (uint8_t keyState);
   };
 };
