@@ -27,8 +27,6 @@ namespace algernon {
   namespace OneShot {
     void configure (void);
 
-    void activateHUN (uint8_t keyState);
-
     bool isActive (void);
     void cancel (void);
   };

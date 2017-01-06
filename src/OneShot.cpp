@@ -29,11 +29,6 @@ namespace algernon {
       Keyboardio.use (&::OneShot, NULL);
     }
 
-    void
-    activateHUN (uint8_t keyState) {
-      ::OneShot.inject (OSL (_HUN), keyState);
-    }
-
     bool
     isActive (void) {
       return ::OneShot.isActive ();
