@@ -39,12 +39,12 @@ handleHungarian (Key mappedKey, byte row, byte col, uint8_t keyState) {
   if (!key_toggled_on (keyState))
     return Key_NoKey;
 
-  bool needShift = Keyboard.isModifierActive (Key_LShift.rawKey);
+  bool needShift = Keyboard.isModifierActive (Key_LShift.keyCode);
 
-  Keyboard.press (Key_RAlt.rawKey);
+  Keyboard.press (Key_RAlt.keyCode);
   Keyboard.sendReport ();
   delay (10);
-  Keyboard.release (Key_RAlt.rawKey);
+  Keyboard.release (Key_RAlt.keyCode);
   Keyboard.sendReport ();
   delay (10);
 
@@ -56,61 +56,61 @@ handleHungarian (Key mappedKey, byte row, byte col, uint8_t keyState) {
 
   switch (symbol) {
   case AA:
-    kc = Key_A.rawKey;
+    kc = Key_A.keyCode;
     accent.raw = Key_Quote.raw;
     break;
   case OA:
-    kc = Key_O.rawKey;
+    kc = Key_O.keyCode;
     accent.raw = Key_Quote.raw;
     break;
   case OU:
-    kc = Key_O.rawKey;
+    kc = Key_O.keyCode;
     accent.raw = Key_Quote.raw;
     accent.flags |= SHIFT_HELD;
     break;
   case ODA:
-    kc = Key_O.rawKey;
+    kc = Key_O.keyCode;
     accent.raw = Key_Equals.raw;
     break;
   case EA:
-    kc = Key_E.rawKey;
+    kc = Key_E.keyCode;
     accent.raw = Key_Quote.raw;
     break;
   case UA:
-    kc = Key_U.rawKey;
+    kc = Key_U.keyCode;
     accent.raw = Key_Quote.raw;
     break;
   case UU:
-    kc = Key_U.rawKey;
+    kc = Key_U.keyCode;
     accent.raw = Key_Quote.raw;
     accent.flags |= SHIFT_HELD;
     break;
   case UDA:
-    kc = Key_U.rawKey;
+    kc = Key_U.keyCode;
     accent.raw = Key_Equals.raw;
     break;
   case IA:
-    kc = Key_I.rawKey;
+    kc = Key_I.keyCode;
     accent.raw = Key_Quote.raw;
     break;
   }
 
   if (accent.flags & SHIFT_HELD)
-    Keyboard.press (Key_LShift.rawKey);
+    Keyboard.press (Key_LShift.keyCode);
   else
-    Keyboard.release (Key_LShift.rawKey);
+    Keyboard.release (Key_LShift.keyCode);
   Keyboard.sendReport ();
   delay(10);
 
-  Keyboard.press (accent.rawKey);
+  Keyboard.press (accent.keyCode);
   Keyboard.sendReport ();
-  Keyboard.release (accent.rawKey);
+  Keyboard.release (accent.keyCode);
   Keyboard.sendReport ();
 
   if (needShift)
-    Keyboard.press (Key_LShift.rawKey);
+    Keyboard.press (Key_LShift.keyCode);
   else
-    Keyboard.release (Key_LShift.rawKey);
+    Keyboard.release (Key_LShift.keyCode);
 
   delay (10);
   Keyboard.press (kc);

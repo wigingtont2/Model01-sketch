@@ -166,13 +166,13 @@ static void activeModColorHook (bool postClear) {
       if (k.raw >= Akela::Ranges::OSM_FIRST && k.raw <= Akela::Ranges::OSM_LAST) {
         uint8_t idx = k.raw - Akela::Ranges::OSM_FIRST;
         k.flags = 0;
-        k.rawKey = Key_LCtrl.rawKey + idx;
+        k.keyCode = Key_LCtrl.keyCode + idx;
       }
 
       if (k.raw < Key_LCtrl.raw || k.raw > Key_RGUI.raw)
         continue;
 
-      if (Keyboard.isModifierActive (k.rawKey))
+      if (Keyboard.isModifierActive (k.keyCode))
         led_set_crgb_at (r, c, (cRGB) {0xff, 0xff, 0xff});
       else
         led_set_crgb_at (r, c, (cRGB) {0, 0, 0});

@@ -30,10 +30,10 @@ namespace algernon {
 
       if (tapCount == 1) {
         key.flags = KEY_FLAGS | LALT_HELD;
-        key.rawKey = Key_Space.rawKey;
+        key.keyCode = Key_Space.keyCode;
       } else {
         key.flags = KEY_FLAGS | CTRL_HELD;
-        key.rawKey = Key_A.rawKey;
+        key.keyCode = Key_A.keyCode;
       }
 
       press_key (key);
@@ -50,7 +50,7 @@ namespace algernon {
 
       // Alt + Space
       key.flags = KEY_FLAGS | LALT_HELD;
-      key.raw = Key_Space.rawKey;
+      key.raw = Key_Space.keyCode;
       press_key (key);
       Keyboard.sendReport ();
       press_key (key);
