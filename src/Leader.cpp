@@ -45,6 +45,8 @@ namespace algernon {
       LEAD_GERGO,
       LEAD_YAY,
       LEAD_SHRUGGY,
+
+      LEAD_LEDEFFECT,
     };
 
     static const uint32_t unicodeTable[] PROGMEM = {
@@ -140,6 +142,11 @@ namespace algernon {
       ::Leader.reset ();
     }
 
+    static void
+    NextLEDEffect (uint8_t seqIndex) {
+      LEDControl.next_mode ();
+    }
+
     static const Akela::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
       (
        [LEAD_UNICODE_LAMBDA]  = {LEADER_SEQ (LEAD(MAIN), Key_L), Unicode},
@@ -159,7 +166,9 @@ namespace algernon {
        [LEAD_CSILLA]          = {LEADER_SEQ (LEAD(MAIN), Key_C), Csilla},
        [LEAD_GERGO]           = {LEADER_SEQ (LEAD(MAIN), Key_G), Gergo},
        [LEAD_YAY]             = {LEADER_SEQ (LEAD(MAIN), Key_Y), Yay},
-       [LEAD_SHRUGGY]         = {LEADER_SEQ (LEAD(MAIN), Key_S), Shruggy}
+       [LEAD_SHRUGGY]         = {LEADER_SEQ (LEAD(MAIN), Key_S), Shruggy},
+
+       [LEAD_LEDEFFECT]       = {LEADER_SEQ (LEAD(MAIN), LEAD(MAIN)), NextLEDEffect}
       );
 
     void
