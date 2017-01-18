@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <Akela.h>
+#include <Akela-Core.h>
 
 enum {
   HUNGARIAN_FIRST = Akela::Ranges::AKELA_SAFE_START,
