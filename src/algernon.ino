@@ -40,6 +40,8 @@
 
 #include "Hungarian.h"
 
+#include <Akela-IgnoranceIsBliss.h>
+
 #define R(n) (Key){.raw = n}
 #define MW(d) Key_mouseWarp ## d
 
@@ -178,6 +180,9 @@ static void activeModColorHook (bool postClear) {
 
 void setup () {
   Serial.begin(9600);
+
+  IgnoranceIsBliss.configure (R2C6 | R0C6, 0);
+  Keyboardio.use (&IgnoranceIsBliss, NULL);
 
   loop_hook_add (activeModColorHook);
 
