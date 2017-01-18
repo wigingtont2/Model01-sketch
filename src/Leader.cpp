@@ -143,13 +143,19 @@ namespace algernon {
     }
 
     static void
+    UnicodeLambda (uint8_t seqIndex) {
+      ::Unicode.start ();
+      Unicode (seqIndex);
+    }
+
+    static void
     NextLEDEffect (uint8_t seqIndex) {
       LEDControl.next_mode ();
     }
 
     static const Akela::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
       (
-       [LEAD_UNICODE_LAMBDA]  = {LEADER_SEQ (LEAD(MAIN), Key_L), Unicode},
+       [LEAD_UNICODE_LAMBDA]  = {LEADER_SEQ (LEAD(MAIN), Key_L), UnicodeLambda},
        [LEAD_UNICODE_POOP]    = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_P, Key_O, Key_O, Key_P), Unicode},
        [LEAD_UNICODE_ROFL]    = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_R, Key_O, Key_F, Key_L), Unicode},
        [LEAD_UNICODE_KISS]    = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_K, Key_I, Key_S, Key_S), Unicode},
