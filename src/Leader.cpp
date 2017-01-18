@@ -135,7 +135,7 @@ namespace algernon {
       if (seqIndex == LEAD_UNICODE_START)
         return ::Unicode.start ();
 
-      uint32_t code = pgm_read_dword (unicodeTable[seqIndex]);
+      uint32_t code = pgm_read_dword (&(unicodeTable[seqIndex]));
       ::Unicode.typeCode (code);
       ::Unicode.end ();
 
