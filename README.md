@@ -13,7 +13,7 @@ end.
 
  [kbfw]: https://github.com/keyboardio/KeyboardioFirmware
  [kbdio]: https://shop.keyboard.io/
- [akela]: https://github.com/algernon/Akela
+ [akela]: https://github.com/keyboardio/Akela
  
 It is a heavy work in progress, with some awful hacks and workarounds here and
 there. Eventually these will be cleaned up.
