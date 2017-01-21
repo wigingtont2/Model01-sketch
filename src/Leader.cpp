@@ -29,6 +29,8 @@ namespace algernon {
 
     // Leaders
     enum {
+      LEAD_UNICODE_START,
+
       LEAD_UNICODE_LAMBDA,
       LEAD_UNICODE_POOP,
       LEAD_UNICODE_ROFL,
@@ -41,8 +43,6 @@ namespace algernon {
       LEAD_UNICODE_MOUSE,
       LEAD_UNICODE_MICRO,
 
-      LEAD_UNICODE_START,
-
       LEAD_CSILLA,
       LEAD_GERGO,
       LEAD_YAY,
@@ -52,6 +52,7 @@ namespace algernon {
     };
 
     static const uint32_t unicodeTable[] PROGMEM = {
+      [LEAD_UNICODE_START]   = 0,
       [LEAD_UNICODE_LAMBDA]  = 0x03bb,
       [LEAD_UNICODE_POOP]    = 0x1f4a9,
       [LEAD_UNICODE_ROFL]    = 0x1f923,
@@ -157,6 +158,8 @@ namespace algernon {
 
     static const Akela::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
       (
+       [LEAD_UNICODE_START]   = {LEADER_SEQ (LEAD(MAIN), Key_U), Unicode},
+
        [LEAD_UNICODE_LAMBDA]  = {LEADER_SEQ (LEAD(MAIN), Key_L), UnicodeLambda},
        [LEAD_UNICODE_POOP]    = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_P, Key_O, Key_O, Key_P), Unicode},
        [LEAD_UNICODE_ROFL]    = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_R, Key_O, Key_F, Key_L), Unicode},
@@ -168,8 +171,6 @@ namespace algernon {
        [LEAD_UNICODE_PI]      = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_P, Key_I), Unicode},
        [LEAD_UNICODE_MOUSE]   = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_M, Key_O, Key_U, Key_S, Key_E), Unicode},
        [LEAD_UNICODE_MICRO]   = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_M, Key_I, Key_C, Key_R, Key_O), Unicode},
-
-       [LEAD_UNICODE_START]   = {LEADER_SEQ (LEAD(MAIN), Key_U), Unicode},
 
        [LEAD_CSILLA]          = {LEADER_SEQ (LEAD(MAIN), Key_C), Csilla},
        [LEAD_GERGO]           = {LEADER_SEQ (LEAD(MAIN), Key_G), Gergo},
