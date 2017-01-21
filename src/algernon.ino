@@ -28,6 +28,8 @@
 #include "LED-ChaseEffect.h"
 #include "LED-RainbowEffect.h"
 
+#include <Akela-LangPack-Hungarian.h>
+
 #include "Layers.h"
 
 #include "Colormap.h"
@@ -36,7 +38,8 @@
 #include "TapDance.h"
 #include "ShapeShifter.h"
 #include "MagicCombo.h"
-#include "Hungarian.h"
+
+using namespace Akela::LangPack;
 
 #define R(n) (Key){.raw = n}
 #define MW(d) Key_mouseWarp ## d

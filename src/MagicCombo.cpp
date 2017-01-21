@@ -18,10 +18,12 @@
 
 #include "MagicCombo.h"
 #include "Layers.h"
-#include "Hungarian.h"
 
 #include <Akela-MagicCombo.h>
+#include <Akela-LangPack-Hungarian.h>
 #include <Keyboardio-Macros.h>
+
+using namespace Akela::LangPack;
 
 namespace algernon {
   namespace MagicCombo {

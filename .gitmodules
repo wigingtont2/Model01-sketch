@@ -1,3 +1,6 @@
 [submodule "lib/Akela"]
 	path = lib/Akela
 	url = https://github.com/keyboardio/Akela
+[submodule "lib/Akela-LangPack-Hungarian"]
+	path = lib/Akela-LangPack-Hungarian
+	url = https://github.com/algernon/Akela-LangPack-Hungarian

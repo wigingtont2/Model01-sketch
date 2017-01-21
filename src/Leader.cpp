@@ -17,10 +17,12 @@
  */
 
 #include "Leader.h"
-#include "Hungarian.h"
 
 #include <Keyboardio-Macros.h>
 #include <Akela-Unicode.h>
+#include <Akela-LangPack-Hungarian.h>
+
+using namespace Akela::LangPack;
 
 namespace algernon {
   namespace Leader {
