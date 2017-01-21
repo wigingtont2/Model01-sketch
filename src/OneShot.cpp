@@ -28,15 +28,5 @@ namespace algernon {
       ::OneShot.enableAuto();
       Keyboardio.use (&::OneShot, NULL);
     }
-
-    bool
-    isActive (void) {
-      return ::OneShot.isActive ();
-    }
-
-    void
-    cancel (void) {
-      ::OneShot.cancel ();
-    }
   };
 };

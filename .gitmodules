@@ -7,3 +7,6 @@
 [submodule "lib/Akela-LED-ActiveModColor"]
 	path = lib/Akela-LED-ActiveModColor
 	url = https://github.com/algernon/Akela-LED-ActiveModColor
+[submodule "lib/Akela-Escape-OneShot"]
+	path = lib/Akela-Escape-OneShot
+	url = https://github.com/algernon/Akela-Escape-OneShot

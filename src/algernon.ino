@@ -30,6 +30,7 @@
 
 #include <Akela-LangPack-Hungarian.h>
 #include <Akela-LED-ActiveModColor.h>
+#include <Akela-Escape-OneShot.h>
 
 #include "Layers.h"
 
@@ -141,27 +142,16 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ),
 };
 
-static Key handleEsc (Key mappedKey, byte row, byte col, uint8_t keyState) {
-  if (mappedKey.raw != Key_Esc.raw ||
-      (keyState & INJECTED) ||
-      !key_toggled_on (keyState))
-    return mappedKey;
-
-  if (!algernon::OneShot::isActive ())
-    return mappedKey;
-
-  algernon::OneShot::cancel ();
-
-  return Key_NoKey;
-}
-
 void setup () {
   Serial.begin(9600);
 
   IgnoranceIsBliss.configure (R2C6 | R0C6, 0);
-  Keyboardio.use (&IgnoranceIsBliss, NULL);
 
-  //Keyboardio.use (&KeyLogger, NULL);
+  Keyboardio.use (//&KeyLogger,
+                  &IgnoranceIsBliss,
+                  &EscapeOneShot,
+                  &Hungarian,
+                  NULL);
 
   algernon::TapDance::configure ();
   algernon::Leader::configure ();
@@ -169,19 +159,14 @@ void setup () {
   algernon::ShapeShifter::configure ();
   algernon::MagicCombo::configure ();
 
-  Keyboardio.use (&Hungarian, NULL);
-
-  event_handler_hook_add (handleEsc);
-
-  Keyboardio.setup (KEYMAP_SIZE);
-
   Keyboardio.use (&LEDOff, &LEDRainbowWaveEffect, &LEDChaseEffect,
                   //&HeatmapEffect,
 
                   NULL);
 
-  algernon::Colormap::configure ();
+  Keyboardio.setup (KEYMAP_SIZE);
 
+  algernon::Colormap::configure ();
   Keyboardio.use (&ActiveModColorEffect, NULL);
 }
 

@@ -26,8 +26,5 @@
 namespace algernon {
   namespace OneShot {
     void configure (void);
-
-    bool isActive (void);
-    void cancel (void);
   };
 };
