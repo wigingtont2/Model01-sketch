@@ -4,12 +4,3 @@
 [submodule "lib/Akela-LangPack-Hungarian"]
 	path = lib/Akela-LangPack-Hungarian
 	url = https://github.com/algernon/Akela-LangPack-Hungarian
-[submodule "lib/Akela-LED-ActiveModColor"]
-	path = lib/Akela-LED-ActiveModColor
-	url = https://github.com/algernon/Akela-LED-ActiveModColor
-[submodule "lib/Akela-Escape-OneShot"]
-	path = lib/Akela-Escape-OneShot
-	url = https://github.com/algernon/Akela-Escape-OneShot
-[submodule "lib/Akela-LED-Stalker"]
-	path = lib/Akela-LED-Stalker
-	url = https://github.com/algernon/Akela-LED-Stalker
