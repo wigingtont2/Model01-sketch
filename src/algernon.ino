@@ -180,8 +180,6 @@ void setup () {
   IgnoranceIsBliss.configure (R2C6 | R0C6, 0);
   Keyboardio.use (&IgnoranceIsBliss, NULL);
 
-  loop_hook_add (activeModColorHook);
-
   //Keyboardio.use (&KeyLogger, NULL);
 
   algernon::TapDance::configure ();
@@ -202,6 +200,8 @@ void setup () {
                   NULL);
 
   algernon::Colormap::configure ();
+
+  loop_hook_add (activeModColorHook);
 }
 
 void loop () {
