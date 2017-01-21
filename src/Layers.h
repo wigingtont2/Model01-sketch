@@ -26,6 +26,7 @@ enum {
   _NAV,
   _HUN,
   _EMPTY,
+  _APPSEL,
 
   LAYER_MAX
 };

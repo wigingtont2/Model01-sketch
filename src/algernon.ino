@@ -18,6 +18,7 @@
 
 #define AKELA_HOSTOS_GUESSER 1
 
+#include <Keyboardio-Macros.h>
 #include <Keyboardio-MouseKeys.h>
 #include <KeyboardioFirmware.h>
 
@@ -46,6 +47,14 @@ using namespace Akela::LangPack;
 #define R(n) (Key){.raw = n}
 #define MW(d) Key_mouseWarp ## d
 
+enum {
+  APPSEL_MUSIC,
+  APPSEL_CHAT,
+  APPSEL_EMACS,
+  APPSEL_TERM,
+  APPSEL_WEB
+};
+
 const Key keymaps[][ROWS][COLS] PROGMEM = {
   [_DVORAK] = KEYMAP_STACKED
   (
@@ -62,7 +71,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
               ,Key_D ,Key_H ,Key_T ,Key_N ,Key_S ,Key_Equals
    ,Key_LCtrl ,Key_B ,Key_M ,Key_W ,Key_V ,Key_Z ,LEAD(MAIN)
 
-   ,Key_LGUI ,Key_Enter ,Key_Space ,Key_Minus
+   ,TD(GUI) ,Key_Enter ,Key_Space ,Key_Minus
    ,MO(_HUN)
   ),
 
@@ -140,7 +149,50 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,XXX ,XXX ,XXX ,XXX
    ,___
    ),
+
+  [_APPSEL] = KEYMAP_STACKED
+  (
+    XXX ,M(APPSEL_MUSIC) ,M(APPSEL_CHAT) ,M(APPSEL_EMACS) ,M(APPSEL_TERM) ,M(APPSEL_WEB) ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX
+   ,XXX
+
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+
+   ,XXX ,XXX ,XXX ,XXX
+   ,XXX
+   ),
+
 };
+
+const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
+  if (!key_toggled_on (keyState))
+    return MACRO_NONE;
+
+  switch (macroIndex) {
+  case APPSEL_MUSIC:
+    Serial.println (F("appsel:music"));
+    break;
+  case APPSEL_CHAT:
+    Serial.println (F("appsel:chat"));
+    break;
+  case APPSEL_EMACS:
+    Serial.println (F("appsel:emacs"));
+    break;
+  case APPSEL_TERM:
+    Serial.println (F("appsel:term"));
+    break;
+  case APPSEL_WEB:
+    Serial.println (F("appsel:web"));
+    break;
+  }
+  return MACRO_NONE;
+}
 
 void setup () {
   Serial.begin(9600);
@@ -150,6 +202,7 @@ void setup () {
   Keyboardio.use (//&KeyLogger,
                   &IgnoranceIsBliss,
                   &EscapeOneShot,
+                  &Macros,
                   &Hungarian,
                   NULL);
 

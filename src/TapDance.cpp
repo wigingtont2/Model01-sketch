@@ -16,12 +16,39 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "Layers.h"
 #include "TapDance.h"
 #include "Leader.h"
 #include "OneShot.h"
 
 namespace algernon {
   namespace TapDance {
+    static void GUI (uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
+      switch (tapDanceAction) {
+      case Akela::TapDance::Tap:
+        break;
+      case Akela::TapDance::Interrupt:
+      case Akela::TapDance::Hold:
+      case Akela::TapDance::Timeout:
+        handle_key_event (Key_LGUI, 255, 255, IS_PRESSED | INJECTED);
+        Keyboard.sendReport ();
+        break;
+      case Akela::TapDance::Release:
+        handle_key_event (Key_LGUI, 255, 255, WAS_PRESSED | INJECTED);
+        Keyboard.sendReport ();
+        break;
+      }
+
+      if (tapCount >= 2) {
+        if (tapDanceAction == Akela::TapDance::Release) {
+          ::OneShot.inject (OSL(_APPSEL), WAS_PRESSED);
+        } else if (tapDanceAction == Akela::TapDance::Timeout) {
+          ::OneShot.inject (OSL(_APPSEL), IS_PRESSED);
+          Serial.println (F("appsel:start"));
+        }
+      }
+    }
+
     static void TMUX (uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
       if (tapDanceAction != Akela::TapDance::Release)
         return;
@@ -98,6 +125,9 @@ tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, Akela::TapDance::Action
     return tapDanceActionKeys (tapCount, tapDanceAction,
                                Key_nextTrack,
                                Key_prevTrack);
+
+  case GUI:
+    return algernon::TapDance::GUI (tapCount, tapDanceAction);
   }
 }
 
