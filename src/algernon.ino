@@ -46,6 +46,7 @@ using namespace Akela::LangPack;
 
 #define R(n) (Key){.raw = n}
 #define MW(d) Key_mouseWarp ## d
+#define MM(d) Key_mouse ## d
 
 enum {
   APPSEL_MUSIC,
@@ -97,8 +98,8 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
   [_NAV] = KEYMAP_STACKED
   (
     ___ ,Key_F9 ,Key_F7 ,Key_F5 ,Key_F3 ,Key_F1 ,XXX
-   ,XXX ,XXX    ,XXX    ,XXX    ,MW(NW) ,MW(NE) ,XXX
-   ,XXX ,XXX    ,XXX    ,XXX    ,MW(SW) ,MW(SE)
+   ,XXX ,XXX    ,MM(Up) ,XXX    ,XXX    ,XXX    ,XXX
+   ,XXX ,MM(L)  ,MM(Dn) ,MM(R)  ,XXX    ,XXX
    ,XXX ,XXX    ,XXX    ,XXX    ,XXX    ,XXX    ,___
 
    ,Key_volumeDown ,Key_volumeUp ,___ ,Key_volumeMute
@@ -109,7 +110,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
                 ,XXX     ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX  ,XXX
    ,___         ,XXX     ,XXX        ,XXX         ,XXX        ,XXX  ,XXX
 
-   ,___ ,Key_PageDn ,Key_PageUp ,XXX
+   ,MM(BtnL) ,Key_PageDn ,Key_PageUp ,MM(BtnR)
    ,MO(_EMPTY)
   ),
 
@@ -197,6 +198,9 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
 void setup () {
   Serial.begin(9600);
 
+  Mouse.begin();
+  AbsoluteMouse.begin();
+
   IgnoranceIsBliss.configure (R2C6 | R0C6, 0);
 
   Keyboardio.use (//&KeyLogger,
@@ -204,6 +208,7 @@ void setup () {
                   &EscapeOneShot,
                   &Macros,
                   &Hungarian,
+                  &MouseKeys,
                   NULL);
 
   algernon::TapDance::configure ();
