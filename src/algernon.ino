@@ -29,6 +29,7 @@
 #include "LED-RainbowEffect.h"
 
 #include <Akela-LangPack-Hungarian.h>
+#include <Akela-LED-ActiveModColor.h>
 
 #include "Layers.h"
 
@@ -154,29 +155,6 @@ static Key handleEsc (Key mappedKey, byte row, byte col, uint8_t keyState) {
   return Key_NoKey;
 }
 
-static void activeModColorHook (bool postClear) {
-  if (postClear)
-    return;
-
-  for (byte r = 0; r < ROWS; r++) {
-    for (byte c = 0; c < COLS; c++) {
-      Key k = Layer.lookup (r, c);
-
-      if (k.raw >= Akela::Ranges::OSM_FIRST && k.raw <= Akela::Ranges::OSM_LAST) {
-        uint8_t idx = k.raw - Akela::Ranges::OSM_FIRST;
-        k.flags = 0;
-        k.keyCode = Key_LCtrl.keyCode + idx;
-      }
-
-      if (k.raw < Key_LCtrl.raw || k.raw > Key_RGUI.raw)
-        continue;
-
-      if (Keyboard.isModifierActive (k.keyCode))
-        led_set_crgb_at (r, c, (cRGB) {0xff, 0xff, 0xff});
-    }
-  }
-}
-
 void setup () {
   Serial.begin(9600);
 
@@ -204,7 +182,7 @@ void setup () {
 
   algernon::Colormap::configure ();
 
-  loop_hook_add (activeModColorHook);
+  Keyboardio.use (&ActiveModColorEffect, NULL);
 }
 
 void loop () {

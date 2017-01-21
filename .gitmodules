@@ -4,3 +4,6 @@
 [submodule "lib/Akela-LangPack-Hungarian"]
 	path = lib/Akela-LangPack-Hungarian
 	url = https://github.com/algernon/Akela-LangPack-Hungarian
+[submodule "lib/Akela-LED-ActiveModColor"]
+	path = lib/Akela-LED-ActiveModColor
+	url = https://github.com/algernon/Akela-LED-ActiveModColor
