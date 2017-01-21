@@ -21,26 +21,22 @@
 #include <Keyboardio-MouseKeys.h>
 #include <KeyboardioFirmware.h>
 
-#include "Layers.h"
+#include <Akela-KeyLogger.h>
+#include <Akela-IgnoranceIsBliss.h>
 
 #include "LED-Off.h"
 #include "LED-ChaseEffect.h"
 #include "LED-RainbowEffect.h"
 
-#include "Colormap.h"
-#include <Akela-Heatmap.h>
+#include "Layers.h"
 
-#include <Akela-Unicode.h>
-#include <Akela-KeyLogger.h>
+#include "Colormap.h"
 #include "Leader.h"
 #include "OneShot.h"
 #include "TapDance.h"
 #include "ShapeShifter.h"
 #include "MagicCombo.h"
-
 #include "Hungarian.h"
-
-#include <Akela-IgnoranceIsBliss.h>
 
 #define R(n) (Key){.raw = n}
 #define MW(d) Key_mouseWarp ## d
