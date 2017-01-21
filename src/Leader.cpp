@@ -100,10 +100,13 @@ namespace algernon {
                           T(E),
                           T(J),
                           T(G),
-                          Tr((Key){.raw = HUN_ODA}),
-                          Tr((Key){.raw = HUN_ODA}),
-                          Tr((Key){.raw = HUN_ODA}),
                           END));
+
+      handle_key_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
+      Keyboard.sendReport ();
+      handle_key_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
+      Keyboard.sendReport ();
+      handle_key_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
     }
 
     static void
