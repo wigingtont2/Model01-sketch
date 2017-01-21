@@ -31,6 +31,7 @@
 
 #include <Akela-LangPack-Hungarian.h>
 #include <Akela-LED-ActiveModColor.h>
+#include <Akela-LED-Stalker.h>
 #include <Akela-Escape-OneShot.h>
 
 #include "Layers.h"
@@ -202,9 +203,11 @@ void setup () {
   AbsoluteMouse.begin();
 
   IgnoranceIsBliss.configure (R2C6 | R0C6, 0);
+  StalkerEffect.configure ({0, 128, 128});
 
   Keyboardio.use (//&KeyLogger,
                   &IgnoranceIsBliss,
+                  &StalkerEffect,
                   &EscapeOneShot,
                   &Macros,
                   &Hungarian,

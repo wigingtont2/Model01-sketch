@@ -10,3 +10,6 @@
 [submodule "lib/Akela-Escape-OneShot"]
 	path = lib/Akela-Escape-OneShot
 	url = https://github.com/algernon/Akela-Escape-OneShot
+[submodule "lib/Akela-LED-Stalker"]
+	path = lib/Akela-LED-Stalker
+	url = https://github.com/algernon/Akela-LED-Stalker
