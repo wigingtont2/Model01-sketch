@@ -142,7 +142,8 @@ namespace algernon {
       ::Unicode.typeCode (code);
       ::Unicode.end ();
 
-      ::Leader.reset ();
+      if (seqIndex != LEAD_UNICODE_START)
+        ::Leader.reset ();
     }
 
     static void
