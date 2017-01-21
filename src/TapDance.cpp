@@ -23,18 +23,18 @@
 
 namespace algernon {
   namespace TapDance {
-    static void GUI (uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
+    static void GUI (uint8_t tapCount, byte row, byte col, Akela::TapDance::ActionType tapDanceAction) {
       switch (tapDanceAction) {
       case Akela::TapDance::Tap:
         break;
       case Akela::TapDance::Interrupt:
       case Akela::TapDance::Hold:
       case Akela::TapDance::Timeout:
-        handle_key_event (Key_LGUI, 255, 255, IS_PRESSED | INJECTED);
+        handle_key_event (Key_LGUI, row, col, IS_PRESSED | INJECTED);
         Keyboard.sendReport ();
         break;
       case Akela::TapDance::Release:
-        handle_key_event (Key_LGUI, 255, 255, WAS_PRESSED | INJECTED);
+        handle_key_event (Key_LGUI, row, col, WAS_PRESSED | INJECTED);
         Keyboard.sendReport ();
         break;
       }
@@ -49,7 +49,7 @@ namespace algernon {
       }
     }
 
-    static void TMUX (uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
+    static void TMUX (uint8_t tapCount, byte row, byte col, Akela::TapDance::ActionType tapDanceAction) {
       if (tapDanceAction != Akela::TapDance::Release)
         return;
 
@@ -63,13 +63,13 @@ namespace algernon {
         key.keyCode = Key_A.keyCode;
       }
 
-      press_key (key);
+      handle_key_event (key, row, col, IS_PRESSED | INJECTED);
       Keyboard.sendReport ();
-      release_key (key);
+      handle_key_event (key, row, col, WAS_PRESSED | INJECTED);
       Keyboard.sendReport ();
     }
 
-    static void TMUXPane (uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
+    static void TMUXPane (uint8_t tapCount, byte row, byte col, Akela::TapDance::ActionType tapDanceAction) {
       if (tapDanceAction != Akela::TapDance::Release)
         return;
 
@@ -83,28 +83,26 @@ namespace algernon {
       press_key (key);
       Keyboard.sendReport ();
 
-
       // P, or Z
-
       key.raw = Key_P.raw;
       if (tapCount == 2)
         key.raw = Key_Z.raw;
 
-      press_key (key);
+      handle_key_event (key, row, col, IS_PRESSED | INJECTED);
       Keyboard.sendReport ();
-      release_key (key);
+      handle_key_event (key, row, col, WAS_PRESSED | INJECTED);
       Keyboard.sendReport ();
     }
   }
 }
 
 void
-tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
+tapDanceAction (uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
   switch (tapDanceIndex) {
   case TMUX:
-    return algernon::TapDance::TMUX (tapCount, tapDanceAction);
+    return algernon::TapDance::TMUX (tapCount, row, col, tapDanceAction);
   case TMUXP:
-    return algernon::TapDance::TMUXPane (tapCount, tapDanceAction);
+    return algernon::TapDance::TMUXPane (tapCount, row, col, tapDanceAction);
 
   case LPB:
     return tapDanceActionKeys (tapCount, tapDanceAction,
@@ -127,7 +125,7 @@ tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, Akela::TapDance::Action
                                Key_prevTrack);
 
   case GUI:
-    return algernon::TapDance::GUI (tapCount, tapDanceAction);
+    return algernon::TapDance::GUI (tapCount, row, col, tapDanceAction);
   }
 }
 
