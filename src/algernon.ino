@@ -205,13 +205,9 @@ void setup () {
   IgnoranceIsBliss.configure (R2C6 | R0C6, 0);
   StalkerEffect.configure (STALKER (BlazingTrail, NULL));
 
-  Keyboardio.use (//&KeyLogger,
+  Keyboardio.use (&KeyLogger,
                   &IgnoranceIsBliss,
                   &StalkerEffect,
-                  &EscapeOneShot,
-                  &Macros,
-                  &Hungarian,
-                  &MouseKeys,
                   NULL);
 
   algernon::TapDance::configure ();
@@ -220,7 +216,11 @@ void setup () {
   algernon::ShapeShifter::configure ();
   algernon::MagicCombo::configure ();
 
-  Keyboardio.use (&LEDOff, &LEDRainbowWaveEffect, &LEDChaseEffect,
+  Keyboardio.use (&EscapeOneShot,
+                  &Macros,
+                  &Hungarian,
+                  &MouseKeys,
+                  &LEDOff, &LEDRainbowWaveEffect, &LEDChaseEffect,
                   //&HeatmapEffect,
 
                   NULL);
