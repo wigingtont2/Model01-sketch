@@ -205,7 +205,7 @@ void setup () {
   IgnoranceIsBliss.configure (R2C6 | R0C6, 0);
   StalkerEffect.configure (STALKER (BlazingTrail, NULL));
 
-  Keyboardio.use (&KeyLogger,
+  Keyboardio.use (//&KeyLogger,
                   &IgnoranceIsBliss,
                   &StalkerEffect,
                   NULL);
