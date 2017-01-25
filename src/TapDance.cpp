@@ -107,16 +107,16 @@ tapDanceAction (uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, Ake
   case LPB:
     return tapDanceActionKeys (tapCount, tapDanceAction,
                                Key_LBracket,
-                               (Key){ KEY_FLAGS | SHIFT_HELD, HID_KEYBOARD_9_AND_LEFT_PAREN });
+                               Key_LEFT_PAREN);
   case RPB:
     return tapDanceActionKeys (tapCount, tapDanceAction,
                                Key_RBracket,
-                               (Key){ KEY_FLAGS | SHIFT_HELD, HID_KEYBOARD_0_AND_RIGHT_PAREN });
+                               Key_RIGHT_PAREN);
 
 
   case COLON:
     return tapDanceActionKeys (tapCount, tapDanceAction,
-                               (Key){ KEY_FLAGS | SHIFT_HELD, HID_KEYBOARD_SEMICOLON_AND_COLON },
+                               LSHIFT (Key_Semicolon),
                                Key_Semicolon);
 
   case MNP:
