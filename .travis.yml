@@ -11,5 +11,6 @@ before_install:
 install:
   - git submodule sync --recursive
   - git submodule update --init --recursive
+  - lib/KeyboardioFirmware/tools/keyboardio-builder submodule-update
 script:
   - lib/KeyboardioFirmware/tools/keyboardio-builder build ARDUINO_PATH=$(pwd)/../arduino-1.6.11
