@@ -23,7 +23,6 @@
 #include <KeyboardioFirmware.h>
 
 #include <Akela-KeyLogger.h>
-#include <Akela-IgnoranceIsBliss.h>
 
 #include "LED-Off.h"
 #include "LED-ChaseEffect.h"
@@ -202,11 +201,9 @@ void setup () {
   Mouse.begin();
   AbsoluteMouse.begin();
 
-  IgnoranceIsBliss.configure (R2C6 | R0C6, 0);
   StalkerEffect.configure (STALKER (BlazingTrail, NULL));
 
   Keyboardio.use (//&KeyLogger,
-                  &IgnoranceIsBliss,
                   &StalkerEffect,
                   NULL);
 
