@@ -146,6 +146,25 @@ namespace algernon {
        ,TRNS ,TRNS ,TRNS ,TRNS
        ,TRNS
        ),
+      [_APPSEL] = KEYMAP_STACKED
+      (
+        TRNS ,YELLOW ,YELLOW ,YELLOW ,YELLOW ,YELLOW ,TRNS
+       ,TRNS ,TRNS   ,TRNS   ,TRNS   ,TRNS   ,TRNS   ,TRNS
+       ,TRNS ,TRNS   ,TRNS   ,TRNS   ,TRNS   ,TRNS
+       ,TRNS ,TRNS   ,TRNS   ,TRNS   ,TRNS   ,TRNS   ,TRNS
+
+       ,TRNS ,TRNS ,TRNS ,TRNS
+       ,TRNS
+
+       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+             ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+
+       ,TRNS ,TRNS ,TRNS ,TRNS
+       ,TRNS
+       ),
+
     };
 
     void
