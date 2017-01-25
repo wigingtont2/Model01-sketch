@@ -11,6 +11,5 @@ before_install:
 install:
   - git submodule sync --recursive
   - git submodule update --init --recursive
-  - (cd lib/Akela && Mk/submodule-sync.sh)
 script:
-  - make all ARDUINO_PATH=$(pwd)/../arduino-1.6.11
+  - lib/KeyboardioFirmware/tools/keyboardio-builder build ARDUINO_PATH=$(pwd)/../arduino-1.6.11
