@@ -20,13 +20,14 @@
 
 #include <Keyboardio-Macros.h>
 #include <Keyboardio-MouseKeys.h>
+#include <Keyboardio-LEDControl.h>
 #include <KeyboardioFirmware.h>
 
 #include <Akela-KeyLogger.h>
 
 #include "LED-Off.h"
-#include "LED-ChaseEffect.h"
-#include "LED-RainbowEffect.h"
+#include <Keyboardio-LEDEffect-Chase.h>
+#include <Keyboardio-LEDEffect-Rainbow.h>
 
 #include <Akela-LangPack-Hungarian.h>
 #include <Akela-LED-ActiveModColor.h>
@@ -203,7 +204,8 @@ void setup () {
 
   StalkerEffect.configure (STALKER (BlazingTrail, NULL));
 
-  Keyboardio.use (//&KeyLogger,
+  Keyboardio.use (&LEDControl,
+                  //&KeyLogger,
                   &StalkerEffect,
                   NULL);
 

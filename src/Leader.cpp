@@ -19,6 +19,7 @@
 #include "Leader.h"
 
 #include <Keyboardio-Macros.h>
+#include <Keyboardio-LEDControl.h>
 #include <Akela-Unicode.h>
 #include <Akela-LangPack-Hungarian.h>
 
