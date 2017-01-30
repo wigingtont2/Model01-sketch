@@ -9,8 +9,6 @@ before_install:
   - tar xf arduino-1.6.11-linux64.tar.xz
   - popd
 install:
-  - git submodule sync --recursive
-  - git submodule update --init --recursive
-  - lib/KeyboardioFirmware/tools/keyboardio-builder submodule-update
+  - make setup
 script:
-  - lib/KeyboardioFirmware/tools/keyboardio-builder build ARDUINO_PATH=$(pwd)/../arduino-1.6.11
+  - make build ARDUINO_PATH=$(pwd)/../arduino-1.6.11
