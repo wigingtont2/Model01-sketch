@@ -10,5 +10,6 @@ before_install:
   - popd
 install:
   - make setup
+  - make update
 script:
   - make build ARDUINO_PATH=$(pwd)/../arduino-1.6.11
