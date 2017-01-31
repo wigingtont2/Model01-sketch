@@ -24,8 +24,8 @@ namespace algernon {
       {Key_9, Key_NoKey},
       {Key_7, Key_2},
       {Key_5, Key_8},
-      {Key_3, Key_6},
-      {Key_1, Key_4},
+      {Key_3, Key_4},
+      {Key_1, Key_6},
 
       {Key_0, Key_5},
       {Key_2, Key_1},
