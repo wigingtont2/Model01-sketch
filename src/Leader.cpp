@@ -24,6 +24,8 @@
 #include <Akela-Syster.h>
 #include <Akela-LangPack-Hungarian.h>
 
+#include "Macros.h"
+
 using namespace Akela::LangPack;
 
 namespace algernon {
@@ -42,72 +44,29 @@ namespace algernon {
     };
 
     static void
-    Csilla (uint8_t seqIndex) {
-      Macros.play (MACRO (Tr(LSHIFT(Key_C)),
-                          T(S),
-                          T(I),
-                          T(L),
-                          T(L),
-                          END));
-
-      handle_key_event ((Key){.raw = HUN_AA}, 255, 255, IS_PRESSED | INJECTED);
-
-      Macros.play (MACRO (T(M),
-                          T(A),
-                          T(S),
-                          T(S),
-                          T(Z),
-                          T(O),
-                          T(N),
-                          T(Y),
-                          T(K),
-                          END));
-
-      handle_key_event ((Key){.raw = HUN_AA}, 255, 255, IS_PRESSED | INJECTED);
-
-      Macros.play (MACRO (T(M),
-                          END));
-    }
-
-    static void
-    Gergo (uint8_t seqIndex) {
-      Macros.play (MACRO (Tr(LSHIFT(Key_G)),
-                          T(E),
-                          T(J),
-                          T(G),
-                          END));
-
-      handle_key_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
-      Keyboard.sendReport ();
-      handle_key_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
-      Keyboard.sendReport ();
-      handle_key_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
-    }
-
-    static void
     Yay (uint8_t seqIndex) {
-      Macros.play (MACRO (T(Backslash),
-                          T(O),
-                          T(Slash),
-                          END));
+      ::Macros.play (MACRO (T(Backslash),
+                            T(O),
+                            T(Slash),
+                            END));
     }
 
     static void
     Shruggy (uint8_t seqIndex) {
       ::Unicode.type (0xaf);
-      Macros.play (MACRO (T(Backslash),
-                          D(RShift),
-                          T(Minus),
-                          T(9),
-                          U(RShift),
-                          END));
+      ::Macros.play (MACRO (T(Backslash),
+                            D(RShift),
+                            T(Minus),
+                            T(9),
+                            U(RShift),
+                            END));
       ::Unicode.type (0x30c4);
-      Macros.play (MACRO (D(RShift),
-                          T(0),
-                          T(Minus),
-                          U(RShift),
-                          T(Slash),
-                          END));
+      ::Macros.play (MACRO (D(RShift),
+                            T(0),
+                            T(Minus),
+                            U(RShift),
+                            T(Slash),
+                            END));
       ::Unicode.type (0xaf);
     }
 
@@ -125,8 +84,8 @@ namespace algernon {
       (
        [LEAD_UNICODE_UCIS]   = {LEADER_SEQ (LEAD(MAIN), Key_U), startUCIS},
 
-       [LEAD_CSILLA]          = {LEADER_SEQ (LEAD(MAIN), Key_C), Csilla},
-       [LEAD_GERGO]           = {LEADER_SEQ (LEAD(MAIN), Key_G), Gergo},
+       [LEAD_CSILLA]          = {LEADER_SEQ (LEAD(MAIN), Key_C), (Akela::Leader::action_t)algernon::Macros::Csilla},
+       [LEAD_GERGO]           = {LEADER_SEQ (LEAD(MAIN), Key_G), (Akela::Leader::action_t)algernon::Macros::Gergo},
        [LEAD_YAY]             = {LEADER_SEQ (LEAD(MAIN), Key_Y), Yay},
        [LEAD_SHRUGGY]         = {LEADER_SEQ (LEAD(MAIN), Key_S), Shruggy},
 

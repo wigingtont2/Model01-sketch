@@ -18,6 +18,7 @@
 
 #include "MagicCombo.h"
 #include "Layers.h"
+#include "Macros.h"
 
 #include <Akela-MagicCombo.h>
 #include <Akela-LangPack-Hungarian.h>
@@ -41,28 +42,6 @@ namespace algernon {
       } else {
         Layer.defaultLayer (_ADORE);
       }
-    }
-
-    static void
-    Csilla () {
-      Macros.play (MACRO (Tr(LSHIFT(Key_C)),
-                          T(S),
-                          T(I),
-                          T(L),
-                          T(L),
-                          Tr((Key){.raw = HUN_AA}),
-                          T(M),
-                          T(A),
-                          T(S),
-                          T(S),
-                          T(Z),
-                          T(O),
-                          T(N),
-                          T(Y),
-                          T(K),
-                          Tr((Key){.raw = HUN_AA}),
-                          T(M),
-                          END));
     }
 
     static const Akela::MagicCombo::dictionary_t dictionary[] PROGMEM = {
@@ -93,7 +72,7 @@ void magicComboActions (uint8_t comboIndex, uint32_t leftHand, uint32_t rightHan
     break;
   case algernon::MagicCombo::CsillaDvorak:
   case algernon::MagicCombo::CsillaADORE:
-    algernon::MagicCombo::Csilla ();
+    algernon::Macros::Csilla ();
     break;
   }
 }
