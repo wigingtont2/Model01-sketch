@@ -33,6 +33,7 @@
 #include <Akela-LED-ActiveModColor.h>
 #include <Akela-LED-Stalker.h>
 #include <Akela-Escape-OneShot.h>
+#include <Akela-Heatmap.h>
 
 #include "Layers.h"
 
