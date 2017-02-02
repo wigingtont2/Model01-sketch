@@ -207,6 +207,8 @@ void setup () {
   StalkerEffect.configure (STALKER (BlazingTrail, NULL));
 
   Keyboardio.use (//&KeyLogger,
+                  &LEDOff,
+                  &HeatmapEffect,
                   &StalkerEffect,
                   NULL);
 
@@ -221,8 +223,7 @@ void setup () {
                   &Macros,
                   &Hungarian,
                   &MouseKeys,
-                  &LEDOff, &LEDRainbowWaveEffect, &LEDChaseEffect,
-                  //&HeatmapEffect,
+                  &LEDRainbowWaveEffect, &LEDChaseEffect,
 
                   NULL);
 
