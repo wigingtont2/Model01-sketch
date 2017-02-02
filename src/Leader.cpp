@@ -21,6 +21,7 @@
 #include <Keyboardio-Macros.h>
 #include <Keyboardio-LEDControl.h>
 #include <Akela-Unicode.h>
+#include <Akela-Syster.h>
 #include <Akela-LangPack-Hungarian.h>
 
 using namespace Akela::LangPack;
@@ -30,19 +31,7 @@ namespace algernon {
 
     // Leaders
     enum {
-      LEAD_UNICODE_START,
-
-      LEAD_UNICODE_LAMBDA,
-      LEAD_UNICODE_POOP,
-      LEAD_UNICODE_ROFL,
-      LEAD_UNICODE_KISS,
-      LEAD_UNICODE_SNOWMAN,
-      LEAD_UNICODE_COFFEE,
-      LEAD_UNICODE_HEART,
-      LEAD_UNICODE_BOLT,
-      LEAD_UNICODE_PI,
-      LEAD_UNICODE_MOUSE,
-      LEAD_UNICODE_MICRO,
+      LEAD_UNICODE_UCIS,
 
       LEAD_CSILLA,
       LEAD_GERGO,
@@ -50,21 +39,6 @@ namespace algernon {
       LEAD_SHRUGGY,
 
       LEAD_LEDEFFECT,
-    };
-
-    static const uint32_t unicodeTable[] PROGMEM = {
-      [LEAD_UNICODE_START]   = 0,
-      [LEAD_UNICODE_LAMBDA]  = 0x03bb,
-      [LEAD_UNICODE_POOP]    = 0x1f4a9,
-      [LEAD_UNICODE_ROFL]    = 0x1f923,
-      [LEAD_UNICODE_KISS]    = 0x1f619,
-      [LEAD_UNICODE_SNOWMAN] = 0x2603,
-      [LEAD_UNICODE_COFFEE]  = 0x2615,
-      [LEAD_UNICODE_HEART]   = 0x2764,
-      [LEAD_UNICODE_BOLT]    = 0x26a1,
-      [LEAD_UNICODE_PI]      = 0x03c0,
-      [LEAD_UNICODE_MOUSE]   = 0x1f401,
-      [LEAD_UNICODE_MICRO]   = 0x00b5,
     };
 
     static void
@@ -138,22 +112,8 @@ namespace algernon {
     }
 
     static void
-    Unicode (uint8_t seqIndex) {
-      if (seqIndex == LEAD_UNICODE_START)
-        return ::Unicode.start ();
-
-      uint32_t code = pgm_read_dword (&(unicodeTable[seqIndex]));
-      ::Unicode.typeCode (code);
-      ::Unicode.end ();
-
-      if (seqIndex != LEAD_UNICODE_START)
-        ::Leader.reset ();
-    }
-
-    static void
-    UnicodeLambda (uint8_t seqIndex) {
-      ::Unicode.start ();
-      Unicode (seqIndex);
+    startUCIS (uint8_t seqIndex) {
+      handle_key_event (SYSTER, 255, 255, IS_PRESSED | INJECTED);
     }
 
     static void
@@ -163,19 +123,7 @@ namespace algernon {
 
     static const Akela::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
       (
-       [LEAD_UNICODE_START]   = {LEADER_SEQ (LEAD(MAIN), Key_U), Unicode},
-
-       [LEAD_UNICODE_LAMBDA]  = {LEADER_SEQ (LEAD(MAIN), Key_L), UnicodeLambda},
-       [LEAD_UNICODE_POOP]    = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_P, Key_O, Key_O, Key_P), Unicode},
-       [LEAD_UNICODE_ROFL]    = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_R, Key_O, Key_F, Key_L), Unicode},
-       [LEAD_UNICODE_KISS]    = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_K, Key_I, Key_S, Key_S), Unicode},
-       [LEAD_UNICODE_SNOWMAN] = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_S, Key_N, Key_O, Key_W, Key_M, Key_A, Key_N), Unicode},
-       [LEAD_UNICODE_COFFEE]  = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_C, Key_O, Key_F, Key_F, Key_E, Key_E), Unicode},
-       [LEAD_UNICODE_HEART]   = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_H, Key_E, Key_A, Key_R, Key_T), Unicode},
-       [LEAD_UNICODE_BOLT]    = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_B, Key_O, Key_L, Key_T), Unicode},
-       [LEAD_UNICODE_PI]      = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_P, Key_I), Unicode},
-       [LEAD_UNICODE_MOUSE]   = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_M, Key_O, Key_U, Key_S, Key_E), Unicode},
-       [LEAD_UNICODE_MICRO]   = {LEADER_SEQ (LEAD(MAIN), Key_U, Key_M, Key_I, Key_C, Key_R, Key_O), Unicode},
+       [LEAD_UNICODE_UCIS]   = {LEADER_SEQ (LEAD(MAIN), Key_U), startUCIS},
 
        [LEAD_CSILLA]          = {LEADER_SEQ (LEAD(MAIN), Key_C), Csilla},
        [LEAD_GERGO]           = {LEADER_SEQ (LEAD(MAIN), Key_G), Gergo},

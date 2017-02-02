@@ -42,6 +42,7 @@
 #include "TapDance.h"
 #include "ShapeShifter.h"
 #include "MagicCombo.h"
+#include "Syster.h"
 
 using namespace Akela::LangPack;
 
@@ -209,8 +210,9 @@ void setup () {
                   &StalkerEffect,
                   NULL);
 
-  algernon::TapDance::configure ();
   algernon::Leader::configure ();
+  algernon::Syster::configure ();
+  algernon::TapDance::configure ();
   algernon::OneShot::configure ();
   algernon::ShapeShifter::configure ();
   algernon::MagicCombo::configure ();
