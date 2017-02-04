@@ -32,30 +32,37 @@ void systerAction (Akela::Syster::action_t action, const char *symbol) {
     Keyboard.sendReport ();
     break;
   case Akela::Syster::SymbolAction:
-    if (strcmp (symbol, "coffee") == 0) {
-      Unicode.type (0x2615);
-    } else if (strcmp (symbol, "lambda") == 0) {
-      Unicode.type (0x03bb);
-    } else if (strcmp (symbol, "poop") == 0) {
-      Unicode.type (0x1f4a9);
-    } else if (strcmp (symbol, "rofl") == 0) {
-      Unicode.type (0x1f923);
-    } else if (strcmp (symbol, "kiss") == 0) {
-      Unicode.type (0x1f619);
-    } else if (strcmp (symbol, "snowman") == 0) {
-      Unicode.type (0x2603);
-    } else if (strcmp (symbol, "heart") == 0) {
-      Unicode.type (0x2764);
-    } else if (strcmp (symbol, "bolt") == 0) {
-      Unicode.type (0x26a1);
-    } else if (strcmp (symbol, "pi") == 0) {
-      Unicode.type (0x03c0);
-    } else if (strcmp (symbol, "mouse") == 0) {
-      Unicode.type (0x1f401);
-    } else if (strcmp (symbol, "micro") == 0) {
-      Unicode.type (0x00b5);
+    {
+      uint32_t code = 0;
+
+      if (strcmp (symbol, "coffee") == 0) {
+        code = 0x2615;
+      } else if (strcmp (symbol, "lambda") == 0) {
+        code = 0x03bb;
+      } else if (strcmp (symbol, "poop") == 0) {
+        code = 0x1f4a9;
+      } else if (strcmp (symbol, "rofl") == 0) {
+        code = 0x1f923;
+      } else if (strcmp (symbol, "kiss") == 0) {
+        code = 0x1f619;
+      } else if (strcmp (symbol, "snowman") == 0) {
+        code = 0x2603;
+      } else if (strcmp (symbol, "heart") == 0) {
+        code = 0x2764;
+      } else if (strcmp (symbol, "bolt") == 0) {
+        code = 0x26a1;
+      } else if (strcmp (symbol, "pi") == 0) {
+        code = 0x03c0;
+      } else if (strcmp (symbol, "mouse") == 0) {
+        code = 0x1f401;
+      } else if (strcmp (symbol, "micro") == 0) {
+        code = 0x00b5;
+      }
+
+      if (code)
+        Unicode.type (code);
+      break;
     }
-    break;
   }
 }
 
