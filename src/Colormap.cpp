@@ -34,6 +34,7 @@ namespace algernon {
       NAVY,
       YELLOW,
       GREEN,
+      PINK,
 
       TRNS = Akela::ColormapEffect::Transparent,
     };
@@ -49,6 +50,7 @@ namespace algernon {
       [NAVY]        = {0x80, 0x00, 0x00},
       [YELLOW]      = {0x00, 0xff, 0xff},
       [GREEN]       = {0x00, 0xff, 0x00},
+      [PINK]        = {0x80, 0x80, 0xff},
     };
 
     static const uint8_t colorMap[LAYER_MAX][ROWS][COLS] PROGMEM = {
@@ -93,8 +95,8 @@ namespace algernon {
       [_NAV] = KEYMAP_STACKED
       (
         CYAN ,CYAN  ,CYAN  ,CYAN  ,CYAN ,CYAN ,TRNS
-       ,TRNS ,TRNS  ,GREEN ,TRNS  ,TRNS ,TRNS ,TRNS
-       ,TRNS ,GREEN ,GREEN ,GREEN ,TRNS ,TRNS
+       ,TRNS ,TRNS  ,GREEN ,TRNS  ,PINK ,PINK ,TRNS
+       ,TRNS ,GREEN ,GREEN ,GREEN ,PINK ,PINK
        ,TRNS ,TRNS  ,TRNS  ,TRNS  ,TRNS ,TRNS ,TRNS
 
        ,YELLOW ,YELLOW ,TRNS ,YELLOW
