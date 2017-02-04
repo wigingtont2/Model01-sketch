@@ -20,7 +20,41 @@
 
 #include <Akela-Unicode.h>
 
-void systerAction (Akela::Syster::action_t action, const char *symbol) {
+static void
+typeString (const char *str) {
+  Unicode.start ();
+
+  for (uint8_t i = 0; str[i]; i++) {
+    const char c = str[i];
+    Key key = Key_NoKey;
+
+    switch (c) {
+    case 'a' ... 'z':
+      key.keyCode = Key_A.keyCode + (c - 'a');
+      break;
+    case 'A' ... 'Z':
+      key.keyCode = Key_A.keyCode + (c - 'A');
+      break;
+    case '1' ... '9':
+      key.keyCode = Key_1.keyCode + (c - '1');
+      break;
+    case '0':
+      key.keyCode = Key_0.keyCode;
+      break;
+    }
+
+    Unicode.input ();
+    handle_key_event (key, 255, 255, IS_PRESSED | INJECTED);
+    Keyboard.sendReport ();
+    Unicode.input ();
+    handle_key_event (key, 255, 255, WAS_PRESSED | INJECTED);
+    Keyboard.sendReport ();
+  }
+  Unicode.end ();
+}
+
+void
+systerAction (Akela::Syster::action_t action, const char *symbol) {
   switch (action) {
   case Akela::Syster::StartAction:
     Unicode.type (0x2328);
@@ -61,6 +95,8 @@ void systerAction (Akela::Syster::action_t action, const char *symbol) {
 
       if (code)
         Unicode.type (code);
+      else
+        typeString (symbol);
       break;
     }
   }
