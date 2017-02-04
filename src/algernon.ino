@@ -198,6 +198,16 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   return MACRO_NONE;
 }
 
+static void emptyLayerForceOff (bool postClear) {
+  if (postClear)
+    return;
+
+  if (!(KeyboardHardware.leftHandState.all & R3C6) &&
+      !(KeyboardHardware.rightHandState.all & R3C9)) {
+    Layer.off (_EMPTY);
+  }
+}
+
 void setup () {
   Serial.begin(9600);
 
@@ -205,6 +215,8 @@ void setup () {
   AbsoluteMouse.begin();
 
   StalkerEffect.configure (STALKER (BlazingTrail, NULL));
+
+  loop_hook_use (emptyLayerForceOff);
 
   Keyboardio.use (//&KeyLogger,
                   &LEDOff,
