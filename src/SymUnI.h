@@ -16,34 +16,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Syster.h"
-#include "SymUnI.h"
-
-#include <Akela-Unicode.h>
-
-void
-systerAction (Akela::Syster::action_t action, const char *symbol) {
-  switch (action) {
-  case Akela::Syster::StartAction:
-    Unicode.type (0x2328);
-    break;
-  case Akela::Syster::EndAction:
-    handle_key_event (Key_Backspace, 255, 255, IS_PRESSED | INJECTED);
-    Keyboard.sendReport ();
-    handle_key_event (Key_Backspace, 255, 255, WAS_PRESSED | INJECTED);
-    Keyboard.sendReport ();
-    break;
-  case Akela::Syster::SymbolAction:
-    algernon::SymUnI::input (symbol);
-    break;
-  }
-}
+#pragma once
 
 namespace algernon {
-  namespace Syster {
-    void
-    configure (void) {
-      Keyboardio.use (&::Syster, NULL);
-    }
-  }
-}
+  namespace SymUnI {
+    void input (const char *symbol);
+    void typeString (const char *symbol);
+  };
+};
