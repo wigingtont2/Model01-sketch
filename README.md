@@ -89,7 +89,9 @@ Once in the Symbolic Unicode Input mode (implemented by using the [Syster][akela
 
  [akela:syster]: https://github.com/keyboardio/Akela-Syster
 
-For the list of supported symbols, please see the source.
+For the list of supported symbols, please [see the source][src:SymUnI].
+
+ [src:SymUnI]: https://github.com/algernon/Model01-sketch/blob/master/src/SymUnI.cpp#L28
 
 This is an experimental feature, and may or may not work reliably.
 
