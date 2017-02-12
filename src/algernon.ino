@@ -26,8 +26,6 @@
 #include <Kaleidoscope-KeyLogger.h>
 
 #include "LED-Off.h"
-#include <Kaleidoscope-LEDEffect-Chase.h>
-#include <Kaleidoscope-LEDEffect-Rainbow.h>
 
 #include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-LED-ActiveModColor.h>
@@ -235,7 +233,6 @@ void setup () {
                     &Macros,
                     &Hungarian,
                     &MouseKeys,
-                    &LEDRainbowWaveEffect, &LEDChaseEffect,
 
                     NULL);
 
