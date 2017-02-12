@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include <Akela-Colormap.h>
+#include <Kaleidoscope-Colormap.h>
 
 namespace algernon {
   namespace Colormap {

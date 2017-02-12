@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <Akela-Colormap.h>
+#include <Kaleidoscope-Colormap.h>
 #include "Layers.h"
 
 namespace algernon {
@@ -36,7 +36,7 @@ namespace algernon {
       GREEN,
       PINK,
 
-      TRNS = Akela::ColormapEffect::Transparent,
+      TRNS = KaleidoscopePlugins::ColormapEffect::Transparent,
     };
 
     static const cRGB colors[] PROGMEM = {
@@ -171,7 +171,7 @@ namespace algernon {
 
     void
     configure (void) {
-      Keyboardio.use (&ColormapEffect, NULL);
+      Kaleidoscope.use (&ColormapEffect, NULL);
       ColormapEffect.configure (colors, colorMap);
       ColormapEffect.activate ();
     }

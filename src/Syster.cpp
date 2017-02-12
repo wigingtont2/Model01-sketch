@@ -19,21 +19,21 @@
 #include "Syster.h"
 #include "SymUnI.h"
 
-#include <Akela-Unicode.h>
+#include <Kaleidoscope-Unicode.h>
 
 void
-systerAction (Akela::Syster::action_t action, const char *symbol) {
+systerAction (KaleidoscopePlugins::Syster::action_t action, const char *symbol) {
   switch (action) {
-  case Akela::Syster::StartAction:
+  case KaleidoscopePlugins::Syster::StartAction:
     Unicode.type (0x2328);
     break;
-  case Akela::Syster::EndAction:
+  case KaleidoscopePlugins::Syster::EndAction:
     handle_key_event (Key_Backspace, 255, 255, IS_PRESSED | INJECTED);
     Keyboard.sendReport ();
     handle_key_event (Key_Backspace, 255, 255, WAS_PRESSED | INJECTED);
     Keyboard.sendReport ();
     break;
-  case Akela::Syster::SymbolAction:
+  case KaleidoscopePlugins::Syster::SymbolAction:
     algernon::SymUnI::input (symbol);
     break;
   }
@@ -43,7 +43,7 @@ namespace algernon {
   namespace Syster {
     void
     configure (void) {
-      Keyboardio.use (&::Syster, NULL);
+      Kaleidoscope.use (&::Syster, NULL);
     }
   }
 }

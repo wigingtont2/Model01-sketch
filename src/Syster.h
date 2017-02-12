@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include <Akela-Syster.h>
+#include <Kaleidoscope-Syster.h>
 
 namespace algernon {
   namespace Syster {

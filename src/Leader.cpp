@@ -18,15 +18,15 @@
 
 #include "Leader.h"
 
-#include <Keyboardio-Macros.h>
-#include <Keyboardio-LEDControl.h>
-#include <Akela-Unicode.h>
-#include <Akela-Syster.h>
-#include <Akela-LangPack-Hungarian.h>
+#include <Kaleidoscope-Macros.h>
+#include <Kaleidoscope-LEDControl.h>
+#include <Kaleidoscope-Unicode.h>
+#include <Kaleidoscope-Syster.h>
+#include <Kaleidoscope-LangPack-Hungarian.h>
 
 #include "Macros.h"
 
-using namespace Akela::LangPack;
+using namespace KaleidoscopePlugins::LangPack;
 
 namespace algernon {
   namespace Leader {
@@ -88,13 +88,13 @@ namespace algernon {
       LEDControl.next_mode ();
     }
 
-    static const Akela::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
+    static const KaleidoscopePlugins::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
       (
        [LEAD_UNICODE_UCIS]   = {LEADER_SEQ (LEAD(MAIN), Key_U), startUCIS},
 
-       [LEAD_CSILLA]          = {LEADER_SEQ (LEAD(MAIN), Key_C), (Akela::Leader::action_t)algernon::Macros::Csilla},
+       [LEAD_CSILLA]          = {LEADER_SEQ (LEAD(MAIN), Key_C), (KaleidoscopePlugins::Leader::action_t)algernon::Macros::Csilla},
        [LEAD_KIDS]            = {LEADER_SEQ (LEAD(MAIN), Key_K), Kids},
-       [LEAD_GERGO]           = {LEADER_SEQ (LEAD(MAIN), Key_G), (Akela::Leader::action_t)algernon::Macros::Gergo},
+       [LEAD_GERGO]           = {LEADER_SEQ (LEAD(MAIN), Key_G), (KaleidoscopePlugins::Leader::action_t)algernon::Macros::Gergo},
        [LEAD_YAY]             = {LEADER_SEQ (LEAD(MAIN), Key_Y), Yay},
        [LEAD_SHRUGGY]         = {LEADER_SEQ (LEAD(MAIN), Key_S), Shruggy},
 
@@ -103,7 +103,7 @@ namespace algernon {
 
     void
     configure (void) {
-      Keyboardio.use (&::Leader, &::HostOS, &::Unicode, NULL);
+      Kaleidoscope.use (&::Leader, &::HostOS, &::Unicode, NULL);
 
       ::Leader.configure (dictionary);
     }

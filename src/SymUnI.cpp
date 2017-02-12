@@ -17,7 +17,7 @@
  */
 
 #include "SymUnI.h"
-#include <Akela-Unicode.h>
+#include <Kaleidoscope-Unicode.h>
 
 namespace algernon {
   namespace SymUnI {

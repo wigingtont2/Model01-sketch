@@ -20,11 +20,11 @@
 #include "Layers.h"
 #include "Macros.h"
 
-#include <Akela-MagicCombo.h>
-#include <Akela-LangPack-Hungarian.h>
-#include <Keyboardio-Macros.h>
+#include <Kaleidoscope-MagicCombo.h>
+#include <Kaleidoscope-LangPack-Hungarian.h>
+#include <Kaleidoscope-Macros.h>
 
-using namespace Akela::LangPack;
+using namespace KaleidoscopePlugins::LangPack;
 
 namespace algernon {
   namespace MagicCombo {
@@ -44,7 +44,7 @@ namespace algernon {
       }
     }
 
-    static const Akela::MagicCombo::dictionary_t dictionary[] PROGMEM = {
+    static const KaleidoscopePlugins::MagicCombo::dictionary_t dictionary[] PROGMEM = {
       // palm keys + ADORE
       [ADORE] = {R3C6 | R2C1  | R2C2 | R2C3,
                  R3C9 | R2C10 | R2C11},
@@ -58,7 +58,7 @@ namespace algernon {
 
     void
     configure (void) {
-      Keyboardio.use (&::MagicCombo, NULL);
+      Kaleidoscope.use (&::MagicCombo, NULL);
 
       ::MagicCombo.configure (dictionary);
     }

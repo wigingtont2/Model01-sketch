@@ -16,24 +16,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#define AKELA_HOSTOS_GUESSER 1
+#define KALEIDOSCOPE_HOSTOS_GUESSER 1
 
-#include <Keyboardio-Macros.h>
-#include <Keyboardio-MouseKeys.h>
-#include <Keyboardio-LEDControl.h>
-#include <KeyboardioFirmware.h>
+#include <Kaleidoscope.h>
+#include <Kaleidoscope-Macros.h>
+#include <Kaleidoscope-MouseKeys.h>
+#include <Kaleidoscope-LEDControl.h>
 
-#include <Akela-KeyLogger.h>
+#include <Kaleidoscope-KeyLogger.h>
 
 #include "LED-Off.h"
-#include <Keyboardio-LEDEffect-Chase.h>
-#include <Keyboardio-LEDEffect-Rainbow.h>
+#include <Kaleidoscope-LEDEffect-Chase.h>
+#include <Kaleidoscope-LEDEffect-Rainbow.h>
 
-#include <Akela-LangPack-Hungarian.h>
-#include <Akela-LED-ActiveModColor.h>
-#include <Akela-LED-Stalker.h>
-#include <Akela-Escape-OneShot.h>
-#include <Akela-Heatmap.h>
+#include <Kaleidoscope-LangPack-Hungarian.h>
+#include <Kaleidoscope-LED-ActiveModColor.h>
+#include <Kaleidoscope-LED-Stalker.h>
+#include <Kaleidoscope-Escape-OneShot.h>
+#include <Kaleidoscope-Heatmap.h>
 
 #include "Layers.h"
 
@@ -45,7 +45,7 @@
 #include "MagicCombo.h"
 #include "Syster.h"
 
-using namespace Akela::LangPack;
+using namespace KaleidoscopePlugins::LangPack;
 
 #define R(n) (Key){.raw = n}
 #define MW(d) Key_mouseWarp ## d
@@ -218,11 +218,11 @@ void setup () {
 
   loop_hook_use (emptyLayerForceOff);
 
-  Keyboardio.use (//&KeyLogger,
-                  &LEDOff,
-                  &HeatmapEffect,
-                  &StalkerEffect,
-                  NULL);
+  Kaleidoscope.use (//&KeyLogger,
+                    &LEDOff,
+                    &HeatmapEffect,
+                    &StalkerEffect,
+                    NULL);
 
   algernon::Leader::configure ();
   algernon::Syster::configure ();
@@ -231,20 +231,20 @@ void setup () {
   algernon::ShapeShifter::configure ();
   algernon::MagicCombo::configure ();
 
-  Keyboardio.use (&EscapeOneShot,
-                  &Macros,
-                  &Hungarian,
-                  &MouseKeys,
-                  &LEDRainbowWaveEffect, &LEDChaseEffect,
+  Kaleidoscope.use (&EscapeOneShot,
+                    &Macros,
+                    &Hungarian,
+                    &MouseKeys,
+                    &LEDRainbowWaveEffect, &LEDChaseEffect,
 
-                  NULL);
+                    NULL);
 
-  Keyboardio.setup (KEYMAP_SIZE);
+  Kaleidoscope.setup (KEYMAP_SIZE);
 
   algernon::Colormap::configure ();
-  Keyboardio.use (&ActiveModColorEffect, NULL);
+  Kaleidoscope.use (&ActiveModColorEffect, NULL);
 }
 
 void loop () {
-  Keyboardio.loop();
+  Kaleidoscope.loop();
 }

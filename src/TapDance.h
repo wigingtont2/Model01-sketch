@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include <Akela-TapDance.h>
+#include <Kaleidoscope-TapDance.h>
 
 // Tap-dance
 enum {
@@ -31,7 +31,7 @@ enum {
   GUI,
 };
 
-extern void tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction);
+extern void tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, KaleidoscopePlugins::TapDance::ActionType tapDanceAction);
 
 namespace algernon {
   namespace TapDance {

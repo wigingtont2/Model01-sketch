@@ -18,11 +18,11 @@
 
 #include "Leader.h"
 
-#include <Keyboardio-Macros.h>
-#include <Akela-Unicode.h>
-#include <Akela-LangPack-Hungarian.h>
+#include <Kaleidoscope-Macros.h>
+#include <Kaleidoscope-Unicode.h>
+#include <Kaleidoscope-LangPack-Hungarian.h>
 
-using namespace Akela::LangPack;
+using namespace KaleidoscopePlugins::LangPack;
 
 namespace algernon {
   namespace Macros {

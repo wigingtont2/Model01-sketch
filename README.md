@@ -5,11 +5,11 @@ algernon's Keyboardio Model01 firmware
 
 [![Build Status](https://travis-ci.org/algernon/Model01-sketch.svg?branch=master)](https://travis-ci.org/algernon/Model01-sketch)
 
-This is my work in progress firmware Sketch for the [Keyboardio Model 01][kbdio], using the [KeyboardioFirmware][kbfw] together with a fair amount of plugins.
+This is my work in progress firmware Sketch for the [Keyboardio Model 01][kbdio], using [Kaleidoscope][ks] together with a fair amount of plugins.
 
 This is a reasonably complete example of how to work with the firmware, and surrounding libraries, to extend it, to compose the various components, to have something useful in the end.
 
- [kbfw]: https://github.com/keyboardio/KeyboardioFirmware
+ [ks]: https://github.com/keyboardio/Kaleidoscope
  [kbdio]: https://shop.keyboard.io/
 
 It is a heavy work in progress, with some awful hacks and workarounds here and there. Eventually these will be cleaned up.
@@ -39,41 +39,41 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
 
 * Keys with blue front-prints are activated by tapping or holding the left palm key (also colored blue).
 * Keys with red front-prints are activated by tapping or holding the right palm key (also colored red).
-* The `Alt`, `Control`, `Shift` modifiers are all [one-shot][akela:oneshot], and so are the two palm keys.
-* The LED colors are governed by the [Colormap][akela:colormap] plugin for the most part:
+* The `Alt`, `Control`, `Shift` modifiers are all [one-shot][kaleidoscope:oneshot], and so are the two palm keys.
+* The LED colors are governed by the [Colormap][kaleidoscope:colormap] plugin for the most part:
   - By default, the modifiers and palm keys are highlighted with different colors.
   - On different layers, the keys that have changed behaviour, are colored differently.
-  - When a modifier is active, the [LED-ActiveModColor][akela:led-activemodcolor] plugin turns it white.
-  - A blazing trail effect is provided by [LED-Stalker][akela:led-stalker].
-  - One can also switch LEDs off, or switch to a [Heatmap][akela:heatmap], a [rainbow effect][keyboardio:rainbow], or a [chase effect][keyboardio:chase].
-* The number row was inspired by [Programmer Dvorak][dvorak:prg]: the odd and even numbers are on separate side, instead of the traditional ascending order spanning both sides. Unlike Programmer Dvorak, numbers are accessible without using `Shift`. The symbols atop each number however, are replaced almost everywhere, using the [ShapeShifter][akela:shapeshifter] plugin. Symbols used more often are placed at positions with easier access.
+  - When a modifier is active, the [LED-ActiveModColor][kaleidoscope:led-activemodcolor] plugin turns it white.
+  - A blazing trail effect is provided by [LED-Stalker][kaleidoscope:led-stalker].
+  - One can also switch LEDs off, or switch to a [Heatmap][kaleidoscope:heatmap], a [rainbow effect][kaleidoscope:rainbow], or a [chase effect][kaleidoscope:chase].
+* The number row was inspired by [Programmer Dvorak][dvorak:prg]: the odd and even numbers are on separate side, instead of the traditional ascending order spanning both sides. Unlike Programmer Dvorak, numbers are accessible without using `Shift`. The symbols atop each number however, are replaced almost everywhere, using the [ShapeShifter][kaleidoscope:shapeshifter] plugin. Symbols used more often are placed at positions with easier access.
 * The `R0C6` and `R0C9` keys are to control `tmux` and `screen`, and are dependent on my tmux setup.
-* The `R1C6` and `R1C9` keys are [tap-dance][akela:tap-dance] keys. Tapped once, they input `[{`/`}]` (without and with `Shift`, respectively). Tapped twice, they input `(`/`)`.
-* The `LEAD` keys is a [leader key][akela:leader], with the following sequences built-in:
+* The `R1C6` and `R1C9` keys are [tap-dance][kaleidoscope:tap-dance] keys. Tapped once, they input `[{`/`}]` (without and with `Shift`, respectively). Tapped twice, they input `(`/`)`.
+* The `LEAD` keys is a [leader key][kaleidoscope:leader], with the following sequences built-in:
   - `LEAD u` starts the [symbolic unicode input](#symbolic-unicode-input) method.
   - `LEAD y` types `\o/`.
   - `LEAD s` does a lot of magic to type a shruggy: `¯ \_(ツ )_/¯`.
   - `LEAD LEAD` switches to the next LED mode.
-* The `R0C7` key is also a [tap-dance][akela:tap-dance] key, which inputs `:` on a single tap, `;` otherwise.
-* The `R3C8` key (another [tap-dance][akela:tap-dance] key) acts as a `GUI` key when tapped once. When tapped once, it swithes to a special `APPSEL` layer, where the number row on the left half can be used to select an application to switch to. This needs a helper program on the host side.
-* There are a few other actions one can trigger with [magic combos][akela:magic-combos]:
+* The `R0C7` key is also a [tap-dance][kaleidoscope:tap-dance] key, which inputs `:` on a single tap, `;` otherwise.
+* The `R3C8` key (another [tap-dance][kaleidoscope:tap-dance] key) acts as a `GUI` key when tapped once. When tapped once, it swithes to a special `APPSEL` layer, where the number row on the left half can be used to select an application to switch to. This needs a helper program on the host side.
+* There are a few other actions one can trigger with [magic combos][kaleidoscope:magic-combos]:
   - `PALMS + A`: Switch to the [ADORE](#adore-layer).
-* We are also using [mouse keys][keyboardio:mouse-keys], [macros][keyboardio:macros] for some of the features.
+* We are also using [mouse keys][kaleidoscope:mouse-keys], [macros][kaleidoscope:macros] for some of the features.
 
   [dvorak:prg]: http://www.kaufmann.no/roland/dvorak/
-  [akela:shapeshifter]: https://github.com/keyboardio/Akela-ShapeShifter
-  [akela:oneshot]: https://github.com/keyboardio/Akela-OneShot
-  [akela:colormap]: https://github.com/keyboardio/Akela-Colormap
-  [akela:led-activemodcolor]: https://github.com/keyboardio/Akela-LED-ActiveModColor
-  [akela:led-stalker]: https://github.com/keyboardio/Akela-LED-Stalker
-  [akela:heatmap]: https://github.com/keyboardio/Akela-Heatmap
-  [keyboardio:rainbow]: https://github.com/keyboardio/Keyboardio-LEDEffect-Rainbow
-  [keyboardio:chase]: https://github.com/keyboardio/Keyboardio-LEDEffect-Chase
-  [akela:tap-dance]: https://github.com/keyboardio/Akela-TapDance
-  [akela:leader]: https://github.com/keyboardio/Akela-Leader
-  [akela:magic-combos]: https://github.com/keyboardio/Akela-MagicCombo
-  [keyboardio:mouse-keys]: https://github.com/keyboardio/Keyboardio-MouseKeys
-  [keyboardio:macros]: https://github.com/keyboardio/Keyboardio-Macros
+  [kaleidoscope:shapeshifter]: https://github.com/keyboardio/Kaleidoscope-ShapeShifter
+  [kaleidoscope:oneshot]: https://github.com/keyboardio/Kaleidoscope-OneShot
+  [kaleidoscope:colormap]: https://github.com/keyboardio/Kaleidoscope-Colormap
+  [kaleidoscope:led-activemodcolor]: https://github.com/keyboardio/Kaleidoscope-LED-ActiveModColor
+  [kaleidoscope:led-stalker]: https://github.com/keyboardio/Kaleidoscope-LED-Stalker
+  [kaleidoscope:heatmap]: https://github.com/keyboardio/Kaleidoscope-Heatmap
+  [kaleidoscope:rainbow]: https://github.com/keyboardio/Kaleidoscope-LEDEffect-Rainbow
+  [kaleidoscope:chase]: https://github.com/keyboardio/Kaleidoscope-LEDEffect-Chase
+  [kaleidoscope:tap-dance]: https://github.com/keyboardio/Kaleidoscope-TapDance
+  [kaleidoscope:leader]: https://github.com/keyboardio/Kaleidoscope-Leader
+  [kaleidoscope:magic-combos]: https://github.com/keyboardio/Kaleidoscope-MagicCombo
+  [kaleidoscope:mouse-keys]: https://github.com/keyboardio/Kaleidoscope-MouseKeys
+  [kaleidoscope:macros]: https://github.com/keyboardio/Kaleidoscope-Macros
   
 ## ADORE layer
 
@@ -85,9 +85,9 @@ A heavy work in progress. The main difference is in the layout of alphanumerics,
 
 ## Symbolic Unicode Input
 
-Once in the Symbolic Unicode Input mode (implemented by using the [Syster][akela:syster] plugin), one is able to type in symbol names, press `Space`, and get the Unicode symbol itself back. When in the mode, `⌨` is printed first. Once the sequence is finished, all of it is erased by sending enough `Backspace` taps, and the firmware starts the OS-specific unicode input sequence. Then, it looks up the symbol name, and enters the associated code.
+Once in the Symbolic Unicode Input mode (implemented by using the [Syster][kaleidoscope:syster] plugin), one is able to type in symbol names, press `Space`, and get the Unicode symbol itself back. When in the mode, `⌨` is printed first. Once the sequence is finished, all of it is erased by sending enough `Backspace` taps, and the firmware starts the OS-specific unicode input sequence. Then, it looks up the symbol name, and enters the associated code.
 
- [akela:syster]: https://github.com/keyboardio/Akela-Syster
+ [kaleidoscope:syster]: https://github.com/keyboardio/Kaleidoscope-Syster
 
 For the list of supported symbols, please [see the source][src:SymUnI].
 

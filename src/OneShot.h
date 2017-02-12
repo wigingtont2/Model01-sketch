@@ -19,7 +19,8 @@
 #pragma once
 
 #include <stdint.h>
-#include <Akela-OneShot.h>
+#include <Kaleidoscope.h>
+#include <Kaleidoscope-OneShot.h>
 
 #define MO(layer) (Key){ MOMENTARY_OFFSET + layer, KEY_FLAGS | SYNTHETIC | SWITCH_TO_KEYMAP }
 

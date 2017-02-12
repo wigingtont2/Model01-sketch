@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include <Akela-ShapeShifter.h>
+#include <Kaleidoscope-ShapeShifter.h>
 
 namespace algernon {
   namespace ShapeShifter {

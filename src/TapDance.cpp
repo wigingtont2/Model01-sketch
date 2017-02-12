@@ -23,34 +23,34 @@
 
 namespace algernon {
   namespace TapDance {
-    static void GUI (uint8_t tapCount, byte row, byte col, Akela::TapDance::ActionType tapDanceAction) {
+    static void GUI (uint8_t tapCount, byte row, byte col, KaleidoscopePlugins::TapDance::ActionType tapDanceAction) {
       switch (tapDanceAction) {
-      case Akela::TapDance::Tap:
+      case KaleidoscopePlugins::TapDance::Tap:
         break;
-      case Akela::TapDance::Interrupt:
-      case Akela::TapDance::Hold:
-      case Akela::TapDance::Timeout:
+      case KaleidoscopePlugins::TapDance::Interrupt:
+      case KaleidoscopePlugins::TapDance::Hold:
+      case KaleidoscopePlugins::TapDance::Timeout:
         handle_key_event (Key_LGUI, row, col, IS_PRESSED | INJECTED);
         Keyboard.sendReport ();
         break;
-      case Akela::TapDance::Release:
+      case KaleidoscopePlugins::TapDance::Release:
         handle_key_event (Key_LGUI, row, col, WAS_PRESSED | INJECTED);
         Keyboard.sendReport ();
         break;
       }
 
       if (tapCount >= 2) {
-        if (tapDanceAction == Akela::TapDance::Release) {
+        if (tapDanceAction == KaleidoscopePlugins::TapDance::Release) {
           ::OneShot.inject (OSL(_APPSEL), WAS_PRESSED);
-        } else if (tapDanceAction == Akela::TapDance::Timeout) {
+        } else if (tapDanceAction == KaleidoscopePlugins::TapDance::Timeout) {
           ::OneShot.inject (OSL(_APPSEL), IS_PRESSED);
           Serial.println (F("appsel:start"));
         }
       }
     }
 
-    static void TMUX (uint8_t tapCount, byte row, byte col, Akela::TapDance::ActionType tapDanceAction) {
-      if (tapDanceAction != Akela::TapDance::Release)
+    static void TMUX (uint8_t tapCount, byte row, byte col, KaleidoscopePlugins::TapDance::ActionType tapDanceAction) {
+      if (tapDanceAction != KaleidoscopePlugins::TapDance::Release)
         return;
 
       Key key;
@@ -69,8 +69,8 @@ namespace algernon {
       Keyboard.sendReport ();
     }
 
-    static void TMUXPane (uint8_t tapCount, byte row, byte col, Akela::TapDance::ActionType tapDanceAction) {
-      if (tapDanceAction != Akela::TapDance::Release)
+    static void TMUXPane (uint8_t tapCount, byte row, byte col, KaleidoscopePlugins::TapDance::ActionType tapDanceAction) {
+      if (tapDanceAction != KaleidoscopePlugins::TapDance::Release)
         return;
 
       Key key;
@@ -97,7 +97,7 @@ namespace algernon {
 }
 
 void
-tapDanceAction (uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, Akela::TapDance::ActionType tapDanceAction) {
+tapDanceAction (uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, KaleidoscopePlugins::TapDance::ActionType tapDanceAction) {
   switch (tapDanceIndex) {
   case TMUX:
     return algernon::TapDance::TMUX (tapCount, row, col, tapDanceAction);
@@ -133,7 +133,7 @@ namespace algernon {
   namespace TapDance {
     void
     configure (void) {
-      Keyboardio.use (&::TapDance, NULL);
+      Kaleidoscope.use (&::TapDance, NULL);
     }
   };
 };

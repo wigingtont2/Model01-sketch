@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include <Akela-Leader.h>
+#include <Kaleidoscope-Leader.h>
 
 enum {
   MAIN,
