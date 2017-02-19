@@ -31,7 +31,6 @@
 #include <Kaleidoscope-LED-ActiveModColor.h>
 #include <Kaleidoscope-LED-Stalker.h>
 #include <Kaleidoscope-Escape-OneShot.h>
-#include <Kaleidoscope-Heatmap.h>
 
 #include "Layers.h"
 
@@ -218,7 +217,6 @@ void setup () {
 
   Kaleidoscope.use (//&KeyLogger,
                     &LEDOff,
-                    &HeatmapEffect,
                     &StalkerEffect,
                     NULL);
 
