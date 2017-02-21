@@ -62,37 +62,37 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
     Key_F11       ,Key_9     ,Key_7     ,Key_5      ,Key_3 ,Key_1 ,TD(TMUX)
    ,Key_Backtick  ,Key_Quote ,Key_Comma ,Key_Period ,Key_P ,Key_Y ,TD(LPB)
    ,Key_Tab       ,Key_A     ,Key_O     ,Key_E      ,Key_U ,Key_I
-   ,Key_playPause ,Key_Slash ,Key_Q     ,Key_J      ,Key_K ,Key_X ,Key_LAlt
+   ,Key_playPause ,Key_Slash ,Key_Q     ,Key_J      ,Key_K ,Key_X ,OSM(LAlt)
 
-   ,TD(COLON) ,Key_Backspace ,Key_LShift ,Key_Esc
-   ,MO(_NAV)
+   ,TD(COLON) ,Key_Backspace ,OSM(LShift) ,Key_Esc
+   ,OSL(_NAV)
 
-   ,TD(TMUXP) ,Key_0 ,Key_2 ,Key_4 ,Key_6 ,Key_8 ,TD(MNP)
-   ,TD(RPB)   ,Key_F ,Key_G ,Key_C ,Key_R ,Key_L ,Key_Backslash
-              ,Key_D ,Key_H ,Key_T ,Key_N ,Key_S ,Key_Equals
-   ,Key_LCtrl ,Key_B ,Key_M ,Key_W ,Key_V ,Key_Z ,LEAD(MAIN)
+   ,TD(TMUXP)  ,Key_0 ,Key_2 ,Key_4 ,Key_6 ,Key_8 ,TD(MNP)
+   ,TD(RPB)    ,Key_F ,Key_G ,Key_C ,Key_R ,Key_L ,Key_Backslash
+               ,Key_D ,Key_H ,Key_T ,Key_N ,Key_S ,Key_Equals
+   ,OSM(LCtrl) ,Key_B ,Key_M ,Key_W ,Key_V ,Key_Z ,LEAD(MAIN)
 
    ,TD(GUI) ,Key_Enter ,Key_Space ,Key_Minus
-   ,MO(_HUN)
+   ,OSL(_HUN)
   ),
 
   [_ADORE] = KEYMAP_STACKED
   (
-    Key_F11       ,Key_9 ,Key_7 ,Key_5      ,Key_3     ,Key_1       ,TD(TMUX)
-   ,Key_Backslash ,Key_X ,Key_W ,Key_C      ,Key_H     ,Key_F       ,TD(LPB)
+    Key_F11       ,Key_9 ,Key_7 ,Key_5      ,Key_3     ,Key_1      ,TD(TMUX)
+   ,Key_Backslash ,Key_X ,Key_W ,Key_C      ,Key_H     ,Key_F      ,TD(LPB)
    ,Key_Tab       ,Key_A ,Key_O ,Key_E      ,Key_I     ,Key_U
-   ,Key_playPause ,Key_Z ,Key_Q ,Key_Quote  ,Key_Comma ,Key_Period  ,Key_LAlt
+   ,Key_playPause ,Key_Z ,Key_Q ,Key_Quote  ,Key_Comma ,Key_Period ,OSM(LAlt)
 
-   ,TD(COLON) ,Key_Backspace ,Key_LShift ,Key_Esc
-   ,MO(_NAV)
+   ,TD(COLON) ,Key_Backspace ,OSM(LShift) ,Key_Esc
+   ,OSL(_NAV)
 
-   ,TD(TMUXP) ,Key_0 ,Key_2 ,Key_4 ,Key_6 ,Key_8     ,TD(MNP)
-   ,TD(RPB)   ,Key_M ,Key_G ,Key_L ,Key_P ,Key_Slash ,Key_Backslash
-              ,Key_D ,Key_R ,Key_T ,Key_N ,Key_S     ,Key_Equals
-   ,Key_LCtrl ,Key_B ,Key_K ,Key_V ,Key_Y ,Key_J     ,LEAD(MAIN)
+   ,TD(TMUXP)  ,Key_0 ,Key_2 ,Key_4 ,Key_6 ,Key_8     ,TD(MNP)
+   ,TD(RPB)    ,Key_M ,Key_G ,Key_L ,Key_P ,Key_Slash ,Key_Backslash
+               ,Key_D ,Key_R ,Key_T ,Key_N ,Key_S     ,Key_Equals
+   ,OSM(LCtrl) ,Key_B ,Key_K ,Key_V ,Key_Y ,Key_J     ,LEAD(MAIN)
 
    ,Key_LGUI ,Key_Enter ,Key_Space ,Key_Minus
-   ,MO(_HUN)
+   ,OSL(_HUN)
   ),
 
   [_NAV] = KEYMAP_STACKED
@@ -111,7 +111,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,___         ,XXX     ,XXX        ,XXX         ,XXX        ,XXX  ,XXX
 
    ,MM(BtnL) ,Key_PageDn ,Key_PageUp ,MM(BtnR)
-   ,MO(_EMPTY)
+   ,OSL(_EMPTY)
   ),
 
   [_HUN] = KEYMAP_STACKED
@@ -122,7 +122,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,XXX ,XXX       ,R(HUN_OU)  ,XXX       ,R(HUN_UU)  ,XXX       ,XXX
 
    ,XXX ,___ ,___ ,___
-   ,MO(_EMPTY)
+   ,OSL(_EMPTY)
 
    ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
    ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
