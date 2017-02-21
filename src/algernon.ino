@@ -205,6 +205,29 @@ static void emptyLayerForceOff (bool postClear) {
   }
 }
 
+static unsigned long loopStart = micros();
+static uint8_t loopCount;
+
+static void loopTimer (bool postClear) {
+  if (!postClear)
+    return;
+
+  loopCount++;
+
+  if (loopCount == 100) {
+    unsigned long now = micros();
+
+    Serial.print (F("loopTime: "));
+    Serial.println (now - loopStart);
+
+    loopCount = 0;
+    loopStart = now;
+  }
+
+  loopStart = micros();
+
+}
+
 void setup () {
   Serial.begin(9600);
 
@@ -214,6 +237,7 @@ void setup () {
   StalkerEffect.configure (STALKER (BlazingTrail, NULL));
 
   loop_hook_use (emptyLayerForceOff);
+  loop_hook_use (loopTimer);
 
   Kaleidoscope.use (//&KeyLogger,
                     &LEDOff,
