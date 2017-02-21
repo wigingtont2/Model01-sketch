@@ -238,6 +238,8 @@ void setup () {
 
   algernon::Colormap::configure ();
   Kaleidoscope.use (&ActiveModColorEffect, NULL);
+
+  LEDControl.syncDelay = 64;
 }
 
 void loop () {
