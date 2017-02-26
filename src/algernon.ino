@@ -24,8 +24,6 @@
 #include <Kaleidoscope-MouseKeys.h>
 #include <Kaleidoscope-LEDControl.h>
 
-#include <Kaleidoscope-KeyLogger.h>
-
 #include "LED-Off.h"
 
 #include <Kaleidoscope-LangPack-Hungarian.h>
@@ -216,8 +214,7 @@ void setup () {
 
   loop_hook_use (emptyLayerForceOff);
 
-  Kaleidoscope.use (//&KeyLogger,
-                    &LEDOff,
+  Kaleidoscope.use (&LEDOff,
                     &StalkerEffect,
                     NULL);
 
