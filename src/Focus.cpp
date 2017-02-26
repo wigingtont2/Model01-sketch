@@ -17,7 +17,9 @@
  */
 
 #include "Focus.h"
+#include <Kaleidoscope-Focus.h>
 #include <Kaleidoscope-LEDControl.h>
+#include <Kaleidoscope-EEPROM-Settings.h>
 
 namespace algernon {
   namespace FocusSetup {
@@ -106,7 +108,12 @@ namespace algernon {
     }
 
     void configure (void) {
-      USE_PLUGINS (&Focus);
+      USE_PLUGINS (&Focus, &EEPROMSettings);
+
+      if (EEPROMSettings.isValid ()) {
+        EEPROMSettings.version (0);
+        EEPROMSettings.update ();
+      }
 
       Focus.addHook (FOCUS_HOOK_HELP);
       Focus.addHook (FOCUS_HOOK_VERSION);
@@ -129,7 +136,7 @@ namespace algernon {
                                  "led.off\n"
                                  "-------\n"
                                  "Turn all LEDs off."));
-
+      Focus.addHook (FOCUS_HOOK_SETTINGS);
     }
   };
 };

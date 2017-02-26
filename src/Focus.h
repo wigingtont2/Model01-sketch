@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include <Kaleidoscope-Focus.h>
-
 namespace algernon {
   namespace FocusSetup {
     void configure (void);
