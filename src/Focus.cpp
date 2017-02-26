@@ -17,9 +17,13 @@
  */
 
 #include "Focus.h"
+
+#define FOCUS_WITHOUT_DOCS 1
+
 #include <Kaleidoscope-Focus.h>
 #include <Kaleidoscope-LEDControl.h>
 #include <Kaleidoscope-EEPROM-Settings.h>
+#include <Kaleidoscope-EEPROM-Keymap.h>
 
 namespace algernon {
   namespace FocusSetup {
@@ -108,7 +112,7 @@ namespace algernon {
     }
 
     void configure (void) {
-      USE_PLUGINS (&Focus, &EEPROMSettings);
+      USE_PLUGINS (&Focus, &EEPROMSettings, &EEPROMKeymap);
 
       if (EEPROMSettings.isValid ()) {
         EEPROMSettings.version (0);
@@ -117,6 +121,7 @@ namespace algernon {
 
       Focus.addHook (FOCUS_HOOK_HELP);
       Focus.addHook (FOCUS_HOOK_VERSION);
+      Focus.addHook (FOCUS_HOOK_KEYMAP);
       Focus.addHook (FOCUS_HOOK (led,
                                  "led.set index r g b\n"
                                  "-------------------\n"
