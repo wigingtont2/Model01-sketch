@@ -23,6 +23,7 @@
 #include <Kaleidoscope-Unicode.h>
 #include <Kaleidoscope-Syster.h>
 #include <Kaleidoscope-LangPack-Hungarian.h>
+#include <Kaleidoscope-OneShot.h>
 
 #include "Macros.h"
 
@@ -42,6 +43,8 @@ namespace algernon {
       LEAD_SHRUGGY,
 
       LEAD_LEDEFFECT,
+
+      LEAD_BUTTERFLY,
     };
 
     static void
@@ -88,6 +91,17 @@ namespace algernon {
       LEDControl.next_mode ();
     }
 
+    static void
+    Butterfly (uint8_t seqIndex) {
+      ::Macros.play (MACRO (I(10),
+                            D(LAlt), W(100), T(X), W(100), U(LAlt),
+                            W(100), W(100),
+                            T(B), T(U), T(T), T(T), T(E), T(R), T(F), T(L), T(Y),
+                            W(100), W(100),
+                            T(Enter), W(100),
+                            T(Y), END));
+    }
+
     static const KaleidoscopePlugins::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
       (
        [LEAD_UNICODE_UCIS]   = {LEADER_SEQ (LEAD(MAIN), Key_U), startUCIS},
@@ -98,7 +112,9 @@ namespace algernon {
        [LEAD_YAY]             = {LEADER_SEQ (LEAD(MAIN), Key_Y), Yay},
        [LEAD_SHRUGGY]         = {LEADER_SEQ (LEAD(MAIN), Key_S), Shruggy},
 
-       [LEAD_LEDEFFECT]       = {LEADER_SEQ (LEAD(MAIN), LEAD(MAIN)), NextLEDEffect}
+       [LEAD_LEDEFFECT]       = {LEADER_SEQ (LEAD(MAIN), LEAD(MAIN)), NextLEDEffect},
+
+       [LEAD_BUTTERFLY]       = {LEADER_SEQ (LEAD(MAIN), OSM(LCtrl)), Butterfly}
       );
 
     void
