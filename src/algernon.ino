@@ -34,6 +34,7 @@
 #include "Layers.h"
 
 #include "Colormap.h"
+#include "Focus.h"
 #include "Leader.h"
 #include "OneShot.h"
 #include "TapDance.h"
@@ -238,6 +239,8 @@ void setup () {
   Kaleidoscope.use (&ActiveModColorEffect, NULL);
 
   LEDControl.syncDelay = 64;
+
+  algernon::FocusSetup::configure ();
 }
 
 #if DEBUG
