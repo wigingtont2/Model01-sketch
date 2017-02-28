@@ -25,27 +25,27 @@ namespace algernon {
     input (const char *symbol) {
       uint32_t code = 0;
 
-      if (strcmp (symbol, "coffee") == 0) {
+      if (strcmp_P (symbol, PSTR("coffee")) == 0) {
         code = 0x2615;
-      } else if (strcmp (symbol, "lambda") == 0) {
+      } else if (strcmp_P (symbol, PSTR("lambda")) == 0) {
         code = 0x03bb;
-      } else if (strcmp (symbol, "poop") == 0) {
+      } else if (strcmp_P (symbol, PSTR("poop")) == 0) {
         code = 0x1f4a9;
-      } else if (strcmp (symbol, "rofl") == 0) {
+      } else if (strcmp_P (symbol, PSTR("rofl")) == 0) {
         code = 0x1f923;
-      } else if (strcmp (symbol, "kiss") == 0) {
+      } else if (strcmp_P (symbol, PSTR("kiss")) == 0) {
         code = 0x1f619;
-      } else if (strcmp (symbol, "snowman") == 0) {
+      } else if (strcmp_P (symbol, PSTR("snowman")) == 0) {
         code = 0x2603;
-      } else if (strcmp (symbol, "heart") == 0) {
+      } else if (strcmp_P (symbol, PSTR("heart")) == 0) {
         code = 0x2764;
-      } else if (strcmp (symbol, "bolt") == 0) {
+      } else if (strcmp_P (symbol, PSTR("bolt")) == 0) {
         code = 0x26a1;
-      } else if (strcmp (symbol, "pi") == 0) {
+      } else if (strcmp_P (symbol, PSTR("pi")) == 0) {
         code = 0x03c0;
-      } else if (strcmp (symbol, "mouse") == 0) {
+      } else if (strcmp_P (symbol, PSTR("mouse")) == 0) {
         code = 0x1f401;
-      } else if (strcmp (symbol, "micro") == 0) {
+      } else if (strcmp_P (symbol, PSTR("micro")) == 0) {
         code = 0x00b5;
       }
 
