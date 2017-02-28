@@ -29,6 +29,7 @@ enum {
   COLON,
   MNP,
   GUI,
+  F11,
 };
 
 extern void tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, KaleidoscopePlugins::TapDance::ActionType tapDanceAction);

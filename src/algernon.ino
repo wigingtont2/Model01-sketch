@@ -58,7 +58,7 @@ enum {
 const Key keymaps[][ROWS][COLS] PROGMEM = {
   [_DVORAK] = KEYMAP_STACKED
   (
-    Key_F11       ,Key_9     ,Key_7     ,Key_5      ,Key_3 ,Key_1 ,TD(TMUX)
+    TD(F11)       ,Key_9     ,Key_7     ,Key_5      ,Key_3 ,Key_1 ,TD(TMUX)
    ,Key_Backtick  ,Key_Quote ,Key_Comma ,Key_Period ,Key_P ,Key_Y ,TD(LPB)
    ,Key_Tab       ,Key_A     ,Key_O     ,Key_E      ,Key_U ,Key_I
    ,Key_playPause ,Key_Slash ,Key_Q     ,Key_J      ,Key_K ,Key_X ,OSM(LAlt)
@@ -77,7 +77,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
 
   [_ADORE] = KEYMAP_STACKED
   (
-    Key_F11       ,Key_9 ,Key_7 ,Key_5      ,Key_3     ,Key_1      ,TD(TMUX)
+    TD(F11)       ,Key_9 ,Key_7 ,Key_5      ,Key_3     ,Key_1      ,TD(TMUX)
    ,Key_Backslash ,Key_X ,Key_W ,Key_C      ,Key_H     ,Key_F      ,TD(LPB)
    ,Key_Tab       ,Key_A ,Key_O ,Key_E      ,Key_I     ,Key_U
    ,Key_playPause ,Key_Z ,Key_Q ,Key_Quote  ,Key_Comma ,Key_Period ,OSM(LAlt)

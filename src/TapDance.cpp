@@ -126,6 +126,11 @@ tapDanceAction (uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, Kal
 
   case GUI:
     return algernon::TapDance::GUI (tapCount, row, col, tapDanceAction);
+
+  case F11:
+    return tapDanceActionKeys (tapCount, tapDanceAction,
+                               Key_F11,
+                               Key_NoKey);
   }
 }
 
