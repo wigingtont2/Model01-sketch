@@ -45,7 +45,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   - On different layers, the keys that have changed behaviour, are colored differently.
   - When a modifier is active, the [LED-ActiveModColor][kaleidoscope:led-activemodcolor] plugin turns it white.
   - A blazing trail effect is provided by [LED-Stalker][kaleidoscope:led-stalker].
-  - One can also switch LEDs off, or switch to a [Heatmap][kaleidoscope:heatmap], a [rainbow effect][kaleidoscope:rainbow], or a [chase effect][kaleidoscope:chase].
+  - One can also switch LEDs off.
 * The number row was inspired by [Programmer Dvorak][dvorak:prg]: the odd and even numbers are on separate side, instead of the traditional ascending order spanning both sides. Unlike Programmer Dvorak, numbers are accessible without using `Shift`. The symbols atop each number however, are replaced almost everywhere, using the [ShapeShifter][kaleidoscope:shapeshifter] plugin. Symbols used more often are placed at positions with easier access.
 * The `R0C6` and `R0C9` keys are to control `tmux` and `screen`, and are dependent on my tmux setup.
 * The `R1C6` and `R1C9` keys are [tap-dance][kaleidoscope:tap-dance] keys. Tapped once, they input `[{`/`}]` (without and with `Shift`, respectively). Tapped twice, they input `(`/`)`.
@@ -57,9 +57,11 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   - `LEAD BUTTERFLY` (where `BUTTERFLY` is the `R2C9` key) does an `M-x butterfly RET y`, in honor of [xkcd#378](https://xkcd.com/378/).
 * The `R0C7` key is also a [tap-dance][kaleidoscope:tap-dance] key, which inputs `:` on a single tap, `;` otherwise.
 * The `R3C8` key (another [tap-dance][kaleidoscope:tap-dance] key) acts as a `GUI` key when tapped once. When tapped once, it swithes to a special `APPSEL` layer, where the number row on the left half can be used to select an application to switch to. This needs a helper program on the host side.
+* The `R0C0` key acts as `F11` on a single tap, and if tapped more than one time, does nothing. This is so that it can be double tapped and held to go into programmable mode when re-flashing.
 * There are a few other actions one can trigger with [magic combos][kaleidoscope:magic-combos]:
   - `PALMS + A`: Switch to the [ADORE](#adore-layer).
 * We are also using [mouse keys][kaleidoscope:mouse-keys], [macros][kaleidoscope:macros] for some of the features.
+* The keyboard can also communicate with the host bidirectionally, thanks to the [Focus][kaleidoscope:focus] plugin. See [Chrysalis][chrysalis] for a simple client.
 
   [dvorak:prg]: http://www.kaufmann.no/roland/dvorak/
   [kaleidoscope:shapeshifter]: https://github.com/keyboardio/Kaleidoscope-ShapeShifter
@@ -67,14 +69,13 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   [kaleidoscope:colormap]: https://github.com/keyboardio/Kaleidoscope-Colormap
   [kaleidoscope:led-activemodcolor]: https://github.com/keyboardio/Kaleidoscope-LED-ActiveModColor
   [kaleidoscope:led-stalker]: https://github.com/keyboardio/Kaleidoscope-LED-Stalker
-  [kaleidoscope:heatmap]: https://github.com/keyboardio/Kaleidoscope-Heatmap
-  [kaleidoscope:rainbow]: https://github.com/keyboardio/Kaleidoscope-LEDEffect-Rainbow
-  [kaleidoscope:chase]: https://github.com/keyboardio/Kaleidoscope-LEDEffect-Chase
   [kaleidoscope:tap-dance]: https://github.com/keyboardio/Kaleidoscope-TapDance
   [kaleidoscope:leader]: https://github.com/keyboardio/Kaleidoscope-Leader
   [kaleidoscope:magic-combos]: https://github.com/keyboardio/Kaleidoscope-MagicCombo
   [kaleidoscope:mouse-keys]: https://github.com/keyboardio/Kaleidoscope-MouseKeys
   [kaleidoscope:macros]: https://github.com/keyboardio/Kaleidoscope-Macros
+  [kaleidoscope:focus]: https://github.com/keyboardio/Kaleiodscope-Focus
+  [chrysalis]: https://github.com/algernon/Chrysalis
   
 ## ADORE layer
 
