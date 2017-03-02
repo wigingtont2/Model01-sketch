@@ -229,8 +229,8 @@ void setup () {
 
   algernon::Leader::configure ();
   algernon::Syster::configure ();
-  algernon::TapDance::configure ();
   algernon::OneShot::configure ();
+  algernon::TapDance::configure ();
   algernon::MagicCombo::configure ();
 
   Kaleidoscope.use (&EscapeOneShot,
