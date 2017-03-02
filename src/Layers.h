@@ -24,7 +24,7 @@ enum {
   _DVORAK,
   _ADORE,
   _NAV,
-  _HUN,
+  _AUX,
   _EMPTY,
   _APPSEL,
 

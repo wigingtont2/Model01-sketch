@@ -111,7 +111,7 @@ namespace algernon {
        ,TRNS
        ),
 
-      [_HUN] = KEYMAP_STACKED
+      [_AUX] = KEYMAP_STACKED
       (
         TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
        ,TRNS ,TRNS ,RED  ,TRNS ,RED  ,TRNS ,TRNS

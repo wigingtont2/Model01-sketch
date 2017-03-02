@@ -81,7 +81,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,OSM(LCtrl) ,Key_B     ,Key_M     ,Key_W    ,Key_V   ,Key_Z ,LEAD(MAIN)
 
    ,TD(GUI) ,Key_Enter ,Key_Space ,Key_Minus
-   ,OSL(_HUN)
+   ,OSL(_AUX)
   ),
 
   [_ADORE] = KEYMAP_STACKED
@@ -100,7 +100,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,OSM(LCtrl) ,Key_B     ,Key_K     ,Key_V    ,Key_Y   ,Key_J     ,LEAD(MAIN)
 
    ,Key_LGUI ,Key_Enter ,Key_Space ,Key_Minus
-   ,OSL(_HUN)
+   ,OSL(_AUX)
   ),
 
   [_NAV] = KEYMAP_STACKED
@@ -122,7 +122,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,OSL(_EMPTY)
   ),
 
-  [_HUN] = KEYMAP_STACKED
+  [_AUX] = KEYMAP_STACKED
   (
     XXX ,XXX       ,XXX        ,XXX       ,XXX        ,XXX       ,XXX
    ,XXX ,XXX       ,R(HUN_ODA) ,XXX       ,R(HUN_UDA) ,XXX       ,XXX
