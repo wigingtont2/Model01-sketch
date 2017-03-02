@@ -25,6 +25,7 @@ It is based on my previous [ErgoDox EZ layout][ergodox-layout], a lot of things 
     - [ADORE layer](#adore-layer)
 * [Special features](#special-features)
     - [Symbolic Unicode Input](#symbolic-unicode-input)
+* [Plugins used](#plugins-used)
 * [License](#license)
 
 # Layouts
@@ -96,6 +97,40 @@ For the list of supported symbols, please [see the source][src:SymUnI].
  [src:SymUnI]: https://github.com/algernon/Model01-sketch/blob/master/src/SymUnI.cpp#L28
 
 This is an experimental feature, and may or may not work reliably.
+
+# Plugins used
+
+This sketch makes use of a fair amount of plugins, most of them have been listed above, but below, you'll find a list of all plugins used (directly, or transitively), in alphabetical order:
+
+* [Colormap][kaleidoscope:colormap]
+* [EEPROM-Keymap][kaleidoscope:eeprom-keymap]
+* [EEPROM-Settings][kaleidoscope:eeprom-settings]
+* [Escape-OneShot][kaleidoscope:escape-oneshot]
+* [Focus][kaleidoscope:focus]
+* [Hardware-Model01][kaleidoscope:hardware-model01]
+* [HostOS][kaleidoscope:hostos]
+* [LED-ActiveModColor][kaleidoscope:led-activemodcolor]
+* [LED-Stalker][kaleidoscope:led-stalker]
+* [LEDControl][kaleidoscope:led-control]
+* [LangPack-Hungarian][kaleidoscope:langpack-hun]
+* [Leader][kaleidoscope:leader]
+* [Macros][kaleidoscope:macros]
+* [MagicCombos][kaleidoscope:magic-combos]
+* [MouseKeys][kaleidoscope:mouse-keys]
+* [OneShot][kaleidoscope:oneshot]
+* [ShapeShifter][kaleidoscope:shapeshifter]
+* [Syster][kaleidoscope:syster]
+* [TapDance][kaleidoscope:tap-dance]
+* [Unicode][kaleidoscope:unicode]
+
+ [kaleidoscope:led-control]: https://github.com/keyboardio/Kaleidoscope-LEDControl
+ [kaleidoscope:langpack-hun]: https://github.com/algernon/Kaleidoscope-LangPack-Hungarian
+ [kaleidoscope:escape-oneshot]: https://github.com/keyboardio/Kaleidoscope-Escape-OneShot
+ [kaleidoscope:hostos]: https://github.com/keyboardio/Kaleidoscope-HostOS
+ [kaleidoscope:unicode]: https://github.com/keyboardio/Kaleidoscope-Unicode
+ [kaleidoscope:eeprom-settings]: https://github.com/keyboardio/Kaleidoscope-EEPROM-Settings
+ [kaleidoscope:eeprom-keymap]: https://github.com/keyboardio/Kaleidoscope-Keymap
+ [kaleidoscope:hardware-model01]: https://github.com/keyboardio/Kaleidoscope-Hardware-Model01
 
 # License
 
