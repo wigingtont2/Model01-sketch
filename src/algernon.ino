@@ -28,6 +28,7 @@
 
 #include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-LED-ActiveModColor.h>
+#include <Kaleidoscope-LED-Stalker.h>
 #include <Kaleidoscope-Escape-OneShot.h>
 
 #include "Layers.h"
@@ -210,9 +211,12 @@ void setup () {
   Mouse.begin();
   AbsoluteMouse.begin();
 
+  StalkerEffect.configure (STALKER (BlazingTrail, NULL));
+
   loop_hook_use (emptyLayerForceOff);
 
   Kaleidoscope.use (&LEDOff,
+                    &StalkerEffect,
                     NULL);
 
   algernon::Leader::configure ();
