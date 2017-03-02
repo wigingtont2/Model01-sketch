@@ -95,7 +95,7 @@ namespace algernon {
       [_NAV] = KEYMAP_STACKED
       (
         CYAN ,CYAN  ,CYAN  ,CYAN  ,CYAN ,CYAN ,TRNS
-       ,TRNS ,TRNS  ,GREEN ,TRNS  ,PINK ,PINK ,TRNS
+       ,TRNS ,TRNS  ,GREEN ,TRNS  ,PINK ,PINK ,PINK
        ,TRNS ,GREEN ,GREEN ,GREEN ,PINK ,PINK
        ,TRNS ,TRNS  ,TRNS  ,TRNS  ,TRNS ,TRNS ,TRNS
 
