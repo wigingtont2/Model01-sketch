@@ -132,21 +132,21 @@ namespace algernon {
 
       [_EMPTY] = KEYMAP_STACKED
       (
-        TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
-       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
-       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
-       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+        OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
 
-       ,TRNS ,TRNS ,TRNS ,TRNS
-       ,TRNS
+       ,OFF ,OFF ,OFF ,OFF
+       ,OFF
 
-       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
-       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
-             ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
-       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+            ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
 
-       ,TRNS ,TRNS ,TRNS ,TRNS
-       ,TRNS
+       ,OFF ,OFF ,OFF ,OFF
+       ,OFF
        ),
       [_APPSEL] = KEYMAP_STACKED
       (
