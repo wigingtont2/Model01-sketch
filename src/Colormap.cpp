@@ -122,9 +122,9 @@ namespace algernon {
        ,TRNS
 
        ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
-       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
-             ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
-       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+       ,TRNS ,TRNS ,CYAN ,CYAN ,CYAN ,TRNS ,TRNS
+             ,TRNS ,CYAN ,CYAN ,CYAN ,CYAN ,TRNS
+       ,TRNS ,TRNS ,CYAN ,CYAN ,CYAN ,TRNS ,TRNS
 
        ,TRNS ,TRNS ,TRNS ,TRNS
        ,TRNS

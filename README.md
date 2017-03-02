@@ -47,7 +47,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   - When a modifier is active, the [LED-ActiveModColor][kaleidoscope:led-activemodcolor] plugin turns it white.
   - A blazing trail effect is provided by [LED-Stalker][kaleidoscope:led-stalker].
   - One can also switch LEDs off.
-* The number row was inspired by [Programmer Dvorak][dvorak:prg]: the odd and even numbers are on separate side, instead of the traditional ascending order spanning both sides. Unlike Programmer Dvorak, numbers are accessible without using `Shift`. The symbols atop each number however, are replaced almost everywhere, using the [ShapeShifter][kaleidoscope:shapeshifter] plugin. Symbols used more often are placed at positions with easier access.
+* The top row was inspired by [Programmer Dvorak][dvorak:prg], but the symbols are arranged so that the most used ones are easier to access. The numbers are available in a numpad-like layout on a separate layer.
 * The `R0C6` and `R0C9` keys are to control `tmux` and `screen`, and are dependent on my tmux setup.
 * The `R1C6` and `R1C9` keys are [tap-dance][kaleidoscope:tap-dance] keys. Tapped once, they input `[{`/`}]` (without and with `Shift`, respectively). Tapped twice, they input `(`/`)`.
 * The `LEAD` keys is a [leader key][kaleidoscope:leader], with the following sequences built-in:
@@ -65,7 +65,6 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
 * The keyboard can also communicate with the host bidirectionally, thanks to the [Focus][kaleidoscope:focus] plugin. See [Chrysalis][chrysalis] for a simple client.
 
   [dvorak:prg]: http://www.kaufmann.no/roland/dvorak/
-  [kaleidoscope:shapeshifter]: https://github.com/keyboardio/Kaleidoscope-ShapeShifter
   [kaleidoscope:oneshot]: https://github.com/keyboardio/Kaleidoscope-OneShot
   [kaleidoscope:colormap]: https://github.com/keyboardio/Kaleidoscope-Colormap
   [kaleidoscope:led-activemodcolor]: https://github.com/keyboardio/Kaleidoscope-LED-ActiveModColor
@@ -118,7 +117,6 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 * [MagicCombos][kaleidoscope:magic-combos]
 * [MouseKeys][kaleidoscope:mouse-keys]
 * [OneShot][kaleidoscope:oneshot]
-* [ShapeShifter][kaleidoscope:shapeshifter]
 * [Syster][kaleidoscope:syster]
 * [TapDance][kaleidoscope:tap-dance]
 * [Unicode][kaleidoscope:unicode]

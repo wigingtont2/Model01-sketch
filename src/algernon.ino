@@ -38,7 +38,6 @@
 #include "Leader.h"
 #include "OneShot.h"
 #include "TapDance.h"
-#include "ShapeShifter.h"
 #include "MagicCombo.h"
 #include "Syster.h"
 
@@ -56,21 +55,30 @@ enum {
   APPSEL_WEB
 };
 
+#define Key_AT    LSHIFT(Key_2)
+#define Key_STAR  LSHIFT(Key_8)
+#define Key_DOLLR LSHIFT(Key_4)
+#define Key_CARET LSHIFT(Key_6)
+#define Key_PRCNT LSHIFT(Key_5)
+#define Key_EXCLM LSHIFT(Key_1)
+#define Key_HASH  LSHIFT(Key_3)
+#define Key_AND   LSHIFT(Key_7)
+
 const Key keymaps[][ROWS][COLS] PROGMEM = {
   [_DVORAK] = KEYMAP_STACKED
   (
-    TD(F11)       ,Key_9     ,Key_7     ,Key_5      ,Key_3 ,Key_1 ,TD(TMUX)
-   ,Key_Backtick  ,Key_Quote ,Key_Comma ,Key_Period ,Key_P ,Key_Y ,TD(LPB)
-   ,Key_Tab       ,Key_A     ,Key_O     ,Key_E      ,Key_U ,Key_I
-   ,Key_playPause ,Key_Slash ,Key_Q     ,Key_J      ,Key_K ,Key_X ,OSM(LAlt)
+    TD(F11)       ,XXX       ,Key_AT    ,Key_STAR   ,Key_DOLLR ,Key_CARET ,TD(TMUX)
+   ,Key_Backtick  ,Key_Quote ,Key_Comma ,Key_Period ,Key_P     ,Key_Y     ,TD(LPB)
+   ,Key_Tab       ,Key_A     ,Key_O     ,Key_E      ,Key_U     ,Key_I
+   ,Key_playPause ,Key_Slash ,Key_Q     ,Key_J      ,Key_K     ,Key_X     ,OSM(LAlt)
 
    ,TD(COLON) ,Key_Backspace ,OSM(LShift) ,Key_Esc
    ,OSL(_NAV)
 
-   ,TD(TMUXP)  ,Key_0 ,Key_2 ,Key_4 ,Key_6 ,Key_8 ,TD(MNP)
-   ,TD(RPB)    ,Key_F ,Key_G ,Key_C ,Key_R ,Key_L ,Key_Backslash
-               ,Key_D ,Key_H ,Key_T ,Key_N ,Key_S ,Key_Equals
-   ,OSM(LCtrl) ,Key_B ,Key_M ,Key_W ,Key_V ,Key_Z ,LEAD(MAIN)
+   ,TD(TMUXP)  ,Key_PRCNT ,Key_EXCLM ,Key_HASH ,Key_AND ,XXX   ,TD(MNP)
+   ,TD(RPB)    ,Key_F     ,Key_G     ,Key_C    ,Key_R   ,Key_L ,Key_Backslash
+               ,Key_D     ,Key_H     ,Key_T    ,Key_N   ,Key_S ,Key_Equals
+   ,OSM(LCtrl) ,Key_B     ,Key_M     ,Key_W    ,Key_V   ,Key_Z ,LEAD(MAIN)
 
    ,TD(GUI) ,Key_Enter ,Key_Space ,Key_Minus
    ,OSL(_HUN)
@@ -78,18 +86,18 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
 
   [_ADORE] = KEYMAP_STACKED
   (
-    TD(F11)       ,Key_9 ,Key_7 ,Key_5      ,Key_3     ,Key_1      ,TD(TMUX)
-   ,Key_Backslash ,Key_X ,Key_W ,Key_C      ,Key_H     ,Key_F      ,TD(LPB)
-   ,Key_Tab       ,Key_A ,Key_O ,Key_E      ,Key_I     ,Key_U
-   ,Key_playPause ,Key_Z ,Key_Q ,Key_Quote  ,Key_Comma ,Key_Period ,OSM(LAlt)
+    TD(F11)       ,XXX   ,Key_AT ,Key_STAR  ,Key_DOLLR ,Key_CARET  ,TD(TMUX)
+   ,Key_Backslash ,Key_X ,Key_W  ,Key_C     ,Key_H     ,Key_F      ,TD(LPB)
+   ,Key_Tab       ,Key_A ,Key_O  ,Key_E     ,Key_I     ,Key_U
+   ,Key_playPause ,Key_Z ,Key_Q  ,Key_Quote ,Key_Comma ,Key_Period ,OSM(LAlt)
 
    ,TD(COLON) ,Key_Backspace ,OSM(LShift) ,Key_Esc
    ,OSL(_NAV)
 
-   ,TD(TMUXP)  ,Key_0 ,Key_2 ,Key_4 ,Key_6 ,Key_8     ,TD(MNP)
-   ,TD(RPB)    ,Key_M ,Key_G ,Key_L ,Key_P ,Key_Slash ,Key_Backslash
-               ,Key_D ,Key_R ,Key_T ,Key_N ,Key_S     ,Key_Equals
-   ,OSM(LCtrl) ,Key_B ,Key_K ,Key_V ,Key_Y ,Key_J     ,LEAD(MAIN)
+   ,TD(TMUXP)  ,Key_PRCNT ,Key_EXCLM ,Key_HASH ,Key_AND ,XXX       ,TD(MNP)
+   ,TD(RPB)    ,Key_M     ,Key_G     ,Key_L    ,Key_P   ,Key_Slash ,Key_Backslash
+               ,Key_D     ,Key_R     ,Key_T    ,Key_N   ,Key_S     ,Key_Equals
+   ,OSM(LCtrl) ,Key_B     ,Key_K     ,Key_V    ,Key_Y   ,Key_J     ,LEAD(MAIN)
 
    ,Key_LGUI ,Key_Enter ,Key_Space ,Key_Minus
    ,OSL(_HUN)
@@ -124,10 +132,10 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,XXX ,___ ,___ ,___
    ,OSL(_EMPTY)
 
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-        ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX   ,XXX   ,XXX   ,XXX   ,XXX
+   ,XXX ,XXX ,Key_7 ,Key_8 ,Key_9 ,XXX   ,XXX
+        ,XXX ,Key_4 ,Key_5 ,Key_6 ,Key_0 ,XXX
+   ,XXX ,XXX ,Key_1 ,Key_2 ,Key_3 ,XXX   ,XXX
 
    ,XXX ,XXX ,XXX ,XXX
    ,___
@@ -223,7 +231,6 @@ void setup () {
   algernon::Syster::configure ();
   algernon::TapDance::configure ();
   algernon::OneShot::configure ();
-  algernon::ShapeShifter::configure ();
   algernon::MagicCombo::configure ();
 
   Kaleidoscope.use (&EscapeOneShot,
