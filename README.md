@@ -61,7 +61,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
 * The `R0C0` key acts as `F11` on a single tap, and if tapped more than one time, does nothing. This is so that it can be double tapped and held to go into programmable mode when re-flashing.
 * There are a few other actions one can trigger with [magic combos][kaleidoscope:magic-combos]:
   - `PALMS + A`: Switch to the [ADORE](#adore-layer).
-* We are also using [mouse keys][kaleidoscope:mouse-keys], [macros][kaleidoscope:macros] for some of the features.
+* We are also using [mouse keys][kaleidoscope:mouse-keys], [mouse gears][kaleidoscope:mouse-gears], and [macros][kaleidoscope:macros] for some of the features.
 * The keyboard can also communicate with the host bidirectionally, thanks to the [Focus][kaleidoscope:focus] plugin. See [Chrysalis][chrysalis] for a simple client.
 
   [dvorak:prg]: http://www.kaufmann.no/roland/dvorak/
@@ -73,6 +73,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   [kaleidoscope:leader]: https://github.com/keyboardio/Kaleidoscope-Leader
   [kaleidoscope:magic-combos]: https://github.com/keyboardio/Kaleidoscope-MagicCombo
   [kaleidoscope:mouse-keys]: https://github.com/keyboardio/Kaleidoscope-MouseKeys
+  [kaleidoscope:mouse-gears]: https://github.com/keyboardio/Kaleidoscope-MouseGears
   [kaleidoscope:macros]: https://github.com/keyboardio/Kaleidoscope-Macros
   [kaleidoscope:focus]: https://github.com/keyboardio/Kaleiodscope-Focus
   [chrysalis]: https://github.com/algernon/Chrysalis
@@ -115,6 +116,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 * [Leader][kaleidoscope:leader]
 * [Macros][kaleidoscope:macros]
 * [MagicCombos][kaleidoscope:magic-combos]
+* [MouseGears][kaleidoscope:mouse-gears]
 * [MouseKeys][kaleidoscope:mouse-keys]
 * [OneShot][kaleidoscope:oneshot]
 * [Syster][kaleidoscope:syster]

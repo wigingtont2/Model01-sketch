@@ -21,7 +21,6 @@
 
 #include <Kaleidoscope.h>
 #include <Kaleidoscope-Macros.h>
-#include <Kaleidoscope-MouseKeys.h>
 #include <Kaleidoscope-LEDControl.h>
 
 #include "LED-Off.h"
@@ -30,6 +29,7 @@
 #include <Kaleidoscope-LED-ActiveModColor.h>
 #include <Kaleidoscope-LED-Stalker.h>
 #include <Kaleidoscope-Escape-OneShot.h>
+#include <Kaleidoscope-MouseGears.h>
 
 #include "Layers.h"
 
@@ -52,7 +52,10 @@ enum {
   APPSEL_CHAT,
   APPSEL_EMACS,
   APPSEL_TERM,
-  APPSEL_WEB
+  APPSEL_WEB,
+
+  MSP,
+  MSM,
 };
 
 #define Key_AT    LSHIFT(Key_2)
@@ -116,9 +119,9 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,___
 
    ,LGUI(Key_L) ,Key_F10 ,Key_F2     ,Key_F4      ,Key_F6     ,Key_F8 ,XXX
-   ,XXX         ,XXX     ,Key_Home   ,Key_UpArrow ,Key_End    ,XXX  ,XXX
-                ,XXX     ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX  ,XXX
-   ,___         ,XXX     ,XXX        ,XXX         ,XXX        ,XXX  ,XXX
+   ,XXX         ,M(MSP)  ,Key_Home   ,Key_UpArrow ,Key_End    ,XXX    ,XXX
+                ,M(MSM)  ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX    ,XXX
+   ,___         ,XXX     ,XXX        ,XXX         ,XXX        ,XXX    ,XXX
 
    ,MM(BtnL) ,Key_PageDn ,Key_PageUp ,MM(BtnR)
    ,OSL(_EMPTY)
@@ -201,6 +204,13 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   case APPSEL_WEB:
     Serial.println (F("appsel:web"));
     break;
+
+  case MSP:
+    MouseGears.speedUp ();
+    break;
+  case MSM:
+    MouseGears.speedDown ();
+    break;
   }
   return MACRO_NONE;
 }
@@ -218,8 +228,8 @@ static void emptyLayerForceOff (bool postClear) {
 void setup () {
   Serial.begin(9600);
 
-  Mouse.begin();
-  AbsoluteMouse.begin();
+  Mouse.begin ();
+  AbsoluteMouse.begin ();
 
   StalkerEffect.configure (STALKER (BlazingTrail, NULL));
 
@@ -227,6 +237,7 @@ void setup () {
 
   Kaleidoscope.use (&LEDOff,
                     &StalkerEffect,
+                    &MouseGears,
                     NULL);
 
   algernon::Leader::configure ();
