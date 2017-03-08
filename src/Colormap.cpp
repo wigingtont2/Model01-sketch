@@ -103,8 +103,8 @@ namespace algernon {
        ,TRNS
 
        ,RED  ,CYAN ,CYAN ,CYAN ,CYAN ,CYAN ,TRNS
-       ,TRNS ,TRNS ,NAVY ,BLUE ,NAVY ,TRNS ,TRNS
-             ,TRNS ,BLUE ,BLUE ,BLUE ,TRNS ,TRNS
+       ,TRNS ,RED  ,NAVY ,BLUE ,NAVY ,TRNS ,TRNS
+             ,RED  ,BLUE ,BLUE ,BLUE ,TRNS ,TRNS
        ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
 
        ,GREEN ,NAVY ,NAVY ,GREEN
