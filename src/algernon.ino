@@ -231,6 +231,8 @@ void setup () {
   Mouse.begin ();
   AbsoluteMouse.begin ();
 
+  Kaleidoscope.setup ();
+
   StalkerEffect.configure (STALKER (BlazingTrail, NULL));
 
   loop_hook_use (emptyLayerForceOff);
@@ -253,7 +255,6 @@ void setup () {
 
                     NULL);
 
-  Kaleidoscope.setup (KEYMAP_SIZE);
   delay (1000);
 
   algernon::Colormap::configure ();
