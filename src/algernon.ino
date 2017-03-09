@@ -123,7 +123,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
                 ,M(MSM)  ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX    ,XXX
    ,___         ,XXX     ,XXX        ,XXX         ,XXX        ,XXX    ,XXX
 
-   ,MM(BtnL) ,Key_PageDn ,Key_PageUp ,MM(BtnR)
+   ,MM(BtnL) ,MM(BtnR) ,Key_PageUp ,Key_PageDn
    ,OSL(_EMPTY)
   ),
 
