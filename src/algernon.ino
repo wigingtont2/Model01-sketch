@@ -239,19 +239,18 @@ void setup () {
 
   Kaleidoscope.use (&LEDOff,
                     &StalkerEffect,
-                    &MouseGears,
                     NULL);
 
+  algernon::OneShot::configure ();
   algernon::Leader::configure ();
   algernon::Syster::configure ();
-  algernon::OneShot::configure ();
   algernon::TapDance::configure ();
   algernon::MagicCombo::configure ();
 
   Kaleidoscope.use (&EscapeOneShot,
                     &Macros,
                     &Hungarian,
-                    &MouseKeys,
+                    &MouseGears,
 
                     NULL);
 
