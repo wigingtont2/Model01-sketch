@@ -241,6 +241,8 @@ void setup () {
                     &StalkerEffect,
                     NULL);
 
+  algernon::Colormap::configure ();
+
   algernon::OneShot::configure ();
   algernon::Leader::configure ();
   algernon::Syster::configure ();
@@ -251,17 +253,13 @@ void setup () {
                     &Macros,
                     &Hungarian,
                     &MouseGears,
-
+                    &ActiveModColorEffect,
                     NULL);
 
-  delay (1000);
-
-  algernon::Colormap::configure ();
-  Kaleidoscope.use (&ActiveModColorEffect, NULL);
+  algernon::FocusSetup::configure ();
 
   LEDControl.syncDelay = 64;
-
-  algernon::FocusSetup::configure ();
+  delay (1000);
 }
 
 #if DEBUG
