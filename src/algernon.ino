@@ -254,6 +254,7 @@ void setup () {
                     NULL);
 
   Kaleidoscope.setup (KEYMAP_SIZE);
+  delay (1000);
 
   algernon::Colormap::configure ();
   Kaleidoscope.use (&ActiveModColorEffect, NULL);
