@@ -81,7 +81,7 @@ namespace algernon {
 
     static void
     Kids (uint8_t seqIndex) {
-      ::Macros.play (MACRO (D(RShift), T(7), U(RShift), T(Space), END));
+      ::Macros.play (MACRO (T(Space), D(RShift), T(7), U(RShift), T(Space), END));
       ::Unicode.type (0x1f476);
       ::Unicode.type (0x1f476);
     }
