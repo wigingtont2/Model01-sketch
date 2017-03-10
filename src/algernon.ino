@@ -75,15 +75,15 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
     TD(F11)       ,Key_LCB   ,Key_AT    ,Key_STAR   ,Key_DOLLR ,Key_CARET ,TD(TMUX)
    ,Key_Backtick  ,Key_Quote ,Key_Comma ,Key_Period ,Key_P     ,Key_Y     ,TD(LPB)
    ,Key_Tab       ,Key_A     ,Key_O     ,Key_E      ,Key_U     ,Key_I
-   ,Key_playPause ,Key_Slash ,Key_Q     ,Key_J      ,Key_K     ,Key_X     ,OSM(LAlt)
+   ,Key_playPause ,Key_Slash ,Key_Q     ,Key_J      ,Key_K     ,Key_X     ,OSM(LCtrl)
 
    ,TD(COLON) ,Key_Backspace ,OSM(LShift) ,Key_Esc
    ,OSL(_NAV)
 
-   ,TD(TMUXP)  ,Key_PRCNT ,Key_EXCLM ,Key_HASH ,Key_AND ,Key_RCB ,TD(MNP)
-   ,TD(RPB)    ,Key_F     ,Key_G     ,Key_C    ,Key_R   ,Key_L   ,Key_Backslash
-               ,Key_D     ,Key_H     ,Key_T    ,Key_N   ,Key_S   ,Key_Equals
-   ,OSM(LCtrl) ,Key_B     ,Key_M     ,Key_W    ,Key_V   ,Key_Z   ,LEAD(MAIN)
+   ,TD(TMUXP) ,Key_PRCNT ,Key_EXCLM ,Key_HASH ,Key_AND ,Key_RCB ,TD(MNP)
+   ,TD(RPB)   ,Key_F     ,Key_G     ,Key_C    ,Key_R   ,Key_L   ,Key_Backslash
+              ,Key_D     ,Key_H     ,Key_T    ,Key_N   ,Key_S   ,Key_Equals
+   ,OSM(LAlt) ,Key_B     ,Key_M     ,Key_W    ,Key_V   ,Key_Z   ,LEAD(MAIN)
 
    ,TD(GUI) ,Key_Enter ,Key_Space ,Key_Minus
    ,OSL(_AUX)
@@ -94,15 +94,15 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
     TD(F11)       ,Key_LCB ,Key_AT ,Key_STAR  ,Key_DOLLR ,Key_CARET  ,TD(TMUX)
    ,Key_Backslash ,Key_X   ,Key_W  ,Key_C     ,Key_H     ,Key_F      ,TD(LPB)
    ,Key_Tab       ,Key_A   ,Key_O  ,Key_E     ,Key_I     ,Key_U
-   ,Key_playPause ,Key_Z   ,Key_Q  ,Key_Quote ,Key_Comma ,Key_Period ,OSM(LAlt)
+   ,Key_playPause ,Key_Z   ,Key_Q  ,Key_Quote ,Key_Comma ,Key_Period ,OSM(LCtrl)
 
    ,TD(COLON) ,Key_Backspace ,OSM(LShift) ,Key_Esc
    ,OSL(_NAV)
 
-   ,TD(TMUXP)  ,Key_PRCNT ,Key_EXCLM ,Key_HASH ,Key_AND ,Key_RCB   ,TD(MNP)
-   ,TD(RPB)    ,Key_M     ,Key_G     ,Key_L    ,Key_P   ,Key_Slash ,Key_Backslash
-               ,Key_D     ,Key_R     ,Key_T    ,Key_N   ,Key_S     ,Key_Equals
-   ,OSM(LCtrl) ,Key_B     ,Key_K     ,Key_V    ,Key_Y   ,Key_J     ,LEAD(MAIN)
+   ,TD(TMUXP) ,Key_PRCNT ,Key_EXCLM ,Key_HASH ,Key_AND ,Key_RCB   ,TD(MNP)
+   ,TD(RPB)   ,Key_M     ,Key_G     ,Key_L    ,Key_P   ,Key_Slash ,Key_Backslash
+              ,Key_D     ,Key_R     ,Key_T    ,Key_N   ,Key_S     ,Key_Equals
+   ,OSM(LAlt) ,Key_B     ,Key_K     ,Key_V    ,Key_Y   ,Key_J     ,LEAD(MAIN)
 
    ,Key_LGUI ,Key_Enter ,Key_Space ,Key_Minus
    ,OSL(_AUX)

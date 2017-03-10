@@ -59,15 +59,15 @@ namespace algernon {
         OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
        ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
        ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,FAINT_GREEN
+       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,FAINT_BLUE
 
        ,OFF ,OFF ,FAINT_RED ,OFF
        ,CYAN
 
-       ,OFF        ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-       ,OFF        ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-                   ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-       ,FAINT_BLUE ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,OFF         ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,OFF         ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+                    ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,FAINT_GREEN ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
 
        ,OFF ,OFF ,OFF ,OFF
        ,RED
@@ -78,15 +78,15 @@ namespace algernon {
         OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
        ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
        ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,FAINT_GREEN
+       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,FAINT_BLUE
 
        ,OFF ,OFF ,FAINT_RED ,OFF
        ,CYAN
 
-       ,OFF        ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-       ,OFF        ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-                   ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-       ,FAINT_BLUE ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,OFF         ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,OFF         ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+                    ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,FAINT_GREEN ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
 
        ,OFF ,OFF ,OFF ,OFF
        ,RED
