@@ -75,12 +75,13 @@ namespace algernon {
 
       Key key;
 
-      // Alt + Space
       key.flags = KEY_FLAGS | LALT_HELD;
-      key.raw = Key_Space.keyCode;
-      press_key (key);
+      key.keyCode = Key_Space.keyCode;
+
+      // Alt + Space
+      handle_key_event (key, row, col, IS_PRESSED | INJECTED);
       Keyboard.sendReport ();
-      press_key (key);
+      handle_key_event (key, row, col, WAS_PRESSED | INJECTED);
       Keyboard.sendReport ();
 
       // P, or Z
