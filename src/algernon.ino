@@ -69,6 +69,12 @@ enum {
 #define Key_LCB   LSHIFT(Key_LBracket)
 #define Key_RCB   LSHIFT(Key_RBracket)
 
+#define AS_MUS M(APPSEL_MUSIC)
+#define AS_CHT M(APPSEL_CHAT)
+#define AS_ECS M(APPSEL_EMACS)
+#define AS_TRM M(APPSEL_TERM)
+#define AS_WEB M(APPSEL_WEB)
+
 const Key keymaps[][ROWS][COLS] PROGMEM = {
   [_DVORAK] = KEYMAP_STACKED
   (
@@ -166,17 +172,17 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
 
   [_APPSEL] = KEYMAP_STACKED
   (
-    XXX ,M(APPSEL_MUSIC) ,M(APPSEL_CHAT) ,M(APPSEL_EMACS) ,M(APPSEL_TERM) ,M(APPSEL_WEB) ,XXX
+    XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
    ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
    ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
    ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
    ,XXX ,XXX ,XXX ,XXX
    ,XXX
 
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX    ,XXX    ,XXX    ,XXX ,XXX
+   ,XXX ,XXX ,XXX    ,XXX    ,XXX    ,XXX ,XXX
+        ,XXX ,AS_TRM ,AS_ECS ,AS_WEB ,XXX ,XXX
+   ,XXX ,XXX ,AS_MUS ,XXX    ,AS_CHT ,XXX ,XXX
 
    ,XXX ,XXX ,XXX ,XXX
    ,XXX

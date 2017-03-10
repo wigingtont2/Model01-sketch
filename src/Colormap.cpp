@@ -150,18 +150,18 @@ namespace algernon {
        ),
       [_APPSEL] = KEYMAP_STACKED
       (
-        TRNS ,YELLOW ,YELLOW ,YELLOW ,YELLOW ,YELLOW ,TRNS
-       ,TRNS ,TRNS   ,TRNS   ,TRNS   ,TRNS   ,TRNS   ,TRNS
-       ,TRNS ,TRNS   ,TRNS   ,TRNS   ,TRNS   ,TRNS
-       ,TRNS ,TRNS   ,TRNS   ,TRNS   ,TRNS   ,TRNS   ,TRNS
+        TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
 
        ,TRNS ,TRNS ,TRNS ,TRNS
        ,TRNS
 
-       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
-       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
-             ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
-       ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+       ,TRNS ,TRNS ,TRNS   ,TRNS   ,TRNS   ,TRNS ,TRNS
+       ,TRNS ,TRNS ,TRNS   ,TRNS   ,TRNS   ,TRNS ,TRNS
+             ,TRNS ,YELLOW ,YELLOW ,YELLOW ,TRNS ,TRNS
+       ,TRNS ,TRNS ,YELLOW ,TRNS   ,YELLOW ,TRNS ,TRNS
 
        ,TRNS ,TRNS ,TRNS ,TRNS
        ,TRNS
