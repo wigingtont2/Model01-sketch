@@ -143,10 +143,10 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,XXX ,___ ,___ ,___
    ,OSL(_EMPTY)
 
-   ,XXX ,XXX ,XXX   ,XXX   ,XXX   ,XXX   ,XXX
-   ,XXX ,XXX ,Key_7 ,Key_8 ,Key_9 ,XXX   ,XXX
-        ,XXX ,Key_4 ,Key_5 ,Key_6 ,Key_0 ,XXX
-   ,___ ,XXX ,Key_1 ,Key_2 ,Key_3 ,XXX   ,XXX
+   ,XXX ,XXX   ,XXX   ,XXX   ,XXX   ,XXX ,XXX
+   ,XXX ,XXX   ,Key_7 ,Key_8 ,Key_9 ,XXX ,XXX
+        ,Key_0 ,Key_4 ,Key_5 ,Key_6 ,XXX ,XXX
+   ,___ ,XXX   ,Key_1 ,Key_2 ,Key_3 ,XXX ,XXX
 
    ,XXX ,XXX ,XXX ,XXX
    ,___

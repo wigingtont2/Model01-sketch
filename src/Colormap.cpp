@@ -121,9 +121,9 @@ namespace algernon {
        ,TRNS ,TRNS ,TRNS ,TRNS
        ,TRNS
 
-       ,TRNS ,TRNS ,TRNS   ,TRNS  ,TRNS  ,TRNS ,TRNS
+       ,TRNS ,TRNS  ,TRNS  ,TRNS  ,TRNS  ,TRNS ,TRNS
        ,TRNS ,TRNS  ,GREEN ,GREEN ,GREEN ,TRNS ,TRNS
-       ,TRNS ,GREEN ,GREEN ,GREEN ,GREEN ,TRNS
+             ,GREEN ,GREEN ,GREEN ,GREEN ,TRNS ,TRNS
        ,TRNS ,TRNS  ,GREEN ,GREEN ,GREEN ,TRNS ,TRNS
 
        ,TRNS ,TRNS ,TRNS ,TRNS
