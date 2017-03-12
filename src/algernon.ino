@@ -124,7 +124,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,XXX ,MM(L)  ,MM(Dn) ,MM(R)  ,MW(SW) ,MW(SE)
    ,XXX ,XXX    ,XXX    ,XXX    ,XXX    ,XXX    ,___
 
-   ,Key_volumeDown ,Key_volumeUp ,___ ,Key_volumeMute
+   ,TD(VOLD) ,Key_volumeUp ,___ ,___
    ,___
 
    ,LGUI(Key_L) ,Key_F10 ,Key_F2     ,Key_F4      ,Key_F6     ,Key_F8 ,XXX

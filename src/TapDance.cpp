@@ -132,6 +132,11 @@ tapDanceAction (uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, Kal
     return tapDanceActionKeys (tapCount, tapDanceAction,
                                Key_F11,
                                Key_NoKey);
+
+  case VOLD:
+    return tapDanceActionKeys (tapCount, tapDanceAction,
+                               Key_volumeDown,
+                               Key_volumeMute);
   }
 }
 

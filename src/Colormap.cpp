@@ -101,7 +101,7 @@ namespace algernon {
        ,TRNS ,GREEN  ,GREEN ,GREEN  ,PINK ,PINK
        ,TRNS ,TRNS   ,TRNS  ,TRNS   ,TRNS ,TRNS ,TRNS
 
-       ,YELLOW ,YELLOW ,TRNS ,YELLOW
+       ,MGNT ,MGNT ,TRNS ,TRNS
        ,TRNS
 
        ,PINK ,CYAN   ,CYAN ,CYAN ,CYAN ,CYAN ,TRNS
