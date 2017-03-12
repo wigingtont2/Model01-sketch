@@ -35,6 +35,7 @@ namespace algernon {
       YELLOW,
       GREEN,
       PINK,
+      MGNT,
 
       TRNS = KaleidoscopePlugins::ColormapEffect::Transparent,
     };
@@ -51,6 +52,7 @@ namespace algernon {
       [YELLOW]      = {0x00, 0xff, 0xff},
       [GREEN]       = {0x00, 0xff, 0x00},
       [PINK]        = {0x80, 0x80, 0xff},
+      [MGNT]        = {0xcc, 0x33, 0xff},
     };
 
     static const uint8_t colorMap[LAYER_MAX][ROWS][COLS] PROGMEM = {
@@ -95,19 +97,19 @@ namespace algernon {
       [_NAV] = KEYMAP_STACKED
       (
         CYAN ,CYAN   ,CYAN  ,CYAN   ,CYAN ,CYAN ,TRNS
-       ,TRNS ,YELLOW ,GREEN ,YELLOW   ,PINK ,PINK ,PINK
+       ,TRNS ,YELLOW ,GREEN ,YELLOW ,PINK ,PINK ,PINK
        ,TRNS ,GREEN  ,GREEN ,GREEN  ,PINK ,PINK
        ,TRNS ,TRNS   ,TRNS  ,TRNS   ,TRNS ,TRNS ,TRNS
 
        ,YELLOW ,YELLOW ,TRNS ,YELLOW
        ,TRNS
 
-       ,YELLOW ,CYAN ,CYAN ,CYAN ,CYAN ,CYAN ,TRNS
-       ,TRNS   ,RED  ,NAVY ,BLUE ,NAVY ,TRNS ,TRNS
-               ,RED  ,BLUE ,BLUE ,BLUE ,TRNS ,TRNS
-       ,TRNS   ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
+       ,PINK ,CYAN   ,CYAN ,CYAN ,CYAN ,CYAN ,TRNS
+       ,TRNS ,YELLOW ,MGNT ,BLUE ,MGNT ,TRNS ,TRNS
+             ,YELLOW ,BLUE ,BLUE ,BLUE ,TRNS ,TRNS
+       ,TRNS ,TRNS   ,MGNT ,TRNS ,MGNT ,TRNS ,TRNS
 
-       ,GREEN ,GREEN ,NAVY ,NAVY
+       ,GREEN ,TRNS ,TRNS ,GREEN
        ,TRNS
        ),
 

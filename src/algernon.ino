@@ -130,9 +130,9 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,LGUI(Key_L) ,Key_F10 ,Key_F2     ,Key_F4      ,Key_F6     ,Key_F8 ,XXX
    ,XXX         ,M(MSP)  ,Key_Home   ,Key_UpArrow ,Key_End    ,XXX    ,XXX
                 ,M(MSM)  ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX    ,XXX
-   ,___         ,XXX     ,XXX        ,XXX         ,XXX        ,XXX    ,XXX
+   ,___         ,XXX     ,Key_PageUp ,XXX         ,Key_PageDn ,XXX    ,XXX
 
-   ,MM(BtnL) ,MM(BtnR) ,Key_PageUp ,Key_PageDn
+   ,MM(BtnL) ,___ ,___ ,MM(BtnR)
    ,OSL(_EMPTY)
   ),
 
