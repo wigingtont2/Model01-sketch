@@ -155,24 +155,6 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,___
   ),
 
-  [_EMPTY] = KEYMAP_STACKED
-  (
-    XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX
-   ,___
-
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-        ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-
-   ,XXX ,XXX ,XXX ,XXX
-   ,___
-   ),
-
   [_APPSEL] = KEYMAP_STACKED
   (
     XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
@@ -189,8 +171,25 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
 
    ,XXX ,XXX ,XXX ,XXX
    ,XXX
-   ),
+  ),
 
+  [_EMPTY] = KEYMAP_STACKED
+  (
+    XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX
+   ,___
+
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+        ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+
+   ,XXX ,XXX ,XXX ,XXX
+   ,___
+  ),
 };
 
 const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {

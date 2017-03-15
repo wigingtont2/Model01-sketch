@@ -25,8 +25,8 @@ enum {
   _ADORE,
   _NAV,
   _AUX,
-  _EMPTY,
   _APPSEL,
+  _EMPTY,
 
   LAYER_MAX
 };

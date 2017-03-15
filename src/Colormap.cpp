@@ -132,24 +132,6 @@ namespace algernon {
        ,TRNS
        ),
 
-      [_EMPTY] = KEYMAP_STACKED
-      (
-        OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-
-       ,OFF ,OFF ,OFF ,OFF
-       ,OFF
-
-       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-            ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
-
-       ,OFF ,OFF ,OFF ,OFF
-       ,OFF
-       ),
       [_APPSEL] = KEYMAP_STACKED
       (
         TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS ,TRNS
@@ -168,6 +150,25 @@ namespace algernon {
        ,TRNS ,TRNS ,TRNS ,TRNS
        ,TRNS
        ),
+
+      [_EMPTY] = KEYMAP_STACKED
+      (
+        OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+
+       ,OFF ,OFF ,OFF ,OFF
+       ,OFF
+
+       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+            ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+       ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF ,OFF
+
+       ,OFF ,OFF ,OFF ,OFF
+       ,OFF
+      ),
 
     };
 
