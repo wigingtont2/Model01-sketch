@@ -101,6 +101,8 @@ namespace algernon {
         EEPROMSettings.update ();
       }
 
+      EEPROM.get (base, settings);
+
       Focus.addHook (FOCUS_HOOK (focusSettings,
                                  "settings.cycleTimer.get\n"
                                  "-----------------------\n"
@@ -115,7 +117,6 @@ namespace algernon {
                                  "-------------------------------\n"
                                  "Enable or disable the EEPROM-based key lookup."));
 
-      EEPROM.get (base, settings);
     }
 
     settings_ settings;
