@@ -33,8 +33,6 @@ namespace algernon {
       enum {
         CYCLETIMER_GET,
         CYCLETIMER_SET,
-        EEPROMKEYMAP_GET,
-        EEPROMKEYMAP_SET,
       } subCommand;
 
       if (strncmp_P (command, PSTR ("settings."), 9) != 0)
@@ -45,13 +43,6 @@ namespace algernon {
           subCommand = CYCLETIMER_GET;
         else if (strcmp_P (command + 9 + 11, PSTR ("set")) == 0)
           subCommand = CYCLETIMER_SET;
-        else
-          return false;
-      } else if (strncmp_P (command + 9, PSTR ("EEPROMKeymap."), 13) == 0) {
-        if (strcmp_P (command + 9 + 13, PSTR ("get")) == 0)
-          subCommand = EEPROMKEYMAP_GET;
-        else if (strcmp_P (command + 9 + 13, PSTR ("set")) == 0)
-          subCommand = EEPROMKEYMAP_SET;
         else
           return false;
       } else
@@ -66,19 +57,6 @@ namespace algernon {
         {
           uint8_t state = Serial.parseInt ();
           settings.cycleTimer = !!state;
-
-          EEPROM.put (base, settings);
-          break;
-        }
-
-      case EEPROMKEYMAP_GET:
-        Serial.println ((settings.EEPROMKeymap) ? F("on") : F("off"));
-        break;
-
-      case EEPROMKEYMAP_SET:
-        {
-          uint8_t state = Serial.parseInt ();
-          settings.EEPROMKeymap = !!state;
 
           EEPROM.put (base, settings);
           break;
@@ -111,14 +89,7 @@ namespace algernon {
                                  "Display the state of the cycle timer feature.\n\n"
                                  "settings.cycleTimer.set STATE\n"
                                  "-----------------------------\n"
-                                 "Enable or disable the cycle timer.\n\n"
-                                 "settings.EEPROMKeymap.get\n"
-                                 "-------------------------\n"
-                                 "Display whether the EEPROM-based key lookup is enabled.\n\n"
-                                 "settings.EEPROMKeymap.set STATE\n"
-                                 "-------------------------------\n"
-                                 "Enable or disable the EEPROM-based key lookup."));
-
+                                 "Enable or disable the cycle timer."));
     }
 
     settings_ settings;

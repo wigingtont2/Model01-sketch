@@ -23,7 +23,6 @@
 namespace algernon {
   namespace Settings {
     typedef struct {
-      bool EEPROMKeymap:1;
       bool cycleTimer:1;
     } settings_;
 
