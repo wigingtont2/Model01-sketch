@@ -72,7 +72,7 @@ namespace algernon {
       USE_PLUGINS (&EEPROMSettings,
                    &EEPROMKeymap);
 
-      EEPROMKeymap.reserveSpace (LAYER_MAX);
+      EEPROMKeymap.reserveSpace (LAYER_MAX - 1);
       base = EEPROMSettings.requestSlice (sizeof (settings));
       EEPROMSettings.seal ();
 

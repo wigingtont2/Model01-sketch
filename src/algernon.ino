@@ -237,6 +237,16 @@ static void emptyLayerForceOff (bool postClear) {
   }
 }
 
+static Key getKey (uint8_t layer, byte row, byte col) {
+  if (layer != _EMPTY)
+    return EEPROMKeymap.getKey (layer, row, col);
+
+  if (row == 3 && (col == 6 || col == 9))
+    return Key_Transparent;
+
+  return Key_NoKey;
+}
+
 void setup () {
   Serial.begin(9600);
 
@@ -271,6 +281,8 @@ void setup () {
 
   algernon::FocusSetup::configure ();
   algernon::Settings::configure ();
+
+  Layer.getKey = getKey;
 
   LEDControl.syncDelay = 64;
   delay (1000);
