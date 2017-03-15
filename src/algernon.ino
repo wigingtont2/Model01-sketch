@@ -16,8 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#define DEBUG 0
-#define KALEIDOSCOPE_HOSTOS_GUESSER 1
+#define KALEIDOSCOPE_HOSTOS_GUESSER 0
 
 #include <Kaleidoscope.h>
 #include <Kaleidoscope-Macros.h>
@@ -25,11 +24,15 @@
 
 #include "LED-Off.h"
 
+#include <Kaleidoscope-HostOS.h>
+#include <Kaleidoscope/HostOS-select.h>
 #include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-LED-ActiveModColor.h>
 #include <Kaleidoscope-LED-Stalker.h>
 #include <Kaleidoscope-Escape-OneShot.h>
 #include <Kaleidoscope-MouseGears.h>
+#include <Kaleidoscope-EEPROM-Settings.h>
+#include <Kaleidoscope-EEPROM-Keymap.h>
 
 #include "Layers.h"
 
@@ -40,6 +43,7 @@
 #include "TapDance.h"
 #include "MagicCombo.h"
 #include "Syster.h"
+#include "Settings.h"
 
 using namespace KaleidoscopePlugins::LangPack;
 
@@ -247,6 +251,7 @@ void setup () {
 
   Kaleidoscope.use (&LEDOff,
                     &StalkerEffect,
+                    &HostOS,
                     NULL);
 
   algernon::Colormap::configure ();
@@ -265,24 +270,20 @@ void setup () {
                     NULL);
 
   algernon::FocusSetup::configure ();
+  algernon::Settings::configure ();
 
   LEDControl.syncDelay = 64;
   delay (1000);
 }
 
-#if DEBUG
 static unsigned long avgLoopTime = 0;
 static unsigned long nextReport = millis() + 1000;
-#endif
 
 void loop () {
-#if DEBUG
   unsigned long loopStart = micros ();
-#endif
 
   Kaleidoscope.loop();
 
-#if DEBUG
   unsigned long loopTime = micros () - loopStart;
 
   if (avgLoopTime)
@@ -291,9 +292,10 @@ void loop () {
     avgLoopTime = loopTime;
 
   if (millis () >= nextReport) {
-    Serial.print (F("avgLoopTime: "));
-    Serial.println (avgLoopTime);
+    if (algernon::Settings::settings.cycleTimer) {
+      Serial.print (F("avgLoopTime: "));
+      Serial.println (avgLoopTime);
+    }
     nextReport = millis() + 1000;
   }
-#endif
 }
