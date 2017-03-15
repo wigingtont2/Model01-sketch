@@ -16,6 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#define FOCUS_WITHOUT_DOCS 1
+
 #include "Layers.h"
 #include "Settings.h"
 #include <Kaleidoscope-EEPROM-Settings.h>
