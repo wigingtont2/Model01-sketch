@@ -23,6 +23,13 @@
 
 namespace algernon {
   namespace TapDance {
+    static void tap (Key key, byte row, byte col) {
+      handle_key_event (key, row, col, IS_PRESSED | INJECTED);
+      Keyboard.sendReport ();
+      handle_key_event (key, row, col, WAS_PRESSED | INJECTED);
+      Keyboard.sendReport ();
+    }
+
     static void GUI (uint8_t tapCount, byte row, byte col, KaleidoscopePlugins::TapDance::ActionType tapDanceAction) {
       switch (tapDanceAction) {
       case KaleidoscopePlugins::TapDance::Tap:
@@ -61,33 +68,22 @@ namespace algernon {
         key = LCTRL (Key_A);
       }
 
-      handle_key_event (key, row, col, IS_PRESSED | INJECTED);
-      Keyboard.sendReport ();
-      handle_key_event (key, row, col, WAS_PRESSED | INJECTED);
-      Keyboard.sendReport ();
+      tap (key, row, col);
     }
 
     static void TMUXPane (uint8_t tapCount, byte row, byte col, KaleidoscopePlugins::TapDance::ActionType tapDanceAction) {
       if (tapDanceAction != KaleidoscopePlugins::TapDance::Release)
         return;
 
-      Key key = LALT (Key_Space);
-
       // Alt + Space
-      handle_key_event (key, row, col, IS_PRESSED | INJECTED);
-      Keyboard.sendReport ();
-      handle_key_event (key, row, col, WAS_PRESSED | INJECTED);
-      Keyboard.sendReport ();
+      tap (LALT (Key_Space), row, col);
 
       // P, or Z
-      key = Key_P;
+      Key key = Key_P;
       if (tapCount == 2)
         key = Key_Z;
 
-      handle_key_event (key, row, col, IS_PRESSED | INJECTED);
-      Keyboard.sendReport ();
-      handle_key_event (key, row, col, WAS_PRESSED | INJECTED);
-      Keyboard.sendReport ();
+      tap (key, row, col);
     }
   }
 }
@@ -108,7 +104,6 @@ tapDanceAction (uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, Kal
     return tapDanceActionKeys (tapCount, tapDanceAction,
                                Key_RBracket,
                                Key_RIGHT_PAREN);
-
 
   case COLON:
     return tapDanceActionKeys (tapCount, tapDanceAction,
