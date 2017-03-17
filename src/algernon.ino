@@ -52,20 +52,26 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
     return MACRO_NONE;
 
   switch (macroIndex) {
+  case APPSEL_MUSIC ... APPSEL_WEB:
+    Serial.print (F("appsel:"));
+    break;
+  }
+
+  switch (macroIndex) {
   case APPSEL_MUSIC:
-    Serial.println (F("appsel:music"));
+    Serial.println (F("music"));
     break;
   case APPSEL_CHAT:
-    Serial.println (F("appsel:chat"));
+    Serial.println (F("chat"));
     break;
   case APPSEL_EMACS:
-    Serial.println (F("appsel:emacs"));
+    Serial.println (F("emacs"));
     break;
   case APPSEL_TERM:
-    Serial.println (F("appsel:term"));
+    Serial.println (F("term"));
     break;
   case APPSEL_WEB:
-    Serial.println (F("appsel:web"));
+    Serial.println (F("web"));
     break;
 
   case MSP:
