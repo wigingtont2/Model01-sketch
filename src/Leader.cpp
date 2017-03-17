@@ -114,7 +114,7 @@ namespace algernon {
 
        [LEAD_LEDEFFECT]       = {LEADER_SEQ (LEAD(MAIN), LEAD(MAIN)), NextLEDEffect},
 
-       [LEAD_BUTTERFLY]       = {LEADER_SEQ (LEAD(MAIN), OSM(LCtrl)), Butterfly}
+       [LEAD_BUTTERFLY]       = {LEADER_SEQ (LEAD(MAIN), OSM(LAlt)), Butterfly}
       );
 
     void
