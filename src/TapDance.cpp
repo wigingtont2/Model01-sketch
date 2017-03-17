@@ -56,11 +56,9 @@ namespace algernon {
       Key key;
 
       if (tapCount == 1) {
-        key.flags = KEY_FLAGS | LALT_HELD;
-        key.keyCode = Key_Space.keyCode;
+        key = LALT (Key_Space);
       } else {
-        key.flags = KEY_FLAGS | CTRL_HELD;
-        key.keyCode = Key_A.keyCode;
+        key = LCTRL (Key_A);
       }
 
       handle_key_event (key, row, col, IS_PRESSED | INJECTED);
@@ -73,10 +71,7 @@ namespace algernon {
       if (tapDanceAction != KaleidoscopePlugins::TapDance::Release)
         return;
 
-      Key key;
-
-      key.flags = KEY_FLAGS | LALT_HELD;
-      key.keyCode = Key_Space.keyCode;
+      Key key = LALT (Key_Space);
 
       // Alt + Space
       handle_key_event (key, row, col, IS_PRESSED | INJECTED);
@@ -85,9 +80,9 @@ namespace algernon {
       Keyboard.sendReport ();
 
       // P, or Z
-      key.raw = Key_P.raw;
+      key = Key_P;
       if (tapCount == 2)
-        key.raw = Key_Z.raw;
+        key = Key_Z;
 
       handle_key_event (key, row, col, IS_PRESSED | INJECTED);
       Keyboard.sendReport ();
