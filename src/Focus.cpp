@@ -30,55 +30,45 @@ namespace algernon {
   namespace FocusSetup {
     static bool led (const char *command) {
       enum {
-        GET,
-        SET,
         SETALL,
-        OFF,
-        NEXTMODE,
         MODE,
+        AT
       } subCommand;
 
       if (strncmp_P (command, PSTR ("led."), 4) != 0)
         return false;
-      if (strcmp_P (command + 4, PSTR ("get")) == 0)
-        subCommand = GET;
-      else if (strcmp_P (command + 4, PSTR ("set")) == 0)
-        subCommand = SET;
+      if (strcmp_P (command + 4, PSTR ("at")) == 0)
+        subCommand = AT;
       else if (strcmp_P (command + 4, PSTR ("setAll")) == 0)
         subCommand = SETALL;
-      else if (strcmp_P (command + 4, PSTR ("off")) == 0)
-        subCommand = OFF;
-      else if (strcmp_P (command + 4, PSTR ("nextMode")) == 0)
-        subCommand = NEXTMODE;
       else if (strcmp_P (command + 4, PSTR ("mode")) == 0)
         subCommand = MODE;
       else
         return false;
 
       switch (subCommand) {
-      case GET:
+      case AT:
         {
           uint8_t idx = Serial.parseInt ();
-          cRGB c = LEDControl.led_get_crgb_at (idx);
-          const __FlashStringHelper *spc = F(" ");
 
-          Serial.print (c.r);
-          Serial.print (spc);
-          Serial.print (c.g);
-          Serial.print (spc);
-          Serial.println (c.b);
-          break;
-        }
-      case SET:
-        {
-          uint8_t idx = Serial.parseInt ();
-          cRGB c;
+          if (Serial.peek () == '\n') {
+            cRGB c = LEDControl.led_get_crgb_at (idx);
+            const __FlashStringHelper *spc = F(" ");
 
-          c.r = Serial.parseInt ();
-          c.g = Serial.parseInt ();
-          c.b = Serial.parseInt ();
+            Serial.print (c.r);
+            Serial.print (spc);
+            Serial.print (c.g);
+            Serial.print (spc);
+            Serial.println (c.b);
+          } else {
+            cRGB c;
 
-          LEDControl.led_set_crgb_at (idx, c);
+            c.r = Serial.parseInt ();
+            c.g = Serial.parseInt ();
+            c.b = Serial.parseInt ();
+
+            LEDControl.led_set_crgb_at (idx, c);
+          }
           break;
         }
       case SETALL:
@@ -93,17 +83,22 @@ namespace algernon {
 
           break;
         }
-      case OFF:
-        LEDControl.set_all_leds_to (0, 0, 0);
-        break;
-      case NEXTMODE:
-        LEDControl.next_mode ();
-        break;
       case MODE:
         {
-          uint8_t mode = Serial.parseInt ();
+          char peek = Serial.peek ();
+          if (peek == '\n') {
+            Serial.println (LEDControl.get_mode ());
+          } else if (peek == 'n') {
+            LEDControl.next_mode ();
+            Serial.read ();
+          } else if (peek == 'p') {
+            // TODO
+            Serial.read ();
+          } else {
+            uint8_t mode = Serial.parseInt ();
 
-          LEDControl.set_mode (mode);
+            LEDControl.set_mode (mode);
+          }
           break;
         }
       }
@@ -120,24 +115,15 @@ namespace algernon {
       Focus.addHook (FOCUS_HOOK_HOSTOS);
       Focus.addHook (FOCUS_HOOK_KEYMAP);
       Focus.addHook (FOCUS_HOOK (led,
-                                 "led.set index r g b\n"
-                                 "-------------------\n"
-                                 "Set the led at `index` to the color described with `r`, `g`, and `b`.\n\n"
+                                 "led.at POS [r g b]\n"
+                                 "------------------\n"
+                                 "Either display, or set the color of the LED at `POS`, depending on whether the `r`, `g`, and `b` color values are specified.\n\n"
                                  "led.setAll r g b\n"
                                  "----------------\n"
                                  "Set all leds to the color described with `r`, `g`, and `b`.\n\n"
-                                 "led.get index\n"
-                                 "-------------\n"
-                                 "Return the color of the LED at the `index` position, in `r g b` format.\n\n"
-                                 "led.nextMode\n"
-                                 "------------\n"
-                                 "Moves on to the next LED effect mode.\n\n"
-                                 "led.mode N\n"
+                                 "led.mode [n|p|MODE]\n"
                                  "----------\n"
-                                 "Switches to LED effect mode `n`.\n\n"
-                                 "led.off\n"
-                                 "-------\n"
-                                 "Turn all LEDs off."));
+                                 "Switches to LED effect mode to either the next (if `n` is the argument), the previous (`p`), or to `MODE` if a number is given. Displays the current mode index without arguments."));
       Focus.addHook (FOCUS_HOOK_SETTINGS);
     }
   };
