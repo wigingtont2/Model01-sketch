@@ -30,37 +30,16 @@ namespace algernon {
 
     static bool
     focusSettings (const char *command) {
-      enum {
-        CYCLETIMER_GET,
-        CYCLETIMER_SET,
-      } subCommand;
-
-      if (strncmp_P (command, PSTR ("settings."), 9) != 0)
+      if (strcmp (command, PSTR ("settings.cycleTimer")) != 0)
         return false;
 
-      if (strncmp_P (command + 9, PSTR ("cycleTimer."), 11) == 0) {
-        if (strcmp_P (command + 9 + 11, PSTR ("get")) == 0)
-          subCommand = CYCLETIMER_GET;
-        else if (strcmp_P (command + 9 + 11, PSTR ("set")) == 0)
-          subCommand = CYCLETIMER_SET;
-        else
-          return false;
-      } else
-        return false;
-
-      switch (subCommand) {
-      case CYCLETIMER_GET:
+      if (Serial.peek () == '\n') {
         Serial.println ((settings.cycleTimer) ? F("on") : F("off"));
-        break;
+      } else {
+        uint8_t state = Serial.parseInt ();
+        settings.cycleTimer = !!state;
 
-      case CYCLETIMER_SET:
-        {
-          uint8_t state = Serial.parseInt ();
-          settings.cycleTimer = !!state;
-
-          EEPROM.put (base, settings);
-          break;
-        }
+        EEPROM.put (base, settings);
       }
 
       Serial.read ();
@@ -84,12 +63,9 @@ namespace algernon {
       EEPROM.get (base, settings);
 
       Focus.addHook (FOCUS_HOOK (focusSettings,
-                                 "settings.cycleTimer.get\n"
-                                 "-----------------------\n"
-                                 "Display the state of the cycle timer feature.\n\n"
-                                 "settings.cycleTimer.set STATE\n"
-                                 "-----------------------------\n"
-                                 "Enable or disable the cycle timer."));
+                                 "settings.cycleTimer [1|0]\n"
+                                 "-------------------------\n"
+                                 "Enable/disable the cycle timer; or display the setting if called without arguments."));
     }
 
     settings_ settings;
