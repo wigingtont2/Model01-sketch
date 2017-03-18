@@ -109,6 +109,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 * [Hardware-Model01][kaleidoscope:hardware-model01]
 * [HostOS][kaleidoscope:hostos]
 * [LED-ActiveModColor][kaleidoscope:led-activemodcolor]
+* [LED-AlphaSquare][kaleidoscope:led-alphasquare]
 * [LED-Stalker][kaleidoscope:led-stalker]
 * [LEDControl][kaleidoscope:led-control]
 * [LangPack-Hungarian][kaleidoscope:langpack-hun]
@@ -122,6 +123,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 * [TapDance][kaleidoscope:tap-dance]
 * [Unicode][kaleidoscope:unicode]
 
+ [kaleidoscope:led-alphasquare]: https://github.com/keyboardio/Kaleidoscope-LED-AlphaSquare
  [kaleidoscope:led-control]: https://github.com/keyboardio/Kaleidoscope-LEDControl
  [kaleidoscope:langpack-hun]: https://github.com/algernon/Kaleidoscope-LangPack-Hungarian
  [kaleidoscope:escape-oneshot]: https://github.com/keyboardio/Kaleidoscope-Escape-OneShot

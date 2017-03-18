@@ -18,16 +18,19 @@
 
 #include "SymUnI.h"
 #include <Kaleidoscope-Unicode.h>
+#include <Kaleidoscope-LED-AlphaSquare.h>
 
 namespace algernon {
   namespace SymUnI {
     void
     input (const char *symbol) {
       uint32_t code = 0;
+      bool lambda = false;
 
       if (strcmp_P (symbol, PSTR("coffee")) == 0) {
         code = 0x2615;
       } else if (strcmp_P (symbol, PSTR("lambda")) == 0) {
+        lambda = true;
         code = 0x03bb;
       } else if (strcmp_P (symbol, PSTR("poop")) == 0) {
         code = 0x1f4a9;
@@ -55,6 +58,12 @@ namespace algernon {
         Unicode.type (code);
       else
         typeString (symbol);
+
+      if (lambda) {
+        AlphaSquare.display (KaleidoscopePlugins::AlphaSquareSymbols::Lambda);
+        delay (500);
+        AlphaSquare.clear (KaleidoscopePlugins::AlphaSquareSymbols::Lambda);
+      }
     }
 
     void
