@@ -41,7 +41,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
 * Keys with blue front-prints are activated by tapping or holding the left palm key (also colored blue).
 * Keys with red front-prints are activated by tapping or holding the right palm key (also colored red).
 * The `Alt`, `Control`, `Shift` modifiers are all [one-shot][kaleidoscope:oneshot], and so are the two palm keys.
-* The LED colors are governed by the [Colormap][kaleidoscope:colormap] plugin for the most part:
+* The LED colors are governed by the [Colormap][kaleidoscope:colormap]/[EEPROM-Colormap][kaleidoscope:eeprom-colormap] plugins for the most part:
   - By default, the modifiers and palm keys are highlighted with different colors.
   - On different layers, the keys that have changed behaviour, are colored differently.
   - When a modifier is active, the [LED-ActiveModColor][kaleidoscope:led-activemodcolor] plugin turns it white.
@@ -65,6 +65,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
 
   [dvorak:prg]: http://www.kaufmann.no/roland/dvorak/
   [kaleidoscope:oneshot]: https://github.com/keyboardio/Kaleidoscope-OneShot
+  [kaleidoscope:eeprom-colormap]: https://github.com/keyboardio/Kaleidoscope-EEPROM-Colormap
   [kaleidoscope:colormap]: https://github.com/keyboardio/Kaleidoscope-Colormap
   [kaleidoscope:led-activemodcolor]: https://github.com/keyboardio/Kaleidoscope-LED-ActiveModColor
   [kaleidoscope:led-stalker]: https://github.com/keyboardio/Kaleidoscope-LED-Stalker
@@ -102,6 +103,7 @@ This is an experimental feature, and may or may not work reliably.
 This sketch makes use of a fair amount of plugins, most of them have been listed above, but below, you'll find a list of all plugins used (directly, or transitively), in alphabetical order:
 
 * [Colormap][kaleidoscope:colormap]
+* [EEPROM-Colormap][kaleidoscope-eeprom-colormap]
 * [EEPROM-Keymap][kaleidoscope:eeprom-keymap]
 * [EEPROM-Settings][kaleidoscope:eeprom-settings]
 * [Escape-OneShot][kaleidoscope:escape-oneshot]
