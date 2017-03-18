@@ -154,7 +154,8 @@ void loop () {
   Kaleidoscope.loop();
 
   if (algernon::TapDance::cancelOneShot) {
-    OneShot.cancel ();
+    if (! Layer.isOn (_APPSEL))
+      OneShot.cancel ();
     algernon::TapDance::cancelOneShot = false;
   }
 
