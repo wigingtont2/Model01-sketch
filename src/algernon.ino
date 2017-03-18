@@ -121,6 +121,7 @@ void setup () {
                     &HostOS,
                     NULL);
 
+  algernon::Settings::configure ();
   algernon::Colormap::configure ();
 
   algernon::Leader::configure ();
@@ -137,12 +138,13 @@ void setup () {
                     NULL);
 
   algernon::FocusSetup::configure ();
-  algernon::Settings::configure ();
 
   Layer.getKey = getKey;
 
   LEDControl.syncDelay = 64;
   delay (1000);
+
+  algernon::Settings::seal ();
 }
 
 static unsigned long avgLoopTime = 0;

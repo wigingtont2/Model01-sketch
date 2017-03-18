@@ -29,5 +29,6 @@ namespace algernon {
     extern settings_ settings;
 
     void configure (void);
+    void seal (void);
   };
 };

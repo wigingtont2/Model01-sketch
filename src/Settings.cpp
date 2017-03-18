@@ -53,19 +53,22 @@ namespace algernon {
 
       EEPROMKeymap.reserveSpace (LAYER_MAX - 1);
       base = EEPROMSettings.requestSlice (sizeof (settings));
+
+      Focus.addHook (FOCUS_HOOK (focusSettings,
+                                 "settings.cycleTimer [1|0]\n"
+                                 "-------------------------\n"
+                                 "Enable/disable the cycle timer; or display the setting if called without arguments."));
+      EEPROM.get (base, settings);
+    }
+
+    void
+    seal (void) {
       EEPROMSettings.seal ();
 
       if (!EEPROMSettings.isValid ()) {
         EEPROMSettings.version (0);
         EEPROMSettings.update ();
       }
-
-      EEPROM.get (base, settings);
-
-      Focus.addHook (FOCUS_HOOK (focusSettings,
-                                 "settings.cycleTimer [1|0]\n"
-                                 "-------------------------\n"
-                                 "Enable/disable the cycle timer; or display the setting if called without arguments."));
     }
 
     settings_ settings;
