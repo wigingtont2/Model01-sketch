@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include <Kaleidoscope-Colormap.h>
-
 namespace algernon {
   namespace Colormap {
     void configure (void);

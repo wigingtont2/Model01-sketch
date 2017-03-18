@@ -16,12 +16,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <Kaleidoscope-Colormap.h>
+#include "00-config.h"
+
+#if WITH_PROGMEM_COLORMAP
+#  include <Kaleidoscope-Colormap.h>
+#else
+#  include <Kaleidoscope-EEPROM-Colormap.h>
+#  include <Kaleidoscope-Focus.h>
+#endif
+
 #include "Layers.h"
 
 namespace algernon {
   namespace Colormap {
 
+#if WITH_PROGMEM_COLORMAP
     // Colors
     enum {
       OFF,
@@ -171,12 +180,23 @@ namespace algernon {
       ),
 
     };
+#endif
 
     void
     configure (void) {
+
+#if WITH_PROGMEM_COLORMAP
       Kaleidoscope.use (&ColormapEffect, NULL);
+
       ColormapEffect.configure (colors, colorMap);
       ColormapEffect.activate ();
+#else
+      Kaleidoscope.use (&EEPROMColormapEffect, NULL);
+      EEPROMColormapEffect.configure (LAYER_MAX);
+      EEPROMColormapEffect.activate ();
+
+      Focus.addHook (FOCUS_HOOK_COLORMAP);
+#endif
     }
   };
 };
