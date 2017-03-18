@@ -39,21 +39,12 @@ namespace algernon {
       LEAD_CSILLA,
       LEAD_KIDS,
       LEAD_GERGO,
-      LEAD_YAY,
       LEAD_SHRUGGY,
 
       LEAD_LEDEFFECT,
 
       LEAD_BUTTERFLY,
     };
-
-    static void
-    Yay (uint8_t seqIndex) {
-      ::Macros.play (MACRO (T(Backslash),
-                            T(O),
-                            T(Slash),
-                            END));
-    }
 
     static void
     Shruggy (uint8_t seqIndex) {
@@ -109,7 +100,6 @@ namespace algernon {
        [LEAD_CSILLA]          = {LEADER_SEQ (LEAD(MAIN), Key_C), (KaleidoscopePlugins::Leader::action_t)algernon::Macros::Csilla},
        [LEAD_KIDS]            = {LEADER_SEQ (LEAD(MAIN), Key_K), Kids},
        [LEAD_GERGO]           = {LEADER_SEQ (LEAD(MAIN), Key_G), (KaleidoscopePlugins::Leader::action_t)algernon::Macros::Gergo},
-       [LEAD_YAY]             = {LEADER_SEQ (LEAD(MAIN), Key_Y), Yay},
        [LEAD_SHRUGGY]         = {LEADER_SEQ (LEAD(MAIN), Key_S), Shruggy},
 
        [LEAD_LEDEFFECT]       = {LEADER_SEQ (LEAD(MAIN), LEAD(MAIN)), NextLEDEffect},
