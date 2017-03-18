@@ -109,7 +109,7 @@ namespace algernon {
 
     void
     configure (void) {
-      Kaleidoscope.use (&::Leader, &::HostOS, &::Unicode, NULL);
+      Kaleidoscope.use (&::Leader, &::Unicode, NULL);
 
       ::Leader.configure (dictionary);
     }
