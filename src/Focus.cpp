@@ -18,7 +18,7 @@
 
 #include "Focus.h"
 
-#define FOCUS_WITHOUT_DOCS 0
+#define FOCUS_WITHOUT_DOCS 1
 
 #include <Kaleidoscope-HostOS.h>
 #include <Kaleidoscope-Focus.h>
