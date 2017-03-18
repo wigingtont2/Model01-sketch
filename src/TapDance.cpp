@@ -85,11 +85,16 @@ namespace algernon {
 
       tap (key, row, col);
     }
+
+    bool cancelOneShot = false;
   }
 }
 
 void
 tapDanceAction (uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, KaleidoscopePlugins::TapDance::ActionType tapDanceAction) {
+  if (tapDanceAction == KaleidoscopePlugins::TapDance::Release)
+    algernon::TapDance::cancelOneShot = true;
+
   switch (tapDanceIndex) {
   case TMUX:
     return algernon::TapDance::TMUX (tapCount, row, col, tapDanceAction);

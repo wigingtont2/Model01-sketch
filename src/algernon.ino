@@ -123,10 +123,10 @@ void setup () {
 
   algernon::Colormap::configure ();
 
+  algernon::TapDance::configure ();
   algernon::OneShot::configure ();
   algernon::Leader::configure ();
   algernon::Syster::configure ();
-  algernon::TapDance::configure ();
   algernon::MagicCombo::configure ();
 
   Kaleidoscope.use (&EscapeOneShot,
@@ -152,6 +152,11 @@ void loop () {
   unsigned long loopStart = micros ();
 
   Kaleidoscope.loop();
+
+  if (algernon::TapDance::cancelOneShot) {
+    OneShot.cancel ();
+    algernon::TapDance::cancelOneShot = false;
+  }
 
   unsigned long loopTime = micros () - loopStart;
 
