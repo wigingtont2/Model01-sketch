@@ -16,9 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Focus.h"
+#include "00-config.h"
 
-#define FOCUS_WITHOUT_DOCS 1
+#include "Focus.h"
 
 #include <Kaleidoscope-HostOS.h>
 #include <Kaleidoscope-Focus.h>

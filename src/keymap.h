@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#define WITH_PROGMEM_KEYMAP 0
+#include "00-config.h"
 
 using namespace KaleidoscopePlugins::LangPack;
 

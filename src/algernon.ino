@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#define KALEIDOSCOPE_HOSTOS_GUESSER 0
+#include "00-config.h"
 
 #include <Kaleidoscope.h>
 #include <Kaleidoscope-Macros.h>
