@@ -52,7 +52,6 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
 * The `R1C6` and `R1C9` keys are [tap-dance][kaleidoscope:tap-dance] keys. Tapped once, they input `[{`/`}]` (without and with `Shift`, respectively). Tapped twice, they input `(`/`)`.
 * The `LEAD` keys is a [leader key][kaleidoscope:leader], with the following sequences built-in:
   - `LEAD u` starts the [symbolic unicode input](#symbolic-unicode-input) method.
-  - `LEAD y` types `\o/`.
   - `LEAD s` does a lot of magic to type a shruggy: `¯ \_(ツ )_/¯`.
   - `LEAD LEAD` switches to the next LED mode.
   - `LEAD BUTTERFLY` (where `BUTTERFLY` is the `R2C9` key) does an `M-x butterfly RET y`, in honor of [xkcd#378](https://xkcd.com/378/).
