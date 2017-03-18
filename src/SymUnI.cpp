@@ -47,6 +47,8 @@ namespace algernon {
         code = 0x1f401;
       } else if (strcmp_P (symbol, PSTR("micro")) == 0) {
         code = 0x00b5;
+      } else if (strcmp_P (symbol, PSTR("tm")) == 0) {
+        code = 0x2122;
       }
 
       if (code)
