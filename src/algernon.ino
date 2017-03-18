@@ -123,9 +123,9 @@ void setup () {
 
   algernon::Colormap::configure ();
 
+  algernon::Leader::configure ();
   algernon::TapDance::configure ();
   algernon::OneShot::configure ();
-  algernon::Leader::configure ();
   algernon::Syster::configure ();
   algernon::MagicCombo::configure ();
 
