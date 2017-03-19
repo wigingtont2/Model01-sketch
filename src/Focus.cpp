@@ -99,7 +99,6 @@ namespace algernon {
         }
       }
 
-      Serial.read ();
       return true;
     }
 

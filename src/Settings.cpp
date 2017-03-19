@@ -43,7 +43,6 @@ namespace algernon {
         EEPROM.put (base, settings);
       }
 
-      Serial.read ();
       return true;
     }
 
