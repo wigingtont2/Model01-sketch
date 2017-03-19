@@ -34,7 +34,8 @@ namespace algernon {
         return false;
 
       if (Serial.peek () == '\n') {
-        Serial.println ((settings.cycleTimer) ? F("on") : F("off"));
+        Focus.printBool (settings.cycleTimer);
+        Serial.println ();
       } else {
         uint8_t state = Serial.parseInt ();
         settings.cycleTimer = !!state;

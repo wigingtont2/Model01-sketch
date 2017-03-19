@@ -53,13 +53,9 @@ namespace algernon {
 
           if (Serial.peek () == '\n') {
             cRGB c = LEDControl.led_get_crgb_at (idx);
-            const __FlashStringHelper *spc = F(" ");
 
-            Serial.print (c.r);
-            Serial.print (spc);
-            Serial.print (c.g);
-            Serial.print (spc);
-            Serial.println (c.b);
+            Focus.printColor (c);
+            Serial.println ();
           } else {
             cRGB c;
 
