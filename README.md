@@ -103,7 +103,7 @@ This is an experimental feature, and may or may not work reliably.
 This sketch makes use of a fair amount of plugins, most of them have been listed above, but below, you'll find a list of all plugins used (directly, or transitively), in alphabetical order:
 
 * [Colormap][kaleidoscope:colormap]
-* [EEPROM-Colormap][kaleidoscope-eeprom-colormap]
+* [EEPROM-Colormap][kaleidoscope:eeprom-colormap]
 * [EEPROM-Keymap][kaleidoscope:eeprom-keymap]
 * [EEPROM-Settings][kaleidoscope:eeprom-settings]
 * [Escape-OneShot][kaleidoscope:escape-oneshot]
