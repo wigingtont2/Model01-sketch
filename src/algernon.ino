@@ -147,11 +147,15 @@ void setup () {
   algernon::Settings::seal ();
 }
 
+#if WITH_CYCLE_REPORT
 static unsigned long avgLoopTime = 0;
 static unsigned long nextReport = millis() + 1000;
+#endif
 
 void loop () {
+#if WITH_CYCLE_REPORT
   unsigned long loopStart = micros ();
+#endif
 
   Kaleidoscope.loop();
 
@@ -161,6 +165,7 @@ void loop () {
     algernon::TapDance::cancelOneShot = false;
   }
 
+#if WITH_CYCLE_REPORT
   unsigned long loopTime = micros () - loopStart;
 
   if (avgLoopTime)
@@ -175,4 +180,5 @@ void loop () {
     }
     nextReport = millis() + 1000;
   }
+#endif
 }

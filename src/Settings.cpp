@@ -28,6 +28,7 @@ namespace algernon {
   namespace Settings {
     static uint16_t base;
 
+#if WITH_CYCLE_REPORT
     static bool
     focusSettings (const char *command) {
       if (strcmp (command, PSTR ("settings.cycleTimer")) != 0)
@@ -45,6 +46,7 @@ namespace algernon {
 
       return true;
     }
+#endif
 
     void
     configure (void) {
@@ -54,10 +56,12 @@ namespace algernon {
       EEPROMKeymap.reserveSpace (LAYER_MAX - 1);
       base = EEPROMSettings.requestSlice (sizeof (settings));
 
+#if WITH_CYCLE_REPORT
       Focus.addHook (FOCUS_HOOK (focusSettings,
                                  "settings.cycleTimer [1|0]\n"
                                  "-------------------------\n"
                                  "Enable/disable the cycle timer; or display the setting if called without arguments."));
+#endif
       EEPROM.get (base, settings);
     }
 
