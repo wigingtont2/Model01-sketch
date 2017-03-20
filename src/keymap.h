@@ -102,7 +102,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,XXX ,MM(L)  ,MM(Dn) ,MM(R)  ,MW(SW) ,MW(SE)
    ,XXX ,XXX    ,XXX    ,XXX    ,XXX    ,XXX    ,___
 
-   ,TD(VOLD) ,Key_volumeUp ,___ ,___
+   ,MM(BtnL) ,MM(BtnR) ,___ ,___
    ,___
 
    ,LGUI(Key_L) ,Key_F10 ,Key_F2     ,Key_F4      ,Key_F6     ,Key_F8 ,XXX
@@ -110,7 +110,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
                 ,M(MSM)  ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX    ,XXX
    ,___         ,XXX     ,Key_PageUp ,XXX         ,Key_PageDn ,XXX    ,XXX
 
-   ,MM(BtnL) ,___ ,___ ,MM(BtnR)
+   ,TD(VOLD) ,___ ,___ ,Key_volumeUp
    ,OSL(_EMPTY)
   ),
 
