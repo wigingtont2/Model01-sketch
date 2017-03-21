@@ -62,6 +62,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   - `PALMS + A`: Switch to the [ADORE](#adore-layer) layer.
 * We are also using [mouse keys][kaleidoscope:mouse-keys], [mouse gears][kaleidoscope:mouse-gears], and [macros][kaleidoscope:macros] for some of the features.
 * The keyboard can also communicate with the host bidirectionally, thanks to the [Focus][kaleidoscope:focus] plugin. See [Chrysalis][chrysalis] for a simple client.
+* With the help of the [EEPROM-Keymap-Programmer][kaleidoscope:eeprom-keymap-programmer] plugin, it is possible to dynamically remap a key without any kind of software installed on the host.
 
   [dvorak:prg]: http://www.kaufmann.no/roland/dvorak/
   [kaleidoscope:oneshot]: https://github.com/keyboardio/Kaleidoscope-OneShot
@@ -76,6 +77,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   [kaleidoscope:mouse-gears]: https://github.com/keyboardio/Kaleidoscope-MouseGears
   [kaleidoscope:macros]: https://github.com/keyboardio/Kaleidoscope-Macros
   [kaleidoscope:focus]: https://github.com/keyboardio/Kaleiodscope-Focus
+  [kaleidoscope:eeprom-keymap-programmer]: https://github.com/keyboardio/Kaleidoscope-EEPROM-Keymap-Programmer
   [chrysalis]: https://github.com/algernon/Chrysalis
   
 ## ADORE layer
@@ -105,6 +107,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 * [Colormap][kaleidoscope:colormap]
 * [EEPROM-Colormap][kaleidoscope:eeprom-colormap]
 * [EEPROM-Keymap][kaleidoscope:eeprom-keymap]
+* [EEPROM-Keymap-Programmer][kaleidoscope:eeprom-keymap-programmer]
 * [EEPROM-Settings][kaleidoscope:eeprom-settings]
 * [Escape-OneShot][kaleidoscope:escape-oneshot]
 * [Focus][kaleidoscope:focus]

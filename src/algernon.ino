@@ -33,6 +33,7 @@
 #include <Kaleidoscope-MouseGears.h>
 #include <Kaleidoscope-EEPROM-Settings.h>
 #include <Kaleidoscope-EEPROM-Keymap.h>
+#include <Kaleidoscope-EEPROM-Keymap-Programmer.h>
 
 #include "Layers.h"
 
@@ -48,6 +49,13 @@
 #include "keymap.h"
 
 const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
+  if (macroIndex == REPROGRAM) {
+    if (key_toggled_off (keyState)) {
+      EEPROMKeymapProgrammer.nextState ();
+    }
+    return MACRO_NONE;
+  }
+
   if (!key_toggled_on (keyState))
     return MACRO_NONE;
 
@@ -119,6 +127,7 @@ void setup () {
   Kaleidoscope.use (&LEDOff,
                     &StalkerEffect,
                     &HostOS,
+                    &EEPROMKeymapProgrammer,
                     NULL);
 
   algernon::Settings::configure ();
