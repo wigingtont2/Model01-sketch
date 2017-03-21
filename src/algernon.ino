@@ -49,13 +49,6 @@
 #include "keymap.h"
 
 const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
-  if (macroIndex == REPROGRAM) {
-    if (key_toggled_off (keyState)) {
-      EEPROMKeymapProgrammer.nextState ();
-    }
-    return MACRO_NONE;
-  }
-
   if (!key_toggled_on (keyState))
     return MACRO_NONE;
 

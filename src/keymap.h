@@ -33,8 +33,6 @@ enum {
 
   MSP,
   MSM,
-
-  REPROGRAM,
 };
 
 #define Key_AT    LSHIFT(Key_2)
@@ -69,7 +67,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,TD(COLON) ,Key_Backspace ,OSM(LShift) ,Key_Esc
    ,OSL(_NAV)
 
-   ,TD(TMUXP) ,Key_PRCNT ,Key_EXCLM ,Key_HASH ,Key_AND ,Key_RCB ,M(REPROGRAM)
+   ,TD(TMUXP) ,Key_PRCNT ,Key_EXCLM ,Key_HASH ,Key_AND ,Key_RCB ,TD(MNP)
    ,TD(RPB)   ,Key_F     ,Key_G     ,Key_C    ,Key_R   ,Key_L   ,Key_Backslash
               ,Key_D     ,Key_H     ,Key_T    ,Key_N   ,Key_S   ,Key_Equals
    ,OSM(LAlt) ,Key_B     ,Key_M     ,Key_W    ,Key_V   ,Key_Z   ,LEAD(MAIN)
@@ -88,7 +86,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,TD(COLON) ,Key_Backspace ,OSM(LShift) ,Key_Esc
    ,OSL(_NAV)
 
-   ,TD(TMUXP) ,Key_PRCNT ,Key_EXCLM ,Key_HASH ,Key_AND ,Key_RCB   ,M(REPROGRAM)
+   ,TD(TMUXP) ,Key_PRCNT ,Key_EXCLM ,Key_HASH ,Key_AND ,Key_RCB   ,TD(MNP)
    ,TD(RPB)   ,Key_M     ,Key_G     ,Key_L    ,Key_P   ,Key_Slash ,Key_Backslash
               ,Key_D     ,Key_R     ,Key_T    ,Key_N   ,Key_S     ,Key_Equals
    ,OSM(LAlt) ,Key_B     ,Key_K     ,Key_V    ,Key_Y   ,Key_J     ,LEAD(MAIN)
@@ -107,7 +105,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,MM(BtnL) ,MM(BtnR) ,___ ,___
    ,___
 
-   ,LGUI(Key_L) ,Key_F10 ,Key_F2     ,Key_F4      ,Key_F6     ,Key_F8 ,___
+   ,LGUI(Key_L) ,Key_F10 ,Key_F2     ,Key_F4      ,Key_F6     ,Key_F8 ,XXX
    ,XXX         ,M(MSP)  ,Key_Home   ,Key_UpArrow ,Key_End    ,XXX    ,XXX
                 ,M(MSM)  ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX    ,XXX
    ,___         ,XXX     ,Key_PageUp ,XXX         ,Key_PageDn ,XXX    ,XXX
@@ -126,7 +124,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,XXX ,___ ,___ ,___
    ,OSL(_EMPTY)
 
-   ,XXX ,XXX   ,XXX   ,XXX   ,XXX   ,XXX ,___
+   ,XXX ,XXX   ,XXX   ,XXX   ,XXX   ,XXX ,XXX
    ,XXX ,XXX   ,Key_7 ,Key_8 ,Key_9 ,XXX ,XXX
         ,Key_0 ,Key_4 ,Key_5 ,Key_6 ,XXX ,XXX
    ,___ ,XXX   ,Key_1 ,Key_2 ,Key_3 ,XXX ,XXX
@@ -144,7 +142,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,XXX ,XXX ,XXX ,XXX
    ,XXX
 
-   ,XXX ,XXX ,XXX    ,XXX    ,XXX    ,XXX ,___
+   ,XXX ,XXX ,XXX    ,XXX    ,XXX    ,XXX ,XXX
    ,XXX ,XXX ,XXX    ,XXX    ,XXX    ,XXX ,XXX
         ,XXX ,AS_TRM ,AS_ECS ,AS_WEB ,XXX ,XXX
    ,XXX ,XXX ,AS_MUS ,XXX    ,AS_CHT ,XXX ,XXX

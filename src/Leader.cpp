@@ -24,6 +24,7 @@
 #include <Kaleidoscope-Syster.h>
 #include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-OneShot.h>
+#include <Kaleidoscope-EEPROM-Keymap-Programmer.h>
 
 #include "Macros.h"
 
@@ -44,6 +45,8 @@ namespace algernon {
       LEAD_LEDEFFECT,
 
       LEAD_BUTTERFLY,
+
+      LEAD_REPROGRAM,
     };
 
     static void
@@ -93,6 +96,11 @@ namespace algernon {
                             T(Y), END));
     }
 
+    static void
+    ReProgram (uint8_t seqIndex) {
+      ::EEPROMKeymapProgrammer.nextState ();
+    }
+
     static const KaleidoscopePlugins::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
       (
        [LEAD_UNICODE_UCIS]   = {LEADER_SEQ (LEAD(MAIN), Key_U), startUCIS},
@@ -104,7 +112,9 @@ namespace algernon {
 
        [LEAD_LEDEFFECT]       = {LEADER_SEQ (LEAD(MAIN), LEAD(MAIN)), NextLEDEffect},
 
-       [LEAD_BUTTERFLY]       = {LEADER_SEQ (LEAD(MAIN), OSM(LAlt)), Butterfly}
+       [LEAD_BUTTERFLY]       = {LEADER_SEQ (LEAD(MAIN), OSM(LAlt)), Butterfly},
+
+       [LEAD_REPROGRAM]       = {LEADER_SEQ (LEAD(MAIN), Key_R), ReProgram}
       );
 
     void
