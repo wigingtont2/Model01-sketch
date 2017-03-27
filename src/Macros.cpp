@@ -29,37 +29,37 @@ namespace algernon {
     void
     Csilla () {
       ::Macros.play (MACRO (Tr(LSHIFT(Key_C)),
-                            T(S),
-                            T(I),
-                            T(L),
-                            T(L),
+                            Tc(S),
+                            Tc(I),
+                            Tc(L),
+                            Tc(L),
                             END));
 
       handle_key_event ((Key){.raw = HUN_AA}, 255, 255, IS_PRESSED | INJECTED);
 
-      ::Macros.play (MACRO (T(M),
-                            T(A),
-                            T(S),
-                            T(S),
-                            T(Z),
-                            T(O),
-                            T(N),
-                            T(Y),
-                            T(K),
+      ::Macros.play (MACRO (Tc(M),
+                            Tc(A),
+                            Tc(S),
+                            Tc(S),
+                            Tc(Z),
+                            Tc(O),
+                            Tc(N),
+                            Tc(Y),
+                            Tc(K),
                             END));
 
       handle_key_event ((Key){.raw = HUN_AA}, 255, 255, IS_PRESSED | INJECTED);
 
-      ::Macros.play (MACRO (T(M),
+      ::Macros.play (MACRO (Tc(M),
                             END));
     }
 
     void
     Gergo () {
       ::Macros.play (MACRO (Tr(LSHIFT(Key_G)),
-                            T(E),
-                            T(J),
-                            T(G),
+                            Tc(E),
+                            Tc(J),
+                            Tc(G),
                             END));
 
       handle_key_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
