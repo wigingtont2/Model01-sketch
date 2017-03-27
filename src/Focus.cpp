@@ -114,15 +114,9 @@ namespace algernon {
 #endif
       Focus.addHook (FOCUS_HOOK_EEPROM);
       Focus.addHook (FOCUS_HOOK (led,
-                                 "led.at POS [r g b]\n"
-                                 "------------------\n"
-                                 "Either display, or set the color of the LED at `POS`, depending on whether the `r`, `g`, and `b` color values are specified.\n\n"
-                                 "led.setAll r g b\n"
-                                 "----------------\n"
-                                 "Set all leds to the color described with `r`, `g`, and `b`.\n\n"
-                                 "led.mode [n|p|MODE]\n"
-                                 "----------\n"
-                                 "Switches to LED effect mode to either the next (if `n` is the argument), the previous (`p`), or to `MODE` if a number is given. Displays the current mode index without arguments."));
+                                 "led.at\n"
+                                 "led.setAll\n"
+                                 "led.mode"));
       Focus.addHook (FOCUS_HOOK_SETTINGS);
     }
   };
