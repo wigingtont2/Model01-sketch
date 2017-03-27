@@ -18,7 +18,7 @@
 
 #pragma once
 
-#define FOCUS_WITHOUT_DOCS 1
+#define FOCUS_WITHOUT_DOCS 0
 #define KALEIDOSCOPE_HOSTOS_GUESSER 0
 
 #define WITH_PROGMEM_KEYMAP 0
