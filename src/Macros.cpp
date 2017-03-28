@@ -35,7 +35,7 @@ namespace algernon {
                             Tc(L),
                             END));
 
-      handle_key_event ((Key){.raw = HUN_AA}, 255, 255, IS_PRESSED | INJECTED);
+      handle_keyswitch_event ((Key){.raw = HUN_AA}, 255, 255, IS_PRESSED | INJECTED);
 
       ::Macros.play (MACRO (Tc(M),
                             Tc(A),
@@ -48,7 +48,7 @@ namespace algernon {
                             Tc(K),
                             END));
 
-      handle_key_event ((Key){.raw = HUN_AA}, 255, 255, IS_PRESSED | INJECTED);
+      handle_keyswitch_event ((Key){.raw = HUN_AA}, 255, 255, IS_PRESSED | INJECTED);
 
       ::Macros.play (MACRO (Tc(M),
                             END));
@@ -62,11 +62,11 @@ namespace algernon {
                             Tc(G),
                             END));
 
-      handle_key_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
+      handle_keyswitch_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
       Keyboard.sendReport ();
-      handle_key_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
+      handle_keyswitch_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
       Keyboard.sendReport ();
-      handle_key_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
+      handle_keyswitch_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
     }
   }
 }

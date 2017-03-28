@@ -90,10 +90,10 @@ namespace algernon {
         }
 
         Unicode.input ();
-        handle_key_event (key, 255, 255, IS_PRESSED | INJECTED);
+        handle_keyswitch_event (key, 255, 255, IS_PRESSED | INJECTED);
         Keyboard.sendReport ();
         Unicode.input ();
-        handle_key_event (key, 255, 255, WAS_PRESSED | INJECTED);
+        handle_keyswitch_event (key, 255, 255, WAS_PRESSED | INJECTED);
         Keyboard.sendReport ();
       }
       Unicode.end ();

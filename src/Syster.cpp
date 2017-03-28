@@ -28,9 +28,9 @@ systerAction (KaleidoscopePlugins::Syster::action_t action, const char *symbol) 
     Unicode.type (0x2328);
     break;
   case KaleidoscopePlugins::Syster::EndAction:
-    handle_key_event (Key_Backspace, 255, 255, IS_PRESSED | INJECTED);
+    handle_keyswitch_event (Key_Backspace, 255, 255, IS_PRESSED | INJECTED);
     Keyboard.sendReport ();
-    handle_key_event (Key_Backspace, 255, 255, WAS_PRESSED | INJECTED);
+    handle_keyswitch_event (Key_Backspace, 255, 255, WAS_PRESSED | INJECTED);
     Keyboard.sendReport ();
     break;
   case KaleidoscopePlugins::Syster::SymbolAction:

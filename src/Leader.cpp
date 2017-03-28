@@ -70,7 +70,7 @@ namespace algernon {
 
     static void
     startUCIS (uint8_t seqIndex) {
-      handle_key_event (SYSTER, 255, 255, IS_PRESSED | INJECTED);
+      handle_keyswitch_event (SYSTER, 255, 255, IS_PRESSED | INJECTED);
     }
 
     static void
