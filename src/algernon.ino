@@ -120,7 +120,9 @@ void setup () {
   Kaleidoscope.use (&LEDOff,
                     &StalkerEffect,
                     &HostOS,
+#if WITH_KEYMAP_PROGRAMMER
                     &EEPROMKeymapProgrammer,
+#endif
                     NULL);
 
   algernon::Settings::configure ();

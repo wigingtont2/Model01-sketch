@@ -16,6 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "00-config.h"
 #include "Leader.h"
 
 #include <Kaleidoscope-Macros.h>
@@ -46,7 +47,9 @@ namespace algernon {
 
       LEAD_BUTTERFLY,
 
+#if WITH_KEYMAP_PROGRAMMER
       LEAD_REPROGRAM,
+#endif
     };
 
     static void
@@ -96,10 +99,12 @@ namespace algernon {
                             Tc(Y), END));
     }
 
+#if WITH_KEYMAP_PROGRAMMER
     static void
     ReProgram (uint8_t seqIndex) {
       ::EEPROMKeymapProgrammer.nextState ();
     }
+#endif
 
     static const KaleidoscopePlugins::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
       (
@@ -112,9 +117,12 @@ namespace algernon {
 
        [LEAD_LEDEFFECT]       = {LEADER_SEQ (LEAD(MAIN), LEAD(MAIN)), NextLEDEffect},
 
-       [LEAD_BUTTERFLY]       = {LEADER_SEQ (LEAD(MAIN), OSM(LAlt)), Butterfly},
+       [LEAD_BUTTERFLY]       = {LEADER_SEQ (LEAD(MAIN), OSM(LAlt)), Butterfly}
 
+#if WITH_KEYMAP_PROGRAMMER
+       ,
        [LEAD_REPROGRAM]       = {LEADER_SEQ (LEAD(MAIN), Key_R), ReProgram}
+#endif
       );
 
     void
