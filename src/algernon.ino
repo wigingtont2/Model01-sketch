@@ -21,6 +21,8 @@
 #include <Kaleidoscope.h>
 #include <Kaleidoscope-Macros.h>
 #include <Kaleidoscope-LEDControl.h>
+#include <Kaleidoscope-FingerPainter.h>
+#include <Kaleidoscope-Focus.h>
 
 #include "LED-Off.h"
 
@@ -118,6 +120,7 @@ void setup () {
   loop_hook_use (emptyLayerForceOff);
 
   Kaleidoscope.use (&LEDOff,
+                    &FingerPainter,
                     &StalkerEffect,
                     &HostOS,
 #if WITH_KEYMAP_PROGRAMMER
@@ -148,7 +151,12 @@ void setup () {
   LEDControl.syncDelay = 64;
   delay (1000);
 
+  FingerPainter.configure ();
+  FingerPainter.defaultPalette = FINGERPAINTER_PALETTE_PASTEL;
+
   algernon::Settings::seal ();
+
+  Focus.addHook (FOCUS_HOOK_FINGERPAINTER);
 }
 
 #if WITH_CYCLE_REPORT
