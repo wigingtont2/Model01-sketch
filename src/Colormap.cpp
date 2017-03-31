@@ -195,7 +195,9 @@ namespace algernon {
       EEPROMColormapEffect.configure (LAYER_MAX);
       EEPROMColormapEffect.activate ();
 
+# if WITH_COLORMAP_FOCUS
       Focus.addHook (FOCUS_HOOK_COLORMAP);
+# endif
 #endif
     }
   };
