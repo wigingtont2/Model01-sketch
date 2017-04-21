@@ -115,13 +115,17 @@ void setup () {
 
   Kaleidoscope.setup ();
 
+#if WITH_STALKER_EFFECT
   StalkerEffect.configure (STALKER (BlazingTrail, NULL));
+#endif
 
   loop_hook_use (emptyLayerForceOff);
 
   Kaleidoscope.use (&LEDOff,
                     &FingerPainter,
+#if WITH_STALKER_EFFECT
                     &StalkerEffect,
+#endif
                     &HostOS,
 #if WITH_KEYMAP_PROGRAMMER
                     &EEPROMKeymapProgrammer,
