@@ -107,6 +107,15 @@ static Key getKey (uint8_t layer, byte row, byte col) {
   return Key_NoKey;
 }
 
+class LEDNone_ : public LEDMode {
+public:
+  LEDNone_ (void) { };
+
+  virtual void update (void) final {};
+};
+
+static LEDNone_ LEDNone;
+
 void setup () {
   Serial.begin(9600);
 
@@ -121,7 +130,7 @@ void setup () {
 
   loop_hook_use (emptyLayerForceOff);
 
-  Kaleidoscope.use (&LEDOff,
+  Kaleidoscope.use (&LEDNone,
                     &FingerPainter,
 #if WITH_STALKER_EFFECT
                     &StalkerEffect,
