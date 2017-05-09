@@ -57,10 +57,7 @@ namespace algernon {
       base = EEPROMSettings.requestSlice (sizeof (settings));
 
 #if WITH_CYCLE_REPORT
-      Focus.addHook (FOCUS_HOOK (focusSettings,
-                                 "settings.cycleTimer [1|0]\n"
-                                 "-------------------------\n"
-                                 "Enable/disable the cycle timer; or display the setting if called without arguments."));
+      Focus.addHook (FOCUS_HOOK (focusSettings, "settings.cycleTimer"));
 #endif
       EEPROM.get (base, settings);
     }
