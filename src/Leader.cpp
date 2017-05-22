@@ -56,16 +56,16 @@ namespace algernon {
     Shruggy (uint8_t seqIndex) {
       ::Unicode.type (0xaf);
       ::Macros.play (MACRO (Tc(Backslash),
-                            D(RShift),
+                            D(RightShift),
                             Tc(Minus),
                             Tc(9),
-                            U(RShift),
+                            U(RightShift),
                             END));
       ::Unicode.type (0x30c4);
-      ::Macros.play (MACRO (D(RShift),
+      ::Macros.play (MACRO (D(RightShift),
                             Tc(0),
                             Tc(Minus),
-                            U(RShift),
+                            U(RightShift),
                             Tc(Slash),
                             END));
       ::Unicode.type (0xaf);
@@ -78,7 +78,7 @@ namespace algernon {
 
     static void
     Kids (uint8_t seqIndex) {
-      ::Macros.play (MACRO (Tc(Space), Tr(LSHIFT(Key_7)), Tc(Space), END));
+      ::Macros.play (MACRO (Tc(Spacebar), Tr(LSHIFT(Key_7)), Tc(Spacebar), END));
       ::Unicode.type (0x1f476);
       ::Unicode.type (0x1f476);
     }
@@ -91,7 +91,7 @@ namespace algernon {
     static void
     Butterfly (uint8_t seqIndex) {
       ::Macros.play (MACRO (I(10),
-                            D(LAlt), W(100), Tc(X), W(100), U(LAlt),
+                            D(LeftAlt), W(100), Tc(X), W(100), U(LeftAlt),
                             W(100), W(100),
                             Tc(B), Tc(U), Tc(T), Tc(T), Tc(E), Tc(R), Tc(F), Tc(L), Tc(Y),
                             W(100), W(100),
@@ -117,7 +117,7 @@ namespace algernon {
 
        [LEAD_LEDEFFECT]       = {LEADER_SEQ (LEAD(MAIN), LEAD(MAIN)), NextLEDEffect},
 
-       [LEAD_BUTTERFLY]       = {LEADER_SEQ (LEAD(MAIN), OSM(LAlt)), Butterfly}
+       [LEAD_BUTTERFLY]       = {LEADER_SEQ (LEAD(MAIN), OSM(LeftAlt)), Butterfly}
 
 #if WITH_KEYMAP_PROGRAMMER
        ,
