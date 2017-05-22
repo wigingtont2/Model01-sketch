@@ -37,11 +37,11 @@ namespace algernon {
       case KaleidoscopePlugins::TapDance::Interrupt:
       case KaleidoscopePlugins::TapDance::Hold:
       case KaleidoscopePlugins::TapDance::Timeout:
-        handle_keyswitch_event (Key_LGUI, row, col, IS_PRESSED | INJECTED);
+        handle_keyswitch_event (Key_LeftGui, row, col, IS_PRESSED | INJECTED);
         Keyboard.sendReport ();
         break;
       case KaleidoscopePlugins::TapDance::Release:
-        handle_keyswitch_event (Key_LGUI, row, col, WAS_PRESSED | INJECTED);
+        handle_keyswitch_event (Key_LeftGui, row, col, WAS_PRESSED | INJECTED);
         Keyboard.sendReport ();
         break;
       }
@@ -63,7 +63,7 @@ namespace algernon {
       Key key;
 
       if (tapCount == 1) {
-        key = LALT (Key_Space);
+        key = LALT (Key_Spacebar);
       } else {
         key = LCTRL (Key_A);
       }
@@ -76,7 +76,7 @@ namespace algernon {
         return;
 
       // Alt + Space
-      tap (LALT (Key_Space), row, col);
+      tap (LALT (Key_Spacebar), row, col);
 
       // P, or Z
       Key key = Key_P;
@@ -103,12 +103,12 @@ tapDanceAction (uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, Kal
 
   case LPB:
     return tapDanceActionKeys (tapCount, tapDanceAction,
-                               Key_LBracket,
-                               Key_LEFT_PAREN);
+                               Key_LeftBracket,
+                               Key_LeftParen);
   case RPB:
     return tapDanceActionKeys (tapCount, tapDanceAction,
-                               Key_RBracket,
-                               Key_RIGHT_PAREN);
+                               Key_RightBracket,
+                               Key_RightParen);
 
   case COLON:
     return tapDanceActionKeys (tapCount, tapDanceAction,
@@ -117,8 +117,8 @@ tapDanceAction (uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, Kal
 
   case MNP:
     return tapDanceActionKeys (tapCount, tapDanceAction,
-                               Key_nextTrack,
-                               Key_prevTrack);
+                               Key_Consumer_ScanNextTrack,
+                               Key_Consumer_ScanPreviousTrack);
 
   case GUI:
     return algernon::TapDance::GUI (tapCount, row, col, tapDanceAction);
@@ -130,8 +130,8 @@ tapDanceAction (uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, Kal
 
   case VOLD:
     return tapDanceActionKeys (tapCount, tapDanceAction,
-                               Key_volumeDown,
-                               Key_volumeMute);
+                               Key_Consumer_VolumeDecrement,
+                               Key_Consumer_Mute);
   }
 }
 
