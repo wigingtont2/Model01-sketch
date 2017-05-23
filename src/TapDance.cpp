@@ -117,8 +117,8 @@ tapDanceAction (uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, Kal
 
   case MNP:
     return tapDanceActionKeys (tapCount, tapDanceAction,
-                               Key_Consumer_ScanNextTrack,
-                               Key_Consumer_ScanPreviousTrack);
+                               Consumer_ScanNextTrack,
+                               Consumer_ScanPreviousTrack);
 
   case GUI:
     return algernon::TapDance::GUI (tapCount, row, col, tapDanceAction);
@@ -130,8 +130,8 @@ tapDanceAction (uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, Kal
 
   case VOLD:
     return tapDanceActionKeys (tapCount, tapDanceAction,
-                               Key_Consumer_VolumeDecrement,
-                               Key_Consumer_Mute);
+                               Consumer_VolumeDecrement,
+                               Consumer_Mute);
   }
 }
 
