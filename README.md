@@ -49,7 +49,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   - One can also switch LEDs off.
 * The top row was inspired by [Programmer Dvorak][dvorak:prg], but the symbols are arranged so that the most used ones are easier to access. The numbers are available in a numpad-like layout on a separate layer.
 * The `R0C6` and `R0C9` keys are to control `tmux` and `screen`, and are dependent on my tmux setup.
-* The `R1C6` and `R1C9` keys are [tap-dance][kaleidoscope:tap-dance] keys. Tapped once, they input `[{`/`}]` (without and with `Shift`, respectively). Tapped twice, they input `(`/`)`.
+* The `R1C6` and `R1C9` keys are [tap-dance][kaleidoscope:tap-dance] keys. Tapped once, they input `[{`/`}]` (without and with `Shift`, respectively). Tapped twice, they input `(`/`)`. Tapped three times, they input Japanese brackets, `「`/`」`.
 * The `LEAD` keys is a [leader key][kaleidoscope:leader], with the following sequences built-in:
   - `LEAD u` starts the [symbolic unicode input](#symbolic-unicode-input) method.
   - `LEAD s` does a lot of magic to type a shruggy: `¯ \_(ツ )_/¯`.

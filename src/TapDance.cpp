@@ -16,6 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <Kaleidoscope-Unicode.h>
+
 #include "Layers.h"
 #include "TapDance.h"
 #include "Leader.h"
@@ -101,14 +103,22 @@ tapDanceAction (uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, Kal
   case TMUXP:
     return algernon::TapDance::TMUXPane (tapCount, row, col, tapDanceAction);
 
-  case LPB:
-    return tapDanceActionKeys (tapCount, tapDanceAction,
-                               Key_LeftBracket,
-                               Key_LeftParen);
-  case RPB:
-    return tapDanceActionKeys (tapCount, tapDanceAction,
-                               Key_RightBracket,
-                               Key_RightParen);
+  case LPB: {
+    if (tapCount < 3)
+      return tapDanceActionKeys (tapCount, tapDanceAction,
+                                 Key_LeftBracket,
+                                 Key_LeftParen);
+    else
+      return Unicode.type (0x300c);
+  }
+  case RPB: {
+    if (tapCount < 3)
+      return tapDanceActionKeys (tapCount, tapDanceAction,
+                                 Key_RightBracket,
+                                 Key_RightParen);
+    else
+      return Unicode.type (0x300d);
+  }
 
   case COLON:
     return tapDanceActionKeys (tapCount, tapDanceAction,
