@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016  Gergely Nagy
+ * Copyright (C) 2016, 2017  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,8 @@
 
 #include "00-config.h"
 
-#include <Kaleidoscope-EEPROM-Colormap.h>
+#include <Kaleidoscope-LED-Palette-Theme.h>
+#include <Kaleidoscope-Colormap.h>
 #include <Kaleidoscope-Focus.h>
 
 #include "Layers.h"
@@ -28,11 +29,12 @@ namespace algernon {
 
     void
     configure (void) {
-      Kaleidoscope.use (&EEPROMColormapEffect, NULL);
+      Kaleidoscope.use (&ColormapEffect, &LEDPaletteTheme, NULL);
 
-      EEPROMColormapEffect.configure (LAYER_MAX);
-      EEPROMColormapEffect.activate ();
+      ColormapEffect.configure (LAYER_MAX);
+      ColormapEffect.activate ();
 
+      Focus.addHook (FOCUS_HOOK_LEDPALETTETHEME);
       Focus.addHook (FOCUS_HOOK_COLORMAP);
     }
   };
