@@ -55,6 +55,12 @@ enum {
 #define MS_SUP MM(ScrollUp)
 #define MS_SDN MM(ScrollDn)
 
+#define Key_PlayPause Consumer_PlaySlashPause
+#define Key_LArrow Key_LeftArrow
+#define Key_RArrow Key_RightArrow
+#define Key_DnArrow Key_DownArrow
+#define Key_PageDn Key_PageDown
+
 #if WITH_PROGMEM_KEYMAP
 const Key keymaps[][ROWS][COLS] PROGMEM = {
   [_DVORAK] = KEYMAP_STACKED
@@ -62,17 +68,17 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
     TD(F11)       ,Key_LCB   ,Key_AT    ,Key_STAR   ,Key_DOLLR ,Key_CARET ,TD(TMUX)
    ,Key_Backtick  ,Key_Quote ,Key_Comma ,Key_Period ,Key_P     ,Key_Y     ,TD(LPB)
    ,Key_Tab       ,Key_A     ,Key_O     ,Key_E      ,Key_U     ,Key_I
-   ,Key_playPause ,Key_Slash ,Key_Q     ,Key_J      ,Key_K     ,Key_X     ,OSM(LeftControl)
+   ,Key_PlayPause ,Key_Slash ,Key_Q     ,Key_J      ,Key_K     ,Key_X     ,OSM(LeftControl)
 
-   ,TD(COLON) ,Key_Backspace ,OSM(LShift) ,Key_Esc
+   ,TD(COLON) ,Key_Backspace ,OSM(LeftShift) ,Key_Escape
    ,OSL(_NAV)
 
-   ,TD(TMUXP) ,Key_PRCNT ,Key_EXCLM ,Key_HASH ,Key_AND ,Key_RCB ,TD(MNP)
-   ,TD(RPB)   ,Key_F     ,Key_G     ,Key_C    ,Key_R   ,Key_L   ,Key_Backslash
-              ,Key_D     ,Key_H     ,Key_T    ,Key_N   ,Key_S   ,Key_Equals
+   ,TD(TMUXP)    ,Key_PRCNT ,Key_EXCLM ,Key_HASH ,Key_AND ,Key_RCB ,TD(MNP)
+   ,TD(RPB)      ,Key_F     ,Key_G     ,Key_C    ,Key_R   ,Key_L   ,Key_Backslash
+                 ,Key_D     ,Key_H     ,Key_T    ,Key_N   ,Key_S   ,Key_Equals
    ,OSM(LeftAlt) ,Key_B     ,Key_M     ,Key_W    ,Key_V   ,Key_Z   ,LEAD(MAIN)
 
-   ,TD(GUI) ,Key_Enter ,Key_Space ,Key_Minus
+   ,TD(GUI) ,Key_Enter ,Key_Spacebar ,Key_Minus
    ,OSL(_AUX)
   ),
 
@@ -81,17 +87,17 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
     TD(F11)       ,Key_LCB ,Key_AT ,Key_STAR  ,Key_DOLLR ,Key_CARET  ,TD(TMUX)
    ,Key_Backslash ,Key_X   ,Key_W  ,Key_C     ,Key_H     ,Key_F      ,TD(LPB)
    ,Key_Tab       ,Key_A   ,Key_O  ,Key_E     ,Key_I     ,Key_U
-   ,Key_Consumer_PlaySlashPause ,Key_Z   ,Key_Q  ,Key_Quote ,Key_Comma ,Key_Period ,OSM(LeftControl)
+   ,Key_PlayPause ,Key_Z   ,Key_Q  ,Key_Quote ,Key_Comma ,Key_Period ,OSM(LeftControl)
 
-   ,TD(COLON) ,Key_Backspace ,OSM(LShift) ,Key_Esc
+   ,TD(COLON) ,Key_Backspace ,OSM(LeftShift) ,Key_Escape
    ,OSL(_NAV)
 
-   ,TD(TMUXP) ,Key_PRCNT ,Key_EXCLM ,Key_HASH ,Key_AND ,Key_RCB   ,TD(MNP)
-   ,TD(RPB)   ,Key_M     ,Key_G     ,Key_L    ,Key_P   ,Key_Slash ,Key_Backslash
-              ,Key_D     ,Key_R     ,Key_T    ,Key_N   ,Key_S     ,Key_Equals
+   ,TD(TMUXP)    ,Key_PRCNT ,Key_EXCLM ,Key_HASH ,Key_AND ,Key_RCB   ,TD(MNP)
+   ,TD(RPB)      ,Key_M     ,Key_G     ,Key_L    ,Key_P   ,Key_Slash ,Key_Backslash
+                 ,Key_D     ,Key_R     ,Key_T    ,Key_N   ,Key_S     ,Key_Equals
    ,OSM(LeftAlt) ,Key_B     ,Key_K     ,Key_V    ,Key_Y   ,Key_J     ,LEAD(MAIN)
 
-   ,Key_LeftGui ,Key_Enter ,Key_Space ,Key_Minus
+   ,Key_LeftGui ,Key_Enter ,Key_Spacebar ,Key_Minus
    ,OSL(_AUX)
   ),
 
@@ -110,7 +116,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
                 ,M(MSM)  ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX    ,XXX
    ,___         ,XXX     ,Key_PageUp ,XXX         ,Key_PageDn ,XXX    ,XXX
 
-   ,TD(VOLD) ,___ ,___ ,Key_volumeUp
+   ,TD(VOLD) ,___ ,___ ,Consumer_VolumeIncrement
    ,OSL(_EMPTY)
   ),
 
