@@ -34,7 +34,6 @@
 #include <Kaleidoscope-MouseGears.h>
 #include <Kaleidoscope-EEPROM-Settings.h>
 #include <Kaleidoscope-EEPROM-Keymap.h>
-#include <Kaleidoscope-EEPROM-Keymap-Programmer.h>
 
 #include "Layers.h"
 
@@ -134,9 +133,6 @@ void setup () {
                     &StalkerEffect,
 #endif
                     &HostOS,
-#if WITH_KEYMAP_PROGRAMMER
-                    &EEPROMKeymapProgrammer,
-#endif
                     NULL);
 
   algernon::Settings::configure ();

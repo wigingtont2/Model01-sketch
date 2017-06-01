@@ -53,7 +53,6 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
 * The `LEAD` keys is a [leader key][kaleidoscope:leader], with the following sequences built-in:
   - `LEAD u` starts the [symbolic unicode input](#symbolic-unicode-input) method.
   - `LEAD s` does a lot of magic to type a shruggy: `¯ \_(ツ )_/¯`.
-  - `LEAD r` enters keymap remapping mode, using the [EEPROM-Keymap-Programmer][kaleidoscope:eeprom-keymap-programmer] plugin.
   - `LEAD LEAD` switches to the next LED mode.
   - `LEAD BUTTERFLY` (where `BUTTERFLY` is the `R2C9` key) does an `M-x butterfly RET y`, in honor of [xkcd#378](https://xkcd.com/378/).
 * The `R0C7` key is also a [tap-dance][kaleidoscope:tap-dance] key, which inputs `:` on a single tap, `;` otherwise.
@@ -76,7 +75,6 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   [kaleidoscope:mouse-gears]: https://github.com/keyboardio/Kaleidoscope-MouseGears
   [kaleidoscope:macros]: https://github.com/keyboardio/Kaleidoscope-Macros
   [kaleidoscope:focus]: https://github.com/keyboardio/Kaleiodscope-Focus
-  [kaleidoscope:eeprom-keymap-programmer]: https://github.com/keyboardio/Kaleidoscope-EEPROM-Keymap-Programmer
   [chrysalis]: https://github.com/algernon/Chrysalis
   
 ## ADORE layer
@@ -105,7 +103,6 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 
 * [Colormap][kaleidoscope:colormap]
 * [EEPROM-Keymap][kaleidoscope:eeprom-keymap]
-* [EEPROM-Keymap-Programmer][kaleidoscope:eeprom-keymap-programmer]
 * [EEPROM-Settings][kaleidoscope:eeprom-settings]
 * [Escape-OneShot][kaleidoscope:escape-oneshot]
 * [Focus][kaleidoscope:focus]
