@@ -1,17 +1,17 @@
 palette
-  0   0   0 # Black                  - 0
-  0  70 160 # Blue                   - 1
-  0 160  40 # Green                  - 2
-110 180 200 # Cyan                   - 3
-100  25  25 # Red                    - 4
-100   0 120 # Magenta                - 5
-125  70  25 # Brown                  - 6
-170 170 170 # Light grey             - 7
- 85  85  85 # Dark grey              - 8
-100 175 236 # Bright blue            - 9
-175 236 100 # Bright green           - 10
-175 236 236 # Bright cyan            - 11
-255  70  70 # Bright red             - 12
-252 145 255 # Bright Magenta         - 13
-255 255  85 # yellow                 - 14
-255 255 255 # white / transparent    - 15
+  0   0   0 # Black                  -  0
+128 150 255 # Blue                   -  1
+190 255  60 # Green                  -  2
+100 245 200 # Cyan                   -  3
+255  70  70 # Red                    -  4
+230 128 255 # Magenta                -  5
+255 170 200 # Pink                   -  6
+243 255 132 # Yellow                 -  7
+255 216 128 # Peach                  -  8
+  0   0   0 # Unused                 -  9
+  0   0   0 # Unused                 - 10
+  0   0   0 # Unused                 - 11
+  0   0   0 # Unused                 - 12
+  0   0   0 # Unused                 - 13
+  0   0   0 # Unused                 - 14
+  0   0   0 # Transparent            - 15
