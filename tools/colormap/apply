@@ -1,0 +1,2 @@
+#!/bin/sh
+echo $(grep -v "^#" "$(dirname $0)/colormap.txt") | hardware/keyboardio/avr/libraries/Kaleidoscope-Focus/extras/kaleidoscope-focus.py >/dev/null
