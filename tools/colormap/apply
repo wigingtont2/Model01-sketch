@@ -1,2 +1,14 @@
 #!/bin/sh
-echo $(grep -v "^#" "$(dirname $0)/colormap.txt") | hardware/keyboardio/avr/libraries/Kaleidoscope-Focus/extras/kaleidoscope-focus.py >/dev/null
+
+PALETTE=${1:-ega}
+
+clean_command () {
+    sed -e "s,#.*,,"
+}
+
+focus () {
+    hardware/keyboardio/avr/libraries/Kaleidoscope-Focus/extras/kaleidoscope-focus.py
+}
+
+echo $(grep -v "^#" "$(dirname $0)/palette/${PALETTE}.txt" | clean_command) | focus >/dev/null
+echo $(grep -v "^#" "$(dirname $0)/colormap.txt" | clean_command) | focus >/dev/null
