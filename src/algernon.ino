@@ -49,55 +49,55 @@
 #include "keymap.h"
 
 const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
-  if (!key_toggled_on (keyState))
+  if (!key_toggled_on(keyState))
     return MACRO_NONE;
 
   switch (macroIndex) {
   case APPSEL_MUSIC ... APPSEL_WEB:
-    Serial.print (F("appsel:"));
+    Serial.print(F("appsel:"));
     break;
   }
 
   switch (macroIndex) {
   case APPSEL_MUSIC:
-    Serial.println (F("music"));
+    Serial.println(F("music"));
     break;
   case APPSEL_CHAT:
-    Serial.println (F("chat"));
+    Serial.println(F("chat"));
     break;
   case APPSEL_EMACS:
-    Serial.println (F("emacs"));
+    Serial.println(F("emacs"));
     break;
   case APPSEL_TERM:
-    Serial.println (F("term"));
+    Serial.println(F("term"));
     break;
   case APPSEL_WEB:
-    Serial.println (F("web"));
+    Serial.println(F("web"));
     break;
 
   case MSP:
-    MouseGears.speedUp ();
+    MouseGears.speedUp();
     break;
   case MSM:
-    MouseGears.speedDown ();
+    MouseGears.speedDown();
     break;
   }
   return MACRO_NONE;
 }
 
-static void emptyLayerForceOff (bool postClear) {
+static void emptyLayerForceOff(bool postClear) {
   if (postClear)
     return;
 
   if (!(KeyboardHardware.leftHandState.all & R3C6) &&
       !(KeyboardHardware.rightHandState.all & R3C9)) {
-    Layer.off (_EMPTY);
+    Layer.off(_EMPTY);
   }
 }
 
-static Key getKey (uint8_t layer, byte row, byte col) {
+static Key getKey(uint8_t layer, byte row, byte col) {
   if (layer != _EMPTY)
-    return EEPROMKeymap.getKey (layer, row, col);
+    return EEPROMKeymap.getKey(layer, row, col);
 
   if (row == 3 && (col == 6 || col == 9))
     return Key_Transparent;
@@ -106,59 +106,59 @@ static Key getKey (uint8_t layer, byte row, byte col) {
 }
 
 class LEDNone_ : public LEDMode {
-public:
-  LEDNone_ (void) { };
+ public:
+  LEDNone_(void) { };
 
-  virtual void update (void) final {};
+  virtual void update(void) final {};
 };
 
 static LEDNone_ LEDNone;
 
-void setup () {
+void setup() {
   Serial.begin(9600);
 
-  Mouse.begin ();
-  AbsoluteMouse.begin ();
+  Mouse.begin();
+  AbsoluteMouse.begin();
 
-  Kaleidoscope.setup ();
+  Kaleidoscope.setup();
 
 #if WITH_STALKER_EFFECT
-  StalkerEffect.configure (STALKER (BlazingTrail, NULL));
+  StalkerEffect.configure(STALKER(BlazingTrail, NULL));
 #endif
 
-  loop_hook_use (emptyLayerForceOff);
+  loop_hook_use(emptyLayerForceOff);
 
-  Kaleidoscope.use (&LEDNone,
+  Kaleidoscope.use(&LEDNone,
 #if WITH_STALKER_EFFECT
-                    &StalkerEffect,
+                   &StalkerEffect,
 #endif
-                    &HostOS,
-                    NULL);
+                   &HostOS,
+                   NULL);
 
-  algernon::Settings::configure ();
-  algernon::Colormap::configure ();
+  algernon::Settings::configure();
+  algernon::Colormap::configure();
 
-  algernon::Leader::configure ();
-  algernon::TapDance::configure ();
-  algernon::OneShot::configure ();
-  algernon::Syster::configure ();
-  algernon::MagicCombo::configure ();
+  algernon::Leader::configure();
+  algernon::TapDance::configure();
+  algernon::OneShot::configure();
+  algernon::Syster::configure();
+  algernon::MagicCombo::configure();
 
-  Kaleidoscope.use (&EscapeOneShot,
-                    &Macros,
-                    &Hungarian,
-                    &MouseGears,
-                    &ActiveModColorEffect,
-                    NULL);
+  Kaleidoscope.use(&EscapeOneShot,
+                   &Macros,
+                   &Hungarian,
+                   &MouseGears,
+                   &ActiveModColorEffect,
+                   NULL);
 
-  algernon::FocusSetup::configure ();
+  algernon::FocusSetup::configure();
 
   Layer.getKey = getKey;
 
   LEDControl.syncDelay = 64;
-  delay (1000);
+  delay(1000);
 
-  algernon::Settings::seal ();
+  algernon::Settings::seal();
 }
 
 #if WITH_CYCLE_REPORT
@@ -166,31 +166,31 @@ static unsigned long avgLoopTime = 0;
 static unsigned long nextReport = millis() + 1000;
 #endif
 
-void loop () {
+void loop() {
 #if WITH_CYCLE_REPORT
-  unsigned long loopStart = micros ();
+  unsigned long loopStart = micros();
 #endif
 
   Kaleidoscope.loop();
 
   if (algernon::TapDance::cancelOneShot) {
-    if (! Layer.isOn (_APPSEL))
-      OneShot.cancel ();
+    if (! Layer.isOn(_APPSEL))
+      OneShot.cancel();
     algernon::TapDance::cancelOneShot = false;
   }
 
 #if WITH_CYCLE_REPORT
-  unsigned long loopTime = micros () - loopStart;
+  unsigned long loopTime = micros() - loopStart;
 
   if (avgLoopTime)
     avgLoopTime = (avgLoopTime + loopTime) / 2;
   else
     avgLoopTime = loopTime;
 
-  if (millis () >= nextReport) {
+  if (millis() >= nextReport) {
     if (algernon::Settings::settings.cycleTimer) {
-      Serial.print (F("avgLoopTime: "));
-      Serial.println (avgLoopTime);
+      Serial.print(F("avgLoopTime: "));
+      Serial.println(avgLoopTime);
     }
     nextReport = millis() + 1000;
   }

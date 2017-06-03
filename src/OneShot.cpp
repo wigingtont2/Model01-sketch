@@ -22,10 +22,11 @@
 #include <Kaleidoscope-OneShot.h>
 
 namespace algernon {
-  namespace OneShot {
-    void
-    configure (void) {
-      Kaleidoscope.use (&::OneShot, NULL);
-    }
-  };
-};
+namespace OneShot {
+
+void configure(void) {
+  Kaleidoscope.use(&::OneShot, NULL);
+}
+
+}
+}

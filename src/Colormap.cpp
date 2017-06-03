@@ -25,17 +25,17 @@
 #include "Layers.h"
 
 namespace algernon {
-  namespace Colormap {
+namespace Colormap {
 
-    void
-    configure (void) {
-      Kaleidoscope.use (&ColormapEffect, &LEDPaletteTheme, NULL);
+void configure(void) {
+  Kaleidoscope.use(&ColormapEffect, &LEDPaletteTheme, NULL);
 
-      ColormapEffect.max_layers (LAYER_MAX);
-      ColormapEffect.activate ();
+  ColormapEffect.max_layers(LAYER_MAX);
+  ColormapEffect.activate();
 
-      Focus.addHook (FOCUS_HOOK_LEDPALETTETHEME);
-      Focus.addHook (FOCUS_HOOK_COLORMAP);
-    }
-  };
-};
+  Focus.addHook(FOCUS_HOOK_LEDPALETTETHEME);
+  Focus.addHook(FOCUS_HOOK_COLORMAP);
+}
+
+}
+}

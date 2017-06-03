@@ -25,7 +25,9 @@
 #define MO(layer) (Key){ MOMENTARY_OFFSET + layer, KEY_FLAGS | SYNTHETIC | SWITCH_TO_KEYMAP }
 
 namespace algernon {
-  namespace OneShot {
-    void configure (void);
-  };
-};
+namespace OneShot {
+
+void configure(void);
+
+}
+}

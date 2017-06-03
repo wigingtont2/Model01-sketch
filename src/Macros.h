@@ -19,8 +19,10 @@
 #pragma once
 
 namespace algernon {
-  namespace Macros {
-    void Csilla ();
-    void Gergo ();
-  };
-};
+namespace Macros {
+
+void Csilla();
+void Gergo();
+
+}
+}

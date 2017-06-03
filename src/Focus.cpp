@@ -27,21 +27,23 @@
 #include <Kaleidoscope-EEPROM-Keymap.h>
 
 namespace algernon {
-  namespace FocusSetup {
-    void configure (void) {
-      USE_PLUGINS (&Focus, &EEPROMSettings, &EEPROMKeymap);
+namespace FocusSetup {
 
-      Focus.addHook (FOCUS_HOOK_HELP);
-      Focus.addHook (FOCUS_HOOK_VERSION);
-      Focus.addHook (FOCUS_HOOK_HOSTOS);
-      Focus.addHook (FOCUS_HOOK_KEYMAP);
+void configure(void) {
+  USE_PLUGINS(&Focus, &EEPROMSettings, &EEPROMKeymap);
+
+  Focus.addHook(FOCUS_HOOK_HELP);
+  Focus.addHook(FOCUS_HOOK_VERSION);
+  Focus.addHook(FOCUS_HOOK_HOSTOS);
+  Focus.addHook(FOCUS_HOOK_KEYMAP);
 #if WITH_PROGMEM_KEYMAP
-      Focus.addHook (FOCUS_HOOK_KEYMAP_TRANSFER);
+  Focus.addHook(FOCUS_HOOK_KEYMAP_TRANSFER);
 #endif
-      Focus.addHook (FOCUS_HOOK_EEPROM);
-      Focus.addHook (FOCUS_HOOK_KALEIDOSCOPE);
-      Focus.addHook (FOCUS_HOOK_LEDCONTROL);
-      Focus.addHook (FOCUS_HOOK_SETTINGS);
-    }
-  };
-};
+  Focus.addHook(FOCUS_HOOK_EEPROM);
+  Focus.addHook(FOCUS_HOOK_KALEIDOSCOPE);
+  Focus.addHook(FOCUS_HOOK_LEDCONTROL);
+  Focus.addHook(FOCUS_HOOK_SETTINGS);
+}
+
+}
+}

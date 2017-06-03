@@ -25,53 +25,52 @@
 #include <Kaleidoscope-Focus.h>
 
 namespace algernon {
-  namespace Settings {
-    static uint16_t base;
+namespace Settings {
+
+static uint16_t base;
 
 #if WITH_CYCLE_REPORT
-    static bool
-    focusSettings (const char *command) {
-      if (strcmp (command, PSTR ("settings.cycleTimer")) != 0)
-        return false;
+static bool focusSettings(const char *command) {
+  if (strcmp(command, PSTR("settings.cycleTimer")) != 0)
+    return false;
 
-      if (Serial.peek () == '\n') {
-        Focus.printBool (settings.cycleTimer);
-        Serial.println ();
-      } else {
-        uint8_t state = Serial.parseInt ();
-        settings.cycleTimer = !!state;
+  if (Serial.peek() == '\n') {
+    Focus.printBool(settings.cycleTimer);
+    Serial.println();
+  } else {
+    uint8_t state = Serial.parseInt();
+    settings.cycleTimer = !!state;
 
-        EEPROM.put (base, settings);
-      }
-
-      return true;
-    }
-#endif
-
-    void
-    configure (void) {
-      USE_PLUGINS (&EEPROMSettings,
-                   &EEPROMKeymap);
-
-      EEPROMKeymap.max_layers (LAYER_MAX - 1);
-      base = EEPROMSettings.requestSlice (sizeof (settings));
-
-#if WITH_CYCLE_REPORT
-      Focus.addHook (FOCUS_HOOK (focusSettings, "settings.cycleTimer"));
-#endif
-      EEPROM.get (base, settings);
-    }
-
-    void
-    seal (void) {
-      EEPROMSettings.seal ();
-
-      if (!EEPROMSettings.isValid ()) {
-        EEPROMSettings.version (0);
-        EEPROMSettings.update ();
-      }
-    }
-
-    settings_ settings;
+    EEPROM.put(base, settings);
   }
+
+  return true;
+}
+#endif
+
+void configure(void) {
+  USE_PLUGINS(&EEPROMSettings,
+              &EEPROMKeymap);
+
+  EEPROMKeymap.max_layers(LAYER_MAX - 1);
+  base = EEPROMSettings.requestSlice(sizeof(settings));
+
+#if WITH_CYCLE_REPORT
+  Focus.addHook(FOCUS_HOOK(focusSettings, "settings.cycleTimer"));
+#endif
+  EEPROM.get(base, settings);
+}
+
+void seal(void) {
+  EEPROMSettings.seal();
+
+  if (!EEPROMSettings.isValid()) {
+    EEPROMSettings.version(0);
+    EEPROMSettings.update();
+  }
+}
+
+settings_ settings;
+
+}
 }

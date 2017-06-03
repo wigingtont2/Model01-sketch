@@ -21,29 +21,29 @@
 
 #include <Kaleidoscope-Unicode.h>
 
-void
-systerAction (KaleidoscopePlugins::Syster::action_t action, const char *symbol) {
+void systerAction(KaleidoscopePlugins::Syster::action_t action, const char *symbol) {
   switch (action) {
   case KaleidoscopePlugins::Syster::StartAction:
-    Unicode.type (0x2328);
+    Unicode.type(0x2328);
     break;
   case KaleidoscopePlugins::Syster::EndAction:
-    handle_keyswitch_event (Key_Backspace, 255, 255, IS_PRESSED | INJECTED);
-    Keyboard.sendReport ();
-    handle_keyswitch_event (Key_Backspace, 255, 255, WAS_PRESSED | INJECTED);
-    Keyboard.sendReport ();
+    handle_keyswitch_event(Key_Backspace, 255, 255, IS_PRESSED | INJECTED);
+    Keyboard.sendReport();
+    handle_keyswitch_event(Key_Backspace, 255, 255, WAS_PRESSED | INJECTED);
+    Keyboard.sendReport();
     break;
   case KaleidoscopePlugins::Syster::SymbolAction:
-    algernon::SymUnI::input (symbol);
+    algernon::SymUnI::input(symbol);
     break;
   }
 }
 
 namespace algernon {
-  namespace Syster {
-    void
-    configure (void) {
-      Kaleidoscope.use (&::Syster, NULL);
-    }
-  }
+namespace Syster {
+
+void configure(void) {
+  Kaleidoscope.use(&::Syster, NULL);
+}
+
+}
 }

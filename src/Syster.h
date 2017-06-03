@@ -21,7 +21,9 @@
 #include <Kaleidoscope-Syster.h>
 
 namespace algernon {
-  namespace Syster {
-    void configure (void);
-  };
-};
+namespace Syster {
+
+void configure(void);
+
+}
+}

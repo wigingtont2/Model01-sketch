@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016  Gergely Nagy
+ * Copyright (C) 2016, 2017  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,52 +27,57 @@
 using namespace KaleidoscopePlugins::LangPack;
 
 namespace algernon {
-  namespace MagicCombo {
+namespace MagicCombo {
 
-    enum {
-      ADORE,
-      CsillaDvorak,
-      CsillaADORE,
-    };
-
-    static void
-    toggleADORE () {
-      if (Layer.isOn (_ADORE)) {
-        Layer.defaultLayer (_DVORAK);
-      } else {
-        Layer.defaultLayer (_ADORE);
-      }
-    }
-
-    static const KaleidoscopePlugins::MagicCombo::dictionary_t dictionary[] PROGMEM = {
-      // palm keys + ADORE
-      [ADORE] = {R3C6 | R2C1  | R2C2 | R2C3,
-                 R3C9 | R2C10 | R2C11},
-      // palm keys + CS (Dvorak)
-      [CsillaDvorak] = {R3C6,
-                        R3C9 | R1C12 | R2C14},
-      // palm keys + CS (ADORE)
-      [CsillaADORE] = {R3C6 | R1C3,
-                       R3C9 | R2C14},
-    };
-
-    void
-    configure (void) {
-      Kaleidoscope.use (&::MagicCombo, NULL);
-
-      ::MagicCombo.configure (dictionary);
-    }
-  };
+enum {
+  ADORE,
+  CsillaDvorak,
+  CsillaADORE,
 };
 
-void magicComboActions (uint8_t comboIndex, uint32_t leftHand, uint32_t rightHand) {
+static void toggleADORE() {
+  if (Layer.isOn(_ADORE)) {
+    Layer.defaultLayer(_DVORAK);
+  } else {
+    Layer.defaultLayer(_ADORE);
+  }
+}
+
+static const KaleidoscopePlugins::MagicCombo::dictionary_t dictionary[] PROGMEM = {
+  // palm keys + ADORE
+  [ADORE] = {
+    R3C6 | R2C1  | R2C2 | R2C3,
+    R3C9 | R2C10 | R2C11
+  },
+  // palm keys + CS (Dvorak)
+  [CsillaDvorak] = {
+    R3C6,
+    R3C9 | R1C12 | R2C14
+  },
+  // palm keys + CS (ADORE)
+  [CsillaADORE] = {
+    R3C6 | R1C3,
+    R3C9 | R2C14
+  },
+};
+
+void configure(void) {
+  Kaleidoscope.use(&::MagicCombo, NULL);
+
+  ::MagicCombo.configure(dictionary);
+}
+
+}
+}
+
+void magicComboActions(uint8_t comboIndex, uint32_t leftHand, uint32_t rightHand) {
   switch (comboIndex) {
   case algernon::MagicCombo::ADORE:
-    algernon::MagicCombo::toggleADORE ();
+    algernon::MagicCombo::toggleADORE();
     break;
   case algernon::MagicCombo::CsillaDvorak:
   case algernon::MagicCombo::CsillaADORE:
-    algernon::Macros::Csilla ();
+    algernon::Macros::Csilla();
     break;
   }
 }

@@ -19,7 +19,9 @@
 #pragma once
 
 namespace algernon {
-  namespace FocusSetup {
-    void configure (void);
-  };
-};
+namespace FocusSetup {
+
+void configure(void);
+
+}
+}

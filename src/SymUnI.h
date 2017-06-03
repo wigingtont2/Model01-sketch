@@ -19,8 +19,10 @@
 #pragma once
 
 namespace algernon {
-  namespace SymUnI {
-    void input (const char *symbol);
-    void typeString (const char *symbol);
-  };
-};
+namespace SymUnI {
+
+void input(const char *symbol);
+void typeString(const char *symbol);
+
+}
+}

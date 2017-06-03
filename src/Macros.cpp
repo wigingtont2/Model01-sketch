@@ -25,48 +25,58 @@
 using namespace KaleidoscopePlugins::LangPack;
 
 namespace algernon {
-  namespace Macros {
-    void
-    Csilla () {
-      ::Macros.play (MACRO (Tr(LSHIFT(Key_C)),
-                            Tc(S),
-                            Tc(I),
-                            Tc(L),
-                            Tc(L),
-                            END));
+namespace Macros {
 
-      handle_keyswitch_event ((Key){.raw = HUN_AA}, 255, 255, IS_PRESSED | INJECTED);
+void Csilla() {
+  ::Macros.play(MACRO(Tr(LSHIFT(Key_C)),
+                      Tc(S),
+                      Tc(I),
+                      Tc(L),
+                      Tc(L),
+                      END));
 
-      ::Macros.play (MACRO (Tc(M),
-                            Tc(A),
-                            Tc(S),
-                            Tc(S),
-                            Tc(Z),
-                            Tc(O),
-                            Tc(N),
-                            Tc(Y),
-                            Tc(K),
-                            END));
+  handle_keyswitch_event((Key) {
+    .raw = HUN_AA
+  }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
 
-      handle_keyswitch_event ((Key){.raw = HUN_AA}, 255, 255, IS_PRESSED | INJECTED);
+  ::Macros.play(MACRO(Tc(M),
+                      Tc(A),
+                      Tc(S),
+                      Tc(S),
+                      Tc(Z),
+                      Tc(O),
+                      Tc(N),
+                      Tc(Y),
+                      Tc(K),
+                      END));
 
-      ::Macros.play (MACRO (Tc(M),
-                            END));
-    }
+  handle_keyswitch_event((Key) {
+    .raw = HUN_AA
+  }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
 
-    void
-    Gergo () {
-      ::Macros.play (MACRO (Tr(LSHIFT(Key_G)),
-                            Tc(E),
-                            Tc(J),
-                            Tc(G),
-                            END));
+  ::Macros.play(MACRO(Tc(M),
+                      END));
+}
 
-      handle_keyswitch_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
-      Keyboard.sendReport ();
-      handle_keyswitch_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
-      Keyboard.sendReport ();
-      handle_keyswitch_event ((Key){.raw = HUN_ODA}, 255, 255, IS_PRESSED | INJECTED);
-    }
-  }
+void Gergo() {
+  ::Macros.play(MACRO(Tr(LSHIFT(Key_G)),
+                      Tc(E),
+                      Tc(J),
+                      Tc(G),
+                      END));
+
+  handle_keyswitch_event((Key) {
+    .raw = HUN_ODA
+  }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
+  Keyboard.sendReport();
+  handle_keyswitch_event((Key) {
+    .raw = HUN_ODA
+  }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
+  Keyboard.sendReport();
+  handle_keyswitch_event((Key) {
+    .raw = HUN_ODA
+  }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
+}
+
+}
 }

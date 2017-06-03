@@ -21,14 +21,16 @@
 #include <Arduino.h>
 
 namespace algernon {
-  namespace Settings {
-    typedef struct {
-      bool cycleTimer:1;
-    } settings_;
+namespace Settings {
 
-    extern settings_ settings;
+typedef struct {
+  bool cycleTimer:1;
+} settings_;
 
-    void configure (void);
-    void seal (void);
-  };
-};
+extern settings_ settings;
+
+void configure(void);
+void seal(void);
+
+}
+}

@@ -33,11 +33,13 @@ enum {
   VOLD,
 };
 
-extern void tapDanceAction (uint8_t tapDanceIndex, uint8_t tapCount, KaleidoscopePlugins::TapDance::ActionType tapDanceAction);
+extern void tapDanceAction(uint8_t tapDanceIndex, uint8_t tapCount, KaleidoscopePlugins::TapDance::ActionType tapDanceAction);
 
 namespace algernon {
-  namespace TapDance {
-    extern bool cancelOneShot;
-    void configure (void);
-  };
-};
+namespace TapDance {
+
+extern bool cancelOneShot;
+void configure(void);
+
+}
+}

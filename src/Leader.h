@@ -25,7 +25,9 @@ enum {
 };
 
 namespace algernon {
-  namespace Leader {
-    void configure (void);
-  };
-};
+namespace Leader {
+
+void configure(void);
+
+}
+}
