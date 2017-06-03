@@ -107,9 +107,9 @@ static Key getKey(uint8_t layer, byte row, byte col) {
 
 class LEDNone_ : public LEDMode {
  public:
-  LEDNone_(void) { };
+  LEDNone_(void) { }
 
-  virtual void update(void) final {};
+  void update(void) final {};
 };
 
 static LEDNone_ LEDNone;
@@ -174,7 +174,7 @@ void loop() {
   Kaleidoscope.loop();
 
   if (algernon::TapDance::cancelOneShot) {
-    if (! Layer.isOn(_APPSEL))
+    if (!Layer.isOn(_APPSEL))
       OneShot.cancel();
     algernon::TapDance::cancelOneShot = false;
   }

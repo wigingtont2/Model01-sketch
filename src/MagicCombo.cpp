@@ -24,8 +24,6 @@
 #include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-Macros.h>
 
-using namespace KaleidoscopePlugins::LangPack;
-
 namespace algernon {
 namespace MagicCombo {
 

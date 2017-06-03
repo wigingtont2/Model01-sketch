@@ -16,11 +16,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#pragma once
+
 #include "00-config.h"
 
-using namespace KaleidoscopePlugins::LangPack;
+namespace LP = KaleidoscopePlugins::LangPack;
 
-#define R(n) (Key){.raw = n}
+#define R(n) (Key){.raw = LP:: ## n}
 #define MW(d) Key_mouseWarp ## d
 #define MM(d) Key_mouse ## d
 

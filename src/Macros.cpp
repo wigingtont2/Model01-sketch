@@ -22,10 +22,10 @@
 #include <Kaleidoscope-Unicode.h>
 #include <Kaleidoscope-LangPack-Hungarian.h>
 
-using namespace KaleidoscopePlugins::LangPack;
-
 namespace algernon {
 namespace Macros {
+
+namespace LP = KaleidoscopePlugins::LangPack;
 
 void Csilla() {
   ::Macros.play(MACRO(Tr(LSHIFT(Key_C)),
@@ -36,7 +36,7 @@ void Csilla() {
                       END));
 
   handle_keyswitch_event((Key) {
-    .raw = HUN_AA
+    .raw = LP::HUN_AA
   }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
 
   ::Macros.play(MACRO(Tc(M),
@@ -51,7 +51,7 @@ void Csilla() {
                       END));
 
   handle_keyswitch_event((Key) {
-    .raw = HUN_AA
+    .raw = LP::HUN_AA
   }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
 
   ::Macros.play(MACRO(Tc(M),
@@ -66,15 +66,15 @@ void Gergo() {
                       END));
 
   handle_keyswitch_event((Key) {
-    .raw = HUN_ODA
+    .raw = LP::HUN_ODA
   }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
   Keyboard.sendReport();
   handle_keyswitch_event((Key) {
-    .raw = HUN_ODA
+    .raw = LP::HUN_ODA
   }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
   Keyboard.sendReport();
   handle_keyswitch_event((Key) {
-    .raw = HUN_ODA
+    .raw = LP::HUN_ODA
   }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
 }
 

@@ -28,8 +28,6 @@
 
 #include "Macros.h"
 
-using namespace KaleidoscopePlugins::LangPack;
-
 namespace algernon {
 namespace Leader {
 
@@ -90,18 +88,16 @@ static void Butterfly(uint8_t seqIndex) {
 }
 
 static const KaleidoscopePlugins::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
-    (
-      [LEAD_UNICODE_UCIS]   = {LEADER_SEQ(LEAD(MAIN), Key_U), startUCIS},
+    ([LEAD_UNICODE_UCIS]   = {LEADER_SEQ(LEAD(MAIN), Key_U), startUCIS},
 
-      [LEAD_CSILLA]          = {LEADER_SEQ(LEAD(MAIN), Key_C), (KaleidoscopePlugins::Leader::action_t)algernon::Macros::Csilla},
-      [LEAD_KIDS]            = {LEADER_SEQ(LEAD(MAIN), Key_K), Kids},
-      [LEAD_GERGO]           = {LEADER_SEQ(LEAD(MAIN), Key_G), (KaleidoscopePlugins::Leader::action_t)algernon::Macros::Gergo},
-      [LEAD_SHRUGGY]         = {LEADER_SEQ(LEAD(MAIN), Key_S), Shruggy},
+     [LEAD_CSILLA]          = {LEADER_SEQ(LEAD(MAIN), Key_C), (KaleidoscopePlugins::Leader::action_t)algernon::Macros::Csilla},
+     [LEAD_KIDS]            = {LEADER_SEQ(LEAD(MAIN), Key_K), Kids},
+     [LEAD_GERGO]           = {LEADER_SEQ(LEAD(MAIN), Key_G), (KaleidoscopePlugins::Leader::action_t)algernon::Macros::Gergo},
+     [LEAD_SHRUGGY]         = {LEADER_SEQ(LEAD(MAIN), Key_S), Shruggy},
 
-      [LEAD_LEDEFFECT]       = {LEADER_SEQ(LEAD(MAIN), LEAD(MAIN)), NextLEDEffect},
+     [LEAD_LEDEFFECT]       = {LEADER_SEQ(LEAD(MAIN), LEAD(MAIN)), NextLEDEffect},
 
-      [LEAD_BUTTERFLY]       = {LEADER_SEQ(LEAD(MAIN), OSM(LeftAlt)), Butterfly}
-    );
+     [LEAD_BUTTERFLY]       = {LEADER_SEQ(LEAD(MAIN), OSM(LeftAlt)), Butterfly});
 
 void configure(void) {
   Kaleidoscope.use(&::Leader, &::Unicode, NULL);
