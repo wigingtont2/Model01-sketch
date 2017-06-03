@@ -31,7 +31,7 @@ namespace algernon {
     configure (void) {
       Kaleidoscope.use (&ColormapEffect, &LEDPaletteTheme, NULL);
 
-      ColormapEffect.configure (LAYER_MAX);
+      ColormapEffect.max_layers (LAYER_MAX);
       ColormapEffect.activate ();
 
       Focus.addHook (FOCUS_HOOK_LEDPALETTETHEME);
