@@ -33,34 +33,34 @@ static void tap(Key key, byte row, byte col) {
   Keyboard.sendReport();
 }
 
-static void GUI(uint8_t tapCount, byte row, byte col, KaleidoscopePlugins::TapDance::ActionType tapDanceAction) {
+static void GUI(uint8_t tapCount, byte row, byte col, kaleidoscope::TapDance::ActionType tapDanceAction) {
   switch (tapDanceAction) {
-  case KaleidoscopePlugins::TapDance::Tap:
+  case kaleidoscope::TapDance::Tap:
     break;
-  case KaleidoscopePlugins::TapDance::Interrupt:
-  case KaleidoscopePlugins::TapDance::Hold:
-  case KaleidoscopePlugins::TapDance::Timeout:
+  case kaleidoscope::TapDance::Interrupt:
+  case kaleidoscope::TapDance::Hold:
+  case kaleidoscope::TapDance::Timeout:
     handle_keyswitch_event(Key_LeftGui, row, col, IS_PRESSED | INJECTED);
     Keyboard.sendReport();
     break;
-  case KaleidoscopePlugins::TapDance::Release:
+  case kaleidoscope::TapDance::Release:
     handle_keyswitch_event(Key_LeftGui, row, col, WAS_PRESSED | INJECTED);
     Keyboard.sendReport();
     break;
   }
 
   if (tapCount >= 2) {
-    if (tapDanceAction == KaleidoscopePlugins::TapDance::Release) {
+    if (tapDanceAction == kaleidoscope::TapDance::Release) {
       ::OneShot.inject(OSL(_APPSEL), WAS_PRESSED);
-    } else if (tapDanceAction == KaleidoscopePlugins::TapDance::Timeout) {
+    } else if (tapDanceAction == kaleidoscope::TapDance::Timeout) {
       ::OneShot.inject(OSL(_APPSEL), IS_PRESSED);
       Serial.println(F("appsel:start"));
     }
   }
 }
 
-static void TMUX(uint8_t tapCount, byte row, byte col, KaleidoscopePlugins::TapDance::ActionType tapDanceAction) {
-  if (tapDanceAction != KaleidoscopePlugins::TapDance::Release)
+static void TMUX(uint8_t tapCount, byte row, byte col, kaleidoscope::TapDance::ActionType tapDanceAction) {
+  if (tapDanceAction != kaleidoscope::TapDance::Release)
     return;
 
   Key key;
@@ -74,8 +74,8 @@ static void TMUX(uint8_t tapCount, byte row, byte col, KaleidoscopePlugins::TapD
   tap(key, row, col);
 }
 
-static void TMUXPane(uint8_t tapCount, byte row, byte col, KaleidoscopePlugins::TapDance::ActionType tapDanceAction) {
-  if (tapDanceAction != KaleidoscopePlugins::TapDance::Release)
+static void TMUXPane(uint8_t tapCount, byte row, byte col, kaleidoscope::TapDance::ActionType tapDanceAction) {
+  if (tapDanceAction != kaleidoscope::TapDance::Release)
     return;
 
   // Alt + Space
@@ -94,8 +94,8 @@ bool cancelOneShot = false;
 
 }
 
-void tapDanceAction(uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, KaleidoscopePlugins::TapDance::ActionType tapDanceAction) {
-  if (tapDanceAction == KaleidoscopePlugins::TapDance::Release)
+void tapDanceAction(uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, kaleidoscope::TapDance::ActionType tapDanceAction) {
+  if (tapDanceAction == kaleidoscope::TapDance::Release)
     algernon::TapDance::cancelOneShot = true;
 
   switch (tapDanceIndex) {

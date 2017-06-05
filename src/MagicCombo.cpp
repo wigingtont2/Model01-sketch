@@ -41,7 +41,7 @@ static void toggleADORE() {
   }
 }
 
-static const KaleidoscopePlugins::MagicCombo::dictionary_t dictionary[] PROGMEM = {
+static const kaleidoscope::MagicCombo::combo_t magic_combos[] PROGMEM = {
   // palm keys + ADORE
   [ADORE] = {
     R3C6 | R2C1  | R2C2 | R2C3,
@@ -62,7 +62,7 @@ static const KaleidoscopePlugins::MagicCombo::dictionary_t dictionary[] PROGMEM 
 void configure(void) {
   Kaleidoscope.use(&::MagicCombo, NULL);
 
-  ::MagicCombo.configure(dictionary);
+  ::MagicCombo.magic_combos = magic_combos;
 }
 
 }

@@ -25,7 +25,7 @@
 namespace algernon {
 namespace Macros {
 
-namespace LP = KaleidoscopePlugins::LangPack;
+namespace LP = kaleidoscope::language;
 
 void Csilla() {
   ::Macros.play(MACRO(Tr(LSHIFT(Key_C)),

@@ -20,7 +20,7 @@
 
 #include "00-config.h"
 
-namespace LP = KaleidoscopePlugins::LangPack;
+namespace LP = kaleidoscope::language;
 
 #define R(n) (Key){.raw = LP:: ## n}
 #define MW(d) Key_mouseWarp ## d
