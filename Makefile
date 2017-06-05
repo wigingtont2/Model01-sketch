@@ -11,4 +11,4 @@ ifeq ($(UNAME_S),Darwin)
 BOARD_HARDWARE_PATH ?= $(HOME)/Library/Arduino/hardware
 endif
 
-include $(BOARD_HARDWARE_PATH)/$(MAKEFILE_PREFIX)/*.mk
+-include $(BOARD_HARDWARE_PATH)/$(MAKEFILE_PREFIX)/*.mk
