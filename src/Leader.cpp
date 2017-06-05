@@ -87,12 +87,12 @@ static void Butterfly(uint8_t seqIndex) {
                       Tc(Y), END));
 }
 
-static const KaleidoscopePlugins::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
+static const kaleidoscope::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
     ([LEAD_UNICODE_UCIS]   = {LEADER_SEQ(LEAD(MAIN), Key_U), startUCIS},
 
-     [LEAD_CSILLA]          = {LEADER_SEQ(LEAD(MAIN), Key_C), (KaleidoscopePlugins::Leader::action_t)algernon::Macros::Csilla},
+     [LEAD_CSILLA]          = {LEADER_SEQ(LEAD(MAIN), Key_C), (kaleidoscope::Leader::action_t)algernon::Macros::Csilla},
      [LEAD_KIDS]            = {LEADER_SEQ(LEAD(MAIN), Key_K), Kids},
-     [LEAD_GERGO]           = {LEADER_SEQ(LEAD(MAIN), Key_G), (KaleidoscopePlugins::Leader::action_t)algernon::Macros::Gergo},
+     [LEAD_GERGO]           = {LEADER_SEQ(LEAD(MAIN), Key_G), (kaleidoscope::Leader::action_t)algernon::Macros::Gergo},
      [LEAD_SHRUGGY]         = {LEADER_SEQ(LEAD(MAIN), Key_S), Shruggy},
 
      [LEAD_LEDEFFECT]       = {LEADER_SEQ(LEAD(MAIN), LEAD(MAIN)), NextLEDEffect},
@@ -102,7 +102,7 @@ static const KaleidoscopePlugins::Leader::dictionary_t dictionary[] PROGMEM = LE
 void configure(void) {
   Kaleidoscope.use(&::Leader, &::Unicode, NULL);
 
-  ::Leader.configure(dictionary);
+  ::Leader.dictionary = dictionary;
 }
 
 }

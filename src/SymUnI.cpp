@@ -60,9 +60,9 @@ void input(const char *symbol) {
     typeString(symbol);
 
   if (lambda) {
-    AlphaSquare.display(KaleidoscopePlugins::AlphaSquareSymbols::Lambda);
+    AlphaSquare.display(kaleidoscope::alpha_square::symbols::Lambda);
     delay(500);
-    AlphaSquare.clear(KaleidoscopePlugins::AlphaSquareSymbols::Lambda);
+    AlphaSquare.clear(kaleidoscope::alpha_square::symbols::Lambda);
   }
 }
 
