@@ -3,4 +3,5 @@ build-all:
 MAKEFILE_PREFIX=keyboardio/avr/libraries/Kaleidoscope-Plugin/build
 UNAME_S := $(shell uname -s)
 
-include hardware/$(MAKEFILE_PREFIX)/*.mk
+BOARD_HARDWARE_PATH ?= $(pwd)/hardware
+include $(BOARD_HARDWARE_PATH)/$(MAKEFILE_PREFIX)/*.mk
