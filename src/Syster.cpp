@@ -42,7 +42,7 @@ namespace algernon {
 namespace Syster {
 
 void configure(void) {
-  Kaleidoscope.use(&::Syster, NULL);
+  ::Syster.begin();
 }
 
 }

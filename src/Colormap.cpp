@@ -28,7 +28,7 @@ namespace algernon {
 namespace Colormap {
 
 void configure(void) {
-  Kaleidoscope.use(&ColormapEffect, &LEDPaletteTheme, NULL);
+  ColormapEffect.begin();
 
   ColormapEffect.max_layers(LAYER_MAX);
   ColormapEffect.activate();

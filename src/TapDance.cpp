@@ -150,7 +150,7 @@ namespace algernon {
 namespace TapDance {
 
 void configure(void) {
-  Kaleidoscope.use(&::TapDance, NULL);
+  ::TapDance.begin();
 }
 
 }

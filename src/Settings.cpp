@@ -49,8 +49,8 @@ static bool focusSettings(const char *command) {
 #endif
 
 void configure(void) {
-  USE_PLUGINS(&EEPROMSettings,
-              &EEPROMKeymap);
+  EEPROMSettings.begin();
+  EEPROMKeymap.begin();
 
   EEPROMKeymap.max_layers(LAYER_MAX - 1);
   base = EEPROMSettings.requestSlice(sizeof(settings));
