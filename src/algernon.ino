@@ -160,13 +160,13 @@ void setup() {
 }
 
 #if WITH_CYCLE_REPORT
-static unsigned long avgLoopTime = 0;
-static unsigned long nextReport = millis() + 1000;
+static uint32_t avgLoopTime = 0;
+static uint32_t nextReport = millis() + 1000;
 #endif
 
 void loop() {
 #if WITH_CYCLE_REPORT
-  unsigned long loopStart = micros();
+  uint32_t loopStart = micros();
 #endif
 
   Kaleidoscope.loop();
@@ -178,7 +178,7 @@ void loop() {
   }
 
 #if WITH_CYCLE_REPORT
-  unsigned long loopTime = micros() - loopStart;
+  uint32_t loopTime = micros() - loopStart;
 
   if (avgLoopTime)
     avgLoopTime = (avgLoopTime + loopTime) / 2;
