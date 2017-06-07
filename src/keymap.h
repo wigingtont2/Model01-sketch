@@ -22,7 +22,7 @@
 
 namespace LP = kaleidoscope::language;
 
-#define R(n) (Key){.raw = LP:: ## n}
+#define R(n) (Key){.raw = LP::n}
 #define MW(d) Key_mouseWarp ## d
 #define MM(d) Key_mouse ## d
 
