@@ -30,9 +30,7 @@ namespace algernon {
 namespace FocusSetup {
 
 void configure(void) {
-  Focus.begin();
-  EEPROMSettings.begin();
-  EEPROMKeymap.begin();
+  Kaleidoscope.use(&Focus, &EEPROMSettings, &EEPROMKeymap);
 
   Focus.addHook(FOCUS_HOOK_HELP);
   Focus.addHook(FOCUS_HOOK_VERSION);

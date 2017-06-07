@@ -60,7 +60,7 @@ static const kaleidoscope::MagicCombo::combo_t magic_combos[] PROGMEM = {
 };
 
 void configure(void) {
-  ::MagicCombo.begin();
+  Kaleidoscope.use(&::MagicCombo);
 
   ::MagicCombo.magic_combos = magic_combos;
 }

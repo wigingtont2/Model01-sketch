@@ -100,8 +100,7 @@ static const kaleidoscope::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DI
      [LEAD_BUTTERFLY]       = {LEADER_SEQ(LEAD(MAIN), OSM(LeftAlt)), Butterfly});
 
 void configure(void) {
-  ::Leader.begin();
-  ::Unicode.begin();
+  Kaleidoscope.use(&::Leader, &::Unicode);
 
   ::Leader.dictionary = dictionary;
 }

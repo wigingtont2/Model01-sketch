@@ -132,8 +132,7 @@ void setup() {
 #if WITH_STALKER_EFFECT
                    &StalkerEffect,
 #endif
-                   &HostOS,
-                   NULL);
+                   &HostOS);
 
   algernon::Settings::configure();
   algernon::Colormap::configure();
@@ -148,8 +147,7 @@ void setup() {
                    &Macros,
                    &Hungarian,
                    &MouseGears,
-                   &ActiveModColorEffect,
-                   NULL);
+                   &ActiveModColorEffect);
 
   algernon::FocusSetup::configure();
 

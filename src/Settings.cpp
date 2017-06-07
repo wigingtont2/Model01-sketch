@@ -49,8 +49,7 @@ static bool focusSettings(const char *command) {
 #endif
 
 void configure(void) {
-  EEPROMSettings.begin();
-  EEPROMKeymap.begin();
+  Kaleidoscope.use(&EEPROMSettings, &EEPROMKeymap);
 
   EEPROMKeymap.max_layers(LAYER_MAX - 1);
   base = EEPROMSettings.requestSlice(sizeof(settings));
