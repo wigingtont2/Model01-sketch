@@ -99,7 +99,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
                  ,Key_D     ,Key_R     ,Key_T    ,Key_N   ,Key_S     ,Key_Equals
    ,OSM(LeftAlt) ,Key_B     ,Key_K     ,Key_V    ,Key_Y   ,Key_J     ,Key_PlayPause
 
-   ,LEAD(Main) ,Key_Enter ,Key_Spacebar ,Key_Minus
+   ,LEAD(MAIN) ,Key_Enter ,Key_Spacebar ,Key_Minus
    ,OSL(_AUX)
   ),
 
