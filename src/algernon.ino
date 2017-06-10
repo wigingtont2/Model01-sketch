@@ -123,7 +123,7 @@ void setup() {
   Kaleidoscope.setup();
 
 #if WITH_STALKER_EFFECT
-  StalkerEffect.configure(STALKER(BlazingTrail, NULL));
+  StalkerEffect.variant = STALKER(BlazingTrail);
 #endif
 
   loop_hook_use(emptyLayerForceOff);
