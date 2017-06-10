@@ -2,7 +2,7 @@ colormap.map
 
 # Dvorak
 
- 5  0  0  0
+ 0  0  0  0
  0  0  0  0
  0  0  0  0
  0  0  0  0
@@ -22,7 +22,7 @@ colormap.map
 
 # ADORE
 
- 5  0  0  0
+ 0  0  0  0
  0  0  0  0
  0  0  0  0
  0  0  0  0
