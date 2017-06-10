@@ -7,7 +7,7 @@ algernon's Keyboardio Model01 firmware
 
 This is my work in progress firmware Sketch for the [Keyboardio Model 01][kbdio], using [Kaleidoscope][ks] together with a fair amount of plugins.
 
-This is a reasonably complete example of how to work with the firmware, and surrounding libraries, to extend it, to compose the various components, to have something useful in the end.
+This is a reasonably complete example of how to work with the firmware and surrounding libraries to extend it, to compose the various components, to have something useful in the end.
 
  [ks]: https://github.com/keyboardio/Kaleidoscope
  [kbdio]: https://shop.keyboard.io/
