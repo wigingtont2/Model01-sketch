@@ -109,16 +109,22 @@ void tapDanceAction(uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount,
       return tapDanceActionKeys(tapCount, tapDanceAction,
                                 Key_LeftBracket,
                                 Key_LeftParen);
-    else
-      return Unicode.type(0x300c);
+    else {
+      if (tapDanceAction == kaleidoscope::TapDance::Release)
+        return Unicode.type(0x300c);
+      return;
+    }
   }
   case RPB: {
     if (tapCount < 3)
       return tapDanceActionKeys(tapCount, tapDanceAction,
                                 Key_RightBracket,
                                 Key_RightParen);
-    else
-      return Unicode.type(0x300d);
+    else {
+      if (tapDanceAction == kaleidoscope::TapDance::Release)
+        return Unicode.type(0x300d);
+      return;
+    }
   }
 
   case COLON:
