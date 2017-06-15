@@ -105,22 +105,22 @@ void tapDanceAction(uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount,
     return algernon::TapDance::TMUXPane(tapCount, row, col, tapDanceAction);
 
   case LPB: {
-    if (tapCount < 3)
+    if (tapCount < 3) {
       return tapDanceActionKeys(tapCount, tapDanceAction,
                                 Key_LeftBracket,
                                 Key_LeftParen);
-    else {
+    } else {
       if (tapDanceAction == kaleidoscope::TapDance::Release)
         return Unicode.type(0x300c);
       return;
     }
   }
   case RPB: {
-    if (tapCount < 3)
+    if (tapCount < 3) {
       return tapDanceActionKeys(tapCount, tapDanceAction,
                                 Key_RightBracket,
                                 Key_RightParen);
-    else {
+    } else {
       if (tapDanceAction == kaleidoscope::TapDance::Release)
         return Unicode.type(0x300d);
       return;
