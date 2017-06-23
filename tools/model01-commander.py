@@ -21,11 +21,11 @@ import sh
 import time
 
 class AppSel (object):
-    _appmap = {"music": ["rhythmbox", "spotify", "banshee", "kodi"],
-               "chat": "slack",
+    _appmap = {"music": ["rhythmbox", "spotify", "banshee", "kodi", "plex"],
+               "chat": ["slack", "Mstdn"],
                "emacs": "emacs",
                "term": "gnome-terminal",
-               "web": "chrom"}
+               "web": ["chrom", "Chrome"]}
 
     def select (self, apps):
         if isinstance (apps, list):
