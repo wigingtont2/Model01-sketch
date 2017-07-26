@@ -27,10 +27,10 @@ void systerAction(kaleidoscope::Syster::action_t action, const char *symbol) {
     Unicode.type(0x2328);
     break;
   case kaleidoscope::Syster::EndAction:
-    handle_keyswitch_event(Key_Backspace, 255, 255, IS_PRESSED | INJECTED);
-    Keyboard.sendReport();
-    handle_keyswitch_event(Key_Backspace, 255, 255, WAS_PRESSED | INJECTED);
-    Keyboard.sendReport();
+    handleKeyswitchEvent(Key_Backspace, 255, 255, IS_PRESSED | INJECTED);
+    kaleidoscope::hid::sendKeyboardReport();
+    handleKeyswitchEvent(Key_Backspace, 255, 255, WAS_PRESSED | INJECTED);
+    kaleidoscope::hid::sendKeyboardReport();
     break;
   case kaleidoscope::Syster::SymbolAction:
     algernon::SymUnI::input(symbol);

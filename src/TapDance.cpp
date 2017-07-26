@@ -27,9 +27,9 @@ namespace algernon {
 namespace TapDance {
 
 static void tap(Key key, byte row, byte col) {
-  handle_keyswitch_event(key, row, col, IS_PRESSED | INJECTED);
+  handleKeyswitchEvent(key, row, col, IS_PRESSED | INJECTED);
   Keyboard.sendReport();
-  handle_keyswitch_event(key, row, col, WAS_PRESSED | INJECTED);
+  handleKeyswitchEvent(key, row, col, WAS_PRESSED | INJECTED);
   Keyboard.sendReport();
 }
 
@@ -40,11 +40,11 @@ static void GUI(uint8_t tapCount, byte row, byte col, kaleidoscope::TapDance::Ac
   case kaleidoscope::TapDance::Interrupt:
   case kaleidoscope::TapDance::Hold:
   case kaleidoscope::TapDance::Timeout:
-    handle_keyswitch_event(Key_LeftGui, row, col, IS_PRESSED | INJECTED);
+    handleKeyswitchEvent(Key_LeftGui, row, col, IS_PRESSED | INJECTED);
     Keyboard.sendReport();
     break;
   case kaleidoscope::TapDance::Release:
-    handle_keyswitch_event(Key_LeftGui, row, col, WAS_PRESSED | INJECTED);
+    handleKeyswitchEvent(Key_LeftGui, row, col, WAS_PRESSED | INJECTED);
     Keyboard.sendReport();
     break;
   }

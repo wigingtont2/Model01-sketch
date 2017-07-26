@@ -35,7 +35,7 @@ void Csilla() {
                       Tc(L),
                       END));
 
-  handle_keyswitch_event((Key) {
+  handleKeyswitchEvent((Key) {
     .raw = LP::HUN_AA
   }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
 
@@ -50,7 +50,7 @@ void Csilla() {
                       Tc(K),
                       END));
 
-  handle_keyswitch_event((Key) {
+  handleKeyswitchEvent((Key) {
     .raw = LP::HUN_AA
   }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
 
@@ -65,15 +65,15 @@ void Gergo() {
                       Tc(G),
                       END));
 
-  handle_keyswitch_event((Key) {
+  handleKeyswitchEvent((Key) {
     .raw = LP::HUN_ODA
   }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
   Keyboard.sendReport();
-  handle_keyswitch_event((Key) {
+  handleKeyswitchEvent((Key) {
     .raw = LP::HUN_ODA
   }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
   Keyboard.sendReport();
-  handle_keyswitch_event((Key) {
+  handleKeyswitchEvent((Key) {
     .raw = LP::HUN_ODA
   }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
 }
