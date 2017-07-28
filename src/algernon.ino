@@ -18,6 +18,9 @@
 
 #include "00-config.h"
 
+#include <Kaleidoscope-MouseKeys.h>
+#include <Kaleidoscope-MouseGears.h>
+
 #include <Kaleidoscope.h>
 #include <Kaleidoscope-Macros.h>
 #include <Kaleidoscope-LEDControl.h>
@@ -31,7 +34,6 @@
 #include <Kaleidoscope-LED-ActiveModColor.h>
 #include <Kaleidoscope-LED-Stalker.h>
 #include <Kaleidoscope-Escape-OneShot.h>
-#include <Kaleidoscope-MouseGears.h>
 #include <Kaleidoscope-EEPROM-Settings.h>
 #include <Kaleidoscope-EEPROM-Keymap.h>
 
@@ -117,9 +119,6 @@ static LEDNone_ LEDNone;
 void setup() {
   Serial.begin(9600);
 
-  Mouse.begin();
-  AbsoluteMouse.begin();
-
   Kaleidoscope.setup();
 
 #if WITH_STALKER_EFFECT
@@ -146,6 +145,7 @@ void setup() {
   Kaleidoscope.use(&EscapeOneShot,
                    &Macros,
                    &Hungarian,
+                   &MouseKeys,
                    &MouseGears,
                    &ActiveModColorEffect);
 
