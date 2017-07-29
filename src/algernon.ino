@@ -35,18 +35,17 @@
 #include <Kaleidoscope-MouseGears.h>
 #include <Kaleidoscope-MouseKeys.h>
 
+#include "keymap.h"
 #include "Layers.h"
 
 #include "Colormap.h"
 #include "Focus.h"
 #include "Leader.h"
-#include "OneShot.h"
-#include "TapDance.h"
 #include "MagicCombo.h"
-#include "Syster.h"
+#include "OneShot.h"
 #include "Settings.h"
-
-#include "keymap.h"
+#include "Syster.h"
+#include "TapDance.h"
 
 const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   if (!key_toggled_on(keyState))
