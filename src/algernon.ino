@@ -18,24 +18,22 @@
 
 #include "00-config.h"
 
-#include <Kaleidoscope-MouseKeys.h>
-#include <Kaleidoscope-MouseGears.h>
-
 #include <Kaleidoscope.h>
-#include <Kaleidoscope-Macros.h>
-#include <Kaleidoscope-LEDControl.h>
-#include <Kaleidoscope-Focus.h>
 
 #include "LED-Off.h"
-
+#include <Kaleidoscope-EEPROM-Keymap.h>
+#include <Kaleidoscope-EEPROM-Settings.h>
+#include <Kaleidoscope-Escape-OneShot.h>
+#include <Kaleidoscope-Focus.h>
 #include <Kaleidoscope-HostOS.h>
 #include <Kaleidoscope/HostOS-select.h>
-#include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-LED-ActiveModColor.h>
 #include <Kaleidoscope-LED-Stalker.h>
-#include <Kaleidoscope-Escape-OneShot.h>
-#include <Kaleidoscope-EEPROM-Settings.h>
-#include <Kaleidoscope-EEPROM-Keymap.h>
+#include <Kaleidoscope-LEDControl.h>
+#include <Kaleidoscope-LangPack-Hungarian.h>
+#include <Kaleidoscope-Macros.h>
+#include <Kaleidoscope-MouseGears.h>
+#include <Kaleidoscope-MouseKeys.h>
 
 #include "Layers.h"
 
