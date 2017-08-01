@@ -17,6 +17,7 @@
  */
 
 #include "00-config.h"
+#include "Layers.h"
 #include "Leader.h"
 
 #include <Kaleidoscope-Macros.h>
@@ -43,6 +44,7 @@ enum {
   LEAD_LEDEFFECT,
 
   LEAD_BUTTERFLY,
+  LEAD_STENO,
 };
 
 static void Shruggy(uint8_t seqIndex) {
@@ -87,6 +89,10 @@ static void Butterfly(uint8_t seqIndex) {
                       Tc(Y), END));
 }
 
+static void Steno(uint8_t seqIndex) {
+  Layer.on(_PLOVER);
+}
+
 static const kaleidoscope::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
     ([LEAD_UNICODE_UCIS]   = {LEADER_SEQ(LEAD(MAIN), Key_U), startUCIS},
 
@@ -97,7 +103,8 @@ static const kaleidoscope::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DI
 
      [LEAD_LEDEFFECT]       = {LEADER_SEQ(LEAD(MAIN), LEAD(MAIN)), NextLEDEffect},
 
-     [LEAD_BUTTERFLY]       = {LEADER_SEQ(LEAD(MAIN), OSM(LeftAlt)), Butterfly});
+     [LEAD_BUTTERFLY]       = {LEADER_SEQ(LEAD(MAIN), OSM(LeftAlt)), Butterfly},
+     [LEAD_STENO]           = {LEADER_SEQ(LEAD(MAIN), Key_P), Steno});
 
 void configure(void) {
   Kaleidoscope.use(&::Leader, &::Unicode);

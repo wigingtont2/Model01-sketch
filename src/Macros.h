@@ -21,6 +21,8 @@
 namespace algernon {
 namespace Macros {
 
+#define M_STENO 10
+
 void Csilla();
 void Gergo();
 

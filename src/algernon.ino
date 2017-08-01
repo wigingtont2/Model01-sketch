@@ -34,8 +34,8 @@
 #include <Kaleidoscope-Macros.h>
 #include <Kaleidoscope-MouseGears.h>
 #include <Kaleidoscope-MouseKeys.h>
+#include <Kaleidoscope-Steno.h>
 
-#include "keymap.h"
 #include "Layers.h"
 
 #include "Colormap.h"
@@ -46,6 +46,8 @@
 #include "Settings.h"
 #include "Syster.h"
 #include "TapDance.h"
+
+#include "keymap.h"
 
 const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   if (!key_toggled_on(keyState))
@@ -79,6 +81,10 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
     break;
   case MSM:
     MouseGears.speedDown();
+    break;
+
+  case M_STENO:
+    Layer.off(_PLOVER);
     break;
   }
   return MACRO_NONE;
@@ -140,6 +146,7 @@ void setup() {
   algernon::MagicCombo::configure();
 
   Kaleidoscope.use(&EscapeOneShot,
+                   &GeminiPR,
                    &Macros,
                    &Hungarian,
                    &MouseKeys,

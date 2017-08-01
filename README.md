@@ -54,6 +54,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   - `LEAD u` starts the [symbolic unicode input](#symbolic-unicode-input) method.
   - `LEAD s` does a lot of magic to type a shruggy: `¯ \_(ツ )_/¯`.
   - `LEAD LEAD` switches to the next LED mode.
+  - `LEAD p` switches to the experimental Steno (Plover) layer.
   - `LEAD BUTTERFLY` (where `BUTTERFLY` is the `R2C9` key) does an `M-x butterfly RET y`, in honor of [xkcd#378](https://xkcd.com/378/).
 * The `R0C7` key is also a [tap-dance][kaleidoscope:tap-dance] key, which inputs `:` on a single tap, `;` otherwise.
 * The `R3C0` key (another [tap-dance][kaleidoscope:tap-dance] key) acts as a `GUI` key when tapped once. When tapped twice, it swithes to a special `APPSEL` layer, where the number row on the left half can be used to select an application to switch to. This needs a helper program on the host side.
@@ -76,7 +77,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   [kaleidoscope:macros]: https://github.com/keyboardio/Kaleidoscope-Macros
   [kaleidoscope:focus]: https://github.com/keyboardio/Kaleidoscope-Focus
   [chrysalis]: https://github.com/algernon/Chrysalis
-  
+
 ## ADORE layer
 
 [![ADORE layer](images/adore-layer.png)](http://www.keyboard-layout-editor.com/#/gists/da05641b419790a7a4c1297c4e58ec9f)
@@ -120,6 +121,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 * [MouseGears][kaleidoscope:mouse-gears]
 * [MouseKeys][kaleidoscope:mouse-keys]
 * [OneShot][kaleidoscope:oneshot]
+* [Steno][kaleidoscope:steno]
 * [Syster][kaleidoscope:syster]
 * [TapDance][kaleidoscope:tap-dance]
 * [Unicode][kaleidoscope:unicode]
@@ -134,6 +136,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
  [kaleidoscope:eeprom-settings]: https://github.com/keyboardio/Kaleidoscope-EEPROM-Settings
  [kaleidoscope:eeprom-keymap]: https://github.com/keyboardio/Kaleidoscope-Keymap
  [kaleidoscope:hardware-model01]: https://github.com/keyboardio/Kaleidoscope-Hardware-Model01
+ [kaleidoscope:steno]: https://github.com/keyboardio/Kaleidoscope-Steno
 
 # License
 

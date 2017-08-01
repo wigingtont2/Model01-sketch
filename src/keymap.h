@@ -19,6 +19,7 @@
 #pragma once
 
 #include "00-config.h"
+#include "Macros.h"
 
 namespace LP = kaleidoscope::language;
 
@@ -158,6 +159,23 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,XXX ,XXX ,XXX ,XXX
    ,XXX
   ),
+
+  [_PLOVER] = KEYMAP_STACKED
+  (  XXX    ,XXX   ,XXX   ,XXX   ,XXX   ,XXX    ,S(N6)
+    ,XXX    ,S(N1) ,S(N2) ,S(N3) ,S(N4) ,S(N5)  ,S(ST1)
+    ,S(FN)  ,S(S1) ,S(TL) ,S(PL) ,S(HL) ,S(ST1)
+    ,S(PWR) ,S(S2) ,S(KL) ,S(WL) ,S(RL) ,S(ST2) ,S(ST2)
+
+    ,S(RE1) ,XXX   ,S(A)  ,S(O)
+    ,XXX
+
+    ,S(N7)  ,XXX    ,XXX   ,XXX   ,XXX   ,XXX   ,M(M_STENO)
+    ,S(ST3) ,S(N8)  ,S(N9) ,S(NA) ,S(NB) ,S(NC) ,XXX
+    ,S(ST3) ,S(FR) ,S(PR) ,S(LR) ,S(TR) ,S(DR)
+    ,S(ST4) ,S(ST4) ,S(RR) ,S(BR) ,S(GR) ,S(SR) ,S(ZR)
+
+    ,S(E)   ,S(U)   ,XXX   ,S(RE2)
+    ,XXX),
 
 #if 0
   // This is here for reference only, this layer is implemented in the getKey
