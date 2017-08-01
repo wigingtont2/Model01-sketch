@@ -84,7 +84,7 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
     break;
 
   case M_STENO:
-    Layer.off(_PLOVER);
+    algernon::Macros::Steno();
     break;
   }
   return MACRO_NONE;
@@ -179,6 +179,10 @@ void loop() {
     if (!Layer.isOn(_APPSEL))
       OneShot.cancel();
     algernon::TapDance::cancelOneShot = false;
+  }
+
+  if (Layer.isOn(_PLOVER)) {
+    LEDControl.set_all_leds_to(CRGB(0x56, 0x80, 0x78));
   }
 
 #if WITH_CYCLE_REPORT
