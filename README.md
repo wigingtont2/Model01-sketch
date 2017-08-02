@@ -53,8 +53,8 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
 * The `LEAD` keys is a [leader key][kaleidoscope:leader], with the following sequences built-in:
   - `LEAD u` starts the [symbolic unicode input](#symbolic-unicode-input) method.
   - `LEAD s` does a lot of magic to type a shruggy: `¯ \_(ツ )_/¯`.
-  - `LEAD LEAD` switches to the next LED mode.
   - `LEAD p` switches to the experimental Steno (Plover) layer.
+  - `LEAD LEAD` switches to the next LED mode.
   - `LEAD BUTTERFLY` (where `BUTTERFLY` is the `R2C9` key) does an `M-x butterfly RET y`, in honor of [xkcd#378](https://xkcd.com/378/).
 * The `R0C7` key is also a [tap-dance][kaleidoscope:tap-dance] key, which inputs `:` on a single tap, `;` otherwise.
 * The `R3C0` key (another [tap-dance][kaleidoscope:tap-dance] key) acts as a `GUI` key when tapped once. When tapped twice, it swithes to a special `APPSEL` layer, where the number row on the left half can be used to select an application to switch to. This needs a helper program on the host side.
