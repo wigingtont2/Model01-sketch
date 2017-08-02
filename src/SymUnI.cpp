@@ -52,6 +52,10 @@ void input(const char *symbol) {
     code = 0x00b5;
   } else if (strcmp_P(symbol, PSTR("tm")) == 0) {
     code = 0x2122;
+  } else if (strcmp_P(symbol, PSTR("family")) == 0) {
+    code = 0x1f46a;
+  } else if (strcmp_P(symbol, PSTR("child")) == 0) {
+    code = 0x1f476;
   }
 
   if (code)
