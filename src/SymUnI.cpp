@@ -23,39 +23,35 @@
 namespace algernon {
 namespace SymUnI {
 
+static const struct {
+  const char *symbol;
+  uint32_t code;
+} symbol_map[] PROGMEM = {
+  {"coffee", 0x2615},
+  {"lambda", 0x03bb},
+  {"poop", 0x1f4a9},
+  {"rofl", 0x1f923},
+  {"kiss", 0x1f619},
+  {"snowman", 0x2603},
+  {"heart", 0x2764},
+  {"bolt", 0x26a1},
+  {"pi", 0x03c0},
+  {"mouse", 0x1f401},
+  {"micro", 0x00b5},
+  {"tm", 0x2122},
+  {"family", 0x1f46a},
+  {"child", 0x1f476},
+};
+
 void input(const char *symbol) {
   uint32_t code = 0;
   bool lambda = false;
 
-  if (strcmp_P(symbol, PSTR("coffee")) == 0) {
-    code = 0x2615;
-  } else if (strcmp_P(symbol, PSTR("lambda")) == 0) {
-    lambda = true;
-    code = 0x03bb;
-  } else if (strcmp_P(symbol, PSTR("poop")) == 0) {
-    code = 0x1f4a9;
-  } else if (strcmp_P(symbol, PSTR("rofl")) == 0) {
-    code = 0x1f923;
-  } else if (strcmp_P(symbol, PSTR("kiss")) == 0) {
-    code = 0x1f619;
-  } else if (strcmp_P(symbol, PSTR("snowman")) == 0) {
-    code = 0x2603;
-  } else if (strcmp_P(symbol, PSTR("heart")) == 0) {
-    code = 0x2764;
-  } else if (strcmp_P(symbol, PSTR("bolt")) == 0) {
-    code = 0x26a1;
-  } else if (strcmp_P(symbol, PSTR("pi")) == 0) {
-    code = 0x03c0;
-  } else if (strcmp_P(symbol, PSTR("mouse")) == 0) {
-    code = 0x1f401;
-  } else if (strcmp_P(symbol, PSTR("micro")) == 0) {
-    code = 0x00b5;
-  } else if (strcmp_P(symbol, PSTR("tm")) == 0) {
-    code = 0x2122;
-  } else if (strcmp_P(symbol, PSTR("family")) == 0) {
-    code = 0x1f46a;
-  } else if (strcmp_P(symbol, PSTR("child")) == 0) {
-    code = 0x1f476;
+  for (uint8_t i = 0; i < sizeof(symbol_map) / sizeof(symbol_map[0]); i++) {
+    if (strcmp_P(symbol, symbol_map[i].symbol)) {
+      code = pgm_read_dword(&symbol_map[i].code);
+      break;
+    }
   }
 
   if (code)
