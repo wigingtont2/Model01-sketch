@@ -154,7 +154,7 @@ void setup() {
   algernon::MagicCombo::configure();
 
   Kaleidoscope.use(&EscapeOneShot,
-                   //&GeminiPR,
+                   &GeminiPR,
                    &Macros,
                    &Hungarian,
                    &MouseKeys,
