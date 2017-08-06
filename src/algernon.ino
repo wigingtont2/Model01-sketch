@@ -29,6 +29,7 @@
 #include <Kaleidoscope/HostOS-select.h>
 #include <Kaleidoscope-LED-ActiveModColor.h>
 #include <Kaleidoscope-LED-Stalker.h>
+#include <Kaleidoscope-LED-Wavepool.h>
 #include <Kaleidoscope-LEDControl.h>
 #include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-Macros.h>
@@ -122,6 +123,10 @@ static LEDNone_ LEDNone;
 void setup() {
   Serial.begin(9600);
 
+#if WITH_WAVEPOOL_EFFECT
+  delay(1000);
+#endif
+
   Kaleidoscope.setup();
 
 #if WITH_STALKER_EFFECT
@@ -133,6 +138,9 @@ void setup() {
   Kaleidoscope.use(&LEDNone,
 #if WITH_STALKER_EFFECT
                    &StalkerEffect,
+#endif
+#if WITH_WAVEPOOL_EFFECT
+                   &WavepoolEffect,
 #endif
                    &HostOS);
 

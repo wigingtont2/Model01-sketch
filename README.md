@@ -45,7 +45,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   - By default, the modifiers and palm keys are highlighted with different colors.
   - On different layers, the keys that have changed behaviour, are colored differently.
   - When a modifier is active, the [LED-ActiveModColor][kaleidoscope:led-activemodcolor] plugin turns it white.
-  - A blazing trail effect is provided by [LED-Stalker][kaleidoscope:led-stalker].
+  - Additional LED effects are provided by [LED-Stalker][kaleidoscope:led-stalker] and [LED-Wavepool][kaleidoscope:led-wavepool]. Both of these are conditional.
   - One can also switch LEDs off.
 * The top row was inspired by [Programmer Dvorak][dvorak:prg], but the symbols are arranged so that the most used ones are easier to access. The numbers are available in a numpad-like layout on a separate layer.
 * The `R0C6` and `R0C9` keys are to control `tmux` and `screen`, and are dependent on my tmux setup.
@@ -113,6 +113,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 * [LED-AlphaSquare][kaleidoscope:led-alphasquare]
 * [LED-Palette-Theme][kaleidoscope:led-palette-theme]
 * [LED-Stalker][kaleidoscope:led-stalker]
+* [LED-Wavepool][kaleidoscope:led-wavepool]
 * [LEDControl][kaleidoscope:led-control]
 * [LangPack-Hungarian][kaleidoscope:langpack-hun]
 * [Leader][kaleidoscope:leader]
@@ -137,6 +138,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
  [kaleidoscope:eeprom-keymap]: https://github.com/keyboardio/Kaleidoscope-Keymap
  [kaleidoscope:hardware-model01]: https://github.com/keyboardio/Kaleidoscope-Hardware-Model01
  [kaleidoscope:steno]: https://github.com/keyboardio/Kaleidoscope-Steno
+ [kaleidoscope:led-wavepool]: https://github.com/ToyKeeper/Kaleidoscope-LED-Wavepool
 
 # License
 
