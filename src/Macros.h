@@ -25,7 +25,6 @@ namespace Macros {
 
 void Csilla();
 void Gergo();
-void Steno();
 
 }
 }

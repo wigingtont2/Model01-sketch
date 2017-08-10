@@ -169,7 +169,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
     ,S(A)   ,S(O)  ,XXX   ,S(RE1)
     ,XXX
 
-    ,S(N7)  ,XXX    ,XXX   ,XXX   ,XXX   ,XXX   ,M(M_STENO)
+    ,S(N7)  ,XXX    ,XXX   ,XXX   ,XXX   ,XXX   ,XXX
     ,S(ST3) ,S(N8)  ,S(N9) ,S(NA) ,S(NB) ,S(NC) ,XXX
     ,S(ST3) ,S(FR)  ,S(PR) ,S(LR) ,S(TR) ,S(DR)
     ,S(ST4) ,S(ST4) ,S(RR) ,S(BR) ,S(GR) ,S(SR) ,S(ZR)

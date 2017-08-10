@@ -81,15 +81,5 @@ void Gergo() {
   }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
 }
 
-void Steno(void) {
-  if (!Layer.isOn(_PLOVER)) {
-    Layer.on(_PLOVER);
-    LEDControl.set_mode(0);
-  } else {
-    Layer.off(_PLOVER);
-    LEDControl.set_mode(1);
-  }
-}
-
 }
 }

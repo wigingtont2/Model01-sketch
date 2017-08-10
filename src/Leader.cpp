@@ -44,7 +44,6 @@ enum {
   LEAD_LEDEFFECT,
 
   LEAD_BUTTERFLY,
-  LEAD_STENO,
 };
 
 static void Shruggy(uint8_t seqIndex) {
@@ -99,8 +98,7 @@ static const kaleidoscope::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DI
 
      [LEAD_LEDEFFECT]       = {LEADER_SEQ(LEAD(MAIN), LEAD(MAIN)), NextLEDEffect},
 
-     [LEAD_BUTTERFLY]       = {LEADER_SEQ(LEAD(MAIN), OSM(LeftAlt)), Butterfly},
-     [LEAD_STENO]           = {LEADER_SEQ(LEAD(MAIN), Key_P), (kaleidoscope::Leader::action_t)algernon::Macros::Steno});
+     [LEAD_BUTTERFLY]       = {LEADER_SEQ(LEAD(MAIN), OSM(LeftAlt)), Butterfly});
 
 void configure(void) {
   Kaleidoscope.use(&::Leader, &::Unicode);

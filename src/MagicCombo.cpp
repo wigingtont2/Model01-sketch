@@ -31,6 +31,7 @@ enum {
   ADORE,
   CsillaDvorak,
   CsillaADORE,
+  Steno,
 };
 
 static void toggleADORE() {
@@ -38,6 +39,14 @@ static void toggleADORE() {
     Layer.defaultLayer(_DVORAK);
   } else {
     Layer.defaultLayer(_ADORE);
+  }
+}
+
+static void togglePlover() {
+  if (Layer.isOn(_PLOVER)) {
+    Layer.off(_PLOVER);
+  } else {
+    Layer.on(_PLOVER);
   }
 }
 
@@ -56,6 +65,11 @@ static const kaleidoscope::MagicCombo::combo_t magic_combos[] PROGMEM = {
   [CsillaADORE] = {
     R3C6 | R1C3,
     R3C9 | R2C14
+  },
+  // 3 leftmost thumb keys + palm keys
+  [Steno] = {
+    R0C7 | R1C7 | R2C7 | R3C6,
+    R3C9
   },
 };
 
@@ -76,6 +90,9 @@ void magicComboActions(uint8_t comboIndex, uint32_t leftHand, uint32_t rightHand
   case algernon::MagicCombo::CsillaDvorak:
   case algernon::MagicCombo::CsillaADORE:
     algernon::Macros::Csilla();
+    break;
+  case algernon::MagicCombo::Steno:
+    algernon::MagicCombo::togglePlover();
     break;
   }
 }

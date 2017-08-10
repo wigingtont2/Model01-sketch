@@ -53,7 +53,6 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
 * The `LEAD` keys is a [leader key][kaleidoscope:leader], with the following sequences built-in:
   - `LEAD u` starts the [symbolic unicode input](#symbolic-unicode-input) method.
   - `LEAD s` does a lot of magic to type a shruggy: `¯ \_(ツ )_/¯`.
-  - `LEAD p` switches to the experimental Steno (Plover) layer.
   - `LEAD LEAD` switches to the next LED mode.
   - `LEAD BUTTERFLY` (where `BUTTERFLY` is the `R2C9` key) does an `M-x butterfly RET y`, in honor of [xkcd#378](https://xkcd.com/378/).
 * The `R0C7` key is also a [tap-dance][kaleidoscope:tap-dance] key, which inputs `:` on a single tap, `;` otherwise.
@@ -61,6 +60,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
 * The `R0C0` key acts as `F11` on a single tap, and if tapped more than one time, does nothing. This is so that it can be double tapped and held to go into programmable mode when re-flashing.
 * There are a few other actions one can trigger with [magic combos][kaleidoscope:magic-combos]:
   - `PALMS + A`: Switch to the [ADORE](#adore-layer) layer.
+  - `PALMS + R0C7 + R1C7 + R2C7`: Toggle the experimental Steno layer ond and off.
 * We are also using [mouse keys][kaleidoscope:mouse-keys], [mouse gears][kaleidoscope:mouse-gears], and [macros][kaleidoscope:macros] for some of the features.
 * The keyboard can also communicate with the host bidirectionally, thanks to the [Focus][kaleidoscope:focus] plugin. See [Chrysalis][chrysalis] for a simple client.
 

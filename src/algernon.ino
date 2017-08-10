@@ -83,10 +83,6 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   case MSM:
     MouseGears.speedDown();
     break;
-
-  case M_STENO:
-    algernon::Macros::Steno();
-    break;
   }
   return MACRO_NONE;
 }
