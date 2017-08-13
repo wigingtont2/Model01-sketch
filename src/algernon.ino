@@ -112,10 +112,6 @@ static LEDNone_ LEDNone;
 void setup() {
   Serial.begin(9600);
 
-#if WITH_WAVEPOOL_EFFECT
-  delay(1000);
-#endif
-
   Kaleidoscope.setup();
 
 #if WITH_STALKER_EFFECT
