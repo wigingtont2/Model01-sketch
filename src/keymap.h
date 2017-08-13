@@ -33,9 +33,6 @@ enum {
   APPSEL_EMACS,
   APPSEL_TERM,
   APPSEL_WEB,
-
-  MSP,
-  MSM,
 };
 
 #define Key_AT    LSHIFT(Key_2)
@@ -115,8 +112,8 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,___
 
    ,LGUI(Key_L) ,Key_F10 ,Key_F2     ,Key_F4      ,Key_F6     ,Key_F8 ,XXX
-   ,XXX         ,M(MSP)  ,Key_Home   ,Key_UpArrow ,Key_End    ,XXX    ,XXX
-                ,M(MSM)  ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX    ,XXX
+   ,XXX         ,XXX     ,Key_Home   ,Key_UpArrow ,Key_End    ,XXX    ,XXX
+                ,XXX     ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX    ,XXX
    ,___         ,XXX     ,Key_PageUp ,XXX         ,Key_PageDn ,XXX    ,XXX
 
    ,TD(VOLD) ,___ ,___ ,Consumer_VolumeIncrement

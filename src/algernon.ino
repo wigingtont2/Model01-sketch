@@ -33,9 +33,9 @@
 #include <Kaleidoscope-LEDControl.h>
 #include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-Macros.h>
-#include <Kaleidoscope-MouseGears.h>
 #include <Kaleidoscope-MouseKeys.h>
 #include <Kaleidoscope-Steno.h>
+#include "MouseWrapper.h"
 
 #include "Layers.h"
 
@@ -75,13 +75,6 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
     break;
   case APPSEL_WEB:
     Serial.println(F("web"));
-    break;
-
-  case MSP:
-    MouseGears.speedUp();
-    break;
-  case MSM:
-    MouseGears.speedDown();
     break;
   }
   return MACRO_NONE;
@@ -154,7 +147,6 @@ void setup() {
                    &Macros,
                    &Hungarian,
                    &MouseKeys,
-                   &MouseGears,
                    &ActiveModColorEffect);
 
   algernon::FocusSetup::configure();
@@ -162,6 +154,9 @@ void setup() {
   Layer.getKey = getKey;
 
   LEDControl.syncDelay = 64;
+
+  MouseWrapper.speedLimit = 96;
+
   delay(1000);
 
   algernon::Settings::seal();
