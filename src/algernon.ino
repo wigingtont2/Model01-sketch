@@ -111,7 +111,7 @@ void setup() {
   StalkerEffect.variant = STALKER(BlazingTrail);
 #endif
 
-  loop_hook_use(emptyLayerForceOff);
+  Kaleidoscope.useLoopHook(emptyLayerForceOff);
 
   Kaleidoscope.use(&LEDOff,
 #if WITH_STALKER_EFFECT
