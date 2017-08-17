@@ -29,7 +29,9 @@
 #include <Kaleidoscope/HostOS-select.h>
 #include <Kaleidoscope-LED-ActiveModColor.h>
 #include <Kaleidoscope-LED-Stalker.h>
-#include <Kaleidoscope-LED-Wavepool.h>
+#if WITH_WAVEPOOL_EFFECT
+# include <Kaleidoscope-LED-Wavepool.h>
+#endif
 #include <Kaleidoscope-LEDControl.h>
 #include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-Macros.h>
