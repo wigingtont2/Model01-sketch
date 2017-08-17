@@ -142,6 +142,8 @@ void setup() {
 
   LEDControl.syncDelay = 64;
 
+  MouseWrapper.speedLimit = 96;
+
   algernon::Settings::seal();
 }
 
