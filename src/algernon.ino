@@ -142,8 +142,6 @@ void setup() {
 
   LEDControl.syncDelay = 64;
 
-  delay(1000);
-
   algernon::Settings::seal();
 }
 
