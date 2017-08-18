@@ -34,15 +34,15 @@ static bool focusSettings(const char *command) {
   if (strcmp_P(command, PSTR("settings.cycleTimer")) != 0)
     return false;
 
-  if (Serial.peek() == '\n') {
-    Focus.printBool(settings.cycleTimer);
-    Serial.println();
-  } else {
+  if (Serial.peek() != '\n') {
     uint8_t state = Serial.parseInt();
     settings.cycleTimer = !!state;
 
     EEPROM.put(base, settings);
   }
+
+  Focus.printBool(settings.cycleTimer);
+  Serial.println();
 
   return true;
 }
