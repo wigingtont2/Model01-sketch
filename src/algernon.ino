@@ -143,6 +143,7 @@ void setup() {
   Layer.getKey = getKey;
 
   LEDControl.syncDelay = 64;
+  ActiveModColorEffect.oneshot_only = true;
 
   MouseWrapper.speedLimit = 96;
 
