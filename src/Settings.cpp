@@ -31,7 +31,7 @@ static uint16_t base;
 
 #if WITH_CYCLE_REPORT
 static bool focusSettings(const char *command) {
-  if (strcmp(command, PSTR("settings.cycleTimer")) != 0)
+  if (strcmp_P(command, PSTR("settings.cycleTimer")) != 0)
     return false;
 
   if (Serial.peek() == '\n') {
