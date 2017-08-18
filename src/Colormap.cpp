@@ -30,7 +30,7 @@ namespace Colormap {
 void configure(void) {
   Kaleidoscope.use(&ColormapEffect);
 
-  ColormapEffect.max_layers(LAYER_MAX - 1);
+  ColormapEffect.max_layers(LAYER_MAX - 2);
   ColormapEffect.activate();
 
   Focus.addHook(FOCUS_HOOK_LEDPALETTETHEME);
