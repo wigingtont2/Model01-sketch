@@ -144,7 +144,6 @@ void setup() {
   Layer.getKey = getKey;
   LEDControl.syncDelay = 64;
   MouseWrapper.speedLimit = 64;
-  ActiveModColorEffect.oneshot_only = true;
 
 #if WITH_CYCLE_REPORT
   Kaleidoscope.use(&CycleTimeReport);
