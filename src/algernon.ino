@@ -21,6 +21,7 @@
 #include <Kaleidoscope.h>
 
 #include "LED-Off.h"
+#include <Kaleidoscope-CycleTimeReport.h>
 #include <Kaleidoscope-EEPROM-Keymap.h>
 #include <Kaleidoscope-EEPROM-Settings.h>
 #include <Kaleidoscope-Escape-OneShot.h>
@@ -141,25 +142,28 @@ void setup() {
   algernon::FocusSetup::configure();
 
   Layer.getKey = getKey;
-
   LEDControl.syncDelay = 64;
   ActiveModColorEffect.oneshot_only = true;
 
   MouseWrapper.speedLimit = 96;
+#if WITH_CYCLE_REPORT
+  Kaleidoscope.use(&CycleTimeReport);
+#endif
 
   algernon::Settings::seal();
 }
 
 #if WITH_CYCLE_REPORT
-static uint32_t avgLoopTime = 0;
-static uint32_t nextReport = millis() + 1000;
+void cycleTimeReport(void) {
+  if (!algernon::Settings::settings.cycleTimer)
+    return;
+
+  Serial.print(F("# average loop time: "));
+  Serial.println(CycleTimeReport.average_loop_time);
+}
 #endif
 
 void loop() {
-#if WITH_CYCLE_REPORT
-  uint32_t loopStart = micros();
-#endif
-
   Kaleidoscope.loop();
 
   if (algernon::TapDance::cancelOneShot) {
@@ -171,21 +175,4 @@ void loop() {
   if (Layer.isOn(_PLOVER)) {
     LEDControl.set_all_leds_to(CRGB(0x56, 0x80, 0x78));
   }
-
-#if WITH_CYCLE_REPORT
-  uint32_t loopTime = micros() - loopStart;
-
-  if (avgLoopTime)
-    avgLoopTime = (avgLoopTime + loopTime) / 2;
-  else
-    avgLoopTime = loopTime;
-
-  if (millis() >= nextReport) {
-    if (algernon::Settings::settings.cycleTimer) {
-      Serial.print(F("avgLoopTime: "));
-      Serial.println(avgLoopTime);
-    }
-    nextReport = millis() + 1000;
-  }
-#endif
 }
