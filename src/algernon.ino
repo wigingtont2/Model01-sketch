@@ -163,10 +163,6 @@ void cycleTimeReport(void) {
 #endif
 
 void loop() {
-  if (Layer.isOn(_EMPTY)) {
-    LEDControl.set_all_leds_to(CRGB(0x0, 0x0, 0x0));
-  }
-
   Kaleidoscope.loop();
 
   if (algernon::TapDance::cancelOneShot) {
