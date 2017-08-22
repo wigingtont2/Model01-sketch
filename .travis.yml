@@ -11,4 +11,4 @@ before_install:
 install:
   - sh -c '. ./.kaleidoscope-builder.conf && setup'
 script:
-  - make build ARDUINO_PATH=$(pwd)/../arduino-1.8.3
+  - make build ARDUINO_PATH=$(pwd)/../arduino-1.8.3 SKETCHBOOK_DIR=$(pwd)
