@@ -5,3 +5,5 @@ core
 /hardware/
 /lib/
 /tmp/
+/*.map
+/*.s
