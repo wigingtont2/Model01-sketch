@@ -59,7 +59,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
 * The `R3C0` key (another [tap-dance][kaleidoscope:tap-dance] key) acts as a `GUI` key when tapped once. When tapped twice, it switches to a special `APPSEL` layer, where the number row on the left half can be used to select an application to switch to. This needs a helper program on the host side.
 * The `R0C0` key acts as `F11` on a single tap, and if tapped more than one time, does nothing. This is so that it can be double tapped and held to go into programmable mode when re-flashing.
 * There are a few other actions one can trigger with [magic combos][kaleidoscope:magic-combos]:
-  - `PALMS + A`: Switch to the [ADORE](#adore-layer) layer.
+  - `PALMS + ADORE`: Switch to the [ADORE](#adore-layer) layer.
   - `PALMS + R0C7 + R1C7 + R2C7`: Toggle the experimental Steno layer ond and off.
 * We are also using [mouse keys][kaleidoscope:mouse-keys], and [macros][kaleidoscope:macros] for some of the features.
 * The keyboard can also communicate with the host bidirectionally, thanks to the [Focus][kaleidoscope:focus] plugin. See [Chrysalis][chrysalis] for a simple client.
