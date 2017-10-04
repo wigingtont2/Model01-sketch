@@ -24,7 +24,7 @@ namespace algernon {
 namespace Settings {
 
 typedef struct {
-  bool cycleTimer:1;
+  bool cycleTimer: 1;
 } settings_;
 
 extern settings_ settings;

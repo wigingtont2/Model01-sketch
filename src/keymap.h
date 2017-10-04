@@ -61,6 +61,8 @@ enum {
 #define Key_DnArrow Key_DownArrow
 #define Key_PageDn Key_PageDown
 
+// *INDENT-OFF*
+
 #if WITH_PROGMEM_KEYMAP
 const Key keymaps[][ROWS][COLS] PROGMEM = {
   [_DVORAK] = KEYMAP_STACKED
@@ -200,3 +202,5 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
 const Key keymaps[][ROWS][COLS] PROGMEM = {
 };
 #endif
+
+// *INDENT-ON*
