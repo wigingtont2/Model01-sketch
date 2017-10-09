@@ -54,7 +54,7 @@
 #include "keymap.h"
 
 const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
-  if (!key_toggled_on(keyState))
+  if (!keyToggledOn(keyState))
     return MACRO_NONE;
 
   switch (macroIndex) {

@@ -52,15 +52,13 @@ static void Shruggy(uint8_t seqIndex) {
                       D(RightShift),
                       Tc(Minus),
                       Tc(9),
-                      U(RightShift),
-                      END));
+                      U(RightShift)));
   ::Unicode.type(0x30c4);
   ::Macros.play(MACRO(D(RightShift),
                       Tc(0),
                       Tc(Minus),
                       U(RightShift),
-                      Tc(Slash),
-                      END));
+                      Tc(Slash)));
   ::Unicode.type(0xaf);
 }
 
@@ -69,7 +67,7 @@ static void startUCIS(uint8_t seqIndex) {
 }
 
 static void Kids(uint8_t seqIndex) {
-  ::Macros.play(MACRO(Tc(Spacebar), Tr(LSHIFT(Key_7)), Tc(Spacebar), END));
+  ::Macros.play(MACRO(Tc(Spacebar), Tr(LSHIFT(Key_7)), Tc(Spacebar)));
   ::Unicode.type(0x1f476);
   ::Unicode.type(0x1f476);
 }
@@ -85,7 +83,7 @@ static void Butterfly(uint8_t seqIndex) {
                       Tc(B), Tc(U), Tc(T), Tc(T), Tc(E), Tc(R), Tc(F), Tc(L), Tc(Y),
                       W(100), W(100),
                       Tc(Enter), W(100),
-                      Tc(Y), END));
+                      Tc(Y)));
 }
 
 static const kaleidoscope::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT

@@ -35,8 +35,7 @@ void Csilla() {
                       Tc(S),
                       Tc(I),
                       Tc(L),
-                      Tc(L),
-                      END));
+                      Tc(L)));
 
   handleKeyswitchEvent((Key) {
     .raw = LP::HUN_AA
@@ -50,23 +49,20 @@ void Csilla() {
                       Tc(O),
                       Tc(N),
                       Tc(Y),
-                      Tc(K),
-                      END));
+                      Tc(K)));
 
   handleKeyswitchEvent((Key) {
     .raw = LP::HUN_AA
   }, UNKNOWN_KEYSWITCH_LOCATION, IS_PRESSED | INJECTED);
 
-  ::Macros.play(MACRO(Tc(M),
-                      END));
+  ::Macros.play(MACRO(Tc(M)));
 }
 
 void Gergo() {
   ::Macros.play(MACRO(Tr(LSHIFT(Key_G)),
                       Tc(E),
                       Tc(J),
-                      Tc(G),
-                      END));
+                      Tc(G)));
 
   handleKeyswitchEvent((Key) {
     .raw = LP::HUN_ODA
