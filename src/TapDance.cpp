@@ -49,12 +49,20 @@ static void GUI(uint8_t tapCount, byte row, byte col, kaleidoscope::TapDance::Ac
     break;
   }
 
-  if (tapCount >= 2) {
+  if (tapCount == 2) {
     if (tapDanceAction == kaleidoscope::TapDance::Release) {
       ::OneShot.inject(OSL(_APPSEL), WAS_PRESSED);
     } else if (tapDanceAction == kaleidoscope::TapDance::Timeout) {
       ::OneShot.inject(OSL(_APPSEL), IS_PRESSED);
       Serial.println(F("appsel:start"));
+    }
+  } else if (tapCount == 3) {
+    switch (tapDanceAction) {
+    case kaleidoscope::TapDance::Release:
+      Serial.println(F("appsel:helper"));
+      break;
+    default:
+      break;
     }
   }
 }

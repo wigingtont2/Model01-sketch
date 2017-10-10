@@ -66,6 +66,13 @@ class AppSel (object):
     def select_social2 (self, app):
         return self.select_multi (app)
 
+    def select_helper (self, app):
+        try:
+            sh.rofi ("-show", "window")
+        except sh.ErrorReturnCode:
+            return False
+        return True
+
     def switchTo (self, app):
         try:
             getattr(self, "select_" + app)(app)
