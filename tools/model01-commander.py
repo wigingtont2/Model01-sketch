@@ -25,9 +25,12 @@ class AppSel (object):
                "chat": ["slack", "Mstdn"],
                "emacs": "emacs",
                "term": "gnome-terminal",
-               "web": ["chrom", "Chrome"]}
+               "web": ["chrom", "Chrome"],
+               "pwmgr": "keepass",
+               "social": ["trunk.mad-scientist.club.Google-chrome", "tweetdeck"],
+               "social2": ["Viber", "Signal"]}
 
-    def select (self, apps):
+    def select_only (self, apps):
         if isinstance (apps, list):
             for app in apps:
                 if self.select (app):
@@ -39,12 +42,36 @@ class AppSel (object):
         except sh.ErrorReturnCode:
             success = False
 
+        return success
+
+    def select (self, apps):
+        success = self.select_only (apps)
+
         sh.xdotool ("key", "Escape")
         return success
 
+    def select_multi (self, app):
+        if not app in self._appmap:
+            return
+
+        for a in self._appmap[app]:
+            self.select_only (a)
+
+        sh.xdotool ("key", "Escape")
+        return True
+
+    def select_social (self, app):
+        return self.select_multi (app)
+
+    def select_social2 (self, app):
+        return self.select_multi (app)
+
     def switchTo (self, app):
-        if app in self._appmap:
-            self.select (self._appmap[app])
+        try:
+            getattr(self, "select_" + app)(app)
+        except AttributeError:
+            if app in self._appmap:
+                self.select (self._appmap[app])
 
 class Commander (object):
     _appSel = AppSel ()

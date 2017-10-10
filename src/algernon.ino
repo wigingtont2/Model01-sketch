@@ -58,7 +58,7 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
     return MACRO_NONE;
 
   switch (macroIndex) {
-  case APPSEL_MUSIC ... APPSEL_WEB:
+  case APPSEL_MUSIC ... APPSEL_PWMGR:
     Serial.print(F("appsel:"));
     break;
   }
@@ -78,6 +78,15 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
     break;
   case APPSEL_WEB:
     Serial.println(F("web"));
+    break;
+  case APPSEL_SOC:
+    Serial.println(F("social"));
+    break;
+  case APPSEL_SOC2:
+    Serial.println(F("social2"));
+    break;
+  case APPSEL_PWMGR:
+    Serial.println(F("pwmgr"));
     break;
   }
   return MACRO_NONE;

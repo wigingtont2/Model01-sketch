@@ -33,6 +33,9 @@ enum {
   APPSEL_EMACS,
   APPSEL_TERM,
   APPSEL_WEB,
+  APPSEL_SOC,
+  APPSEL_SOC2,
+  APPSEL_PWMGR,
 };
 
 #define Key_AT    LSHIFT(Key_2)
@@ -51,6 +54,9 @@ enum {
 #define AS_ECS M(APPSEL_EMACS)
 #define AS_TRM M(APPSEL_TERM)
 #define AS_WEB M(APPSEL_WEB)
+#define AS_SOC M(APPSEL_SOC)
+#define AS_SC2 M(APPSEL_SOC2)
+#define AS_PWM M(APPSEL_PWMGR)
 
 #define MS_SUP MM(ScrollUp)
 #define MS_SDN MM(ScrollDn)
@@ -150,7 +156,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,XXX ,XXX ,XXX ,XXX
    ,XXX
 
-   ,XXX ,XXX ,XXX    ,XXX    ,XXX    ,XXX ,XXX
+   ,XXX ,XXX ,AS_SOC ,AS_SC2 ,AS_PWM ,XXX ,XXX
    ,XXX ,XXX ,XXX    ,XXX    ,XXX    ,XXX ,XXX
         ,XXX ,AS_TRM ,AS_ECS ,AS_WEB ,XXX ,XXX
    ,XXX ,XXX ,AS_MUS ,XXX    ,AS_CHT ,XXX ,XXX
