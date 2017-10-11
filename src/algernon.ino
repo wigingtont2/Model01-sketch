@@ -153,6 +153,7 @@ void setup() {
   Layer.getKey = getKey;
   LEDControl.syncDelay = 64;
   MouseWrapper.speedLimit = 64;
+  MouseKeys.wheelDelay = 10;
 
 #if WITH_CYCLE_REPORT
   Kaleidoscope.use(&CycleTimeReport);
