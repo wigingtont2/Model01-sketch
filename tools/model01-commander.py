@@ -86,7 +86,7 @@ class Commander (object):
     def run (self):
         with serial.Serial ("/dev/ttyACM0", 9600, timeout = 1) as ser:
             while True:
-                cmd = ser.readline ().strip ()
+                cmd = ser.readline ().strip().decode()
                 if cmd.startswith ("appsel:"):
                     app = cmd[7:]
                     print ("appsel: %s" % app)
