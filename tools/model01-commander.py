@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 ## model01-commander.py -- Model01 helper tool
 ## Copyright (C) 2017  Gergely Nagy
 ##
@@ -89,7 +89,7 @@ class Commander (object):
                 cmd = ser.readline ().strip ()
                 if cmd.startswith ("appsel:"):
                     app = cmd[7:]
-                    print "appsel: %s" % app
+                    print ("appsel: %s" % app)
                     self._appSel.switchTo (app)
 
 commander = Commander ()
@@ -98,7 +98,7 @@ while True:
     try:
         commander.run ()
     except Exception:
-        print "WARNING: Connection to serial lost, sleeping 10s..."
+        print ("WARNING: Connection to serial lost, sleeping 10s...")
         time.sleep (10)
-        print "WARNING: Sleep over, resuming!"
+        print ("WARNING: Sleep over, resuming!")
         pass
