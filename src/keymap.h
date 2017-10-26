@@ -119,10 +119,10 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,MM(BtnL) ,MM(BtnR) ,___ ,___
    ,___
 
-   ,LGUI(Key_L) ,Key_F10 ,Key_F2     ,Key_F4      ,Key_F6     ,Key_F8 ,XXX
-   ,XXX         ,XXX     ,Key_Home   ,Key_UpArrow ,Key_End    ,XXX    ,XXX
-                ,XXX     ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX    ,XXX
-   ,___         ,XXX     ,Key_PageUp ,XXX         ,Key_PageDn ,XXX    ,XXX
+   ,LGUI(Key_L) ,Key_F10    ,Key_F2     ,Key_F4      ,Key_F6     ,Key_F8 ,XXX
+   ,XXX         ,Key_PageUp ,Key_Home   ,Key_UpArrow ,Key_End    ,XXX    ,XXX
+                ,Key_PageDn ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX    ,XXX
+   ,___         ,XXX        ,XXX        ,XXX         ,XXX        ,XXX    ,XXX
 
    ,TD(VOLD) ,___ ,___ ,Consumer_VolumeIncrement
    ,OSL(_EMPTY)
