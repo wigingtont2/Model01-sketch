@@ -48,7 +48,8 @@ void input(const char *symbol) {
   bool lambda = false;
 
   for (uint8_t i = 0; i < sizeof(symbol_map) / sizeof(symbol_map[0]); i++) {
-    if (strcmp_P(symbol, symbol_map[i].symbol)) {
+    const char *map_symbol = (const char *)pgm_read_word(&symbol_map[i].symbol);
+    if (strcmp(symbol, map_symbol) == 0) {
       code = pgm_read_dword(&symbol_map[i].code);
       break;
     }
