@@ -28,7 +28,6 @@ enum {
   RPB,
   COLON,
   MNP,
-  GUI,
   F11,
   VOLD,
 };

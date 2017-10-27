@@ -86,7 +86,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
                  ,Key_D     ,Key_H     ,Key_T    ,Key_N   ,Key_S   ,Key_Equals
    ,OSM(LeftAlt) ,Key_B     ,Key_M     ,Key_W    ,Key_V   ,Key_Z   ,LEAD(MAIN)
 
-   ,TD(GUI) ,Key_Enter ,Key_Spacebar ,Key_Minus
+   ,Key_LeftGui ,Key_Enter ,Key_Spacebar ,Key_Minus
    ,OSL(_AUX)
   ),
 
@@ -105,7 +105,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
                  ,Key_D      ,Key_R     ,Key_T    ,Key_N   ,Key_S     ,Key_Equals
    ,OSM(LeftAlt) ,Key_Period ,Key_K     ,Key_V    ,Key_Y   ,Key_J     ,LEAD(MAIN)
 
-   ,TD(GUI) ,Key_Enter ,Key_Spacebar ,Key_Minus
+   ,Key_LeftGui ,Key_Enter ,Key_Spacebar ,Key_Minus
    ,OSL(_AUX)
   ),
 

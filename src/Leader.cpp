@@ -44,6 +44,8 @@ enum {
   LEAD_LEDEFFECT,
 
   LEAD_BUTTERFLY,
+  LEAD_GUI_HELPER,
+  LEAD_GUI,
 };
 
 static void Shruggy(uint8_t seqIndex) {
@@ -86,6 +88,16 @@ static void Butterfly(uint8_t seqIndex) {
                       Tc(Y)));
 }
 
+static void GUI(uint8_t seqIndex) {
+  ::OneShot.inject(OSL(_APPSEL), IS_PRESSED);
+  ::OneShot.inject(OSL(_APPSEL), WAS_PRESSED);
+  Serial.println(F("appsel:start"));
+}
+
+static void GUIHelper(uint8_t seqIndex) {
+  Serial.println(F("appsel:helper"));
+}
+
 static const kaleidoscope::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
     ([LEAD_UNICODE_UCIS]   = {LEADER_SEQ(LEAD(MAIN), Key_U), startUCIS},
 
@@ -96,7 +108,9 @@ static const kaleidoscope::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DI
 
      [LEAD_LEDEFFECT]       = {LEADER_SEQ(LEAD(MAIN), LEAD(MAIN)), NextLEDEffect},
 
-     [LEAD_BUTTERFLY]       = {LEADER_SEQ(LEAD(MAIN), OSM(LeftAlt)), Butterfly});
+     [LEAD_BUTTERFLY]       = {LEADER_SEQ(LEAD(MAIN), OSM(LeftAlt)), Butterfly},
+     [LEAD_GUI_HELPER]      = {LEADER_SEQ(LEAD(MAIN), Key_Enter, Key_LeftGui), GUIHelper},
+     [LEAD_GUI]             = {LEADER_SEQ(LEAD(MAIN), Key_LeftGui), GUI});
 
 void configure(void) {
   Kaleidoscope.use(&::Leader, &::Unicode);
