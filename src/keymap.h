@@ -114,7 +114,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
     ___ ,Key_F9 ,Key_F7 ,Key_F5 ,Key_F3 ,Key_F1 ,XXX
    ,XXX ,MS_SUP ,MM(Up) ,MS_SDN ,MW(NW) ,MW(NE) ,MW(End)
    ,XXX ,MM(L)  ,MM(Dn) ,MM(R)  ,MW(SW) ,MW(SE)
-   ,___ ,XXX    ,XXX    ,XXX    ,XXX    ,XXX    ,XXX
+   ,___ ,XXX    ,XXX    ,XXX    ,XXX    ,XXX    ,___
 
    ,MM(BtnL) ,MM(BtnR) ,___ ,___
    ,___
@@ -133,7 +133,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
     XXX ,XXX       ,XXX        ,XXX       ,XXX        ,XXX       ,XXX
    ,XXX ,XXX       ,R(HUN_ODA) ,XXX       ,R(HUN_UDA) ,XXX       ,XXX
    ,XXX ,R(HUN_AA) ,R(HUN_OA)  ,R(HUN_EA) ,R(HUN_UA)  ,R(HUN_IA)
-   ,XXX ,XXX       ,R(HUN_OU)  ,XXX       ,R(HUN_UU)  ,XXX       ,XXX
+   ,XXX ,XXX       ,R(HUN_OU)  ,XXX       ,R(HUN_UU)  ,XXX       ,___
 
    ,XXX ,___ ,___ ,___
    ,OSL(_EMPTY)
