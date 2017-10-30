@@ -47,7 +47,6 @@ class AppSel (object):
     def select (self, apps):
         success = self.select_only (apps)
 
-        sh.xdotool ("key", "Escape")
         return success
 
     def select_multi (self, app):
@@ -57,7 +56,6 @@ class AppSel (object):
         for a in self._appmap[app]:
             self.select_only (a)
 
-        sh.xdotool ("key", "Escape")
         return True
 
     def select_social (self, app):
