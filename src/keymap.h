@@ -112,9 +112,9 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
   [_NAV] = KEYMAP_STACKED
   (
     ___ ,Key_F9 ,Key_F7 ,Key_F5 ,Key_F3 ,Key_F1 ,XXX
-   ,XXX ,MS_SUP ,MM(Up) ,MS_SDN ,MW(NW) ,MW(NE) ,MW(End)
-   ,XXX ,MM(L)  ,MM(Dn) ,MM(R)  ,MW(SW) ,MW(SE)
-   ,___ ,XXX    ,XXX    ,XXX    ,XXX    ,XXX    ,___
+   ,XXX ,XXX    ,MW(NW) ,MM(Up) ,MW(NE) ,MS_SUP ,MW(End)
+   ,XXX ,XXX    ,MM(L)  ,MM(Dn) ,MM(R)  ,MS_SDN
+   ,___ ,XXX    ,MW(SW) ,XXX    ,MW(SE) ,XXX    ,___
 
    ,MM(BtnL) ,MM(BtnR) ,___ ,___
    ,___
