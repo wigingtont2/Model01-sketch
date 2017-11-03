@@ -115,6 +115,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 * [LED-Stalker][kaleidoscope:led-stalker]
 * [LED-Wavepool][kaleidoscope:led-wavepool]
 * [LEDControl][kaleidoscope:led-control]
+* [LEDEffect-DigitalRain][kaleidoscope:ledeffect-digitalrain]
 * [LangPack-Hungarian][kaleidoscope:langpack-hun]
 * [Leader][kaleidoscope:leader]
 * [Macros][kaleidoscope:macros]
@@ -138,6 +139,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
  [kaleidoscope:hardware-model01]: https://github.com/keyboardio/Kaleidoscope-Hardware-Model01
  [kaleidoscope:steno]: https://github.com/keyboardio/Kaleidoscope-Steno
  [kaleidoscope:led-wavepool]: https://github.com/ToyKeeper/Kaleidoscope-LED-Wavepool
+ [kaleidoscope:ledeffect-digitalrain]: https://github.com/tremby/Kaleidoscope-LEDEffect-DigitalRain
 
 # License
 

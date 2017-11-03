@@ -33,6 +33,9 @@
 #if WITH_WAVEPOOL_EFFECT
 # include <Kaleidoscope-LED-Wavepool.h>
 #endif
+#if WITH_MATRIX_EFFECT
+# include <Kaleidoscope-LEDEffect-DigitalRain.h>
+#endif
 #include <Kaleidoscope-LEDControl.h>
 #include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-Macros.h>
@@ -129,6 +132,9 @@ void setup() {
 #endif
 #if WITH_WAVEPOOL_EFFECT
                    &WavepoolEffect,
+#endif
+#if WITH_MATRIX_EFFECT
+                   &LEDDigitalRainEffect,
 #endif
                    &HostOS);
 
