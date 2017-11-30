@@ -25,6 +25,7 @@ It is based on my previous [ErgoDox EZ layout][ergodox-layout], a lot of things 
     - [ADORE layer](#adore-layer)
 * [Special features](#special-features)
     - [Symbolic Unicode Input](#symbolic-unicode-input)
+* [Installation](#installation)
 * [Plugins used](#plugins-used)
 * [License](#license)
 
@@ -97,6 +98,12 @@ For the list of supported symbols, please [see the source][src:SymUnI].
  [src:SymUnI]: https://github.com/algernon/Model01-sketch/blob/master/src/SymUnI.cpp#L30
 
 This is an experimental feature, and may or may not work reliably.
+
+# Installation
+
+The repository and its build system is set up in a way that allows one to download Arduino only, and let the repository handle the rest. For an initial setup, simply type `make setup`, and it will clone every other repository one needs. From that point on, `make` (compile the firmware without flashing) and `make flash` (compile & flash) will work as in the case of the factory firmware. The rest of the targets supported by the official sketch will also work here.
+
+To update the repositories this sketch depends on, use `make update`.
 
 # Plugins used
 
