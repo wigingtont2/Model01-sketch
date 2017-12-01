@@ -60,6 +60,8 @@ enum {
 
 #define MS_SUP MM(ScrollUp)
 #define MS_SDN MM(ScrollDn)
+#define MS_SL  MM(ScrollL)
+#define MS_SR  MM(ScrollR)
 
 #define Key_PlayPause Consumer_PlaySlashPause
 #define Key_LArrow Key_LeftArrow
@@ -112,8 +114,8 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
   [_NAV] = KEYMAP_STACKED
   (
     ___ ,Key_F9 ,Key_F7 ,Key_F5 ,Key_F3 ,Key_F1 ,XXX
-   ,XXX ,XXX    ,MW(NW) ,MM(Up) ,MW(NE) ,MS_SUP ,MW(End)
-   ,XXX ,XXX    ,MM(L)  ,MM(Dn) ,MM(R)  ,MS_SDN
+   ,XXX ,MS_SL  ,MW(NW) ,MM(Up) ,MW(NE) ,MS_SUP ,MW(End)
+   ,XXX ,MS_SR  ,MM(L)  ,MM(Dn) ,MM(R)  ,MS_SDN
    ,___ ,XXX    ,MW(SW) ,XXX    ,MW(SE) ,XXX    ,___
 
    ,MM(BtnL) ,MM(BtnR) ,___ ,___
