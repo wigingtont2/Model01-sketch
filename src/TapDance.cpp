@@ -111,11 +111,6 @@ void tapDanceAction(uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount,
                               Consumer_ScanNextTrack,
                               Consumer_ScanPreviousTrack);
 
-  case F11:
-    return tapDanceActionKeys(tapCount, tapDanceAction,
-                              Key_F11,
-                              Key_NoKey);
-
   case VOLD:
     return tapDanceActionKeys(tapCount, tapDanceAction,
                               Consumer_VolumeDecrement,

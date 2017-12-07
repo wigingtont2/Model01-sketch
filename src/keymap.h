@@ -36,6 +36,7 @@ enum {
   APPSEL_SOC,
   APPSEL_SOC2,
   APPSEL_PWMGR,
+  F11,
 };
 
 #define Key_AT    LSHIFT(Key_2)
@@ -75,7 +76,7 @@ enum {
 const Key keymaps[][ROWS][COLS] PROGMEM = {
   [_DVORAK] = KEYMAP_STACKED
   (
-    TD(F11)       ,Key_LCB   ,Key_AT    ,Key_STAR   ,Key_DOLLR ,Key_CARET ,TD(TMUX)
+    M(F11)        ,Key_LCB   ,Key_AT    ,Key_STAR   ,Key_DOLLR ,Key_CARET ,TD(TMUX)
    ,Key_Backtick  ,Key_Quote ,Key_Comma ,Key_Period ,Key_P     ,Key_Y     ,TD(LPB)
    ,Key_Tab       ,Key_A     ,Key_O     ,Key_E      ,Key_U     ,Key_I
    ,TD(MNP)       ,Key_Slash ,Key_Q     ,Key_J      ,Key_K     ,Key_X     ,OSM(LeftControl)

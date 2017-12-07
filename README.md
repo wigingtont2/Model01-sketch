@@ -59,7 +59,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   - `LEAD GUI` switches to a special `APPSEL` layer where a few (highlighted) keys on the right side can be used to select an application to switch to.
   - `LEAD Enter GUI` launches an application selector on the host side.
 * The `R0C7` key is also a [tap-dance][kaleidoscope:tap-dance] key, which inputs `:` on a single tap, `;` otherwise.
-* The `R0C0` key acts as `F11` on a single tap, and if tapped more than one time, does nothing. This is so that it can be double tapped and held to go into programmable mode when re-flashing.
+* The `R0C0` key acts as `F11`, but triggers only on release. This is so that it can be held to go into programmable mode when re-flashing, without sending way too many `F11` held events.
 * There are a few other actions one can trigger with [magic combos][kaleidoscope:magic-combos]:
   - `PALMS + ADORE`: Switch to the [ADORE](#adore-layer) layer.
   - `PALMS + R0C7 + R1C7 + R2C7`: Toggle the experimental Steno layer ond and off.

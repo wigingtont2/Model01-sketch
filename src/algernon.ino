@@ -57,6 +57,12 @@
 #include "keymap.h"
 
 const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
+  if (macroIndex == F11) {
+    if (!keyToggledOff(keyState))
+      return MACRO_NONE;
+    return MACRO(T(F11));
+  }
+
   if (!keyToggledOn(keyState))
     return MACRO_NONE;
 
