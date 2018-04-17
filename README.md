@@ -110,6 +110,7 @@ To update the repositories this sketch depends on, use `make update`.
 This sketch makes use of a fair amount of plugins, most of them have been listed above, but below, you'll find a list of all plugins used (directly, or transitively), in alphabetical order:
 
 * [Colormap][kaleidoscope:colormap]
+* [CycleTimeReport][kaleidoscope:cycletimereport]
 * [EEPROM-Keymap][kaleidoscope:eeprom-keymap]
 * [EEPROM-Settings][kaleidoscope:eeprom-settings]
 * [Escape-OneShot][kaleidoscope:escape-oneshot]
@@ -147,6 +148,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
  [kaleidoscope:steno]: https://github.com/keyboardio/Kaleidoscope-Steno
  [kaleidoscope:led-wavepool]: https://github.com/ToyKeeper/Kaleidoscope-LED-Wavepool
  [kaleidoscope:ledeffect-digitalrain]: https://github.com/tremby/Kaleidoscope-LEDEffect-DigitalRain
+ [kaleidoscope:cycletimereport]: https://github.com/keyboardio/Kaleidoscope-CycleTimeReport
 
 # License
 
