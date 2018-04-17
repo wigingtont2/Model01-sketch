@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016, 2017  Gergely Nagy
+ * Copyright (C) 2016, 2017, 2018  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -69,6 +69,8 @@ enum {
 #define Key_RArrow Key_RightArrow
 #define Key_DnArrow Key_DownArrow
 #define Key_PageDn Key_PageDown
+
+#define Key_Underscore LSHIFT(Key_Minus)
 
 // *INDENT-OFF*
 
@@ -141,10 +143,10 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,___ ,___ ,___ ,___
    ,OSL(_EMPTY)
 
-   ,XXX ,XXX   ,XXX   ,XXX   ,XXX   ,XXX ,XXX
-   ,XXX ,XXX   ,Key_7 ,Key_8 ,Key_9 ,XXX ,XXX
-        ,Key_0 ,Key_4 ,Key_5 ,Key_6 ,XXX ,XXX
-   ,XXX ,XXX   ,Key_1 ,Key_2 ,Key_3 ,XXX ,XXX
+   ,XXX            ,XXX        ,XXX   ,XXX   ,XXX   ,XXX       ,XXX
+   ,XXX            ,XXX        ,Key_1 ,Key_4 ,Key_7 ,XXX       ,XXX
+                   ,Key_0      ,Key_2 ,Key_5 ,Key_8 ,Key_Minus ,XXX
+   ,Key_Underscore ,Key_Period ,Key_3 ,Key_6 ,Key_9 ,XXX       ,XXX
 
    ,XXX ,XXX ,XXX ,___
    ,___
