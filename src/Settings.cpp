@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016, 2017  Gergely Nagy
+ * Copyright (C) 2016, 2017, 2018  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -49,8 +49,6 @@ static bool focusSettings(const char *command) {
 #endif
 
 void configure(void) {
-  Kaleidoscope.use(&EEPROMSettings, &EEPROMKeymap);
-
   EEPROMKeymap.max_layers(LAYER_MAX - 1);
   base = EEPROMSettings.requestSlice(sizeof(settings));
 

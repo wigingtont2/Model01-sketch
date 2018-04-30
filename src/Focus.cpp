@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016, 2017  Gergely Nagy
+ * Copyright (C) 2016, 2017, 2018  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,8 +30,6 @@ namespace algernon {
 namespace FocusSetup {
 
 void configure(void) {
-  Kaleidoscope.use(&Focus, &EEPROMSettings, &EEPROMKeymap);
-
   Focus.addHook(FOCUS_HOOK_HELP);
   Focus.addHook(FOCUS_HOOK_VERSION);
   Focus.addHook(FOCUS_HOOK_HOSTOS);

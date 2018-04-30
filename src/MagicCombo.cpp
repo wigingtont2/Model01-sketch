@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016, 2017  Gergely Nagy
+ * Copyright (C) 2016, 2017, 2018  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -74,8 +74,6 @@ static const kaleidoscope::MagicCombo::combo_t magic_combos[] PROGMEM = {
 };
 
 void configure(void) {
-  Kaleidoscope.use(&::MagicCombo);
-
   ::MagicCombo.magic_combos = magic_combos;
 }
 

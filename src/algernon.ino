@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016, 2017  Gergely Nagy
+ * Copyright (C) 2016, 2017, 2018  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,9 +21,11 @@
 #include <Kaleidoscope.h>
 
 #include "LED-Off.h"
+#include <Kaleidoscope-Colormap.h>
 #include <Kaleidoscope-CycleTimeReport.h>
 #include <Kaleidoscope-EEPROM-Keymap.h>
 #include <Kaleidoscope-EEPROM-Settings.h>
+#include <Kaleidoscope-OneShot.h>
 #include <Kaleidoscope-Escape-OneShot.h>
 #include <Kaleidoscope-Focus.h>
 #include <Kaleidoscope-HostOS.h>
@@ -41,6 +43,9 @@
 #include <Kaleidoscope-Macros.h>
 #include <Kaleidoscope-MouseKeys.h>
 #include <Kaleidoscope-Steno.h>
+#include <Kaleidoscope-Syster.h>
+#include <Kaleidoscope-Unicode.h>
+#include <Kaleidoscope-MagicCombo.h>
 #include "MouseWrapper.h"
 
 #include "Layers.h"
@@ -49,7 +54,6 @@
 #include "Focus.h"
 #include "Leader.h"
 #include "MagicCombo.h"
-#include "OneShot.h"
 #include "Settings.h"
 #include "Syster.h"
 #include "TapDance.h"
@@ -101,15 +105,23 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   return MACRO_NONE;
 }
 
-static void emptyLayerForceOff(bool postClear) {
-  if (postClear)
-    return;
+namespace kaleidoscope {
+class EmptyLayerForceOff : public kaleidoscope::Plugin {
+ public:
+  EmptyLayerForceOff() {};
 
+  void preReportHook();
+};
+
+void EmptyLayerForceOff::preReportHook() {
   if (!(KeyboardHardware.leftHandState.all & R3C6) &&
       !(KeyboardHardware.rightHandState.all & R3C9)) {
     Layer.off(_EMPTY);
   }
 }
+}
+
+kaleidoscope::EmptyLayerForceOff EmptyLayerForceOff;
 
 static Key getKey(uint8_t layer, byte row, byte col) {
   if (layer != _EMPTY)
@@ -121,6 +133,43 @@ static Key getKey(uint8_t layer, byte row, byte col) {
   return Key_NoKey;
 }
 
+KALEIDOSCOPE_INIT_PLUGINS(
+    EmptyLayerForceOff,
+    LEDControl,
+    LEDOff,
+#if WITH_STALKER_EFFECT
+    StalkerEffect,
+#endif
+#if WITH_MATRIX_EFFECT
+    LEDDigitalRainEffect,
+#endif
+    HostOS,
+    EEPROMSettings,
+    EEPROMKeymap,
+    ColormapEffect,
+    Leader,
+    Unicode,
+    TapDance,
+    OneShot,
+    Syster,
+    MagicCombo,
+    EscapeOneShot,
+#if WITH_WAVEPOOL_EFFECT
+    WavepoolEffect,
+#endif
+#if WITH_STENO
+    GeminiPR,
+#endif
+    Macros,
+    Hungarian,
+    MouseKeys,
+    ActiveModColorEffect,
+    Focus
+#if WITH_CYCLE_REPORT
+    ,CycleTimeReport
+#endif
+);
+
 void setup() {
   Serial.begin(9600);
 
@@ -130,37 +179,11 @@ void setup() {
   StalkerEffect.variant = STALKER(BlazingTrail);
 #endif
 
-  Kaleidoscope.useLoopHook(emptyLayerForceOff);
-
-  Kaleidoscope.use(&LEDOff,
-#if WITH_STALKER_EFFECT
-                   &StalkerEffect,
-#endif
-#if WITH_WAVEPOOL_EFFECT
-                   &WavepoolEffect,
-#endif
-#if WITH_MATRIX_EFFECT
-                   &LEDDigitalRainEffect,
-#endif
-                   &HostOS);
-
   algernon::Settings::configure();
   algernon::Colormap::configure();
 
   algernon::Leader::configure();
-  algernon::TapDance::configure();
-  algernon::OneShot::configure();
-  algernon::Syster::configure();
   algernon::MagicCombo::configure();
-
-  Kaleidoscope.use(&EscapeOneShot,
-#if WITH_STENO
-                   &GeminiPR,
-#endif
-                   &Macros,
-                   &Hungarian,
-                   &MouseKeys,
-                   &ActiveModColorEffect);
 
   algernon::FocusSetup::configure();
 
@@ -168,10 +191,7 @@ void setup() {
   LEDControl.syncDelay = 64;
   MouseWrapper.speedLimit = 64;
   MouseKeys.wheelDelay = 35;
-
-#if WITH_CYCLE_REPORT
-  Kaleidoscope.use(&CycleTimeReport);
-#endif
+  MouseKeys.accelDelay = 35;
 
   algernon::Settings::seal();
 }

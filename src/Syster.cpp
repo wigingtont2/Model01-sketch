@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016, 2017  Gergely Nagy
+ * Copyright (C) 2016, 2017, 2018  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,14 +36,4 @@ void systerAction(kaleidoscope::Syster::action_t action, const char *symbol) {
     algernon::SymUnI::input(symbol);
     break;
   }
-}
-
-namespace algernon {
-namespace Syster {
-
-void configure(void) {
-  Kaleidoscope.use(&::Syster);
-}
-
-}
 }

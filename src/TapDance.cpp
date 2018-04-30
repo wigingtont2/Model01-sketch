@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016, 2017  Gergely Nagy
+ * Copyright (C) 2016, 2017, 2018  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,11 +17,11 @@
  */
 
 #include <Kaleidoscope-Unicode.h>
+#include <Kaleidoscope-OneShot.h>
 
 #include "Layers.h"
 #include "TapDance.h"
 #include "Leader.h"
-#include "OneShot.h"
 
 namespace algernon {
 namespace TapDance {
@@ -117,14 +117,4 @@ void tapDanceAction(uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount,
                               Consumer_VolumeIncrement,
                               Key_Mute);
   }
-}
-
-namespace algernon {
-namespace TapDance {
-
-void configure(void) {
-  Kaleidoscope.use(&::TapDance);
-}
-
-}
 }

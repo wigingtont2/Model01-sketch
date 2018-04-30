@@ -1,6 +1,6 @@
 /* -*- mode: c++ -*-
  * Model01-Sketch -- algernon's Model01 Sketch
- * Copyright (C) 2016, 2017  Gergely Nagy
+ * Copyright (C) 2016, 2017, 2018  Gergely Nagy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,8 +28,6 @@ namespace algernon {
 namespace Colormap {
 
 void configure(void) {
-  Kaleidoscope.use(&ColormapEffect);
-
   ColormapEffect.max_layers(LAYER_MAX - 2);
   ColormapEffect.activate();
 
