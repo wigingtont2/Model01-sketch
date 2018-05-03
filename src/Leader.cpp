@@ -46,6 +46,7 @@ enum {
   LEAD_BUTTERFLY,
   LEAD_GUI_HELPER,
   LEAD_GUI,
+  LEAD_COMPOSE,
 };
 
 static void Shruggy(uint8_t seqIndex) {
@@ -94,6 +95,10 @@ static void GUI(uint8_t seqIndex) {
   Serial.println(F("appsel:start"));
 }
 
+static void Compose(uint8_t seqIndex) {
+  ::Macros.play(MACRO(T(RightAlt)));
+}
+
 static void GUIHelper(uint8_t seqIndex) {
   Serial.println(F("appsel:helper"));
 }
@@ -110,7 +115,8 @@ static const kaleidoscope::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DI
 
      [LEAD_BUTTERFLY]       = {LEADER_SEQ(LEAD(MAIN), OSM(LeftAlt)), Butterfly},
      [LEAD_GUI_HELPER]      = {LEADER_SEQ(LEAD(MAIN), Key_Enter, Key_LeftGui), GUIHelper},
-     [LEAD_GUI]             = {LEADER_SEQ(LEAD(MAIN), Key_LeftGui), GUI});
+     [LEAD_GUI]             = {LEADER_SEQ(LEAD(MAIN), Key_LeftGui), GUI},
+     [LEAD_COMPOSE]         = {LEADER_SEQ(LEAD(MAIN), Key_R), Compose});
 
 void configure(void) {
   Kaleidoscope.use(&::Leader, &::Unicode);
