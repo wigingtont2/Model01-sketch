@@ -110,14 +110,15 @@ class EmptyLayerForceOff : public kaleidoscope::Plugin {
  public:
   EmptyLayerForceOff() {};
 
-  void preReportHook();
+  EventHandlerResult beforeReportingState();
 };
 
-void EmptyLayerForceOff::preReportHook() {
+EventHandlerResult EmptyLayerForceOff::beforeReportingState() {
   if (!(KeyboardHardware.leftHandState.all & R3C6) &&
       !(KeyboardHardware.rightHandState.all & R3C9)) {
     Layer.off(_EMPTY);
   }
+  return EventHandlerResult::OK;
 }
 }
 
