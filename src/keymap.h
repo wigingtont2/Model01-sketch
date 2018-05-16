@@ -97,7 +97,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
 
   [_ADORE] = KEYMAP_STACKED
   (
-    TD(F11)       ,Key_LCB   ,Key_AT ,Key_STAR ,Key_DOLLR ,Key_CARET ,TD(TMUX)
+    M(F11)        ,Key_LCB   ,Key_AT ,Key_STAR ,Key_DOLLR ,Key_CARET ,TD(TMUX)
    ,Key_Backslash ,Key_Quote ,Key_W  ,Key_C    ,Key_H     ,Key_F     ,TD(LPB)
    ,Key_Tab       ,Key_A     ,Key_O  ,Key_E    ,Key_I     ,Key_U
    ,TD(MNP)       ,Key_Z     ,Key_Q  ,Key_X    ,Key_B     ,Key_Comma ,TD(COLON)
