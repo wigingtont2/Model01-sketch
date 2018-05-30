@@ -39,7 +39,9 @@ void configure(void) {
 #endif
   Focus.addHook(FOCUS_HOOK_EEPROM);
   Focus.addHook(FOCUS_HOOK_KALEIDOSCOPE);
+#if WITH_LED_FOCUS
   Focus.addHook(FOCUS_HOOK_LEDCONTROL);
+#endif
   Focus.addHook(FOCUS_HOOK_SETTINGS);
 }
 

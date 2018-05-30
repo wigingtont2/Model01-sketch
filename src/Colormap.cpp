@@ -31,8 +31,10 @@ void configure(void) {
   ColormapEffect.max_layers(LAYER_MAX - 2);
   ColormapEffect.activate();
 
+#if WITH_LED_FOCUS
   Focus.addHook(FOCUS_HOOK_LEDPALETTETHEME);
   Focus.addHook(FOCUS_HOOK_COLORMAP);
+#endif
 }
 
 }

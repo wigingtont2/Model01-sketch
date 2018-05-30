@@ -26,6 +26,8 @@
 
 #define WITH_STENO                   1
 
+#define WITH_LED_FOCUS               0
+
 #if !WITH_PROGMEM_KEYMAP
 # define WITH_CYCLE_REPORT           0
 # define WITH_STALKER_EFFECT         0
