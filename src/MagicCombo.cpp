@@ -24,9 +24,6 @@
 #include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-Macros.h>
 
-namespace algernon {
-namespace MagicCombo {
-
 enum {
   ADORE,
   CsillaDvorak,
@@ -34,7 +31,7 @@ enum {
   Steno,
 };
 
-static void toggleADORE() {
+static void toggleADORE(uint8_t combo_index) {
   if (Layer.isOn(_ADORE)) {
     Layer.defaultLayer(_DVORAK);
   } else {
@@ -42,7 +39,7 @@ static void toggleADORE() {
   }
 }
 
-static void togglePlover() {
+static void togglePlover(uint8_t combo_index) {
   if (Layer.isOn(_PLOVER)) {
     Layer.off(_PLOVER);
   } else {
@@ -50,47 +47,13 @@ static void togglePlover() {
   }
 }
 
-static const kaleidoscope::MagicCombo::combo_t magic_combos[] PROGMEM = {
-  // palm keys + ADORE
-  [ADORE] = {
-    R3C6 | R2C1  | R2C2 | R2C3,
-    R3C9 | R2C10 | R2C11
-  },
-  // palm keys + CS (Dvorak)
-  [CsillaDvorak] = {
-    R3C6,
-    R3C9 | R1C12 | R2C14
-  },
-  // palm keys + CS (ADORE)
-  [CsillaADORE] = {
-    R3C6 | R1C3,
-    R3C9 | R2C14
-  },
-  // 3 leftmost thumb keys + palm keys
-  [Steno] = {
-    R0C7 | R1C7 | R2C7 | R3C6,
-    R3C9
-  },
-};
-
-void configure(void) {
-  ::MagicCombo.magic_combos = magic_combos;
-}
-
-}
-}
-
-void magicComboActions(uint8_t comboIndex, uint32_t leftHand, uint32_t rightHand) {
-  switch (comboIndex) {
-  case algernon::MagicCombo::ADORE:
-    algernon::MagicCombo::toggleADORE();
-    break;
-  case algernon::MagicCombo::CsillaDvorak:
-  case algernon::MagicCombo::CsillaADORE:
-    algernon::Macros::Csilla();
-    break;
-  case algernon::MagicCombo::Steno:
-    algernon::MagicCombo::togglePlover();
-    break;
-  }
-}
+USE_MAGIC_COMBOS(
+    [ADORE] = {.action = toggleADORE,
+               // palm keys + AD
+               .keys = {R3C6, R2C1, R3C9, R2C10}},
+    [CsillaDvorak] = {.action = (kaleidoscope::MagicCombo::ComboAction)algernon::Macros::Csilla,
+                      .keys = {R3C6, R3C9, R1C12, R2C14}},
+    [CsillaADORE] = {.action = (kaleidoscope::MagicCombo::ComboAction)algernon::Macros::Csilla,
+                     .keys = {R3C6, R3C9, R1C3, R2C14}},
+    [Steno] = {.action = togglePlover,
+               .keys = {R0C7, R1C7, R2C7, R3C6, R3C9}});

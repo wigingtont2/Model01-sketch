@@ -184,7 +184,6 @@ void setup() {
   algernon::Colormap::configure();
 
   algernon::Leader::configure();
-  algernon::MagicCombo::configure();
 
   algernon::FocusSetup::configure();
 
