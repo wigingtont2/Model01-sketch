@@ -23,6 +23,8 @@
 #include <Kaleidoscope-HostOS.h>
 #include <Kaleidoscope-Focus.h>
 #include <Kaleidoscope-LEDControl.h>
+#include <Kaleidoscope-LED-Palette-Theme.h>
+#include <Kaleidoscope-Colormap.h>
 #include <Kaleidoscope-EEPROM-Settings.h>
 #include <Kaleidoscope-EEPROM-Keymap.h>
 
@@ -39,6 +41,8 @@ void configure(void) {
 #endif
   Focus.addHook(FOCUS_HOOK_EEPROM);
   Focus.addHook(FOCUS_HOOK_KALEIDOSCOPE);
+  Focus.addHook(FOCUS_HOOK_LEDPALETTETHEME);
+  Focus.addHook(FOCUS_HOOK_COLORMAP);
 #if WITH_LED_FOCUS
   Focus.addHook(FOCUS_HOOK_LEDCONTROL);
 #endif

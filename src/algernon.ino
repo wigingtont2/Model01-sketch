@@ -147,6 +147,7 @@ KALEIDOSCOPE_INIT_PLUGINS(
     HostOS,
     EEPROMSettings,
     EEPROMKeymap,
+    LEDPaletteTheme,
     ColormapEffect,
     Leader,
     Unicode,
