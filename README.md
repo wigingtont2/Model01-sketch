@@ -62,7 +62,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
 * The `R2C6` key is also a [tap-dance][kaleidoscope:tap-dance] key, which inputs `:` on a single tap, `;` otherwise.
 * The `R0C0` key acts as `F11`, but triggers only on release. This is so that it can be held to go into programmable mode when re-flashing, without sending way too many `F11` held events.
 * There are a few other actions one can trigger with [magic combos][kaleidoscope:magic-combos]:
-  - `PALMS + ADORE`: Switch to the [ADORE](#adore-layer) layer.
+  - `PALMS + AD`: Switch to the [ADORE](#adore-layer) layer.
   - `PALMS + R0C7 + R1C7 + R2C7`: Toggle the experimental Steno layer ond and off.
 * We are also using [mouse keys][kaleidoscope:mouse-keys], and [macros][kaleidoscope:macros] for some of the features.
 * The keyboard can also communicate with the host bidirectionally, thanks to the [Focus][kaleidoscope:focus] plugin. See [Chrysalis][chrysalis] for a simple client.
