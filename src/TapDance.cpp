@@ -26,26 +26,29 @@
 namespace algernon {
 namespace TapDance {
 
-static void tap(Key key, byte row, byte col) {
-  handleKeyswitchEvent(key, row, col, IS_PRESSED | INJECTED);
-  Keyboard.sendReport();
-  handleKeyswitchEvent(key, row, col, WAS_PRESSED | INJECTED);
-  Keyboard.sendReport();
-}
-
 static void TMUX(uint8_t tapCount, byte row, byte col, kaleidoscope::TapDance::ActionType tapDanceAction) {
   if (tapDanceAction != kaleidoscope::TapDance::Release)
     return;
 
-  Key key;
+  Key key, modifier;
+
+  Serial.print("TMUX: tapCount=");
+  Serial.println(tapCount);
 
   if (tapCount == 1) {
-    key = LALT(Key_Spacebar);
+    key = Key_Spacebar;
+    modifier = Key_LeftAlt;
   } else {
-    key = LCTRL(Key_A);
+    key = Key_A;
+    modifier = Key_LeftControl;
   }
 
-  tap(key, row, col);
+  kaleidoscope::hid::pressKey(modifier);
+  kaleidoscope::hid::pressKey(key);
+  kaleidoscope::hid::sendKeyboardReport();
+  kaleidoscope::hid::releaseKey(modifier);
+  kaleidoscope::hid::releaseKey(key);
+  kaleidoscope::hid::sendKeyboardReport();
 }
 
 static void TMUXPane(uint8_t tapCount, byte row, byte col, kaleidoscope::TapDance::ActionType tapDanceAction) {
@@ -53,14 +56,21 @@ static void TMUXPane(uint8_t tapCount, byte row, byte col, kaleidoscope::TapDanc
     return;
 
   // Alt + Space
-  tap(LALT(Key_Spacebar), row, col);
+  kaleidoscope::hid::pressKey(Key_LeftAlt);
+  kaleidoscope::hid::pressKey(Key_Spacebar);
+  kaleidoscope::hid::sendKeyboardReport();
+  kaleidoscope::hid::releaseKey(Key_LeftAlt);
+  kaleidoscope::hid::releaseKey(Key_Spacebar);
+  kaleidoscope::hid::sendKeyboardReport();
 
   // P, or Z
   Key key = Key_P;
   if (tapCount == 2)
     key = Key_Z;
 
-  tap(key, row, col);
+  kaleidoscope::hid::pressKey(key);
+  kaleidoscope::hid::sendKeyboardReport();
+  kaleidoscope::hid::releaseKey(key);
 }
 
 bool cancelOneShot = false;
