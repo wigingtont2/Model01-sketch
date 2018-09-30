@@ -189,7 +189,6 @@ void setup() {
   algernon::FocusSetup::configure();
 
   Layer.getKey = getKey;
-  LEDControl.syncDelay = 64;
   MouseWrapper.speedLimit = 64;
   MouseKeys.wheelDelay = 35;
   MouseKeys.accelDelay = 35;
