@@ -18,19 +18,21 @@
 
 #pragma once
 
-#define FOCUS_WITHOUT_DOCS           1
-
-#define KALEIDOSCOPE_HOSTOS_GUESSER  0
-
 #define WITH_PROGMEM_KEYMAP          0
 
-#define WITH_STENO                   1
-
-#define WITH_LED_FOCUS               0
+#define KALEIDOSCOPE_HOSTOS_GUESSER  0
+#define FOCUS_WITHOUT_DOCS           1
 
 #if !WITH_PROGMEM_KEYMAP
 # define WITH_CYCLE_REPORT           0
 # define WITH_STALKER_EFFECT         0
 # define WITH_WAVEPOOL_EFFECT        0
 # define WITH_MATRIX_EFFECT          0
+# define WITH_STENO                  1
+# define WITH_LED_FOCUS              0
+#else
+# undef  KALEIDOSCOPE_HOSTOS_GUESSER
+# define KALEIDOSCOPE_HOSTOS_GUESSER 0
+# undef  FOCUS_WITHOUT_DOCS
+# define FOCUS_WITHOUT_DOCS          1
 #endif
