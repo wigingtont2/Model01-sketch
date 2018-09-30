@@ -47,6 +47,7 @@ enum {
   LEAD_GUI_HELPER,
   LEAD_GUI,
   LEAD_COMPOSE,
+  LEAD_REBOOT,
 };
 
 static void Shruggy(uint8_t seqIndex) {
@@ -103,6 +104,10 @@ static void GUIHelper(uint8_t seqIndex) {
   Serial.println(F("appsel:helper"));
 }
 
+static void Reboot(uint8_t seqIndex) {
+  ::KeyboardHardware.rebootBootloader();
+}
+
 static const kaleidoscope::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DICT
     ([LEAD_UNICODE_UCIS]   = {LEADER_SEQ(LEAD(MAIN), Key_U), startUCIS},
 
@@ -116,7 +121,8 @@ static const kaleidoscope::Leader::dictionary_t dictionary[] PROGMEM = LEADER_DI
      [LEAD_BUTTERFLY]       = {LEADER_SEQ(LEAD(MAIN), OSM(LeftAlt)), Butterfly},
      [LEAD_GUI_HELPER]      = {LEADER_SEQ(LEAD(MAIN), Key_Enter, Key_LeftGui), GUIHelper},
      [LEAD_GUI]             = {LEADER_SEQ(LEAD(MAIN), Key_LeftGui), GUI},
-     [LEAD_COMPOSE]         = {LEADER_SEQ(LEAD(MAIN), Key_R), Compose});
+     [LEAD_COMPOSE]         = {LEADER_SEQ(LEAD(MAIN), Key_R), Compose},
+     [LEAD_REBOOT]          = {LEADER_SEQ(LEAD(MAIN), Key_X), Reboot});
 
 void configure(void) {
   ::Leader.dictionary = dictionary;
