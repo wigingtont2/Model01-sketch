@@ -33,9 +33,6 @@
 //#include <Kaleidoscope/HostOS-Focus.h>
 #include <Kaleidoscope-LED-ActiveModColor.h>
 #include <Kaleidoscope-LED-Stalker.h>
-#if WITH_WAVEPOOL_EFFECT
-# include <Kaleidoscope-LED-Wavepool.h>
-#endif
 #if WITH_MATRIX_EFFECT
 # include <Kaleidoscope-LEDEffect-DigitalRain.h>
 #endif
@@ -158,9 +155,6 @@ KALEIDOSCOPE_INIT_PLUGINS(
     Syster,
     MagicCombo,
     EscapeOneShot,
-#if WITH_WAVEPOOL_EFFECT
-    WavepoolEffect,
-#endif
 #if WITH_STENO
     GeminiPR,
 #endif
