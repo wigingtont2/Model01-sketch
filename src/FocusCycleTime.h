@@ -16,23 +16,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "00-config.h"
+#pragma once
 
-#include "Layers.h"
-#include "Settings.h"
-#include <Kaleidoscope-EEPROM-Settings.h>
-#include <Kaleidoscope-EEPROM-Keymap.h>
+#include <Kaleidoscope.h>
 
-namespace algernon {
+namespace kaleidoscope {
 
-kaleidoscope::EventHandlerResult Settings::onSetup() {
-  EEPROMKeymap.max_layers(LAYER_MAX - 1);
-  base_ = EEPROMSettings.requestSlice(sizeof(settings));
-  EEPROM.get(base_, settings);
+class FocusCycleTime : public Plugin {
+ public:
+  FocusCycleTime() {}
 
-  return kaleidoscope::EventHandlerResult::OK;
-}
+  EventHandlerResult onFocusEvent(const char *command);
+
+  static uint32_t average_loop_time;
+};
 
 }
 
-algernon::Settings Settings;
+extern kaleidoscope::FocusCycleTime FocusCycleTime;

@@ -52,6 +52,7 @@
 #include "Layers.h"
 
 #include "Colormap.h"
+#include "FocusCycleTime.h"
 #include "Leader.h"
 #include "MagicCombo.h"
 #include "Settings.h"
@@ -178,7 +179,8 @@ KALEIDOSCOPE_INIT_PLUGINS(
     FocusHostOSCommand,
     Settings
 #if WITH_CYCLE_REPORT
-    ,CycleTimeReport
+    ,FocusCycleTime,
+    CycleTimeReport
 #endif
 );
 
@@ -199,16 +201,6 @@ void setup() {
   MouseKeys.speed = 15;
   MouseKeys.accelDelay = 35;
 }
-
-#if WITH_CYCLE_REPORT
-void cycleTimeReport(void) {
-  if (!Settings.settings.cycleTimer)
-    return;
-
-  Serial.print(F("# average loop time: "));
-  Serial.println(CycleTimeReport.average_loop_time);
-}
-#endif
 
 void loop() {
   Kaleidoscope.loop();

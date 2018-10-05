@@ -27,11 +27,11 @@ class Settings : public kaleidoscope::Plugin {
   Settings() {}
 
   struct {
-    bool cycleTimer: 1;
+    bool __unused: 1;
   } settings;
 
   kaleidoscope::EventHandlerResult onSetup();
-  kaleidoscope::EventHandlerResult onFocusEvent(const char *command);
+
  private:
   uint16_t base_;
 };
