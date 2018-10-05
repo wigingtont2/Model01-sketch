@@ -27,9 +27,10 @@
 #include <Kaleidoscope-EEPROM-Settings.h>
 #include <Kaleidoscope-OneShot.h>
 #include <Kaleidoscope-Escape-OneShot.h>
-#include <Kaleidoscope-Focus.h>
+#include <Kaleidoscope-FocusSerial.h>
 #include <Kaleidoscope-HostOS.h>
 #include <Kaleidoscope/HostOS-select.h>
+//#include <Kaleidoscope/HostOS-Focus.h>
 #include <Kaleidoscope-LED-ActiveModColor.h>
 #include <Kaleidoscope-LED-Stalker.h>
 #if WITH_WAVEPOOL_EFFECT
@@ -51,7 +52,6 @@
 #include "Layers.h"
 
 #include "Colormap.h"
-#include "Focus.h"
 #include "Leader.h"
 #include "MagicCombo.h"
 #include "Settings.h"
@@ -136,6 +136,7 @@ static Key getKey(uint8_t layer, byte row, byte col) {
 
 KALEIDOSCOPE_INIT_PLUGINS(
     EmptyLayerForceOff,
+    Focus,
     LEDControl,
     LEDOff,
 #if WITH_STALKER_EFFECT
@@ -166,40 +167,42 @@ KALEIDOSCOPE_INIT_PLUGINS(
     Hungarian,
     MouseKeys,
     ActiveModColorEffect,
-    Focus
+#if WITH_PROGMEM_KEYMAP
+    FocusKeymapTransferCommand,
+#endif
+#if WITH_LED_FOCUS
+    FocusLEDCommand,
+#endif
+    FocusSettingsCommand,
+    FocusEEPROMCommand,
+    FocusHostOSCommand,
+    Settings
 #if WITH_CYCLE_REPORT
     ,CycleTimeReport
 #endif
 );
 
 void setup() {
-  Serial.begin(9600);
-
   Kaleidoscope.setup();
 
 #if WITH_STALKER_EFFECT
   StalkerEffect.variant = STALKER(BlazingTrail);
 #endif
 
-  algernon::Settings::configure();
   algernon::Colormap::configure();
 
   algernon::Leader::configure();
-
-  algernon::FocusSetup::configure();
 
   Layer.getKey = getKey;
 
   MouseWrapper.speedLimit = 64;
   MouseKeys.speed = 15;
   MouseKeys.accelDelay = 35;
-
-  algernon::Settings::seal();
 }
 
 #if WITH_CYCLE_REPORT
 void cycleTimeReport(void) {
-  if (!algernon::Settings::settings.cycleTimer)
+  if (!Settings.settings.cycleTimer)
     return;
 
   Serial.print(F("# average loop time: "));

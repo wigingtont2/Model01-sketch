@@ -22,52 +22,41 @@
 #include "Settings.h"
 #include <Kaleidoscope-EEPROM-Settings.h>
 #include <Kaleidoscope-EEPROM-Keymap.h>
-#include <Kaleidoscope-Focus.h>
 
 namespace algernon {
-namespace Settings {
 
-static uint16_t base;
+kaleidoscope::EventHandlerResult Settings::onSetup() {
+  EEPROMKeymap.max_layers(LAYER_MAX - 1);
+  base_ = EEPROMSettings.requestSlice(sizeof(settings));
+  EEPROM.get(base_, settings);
 
+  return kaleidoscope::EventHandlerResult::OK;
+}
+
+kaleidoscope::EventHandlerResult Settings::onFocusEvent(const char *command) {
 #if WITH_CYCLE_REPORT
-static bool focusSettings(const char *command) {
+  if (strcmp_P(command, PSTR("help")) == 0) {
+    Serial.println(F("settings.cycleTimer"));
+    return kaleidoscope::EventHandlerResult::OK;
+  }
   if (strcmp_P(command, PSTR("settings.cycleTimer")) != 0)
-    return false;
+    return kaleidoscope::EventHandlerResult::OK;
 
   if (Serial.peek() != '\n') {
     uint8_t state = Serial.parseInt();
     settings.cycleTimer = !!state;
 
-    EEPROM.put(base, settings);
+    EEPROM.put(base_, settings);
   }
 
   Focus.printBool(settings.cycleTimer);
   Serial.println();
 
-  return true;
-}
+  return kaleidoscope::EventHandlerResult::EVENT_CONSUMED;
+#else
+  return kaleidoscope::EventHandlerResult::OK;
 #endif
-
-void configure(void) {
-  EEPROMKeymap.max_layers(LAYER_MAX - 1);
-  base = EEPROMSettings.requestSlice(sizeof(settings));
-
-#if WITH_CYCLE_REPORT
-  Focus.addHook(FOCUS_HOOK(focusSettings, "settings.cycleTimer"));
-#endif
-  EEPROM.get(base, settings);
-}
-
-void seal(void) {
-  EEPROMSettings.seal();
-
-  if (!EEPROMSettings.isValid()) {
-    EEPROMSettings.version(0);
-    EEPROMSettings.update();
-  }
-}
-
-settings_ settings;
-
 }
 }
+
+algernon::Settings Settings;

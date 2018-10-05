@@ -18,19 +18,24 @@
 
 #pragma once
 
-#include <Arduino.h>
+#include <Kaleidoscope.h>
 
 namespace algernon {
-namespace Settings {
 
-typedef struct {
-  bool cycleTimer: 1;
-} settings_;
+class Settings : public kaleidoscope::Plugin {
+ public:
+  Settings() {}
 
-extern settings_ settings;
+  struct {
+    bool cycleTimer: 1;
+  } settings;
 
-void configure(void);
-void seal(void);
+  kaleidoscope::EventHandlerResult onSetup();
+  kaleidoscope::EventHandlerResult onFocusEvent(const char *command);
+ private:
+  uint16_t base_;
+};
 
 }
-}
+
+extern algernon::Settings Settings;
