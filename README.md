@@ -66,7 +66,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   - `PALMS + AD`: Switch to the [ADORE](#adore-layer) layer.
   - `PALMS + R0C7 + R1C7 + R2C7`: Toggle the experimental Steno layer ond and off.
 * We are also using [mouse keys][kaleidoscope:mouse-keys], and [macros][kaleidoscope:macros] for some of the features.
-* The keyboard can also communicate with the host bidirectionally, thanks to the [Focus][kaleidoscope:focus] plugin. See [Chrysalis][chrysalis] for a simple client.
+* The keyboard can also communicate with the host bidirectionally, thanks to the [FocusSerial][kaleidoscope:focusserial] plugin. See [Chrysalis][chrysalis] for a simple client.
 
   [dvorak:prg]: http://www.kaufmann.no/roland/dvorak/
   [kaleidoscope:oneshot]: https://github.com/keyboardio/Kaleidoscope-OneShot
@@ -78,7 +78,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   [kaleidoscope:magic-combos]: https://github.com/keyboardio/Kaleidoscope-MagicCombo
   [kaleidoscope:mouse-keys]: https://github.com/keyboardio/Kaleidoscope-MouseKeys
   [kaleidoscope:macros]: https://github.com/keyboardio/Kaleidoscope-Macros
-  [kaleidoscope:focus]: https://github.com/keyboardio/Kaleidoscope-Focus
+  [kaleidoscope:focusserial]: https://github.com/keyboardio/Kaleidoscope-FocusSerial
   [chrysalis]: https://github.com/algernon/Chrysalis
 
 ## ADORE layer
@@ -117,7 +117,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 * [EEPROM-Keymap][kaleidoscope:eeprom-keymap]
 * [EEPROM-Settings][kaleidoscope:eeprom-settings]
 * [Escape-OneShot][kaleidoscope:escape-oneshot]
-* [Focus][kaleidoscope:focus]
+* [FocusSerial][kaleidoscope:focusserial]
 * [Hardware-Model01][kaleidoscope:hardware-model01]
 * [HostOS][kaleidoscope:hostos]
 * [LED-ActiveModColor][kaleidoscope:led-activemodcolor]
