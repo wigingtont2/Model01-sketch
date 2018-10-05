@@ -23,7 +23,7 @@
 #define KALEIDOSCOPE_HOSTOS_GUESSER  0
 
 #if !WITH_PROGMEM_KEYMAP
-# define WITH_CYCLE_REPORT           0
+# define WITH_CYCLE_REPORT           1
 # define WITH_STALKER_EFFECT         0
 # define WITH_WAVEPOOL_EFFECT        0
 # define WITH_MATRIX_EFFECT          0
