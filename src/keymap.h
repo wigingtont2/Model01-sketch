@@ -75,7 +75,7 @@ enum {
 // *INDENT-OFF*
 
 #if WITH_PROGMEM_KEYMAP
-const Key keymaps[][ROWS][COLS] PROGMEM = {
+KEYMAPS(
   [_DVORAK] = KEYMAP_STACKED
   (
     M(F11)        ,Key_LCB   ,Key_AT    ,Key_STAR   ,Key_DOLLR ,Key_CARET ,TD(TMUX)
@@ -208,10 +208,10 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ,___
   ),
 #endif
-};
+);
 #else
-const Key keymaps[][ROWS][COLS] PROGMEM = {
-};
+KEYMAPS(
+);
 #endif
 
 // *INDENT-ON*
