@@ -103,7 +103,7 @@ Once in the Symbolic Unicode Input mode (implemented by using the [Syster][kalei
 
 For the list of supported symbols, please [see the source][src:SymUnI].
 
- [src:SymUnI]: https://github.com/algernon/Model01-sketch/blob/master/src/SymUnI.cpp#L30
+ [src:SymUnI]: src/SymUnI.cpp#L30
 
 This is an experimental feature, and may or may not work reliably.
 
