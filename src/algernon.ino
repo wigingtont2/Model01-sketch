@@ -122,16 +122,6 @@ EventHandlerResult EmptyLayerForceOff::beforeReportingState() {
 
 kaleidoscope::EmptyLayerForceOff EmptyLayerForceOff;
 
-static Key getKey(uint8_t layer, byte row, byte col) {
-  if (layer != _EMPTY)
-    return EEPROMKeymap.getKey(layer, row, col);
-
-  if (row == 3 && (col == 6 || col == 9))
-    return Key_Transparent;
-
-  return Key_NoKey;
-}
-
 KALEIDOSCOPE_INIT_PLUGINS(
     EmptyLayerForceOff,
     Focus,
@@ -186,10 +176,7 @@ void setup() {
 #endif
 
   algernon::Colormap::configure();
-
   algernon::Leader::configure();
-
-  Layer.getKey = getKey;
 
   MouseWrapper.speedLimit = 64;
   MouseKeys.speed = 15;

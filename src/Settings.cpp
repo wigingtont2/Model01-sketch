@@ -25,8 +25,20 @@
 
 namespace algernon {
 
+static Key getKey(uint8_t layer, byte row, byte col) {
+  if (layer != _EMPTY)
+    return EEPROMKeymap.getKey(layer, row, col);
+
+  if (row == 3 && (col == 6 || col == 9))
+    return Key_Transparent;
+
+  return Key_NoKey;
+}
+
 kaleidoscope::EventHandlerResult Settings::onSetup() {
   EEPROMKeymap.max_layers(LAYER_MAX - 1);
+  Layer.getKey = getKey;
+
   base_ = EEPROMSettings.requestSlice(sizeof(settings));
   EEPROM.get(base_, settings);
 
