@@ -29,8 +29,10 @@ It is based on my previous [ErgoDox EZ layout][ergodox-layout], a lot of things 
 * [Plugins used](#plugins-used)
 * [License](#license)
 
+<a id="layouts"></a>
 # Layouts
 
+<a id="base-layer"></a>
 ## Base layer
 
 This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to make it more suited for programming, and for a non-traditional keyboard.
@@ -81,6 +83,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   [kaleidoscope:focusserial]: https://github.com/keyboardio/Kaleidoscope-FocusSerial
   [chrysalis]: https://github.com/algernon/Chrysalis
 
+<a id="adore-layer"></a>
 ## ADORE layer
 
 ![ADORE layer](images/adore-layer.png)
@@ -88,8 +91,10 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
 
 A heavy work in progress. The main difference is in the layout of alphanumerics, but most other things work as on the [base layer](#base-layer).
 
+<a id="special-features"></a>
 # Special features
 
+<a id="symbolic-unicode-input"></a>
 ## Symbolic Unicode Input
 
 Once in the Symbolic Unicode Input mode (implemented by using the [Syster][kaleidoscope:syster] plugin), one is able to type in symbol names, press `Space`, and get the Unicode symbol itself back. When in the mode, `⌨` is printed first. Once the sequence is finished, all of it is erased by sending enough `Backspace` taps, and the firmware starts the OS-specific unicode input sequence. Then, it looks up the symbol name, and enters the associated code.
@@ -102,12 +107,14 @@ For the list of supported symbols, please [see the source][src:SymUnI].
 
 This is an experimental feature, and may or may not work reliably.
 
+<a id="installation"></a>
 # Installation
 
 The repository and its build system is set up in a way that allows one to download Arduino only, and let the repository handle the rest. For an initial setup, simply type `make setup`, and it will clone every other repository one needs. From that point on, `make` (compile the firmware without flashing) and `make flash` (compile & flash) will work as in the case of the factory firmware. The rest of the targets supported by the official sketch will also work here.
 
 To update the repositories this sketch depends on, use `make update`.
 
+<a id="plugins-used"></a>
 # Plugins used
 
 This sketch makes use of a fair amount of plugins, most of them have been listed above, but below, you'll find a list of all plugins used (directly, or transitively), in alphabetical order:
@@ -151,6 +158,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
  [kaleidoscope:ledeffect-digitalrain]: https://github.com/tremby/Kaleidoscope-LEDEffect-DigitalRain
  [kaleidoscope:cycletimereport]: https://github.com/keyboardio/Kaleidoscope-CycleTimeReport
 
+<a id="license"></a>
 # License
 
 The code is released under the terms of the GNU GPL, version 3 or later. See the
