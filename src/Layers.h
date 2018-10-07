@@ -29,5 +29,5 @@ enum {
   _PLOVER,
   _EMPTY,
 
-  LAYER_MAX
+  LAYER_MAX = _EMPTY
 };
