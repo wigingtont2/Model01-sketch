@@ -103,27 +103,7 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   return MACRO_NONE;
 }
 
-namespace kaleidoscope {
-class EmptyLayerForceOff : public kaleidoscope::Plugin {
- public:
-  EmptyLayerForceOff() {};
-
-  EventHandlerResult beforeReportingState();
-};
-
-EventHandlerResult EmptyLayerForceOff::beforeReportingState() {
-  if (!(KeyboardHardware.leftHandState.all & R3C6) &&
-      !(KeyboardHardware.rightHandState.all & R3C9)) {
-    Layer.off(_EMPTY);
-  }
-  return EventHandlerResult::OK;
-}
-}
-
-kaleidoscope::EmptyLayerForceOff EmptyLayerForceOff;
-
 KALEIDOSCOPE_INIT_PLUGINS(
-    EmptyLayerForceOff,
     Focus,
     LEDControl,
     LEDOff,
