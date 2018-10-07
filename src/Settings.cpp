@@ -26,9 +26,9 @@
 namespace algernon {
 
 kaleidoscope::EventHandlerResult Settings::onSetup() {
-  EEPROMKeymap.max_layers(LAYER_MAX);
+  EEPROMKeymap.max_layers(LAYER_MAX - 1);
   Layer.getKey = EEPROMKeymap.getKey;
-  layer_count = LAYER_MAX + 1;
+  layer_count = LAYER_MAX;
 
   base_ = EEPROMSettings.requestSlice(sizeof(settings));
   EEPROM.get(base_, settings);
