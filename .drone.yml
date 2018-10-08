@@ -10,6 +10,14 @@ pipeline:
     when:
       event: tag
 
+  cache-restore:
+    image: drillster/drone-volume-cache
+    restore: true
+    mount:
+      - lib
+    volumes:
+      - /tmp/cache/Model01-Sketch:/cache
+
   bootstrap:
     image: algernon/drone-language:arduino
     commands:
@@ -19,6 +27,14 @@ pipeline:
     image: algernon/drone-language:arduino
     commands:
       - make build
+
+  cache-rebuild:
+    image: drillster/drone-volume-cache
+    rebuild: true
+    mount:
+      - lib
+    volumes:
+      - /tmp/cache/Model01-Sketch:/cache
 
   archive:
     image: vividboarder/drone-webdav
