@@ -30,7 +30,6 @@
 #include <Kaleidoscope-FocusSerial.h>
 #include <Kaleidoscope-HostOS.h>
 #include <Kaleidoscope/HostOS-select.h>
-//#include <Kaleidoscope/HostOS-Focus.h>
 #include <Kaleidoscope-LED-ActiveModColor.h>
 #include <Kaleidoscope-LED-Stalker.h>
 #if WITH_MATRIX_EFFECT
