@@ -32,9 +32,16 @@ pipeline:
       - /tmp/cache/Model01-Sketch:/cache
 
   build:
+    group: test
     image: algernon/drone-language:arduino
     commands:
       - make build
+
+  check-astyle:
+    group: test
+    image: algernon/drone-language:arduino
+    commands:
+      - make check-astyle
 
   archive:
     image: vividboarder/drone-webdav
