@@ -48,12 +48,16 @@ static void togglePlover(uint8_t combo_index) {
 }
 
 USE_MAGIC_COMBOS(
-    [ADORE] = {.action = toggleADORE,
-               // palm keys + AD
-               .keys = {R3C6, R2C1, R3C9, R2C10}},
-    [CsillaDvorak] = {.action = (kaleidoscope::MagicCombo::ComboAction)algernon::Macros::Csilla,
-                      .keys = {R3C6, R3C9, R1C12, R2C14}},
-    [CsillaADORE] = {.action = (kaleidoscope::MagicCombo::ComboAction)algernon::Macros::Csilla,
-                     .keys = {R3C6, R3C9, R1C3, R2C14}},
-    [Steno] = {.action = togglePlover,
-               .keys = {R0C7, R1C7, R2C7, R3C6, R3C9}});
+  [ADORE] = {.action = toggleADORE,
+             // palm keys + AD
+             .keys = {R3C6, R2C1, R3C9, R2C10}
+            },
+  [CsillaDvorak] = {.action = (kaleidoscope::MagicCombo::ComboAction)algernon::Macros::Csilla,
+                    .keys = {R3C6, R3C9, R1C12, R2C14}
+                   },
+  [CsillaADORE] = {.action = (kaleidoscope::MagicCombo::ComboAction)algernon::Macros::Csilla,
+                   .keys = {R3C6, R3C9, R1C3, R2C14}
+                  },
+  [Steno] = {.action = togglePlover,
+             .keys = {R0C7, R1C7, R2C7, R3C6, R3C9}
+            });

@@ -104,47 +104,47 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
 }
 
 KALEIDOSCOPE_INIT_PLUGINS(
-    Focus,
-    LEDControl,
-    LEDOff,
+  Focus,
+  LEDControl,
+  LEDOff,
 #if WITH_STALKER_EFFECT
-    StalkerEffect,
+  StalkerEffect,
 #endif
 #if WITH_MATRIX_EFFECT
-    LEDDigitalRainEffect,
+  LEDDigitalRainEffect,
 #endif
-    HostOS,
-    EEPROMSettings,
-    EEPROMKeymap,
-    LEDPaletteTheme,
-    ColormapEffect,
-    Leader,
-    Unicode,
-    TapDance,
-    OneShot,
-    Syster,
-    MagicCombo,
-    EscapeOneShot,
+  HostOS,
+  EEPROMSettings,
+  EEPROMKeymap,
+  LEDPaletteTheme,
+  ColormapEffect,
+  Leader,
+  Unicode,
+  TapDance,
+  OneShot,
+  Syster,
+  MagicCombo,
+  EscapeOneShot,
 #if WITH_STENO
-    GeminiPR,
+  GeminiPR,
 #endif
-    Macros,
-    Hungarian,
-    MouseKeys,
-    ActiveModColorEffect,
+  Macros,
+  Hungarian,
+  MouseKeys,
+  ActiveModColorEffect,
 #if WITH_PROGMEM_KEYMAP
-    FocusKeymapTransferCommand,
+  FocusKeymapTransferCommand,
 #endif
 #if WITH_LED_FOCUS
-    FocusLEDCommand,
+  FocusLEDCommand,
 #endif
-    FocusSettingsCommand,
-    FocusEEPROMCommand,
-    FocusHostOSCommand,
-    Settings
+  FocusSettingsCommand,
+  FocusEEPROMCommand,
+  FocusHostOSCommand,
+  Settings
 #if WITH_CYCLE_REPORT
-    ,FocusCycleTime,
-    CycleTimeReport
+  , FocusCycleTime,
+  CycleTimeReport
 #endif
 );
 
