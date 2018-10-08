@@ -23,11 +23,6 @@ pipeline:
     commands:
       - . ./.kaleidoscope-builder.conf && setup
 
-  build:
-    image: algernon/drone-language:arduino
-    commands:
-      - make build
-
   cache-rebuild:
     image: drillster/drone-volume-cache
     rebuild: true
@@ -35,6 +30,11 @@ pipeline:
       - lib
     volumes:
       - /tmp/cache/Model01-Sketch:/cache
+
+  build:
+    image: algernon/drone-language:arduino
+    commands:
+      - make build
 
   archive:
     image: vividboarder/drone-webdav
