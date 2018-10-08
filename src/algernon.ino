@@ -51,7 +51,6 @@
 #include "FocusCycleTime.h"
 #include "Leader.h"
 #include "MagicCombo.h"
-#include "Settings.h"
 #include "Syster.h"
 #include "TapDance.h"
 
@@ -139,8 +138,7 @@ KALEIDOSCOPE_INIT_PLUGINS(
 #endif
   FocusSettingsCommand,
   FocusEEPROMCommand,
-  FocusHostOSCommand,
-  Settings
+  FocusHostOSCommand
 #if WITH_CYCLE_REPORT
   , FocusCycleTime,
   CycleTimeReport
@@ -160,6 +158,10 @@ void setup() {
   MouseWrapper.speedLimit = 64;
   MouseKeys.speed = 15;
   MouseKeys.accelDelay = 35;
+
+  EEPROMKeymap.max_layers(LAYER_MAX - 1);
+  Layer.getKey = EEPROMKeymap.getKey;
+  layer_count = LAYER_MAX + 1;
 }
 
 void loop() {
