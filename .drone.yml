@@ -37,13 +37,6 @@ pipeline:
     commands:
       - make build
 
-  check-astyle:
-    group: test
-    image: algernon/drone-language:arduino
-    commands:
-      - apt-get -qq install -y astyle
-      - make check-astyle
-
   archive:
     image: vividboarder/drone-webdav
     file: output/algernon/algernon-*-g*.hex
