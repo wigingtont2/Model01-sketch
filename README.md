@@ -3,7 +3,7 @@
 algernon's Keyboardio Model01 firmware
 ======================================
 
-[![Build Status](https://travis-ci.org/algernon/Model01-sketch.svg?branch=master)](https://travis-ci.org/algernon/Model01-sketch)
+[![CI status](https://ci.madhouse-project.org/api/badges/algernon/Model01-Sketch/status.svg?branch=master)](https://ci.madhouse-project.org/algernon/Model01-Sketch)
 
 This is my work in progress firmware Sketch for the [Keyboardio Model 01][kbdio], using [Kaleidoscope][ks] together with a fair amount of plugins.
 
