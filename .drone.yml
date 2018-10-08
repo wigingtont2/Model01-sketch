@@ -41,6 +41,7 @@ pipeline:
     group: test
     image: algernon/drone-language:arduino
     commands:
+      - apt-get -qq install -y astyle
       - make check-astyle
 
   archive:
