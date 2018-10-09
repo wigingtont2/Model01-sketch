@@ -130,9 +130,6 @@ KALEIDOSCOPE_INIT_PLUGINS(
   Hungarian,
   MouseKeys,
   ActiveModColorEffect,
-#if WITH_PROGMEM_KEYMAP
-  FocusKeymapTransferCommand,
-#endif
 #if WITH_LED_FOCUS
   FocusLEDCommand,
 #endif
@@ -159,9 +156,14 @@ void setup() {
   MouseKeys.speed = 15;
   MouseKeys.accelDelay = 35;
 
+#if WITH_PROGMEM_KEYMAP
+  EEPROMKeymap.setup(LAYER_MAX - 1);
+  layer_count++;
+#else
   EEPROMKeymap.max_layers(LAYER_MAX - 1);
   Layer.getKey = EEPROMKeymap.getKey;
   layer_count = LAYER_MAX + 1;
+#endif
 }
 
 void loop() {
