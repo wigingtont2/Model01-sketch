@@ -4,7 +4,7 @@ FOCUS="$(dirname $0)/focus"
 roLayers="$(${FOCUS} keymap.roLayers)"
 
 if [ -z "${roLayers}" ]; then
-    echo "No PROGMEM layers found, bailing out." >&1
+    echo "No PROGMEM layers found, bailing out." >&2
     exit 1
 fi
 
