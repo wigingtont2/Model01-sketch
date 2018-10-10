@@ -28,6 +28,7 @@
 #include <Kaleidoscope-OneShot.h>
 #include <Kaleidoscope-Escape-OneShot.h>
 #include <Kaleidoscope-FocusSerial.h>
+#include <Kaleidoscope-Focus-Version.h>
 #include <Kaleidoscope-HostOS.h>
 #include <Kaleidoscope/HostOS-select.h>
 #include <Kaleidoscope-LED-ActiveModColor.h>
@@ -101,8 +102,16 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   return MACRO_NONE;
 }
 
+MAKE_FOCUS_VERSION_COMMAND("algernon/Model01-Sketch",
+                           "https://git.madhouse-project.org/",
+                           GIT_REV,
+                           "/src/commit/" GIT_FULLREV);
+
 KALEIDOSCOPE_INIT_PLUGINS(
   Focus,
+#if WITH_FOCUS_VERSION
+  FocusVersionCommand,
+#endif
   LEDControl,
   LEDOff,
 #if WITH_STALKER_EFFECT
