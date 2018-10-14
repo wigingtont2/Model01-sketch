@@ -20,8 +20,6 @@
 
 #define WITH_PROGMEM_KEYMAP          0
 
-#define KALEIDOSCOPE_HOSTOS_GUESSER  0
-
 #if !WITH_PROGMEM_KEYMAP
 # define WITH_CYCLE_REPORT           1
 # define WITH_STALKER_EFFECT         0
