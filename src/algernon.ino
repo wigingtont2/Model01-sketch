@@ -20,7 +20,6 @@
 
 #include <Kaleidoscope.h>
 
-#include "LED-Off.h"
 #include <Kaleidoscope-Colormap.h>
 #include <Kaleidoscope-CycleTimeReport.h>
 #include <Kaleidoscope-EEPROM-Keymap.h>
@@ -43,7 +42,6 @@
 #include <Kaleidoscope-Syster.h>
 #include <Kaleidoscope-Unicode.h>
 #include <Kaleidoscope-MagicCombo.h>
-#include "MouseWrapper.h"
 
 #include "Layers.h"
 
