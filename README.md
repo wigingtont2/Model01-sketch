@@ -81,7 +81,7 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   [kaleidoscope:mouse-keys]: https://github.com/keyboardio/Kaleidoscope-MouseKeys
   [kaleidoscope:macros]: https://github.com/keyboardio/Kaleidoscope-Macros
   [kaleidoscope:focusserial]: https://github.com/keyboardio/Kaleidoscope-FocusSerial
-  [chrysalis]: https://github.com/algernon/Chrysalis
+  [chrysalis]: https://github.com/keyboardio/chrysalis-bundle-keyboardio
 
 <a id="adore-layer"></a>
 ## ADORE layer
