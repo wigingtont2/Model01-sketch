@@ -29,6 +29,7 @@
 #include <Kaleidoscope-FocusSerial.h>
 #include <Kaleidoscope-Focus-Version.h>
 #include <Kaleidoscope-HostOS.h>
+#include <Kaleidoscope-IdleLEDs.h>
 #include <Kaleidoscope-LED-ActiveModColor.h>
 #include <Kaleidoscope-LED-Stalker.h>
 #if WITH_MATRIX_EFFECT
@@ -110,6 +111,9 @@ KALEIDOSCOPE_INIT_PLUGINS(
   FocusVersionCommand,
 #endif
   LEDControl,
+#if WITH_IDLE_LEDS
+  IdleLEDs,
+#endif
   LEDOff,
 #if WITH_STALKER_EFFECT
   StalkerEffect,

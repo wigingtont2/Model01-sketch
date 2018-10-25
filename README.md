@@ -127,6 +127,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 * [FocusSerial][kaleidoscope:focusserial]
 * [Hardware-Model01][kaleidoscope:hardware-model01]
 * [HostOS][kaleidoscope:hostos]
+* [IdleLEDs][kaleidoscope:idleleds]
 * [LED-ActiveModColor][kaleidoscope:led-activemodcolor]
 * [LED-AlphaSquare][kaleidoscope:led-alphasquare]
 * [LED-Palette-Theme][kaleidoscope:led-palette-theme]
@@ -144,6 +145,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 * [TapDance][kaleidoscope:tap-dance]
 * [Unicode][kaleidoscope:unicode]
 
+ [kaleidoscope:idleleds]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/IdleLEDs.md
  [kaleidoscope:led-alphasquare]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/LED-AlphaSquare.md
  [kaleidoscope:led-palette-theme]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/LED-Palette-Theme.md
  [kaleidoscope:led-control]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/LEDControl.md

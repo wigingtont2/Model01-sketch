@@ -27,4 +27,5 @@
 # define WITH_STENO                  1
 # define WITH_LED_FOCUS              0
 # define WITH_FOCUS_VERSION          1
+# define WITH_IDLE_LEDS              1
 #endif
