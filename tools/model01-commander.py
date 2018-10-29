@@ -89,6 +89,9 @@ class Commander (object):
                     app = cmd[7:]
                     print ("appsel: %s" % app)
                     self._appSel.switchTo (app)
+                if cmd.startswith ("brightness:"):
+                    dir = cmd[11:]
+                    sh.brightness(dir)
 
 commander = Commander ()
 

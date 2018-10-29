@@ -96,6 +96,12 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   case APPSEL_PWMGR:
     Serial.println(F("pwmgr"));
     break;
+  case BDN:
+    Serial.println(F("brightness:down"));
+    break;
+  case BUP:
+    Serial.println(F("brightness:up"));
+    break;
   }
   return MACRO_NONE;
 }
