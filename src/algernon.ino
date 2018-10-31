@@ -107,9 +107,8 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
 }
 
 MAKE_FOCUS_VERSION_COMMAND("algernon/Model01-Sketch",
-                           "https://git.madhouse-project.org/",
                            GIT_REV,
-                           "/src/commit/" GIT_FULLREV);
+                           KALEIDOSCOPE_GITREV);
 
 KALEIDOSCOPE_INIT_PLUGINS(
   Focus,
