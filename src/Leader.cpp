@@ -52,13 +52,15 @@ enum {
 
 static void Shruggy(uint8_t seqIndex) {
   ::Unicode.type(0xaf);
-  ::Macros.play(MACRO(Tc(Backslash),
+  ::Macros.play(MACRO(I(10),
+                      Tc(Backslash),
                       D(RightShift),
                       Tc(Minus),
                       Tc(9),
                       U(RightShift)));
   ::Unicode.type(0x30c4);
-  ::Macros.play(MACRO(D(RightShift),
+  ::Macros.play(MACRO(I(10),
+                      D(RightShift),
                       Tc(0),
                       Tc(Minus),
                       U(RightShift),
