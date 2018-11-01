@@ -171,7 +171,7 @@ void setup() {
   MouseKeys.speed = 15;
   MouseKeys.accelDelay = 35;
 
-  Unicode.input_delay(10);
+  Unicode.input_delay(25);
 
 #if WITH_PROGMEM_KEYMAP
   EEPROMKeymap.setup(LAYER_MAX - 1);
