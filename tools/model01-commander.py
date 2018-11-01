@@ -92,6 +92,11 @@ class Commander (object):
                 if cmd.startswith ("brightness:"):
                     dir = cmd[11:]
                     sh.brightness(dir)
+                if cmd == "reboot":
+                    print ("Rebooting, waiting an extra 10s...")
+                    ser.close()
+                    time.sleep(10)
+                    raise Exception()
 
 commander = Commander ()
 

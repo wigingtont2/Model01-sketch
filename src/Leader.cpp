@@ -107,6 +107,7 @@ static void GUIHelper(uint8_t seqIndex) {
 }
 
 static void Reboot(uint8_t seqIndex) {
+  Serial.println(F("reboot"));
   ::KeyboardHardware.rebootBootloader();
 }
 
