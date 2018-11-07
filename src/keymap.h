@@ -51,6 +51,7 @@ enum {
 #define Key_AND   LSHIFT(Key_7)
 #define Key_LCB   LSHIFT(Key_LeftBracket)
 #define Key_RCB   LSHIFT(Key_RightBracket)
+#define Key_Plus  LSHIFT(Key_Equals)
 
 #define AS_MUS M(APPSEL_MUSIC)
 #define AS_CHT M(APPSEL_CHAT)
@@ -147,7 +148,7 @@ KEYMAPS(
 
    ,XXX            ,XXX        ,XXX   ,XXX   ,XXX   ,XXX       ,XXX
    ,XXX            ,XXX        ,Key_1 ,Key_2 ,Key_3 ,XXX       ,XXX
-                   ,Key_0      ,Key_4 ,Key_5 ,Key_6 ,Key_Minus ,XXX
+                   ,Key_0      ,Key_4 ,Key_5 ,Key_6 ,Key_Minus ,Key_Plus
    ,Key_Underscore ,Key_Period ,Key_7 ,Key_8 ,Key_9 ,XXX       ,XXX
 
    ,XXX ,XXX ,XXX ,___
