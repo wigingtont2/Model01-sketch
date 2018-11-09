@@ -124,7 +124,7 @@ KEYMAPS(
    ,XXX ,MS_SR  ,MM(L)  ,MM(Dn) ,MM(R)  ,MS_SDN
    ,___ ,XXX    ,MW(SW) ,XXX    ,MW(SE) ,XXX    ,MM(BtnL)
 
-   ,___ ,___ ,___ ,___
+   ,___ ,Key_Delete ,___ ,___
    ,___
 
    ,LGUI(Key_L) ,Key_F10    ,Key_F2     ,Key_F4      ,Key_F6     ,Key_F8 ,XXX
