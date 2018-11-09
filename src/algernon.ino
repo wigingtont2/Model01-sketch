@@ -174,8 +174,8 @@ void setup() {
   Unicode.input_delay(25);
 
 #if WITH_PROGMEM_KEYMAP
-  EEPROMKeymap.setup(LAYER_MAX - 1);
-  layer_count = LAYER_MAX * 2;
+  EEPROMKeymap.setup(LAYER_MAX);
+  layer_count++;
 #else
   EEPROMKeymap.max_layers(LAYER_MAX);
   Layer.getKey = EEPROMKeymap.getKey;

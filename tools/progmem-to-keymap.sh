@@ -8,4 +8,4 @@ if [ -z "${roLayers}" ]; then
     exit 1
 fi
 
-${FOCUS} "keymap.map $(${FOCUS} keymap.map | sed -e "s#^\(\([0-9]* \)\{384\}\).*#\1\1#")"
+${FOCUS} "keymap.map $(${FOCUS} keymap.map | sed -e "s#^\(\([0-9]* \)\{448\}\).*#\1\1#")"
