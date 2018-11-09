@@ -158,11 +158,6 @@ KALEIDOSCOPE_INIT_PLUGINS(
 );
 
 void setup() {
-#if WITH_PROGMEM_KEYMAP
-  // This is a crude hack to force in the EMPTY layer.
-  // We need to do this so that the layer copying tool will work correctly.
-  layer_count++;
-#endif
   Kaleidoscope.setup();
 
 #if WITH_STALKER_EFFECT

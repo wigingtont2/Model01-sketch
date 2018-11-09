@@ -190,9 +190,6 @@ KEYMAPS(
     ,S(RE2) ,XXX    ,S(E)  ,S(U)
     ,XXX),
 
-#if 0
-  // This is here for reference only, this layer is implemented in the getKey
-  // function instead.
   [_EMPTY] = KEYMAP_STACKED
   (
     XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
@@ -210,7 +207,6 @@ KEYMAPS(
    ,XXX ,XXX ,XXX ,XXX
    ,___
   ),
-#endif
 );
 #else
 KEYMAPS(
