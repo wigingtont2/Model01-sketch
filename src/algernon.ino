@@ -182,7 +182,7 @@ void setup() {
   EEPROMKeymap.setup(LAYER_MAX - 1);
   layer_count = LAYER_MAX * 2;
 #else
-  EEPROMKeymap.max_layers(LAYER_MAX - 1);
+  EEPROMKeymap.max_layers(LAYER_MAX);
   Layer.getKey = EEPROMKeymap.getKey;
   layer_count = LAYER_MAX + 1;
 #endif
