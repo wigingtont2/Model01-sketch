@@ -125,6 +125,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 * [EEPROM-Settings][kaleidoscope:eeprom-settings]
 * [Escape-OneShot][kaleidoscope:escape-oneshot]
 * [FocusSerial][kaleidoscope:focusserial]
+* [Focus-Version][kaleidoscope:focus-version]
 * [Hardware-Model01][kaleidoscope:hardware-model01]
 * [HostOS][kaleidoscope:hostos]
 * [IdleLEDs][kaleidoscope:idleleds]
@@ -159,6 +160,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
  [kaleidoscope:steno]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/Steno.md
  [kaleidoscope:ledeffect-digitalrain]: https://github.com/tremby/Kaleidoscope-LEDEffect-DigitalRain
  [kaleidoscope:cycletimereport]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/CycleTimeReport.md
+ [kaleidoscope:focus-version]: https://git.madhouse-project.org/algernon/Kaleidoscope-Focus-Version
 
 <a id="license"></a>
 # License
