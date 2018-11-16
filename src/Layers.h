@@ -26,7 +26,6 @@ enum {
   _NAV,
   _AUX,
   _APPSEL,
-  _PLOVER,
   _EMPTY,
 
   LAYER_MAX = _EMPTY

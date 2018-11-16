@@ -66,7 +66,6 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
 * The `R0C0` key acts as `F11`, but triggers only on release. This is so that it can be held to go into programmable mode when re-flashing, without sending way too many `F11` held events.
 * There are a few other actions one can trigger with [magic combos][kaleidoscope:magic-combos]:
   - `PALMS + AD`: Switch to the [ADORE](#adore-layer) layer.
-  - `PALMS + R0C7 + R1C7 + R2C7`: Toggle the experimental Steno layer ond and off.
 * We are also using [mouse keys][kaleidoscope:mouse-keys], and [macros][kaleidoscope:macros] for some of the features.
 * The keyboard can also communicate with the host bidirectionally, thanks to the [FocusSerial][kaleidoscope:focusserial] plugin. See [Chrysalis][chrysalis] for a simple client.
 
@@ -141,7 +140,6 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 * [MagicCombos][kaleidoscope:magic-combos]
 * [MouseKeys][kaleidoscope:mouse-keys]
 * [OneShot][kaleidoscope:oneshot]
-* [Steno][kaleidoscope:steno]
 * [Syster][kaleidoscope:syster]
 * [TapDance][kaleidoscope:tap-dance]
 * [Unicode][kaleidoscope:unicode]
@@ -157,7 +155,6 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
  [kaleidoscope:eeprom-settings]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/EEPROM-Settings.md
  [kaleidoscope:eeprom-keymap]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/Keymap.md
  [kaleidoscope:hardware-model01]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/Hardware-Model01.md
- [kaleidoscope:steno]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/Steno.md
  [kaleidoscope:ledeffect-digitalrain]: https://github.com/tremby/Kaleidoscope-LEDEffect-DigitalRain
  [kaleidoscope:cycletimereport]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/CycleTimeReport.md
  [kaleidoscope:focus-version]: https://git.madhouse-project.org/algernon/Kaleidoscope-Focus-Version

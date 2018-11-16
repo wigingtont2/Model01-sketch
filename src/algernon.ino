@@ -39,7 +39,6 @@
 #include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-Macros.h>
 #include <Kaleidoscope-MouseKeys.h>
-#include <Kaleidoscope-Steno.h>
 #include <Kaleidoscope-Syster.h>
 #include <Kaleidoscope-Unicode.h>
 #include <Kaleidoscope-MagicCombo.h>
@@ -138,9 +137,6 @@ KALEIDOSCOPE_INIT_PLUGINS(
   Syster,
   MagicCombo,
   EscapeOneShot,
-#if WITH_STENO
-  GeminiPR,
-#endif
   Macros,
   Hungarian,
   MouseKeys,
@@ -192,9 +188,6 @@ void loop() {
     algernon::TapDance::cancelOneShot = false;
   }
 
-  if (Layer.isOn(_PLOVER)) {
-    LEDControl.set_all_leds_to(CRGB(0x56, 0x80, 0x78));
-  }
   if (Layer.isOn(_EMPTY)) {
     LEDControl.set_all_leds_to(CRGB(0x0, 0x0, 0x0));
   }
