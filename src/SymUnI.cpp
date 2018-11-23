@@ -41,7 +41,8 @@ static const struct {
   {"tm", 0x2122},
   {"family", 0x1f46a},
   {"child", 0x1f476},
-  {"ok", 0x2713}
+  {"ok", 0x2713},
+  {"joy", 0x1F602},
 };
 
 void input(const char *symbol) {
