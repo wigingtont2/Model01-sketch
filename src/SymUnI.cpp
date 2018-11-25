@@ -18,7 +18,6 @@
 
 #include "SymUnI.h"
 #include <Kaleidoscope-Unicode.h>
-#include <Kaleidoscope-LED-AlphaSquare.h>
 
 namespace algernon {
 namespace SymUnI {
@@ -47,7 +46,6 @@ static const struct {
 
 void input(const char *symbol) {
   uint32_t code = 0;
-  bool lambda = false;
 
   for (uint8_t i = 0; i < sizeof(symbol_map) / sizeof(symbol_map[0]); i++) {
     const char *map_symbol = (const char *)pgm_read_word(&symbol_map[i].symbol);
@@ -61,12 +59,6 @@ void input(const char *symbol) {
     Unicode.type(code);
   else
     typeString(symbol);
-
-  if (lambda) {
-    AlphaSquare.display(kaleidoscope::alpha_square::symbols::Lambda);
-    delay(500);
-    AlphaSquare.clear(kaleidoscope::alpha_square::symbols::Lambda);
-  }
 }
 
 void typeString(const char *str) {
