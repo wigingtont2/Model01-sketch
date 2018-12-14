@@ -31,10 +31,10 @@ enum {
 };
 
 static void toggleADORE(uint8_t combo_index) {
-  if (Layer.isOn(_ADORE)) {
-    Layer.defaultLayer(_DVORAK);
+  if (Layer.isActive(_ADORE)) {
+    Layer.move(_DVORAK);
   } else {
-    Layer.defaultLayer(_ADORE);
+    Layer.move(_ADORE);
   }
 }
 

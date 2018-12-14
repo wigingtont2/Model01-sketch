@@ -183,12 +183,12 @@ void loop() {
   Kaleidoscope.loop();
 
   if (algernon::TapDance::cancelOneShot) {
-    if (!Layer.isOn(_APPSEL))
+    if (!Layer.isActive(_APPSEL))
       OneShot.cancel();
     algernon::TapDance::cancelOneShot = false;
   }
 
-  if (Layer.isOn(_EMPTY)) {
+  if (Layer.isActive(_EMPTY)) {
     LEDControl.set_all_leds_to(CRGB(0x0, 0x0, 0x0));
   }
 }
