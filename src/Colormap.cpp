@@ -27,7 +27,7 @@ namespace algernon {
 namespace Colormap {
 
 void configure(void) {
-  ColormapEffect.max_layers(LAYER_MAX - 1);
+  ColormapEffect.max_layers(LAYER_MAX);
   ColormapEffect.activate();
 }
 
