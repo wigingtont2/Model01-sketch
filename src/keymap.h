@@ -39,6 +39,7 @@ enum {
   F11,
   BDN,
   BUP,
+  APPSEL_Q,
 };
 
 #define Key_AT    LSHIFT(Key_2)
@@ -61,6 +62,7 @@ enum {
 #define AS_SOC M(APPSEL_SOC)
 #define AS_SC2 M(APPSEL_SOC2)
 #define AS_PWM M(APPSEL_PWMGR)
+#define AS_Q   M(APPSEL_Q)
 
 #define MS_SUP MM(ScrollUp)
 #define MS_SDN MM(ScrollDn)
@@ -157,10 +159,10 @@ KEYMAPS(
 
   [_APPSEL] = KEYMAP_STACKED
   (
-    XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-   ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
+    XXX ,XXX ,XXX ,XXX  ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX  ,XXX ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,AS_Q ,XXX ,XXX
+   ,XXX ,XXX ,XXX ,XXX  ,XXX ,XXX ,XXX
    ,XXX ,XXX ,XXX ,XXX
    ,XXX
 

@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 ## model01-commander.py -- Model01 helper tool
-## Copyright (C) 2017  Gergely Nagy
+## Copyright (C) 2017, 2018, 2019  Gergely Nagy
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -28,7 +28,8 @@ class AppSel (object):
                "web": ["chrom", "Chrome"],
                "pwmgr": "keepass",
                "social": ["trunk.mad-scientist.club.Google-chrome", "tweetdeck"],
-               "social2": ["Viber", "Signal"]}
+               "social2": ["Viber", "Signal"],
+               "q": "q"}
 
     def select_only (self, apps):
         if isinstance (apps, list):
@@ -69,6 +70,10 @@ class AppSel (object):
             sh.rofi ("-show", "window")
         except sh.ErrorReturnCode:
             return False
+        return True
+
+    def select_q (Self, app):
+        sh.q ()
         return True
 
     def switchTo (self, app):
