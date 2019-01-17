@@ -43,9 +43,9 @@ USE_MAGIC_COMBOS(
              // palm keys + AD
              .keys = {R3C6, R2C1, R3C9, R2C10}
             },
-  [CsillaDvorak] = {.action = (kaleidoscope::MagicCombo::ComboAction)algernon::Macros::Csilla,
+  [CsillaDvorak] = {.action = (kaleidoscope::plugin::MagicCombo::ComboAction)algernon::Macros::Csilla,
                     .keys = {R3C6, R3C9, R1C12, R2C14}
                    },
-  [CsillaADORE] = {.action = (kaleidoscope::MagicCombo::ComboAction)algernon::Macros::Csilla,
+  [CsillaADORE] = {.action = (kaleidoscope::plugin::MagicCombo::ComboAction)algernon::Macros::Csilla,
                    .keys = {R3C6, R3C9, R1C3, R2C14}
                   });

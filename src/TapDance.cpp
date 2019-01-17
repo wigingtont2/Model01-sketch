@@ -26,8 +26,8 @@
 namespace algernon {
 namespace TapDance {
 
-static void TMUX(uint8_t tapCount, byte row, byte col, kaleidoscope::TapDance::ActionType tapDanceAction) {
-  if (tapDanceAction != kaleidoscope::TapDance::Release)
+static void TMUX(uint8_t tapCount, byte row, byte col, kaleidoscope::plugin::TapDance::ActionType tapDanceAction) {
+  if (tapDanceAction != kaleidoscope::plugin::TapDance::Release)
     return;
 
   Key key, modifier;
@@ -51,8 +51,8 @@ static void TMUX(uint8_t tapCount, byte row, byte col, kaleidoscope::TapDance::A
   kaleidoscope::hid::sendKeyboardReport();
 }
 
-static void TMUXPane(uint8_t tapCount, byte row, byte col, kaleidoscope::TapDance::ActionType tapDanceAction) {
-  if (tapDanceAction != kaleidoscope::TapDance::Release)
+static void TMUXPane(uint8_t tapCount, byte row, byte col, kaleidoscope::plugin::TapDance::ActionType tapDanceAction) {
+  if (tapDanceAction != kaleidoscope::plugin::TapDance::Release)
     return;
 
   // Alt + Space
@@ -78,8 +78,8 @@ bool cancelOneShot = false;
 
 }
 
-void tapDanceAction(uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, kaleidoscope::TapDance::ActionType tapDanceAction) {
-  if (tapDanceAction == kaleidoscope::TapDance::Release)
+void tapDanceAction(uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount, kaleidoscope::plugin::TapDance::ActionType tapDanceAction) {
+  if (tapDanceAction == kaleidoscope::plugin::TapDance::Release)
     algernon::TapDance::cancelOneShot = true;
 
   switch (tapDanceIndex) {
@@ -94,7 +94,7 @@ void tapDanceAction(uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount,
                                 Key_LeftBracket,
                                 Key_LeftParen);
     } else {
-      if (tapDanceAction == kaleidoscope::TapDance::Release)
+      if (tapDanceAction == kaleidoscope::plugin::TapDance::Release)
         return Unicode.type(0x300c);
       return;
     }
@@ -105,7 +105,7 @@ void tapDanceAction(uint8_t tapDanceIndex, byte row, byte col, uint8_t tapCount,
                                 Key_RightBracket,
                                 Key_RightParen);
     } else {
-      if (tapDanceAction == kaleidoscope::TapDance::Release)
+      if (tapDanceAction == kaleidoscope::plugin::TapDance::Release)
         return Unicode.type(0x300d);
       return;
     }
