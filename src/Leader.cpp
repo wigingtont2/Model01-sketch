@@ -95,7 +95,7 @@ static void Butterfly(uint8_t seqIndex) {
 static void GUI(uint8_t seqIndex) {
   ::OneShot.inject(OSL(_APPSEL), IS_PRESSED);
   ::OneShot.inject(OSL(_APPSEL), WAS_PRESSED);
-  Serial.println(F("appsel:start"));
+  Serial.println(F("AS:start"));
 }
 
 static void Compose(uint8_t seqIndex) {
@@ -103,7 +103,7 @@ static void Compose(uint8_t seqIndex) {
 }
 
 static void GUIHelper(uint8_t seqIndex) {
-  Serial.println(F("appsel:helper"));
+  Serial.println(F("AS:helper"));
 }
 
 static void Reboot(uint8_t seqIndex) {

@@ -90,12 +90,12 @@ class Commander (object):
         with serial.Serial ("/dev/model01", 9600, timeout = 10) as ser:
             while True:
                 cmd = ser.readline ().strip().decode()
-                if cmd.startswith ("appsel:"):
-                    app = cmd[7:]
+                if cmd.startswith ("AS:"):
+                    app = cmd[3:]
                     print ("appsel: %s" % app)
                     self._appSel.switchTo (app)
-                if cmd.startswith ("brightness:"):
-                    dir = cmd[11:]
+                if cmd.startswith ("b:"):
+                    dir = cmd[2:]
                     sh.brightness(dir)
                 if cmd == "reboot":
                     print ("Rebooting, waiting an extra 10s...")

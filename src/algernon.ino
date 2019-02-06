@@ -67,7 +67,7 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   switch (macroIndex) {
   case APPSEL_MUSIC ... APPSEL_PWMGR:
   case APPSEL_Q:
-    Serial.print(F("appsel:"));
+    Serial.print(F("AS:"));
     break;
   }
 
@@ -97,10 +97,10 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
     Serial.println(F("pwmgr"));
     break;
   case BDN:
-    Serial.println(F("brightness:down"));
+    Serial.println(F("b:d"));
     break;
   case BUP:
-    Serial.println(F("brightness:up"));
+    Serial.println(F("b:u"));
     break;
   case APPSEL_Q:
     Serial.println(F("q"));
