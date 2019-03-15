@@ -121,7 +121,7 @@ KEYMAPS(
 
   [_NAV] = KEYMAP_STACKED
   (
-    ___ ,Key_F9 ,Key_F7 ,Key_F5 ,Key_F3 ,Key_F1 ,XXX
+    ___ ,Key_F9 ,Key_F7 ,Key_F5 ,Key_F3 ,Key_F1 ,Key_PrintScreen
    ,XXX ,MS_SL  ,MW(NW) ,MM(Up) ,MW(NE) ,MS_SUP ,MW(End)
    ,XXX ,MS_SR  ,MM(L)  ,MM(Dn) ,MM(R)  ,MS_SDN
    ,___ ,XXX    ,MW(SW) ,XXX    ,MW(SE) ,XXX    ,MM(BtnL)
