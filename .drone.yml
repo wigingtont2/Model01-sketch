@@ -36,10 +36,3 @@ pipeline:
     image: algernon/drone-language:arduino
     commands:
       - make build
-
-  archive:
-    image: vividboarder/drone-webdav
-    file: output/algernon/algernon-*-g*.hex
-    destination: https://banda.csillger.hu/remote.php/dav/files/algernon/Kaleidoscope/Model01-Sketch/
-    username: algernon
-    secrets: [webdav_password]
