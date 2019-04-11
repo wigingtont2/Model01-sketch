@@ -31,10 +31,6 @@
 #include <Kaleidoscope-HostOS.h>
 #include <Kaleidoscope-IdleLEDs.h>
 #include <Kaleidoscope-LED-ActiveModColor.h>
-#include <Kaleidoscope-LED-Stalker.h>
-#if WITH_MATRIX_EFFECT
-# include <Kaleidoscope-LEDEffect-DigitalRain.h>
-#endif
 #include <Kaleidoscope-LEDControl.h>
 #include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-Macros.h>
@@ -119,12 +115,6 @@ KALEIDOSCOPE_INIT_PLUGINS(
   IdleLEDs,
 #endif
   LEDOff,
-#if WITH_STALKER_EFFECT
-  StalkerEffect,
-#endif
-#if WITH_MATRIX_EFFECT
-  LEDDigitalRainEffect,
-#endif
   HostOS,
   EEPROMSettings,
   EEPROMKeymap,
@@ -141,9 +131,6 @@ KALEIDOSCOPE_INIT_PLUGINS(
   Hungarian,
   MouseKeys,
   ActiveModColorEffect,
-#if WITH_LED_FOCUS
-  FocusLEDCommand,
-#endif
   FocusSettingsCommand,
   FocusEEPROMCommand,
   FocusHostOSCommand
@@ -155,10 +142,6 @@ KALEIDOSCOPE_INIT_PLUGINS(
 
 void setup() {
   Kaleidoscope.setup();
-
-#if WITH_STALKER_EFFECT
-  StalkerEffect.variant = STALKER(BlazingTrail);
-#endif
 
   algernon::Colormap::configure();
   algernon::Leader::configure();

@@ -49,7 +49,6 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   - By default, the modifiers and palm keys are highlighted with different colors.
   - On different layers, the keys that have changed behaviour, are colored differently.
   - When a modifier is active, the [LED-ActiveModColor][kaleidoscope:led-activemodcolor] plugin turns it white.
-  - Additional LED effects are provided by [LED-Stalker][kaleidoscope:led-stalker], and [LEDEffect-DigitalRain][kaleidoscope:ledeffect-digitalrain]. All of these are conditional.
   - One can also switch LEDs off.
 * The top row was inspired by [Programmer Dvorak][dvorak:prg], but the symbols are arranged so that the most used ones are easier to access. The numbers are available in a numpad-like layout on a separate layer.
 * The `R0C6` and `R0C9` keys are to control `tmux` and `screen`, and are dependent on my tmux setup.
@@ -73,7 +72,6 @@ This is a [Dvorak][dvorak]-inspired layout, with some changes here and there, to
   [kaleidoscope:oneshot]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/OneShot.md
   [kaleidoscope:colormap]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/Colormap.md
   [kaleidoscope:led-activemodcolor]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/LED-ActiveModColor.md
-  [kaleidoscope:led-stalker]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/LED-Stalker.md
   [kaleidoscope:tap-dance]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/TapDance.md
   [kaleidoscope:leader]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/Leader.md
   [kaleidoscope:magic-combos]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/MagicCombo.md
@@ -130,9 +128,7 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
 * [IdleLEDs][kaleidoscope:idleleds]
 * [LED-ActiveModColor][kaleidoscope:led-activemodcolor]
 * [LED-Palette-Theme][kaleidoscope:led-palette-theme]
-* [LED-Stalker][kaleidoscope:led-stalker]
 * [LEDControl][kaleidoscope:led-control]
-* [LEDEffect-DigitalRain][kaleidoscope:ledeffect-digitalrain]
 * [LangPack-Hungarian][kaleidoscope:langpack-hun]
 * [Leader][kaleidoscope:leader]
 * [Macros][kaleidoscope:macros]
@@ -153,7 +149,6 @@ This sketch makes use of a fair amount of plugins, most of them have been listed
  [kaleidoscope:eeprom-settings]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/EEPROM-Settings.md
  [kaleidoscope:eeprom-keymap]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/Keymap.md
  [kaleidoscope:hardware-model01]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/Hardware-Model01.md
- [kaleidoscope:ledeffect-digitalrain]: https://github.com/tremby/Kaleidoscope-LEDEffect-DigitalRain
  [kaleidoscope:cycletimereport]: https://github.com/keyboardio/Kaleidoscope/blob/master/doc/plugin/CycleTimeReport.md
  [kaleidoscope:focus-version]: https://git.madhouse-project.org/algernon/Kaleidoscope-Focus-Version
 
