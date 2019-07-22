@@ -86,7 +86,7 @@ KEYMAPS(
    ,Key_Tab       ,Key_A     ,Key_O     ,Key_E      ,Key_U     ,Key_I
    ,TD(MNP)       ,Key_Slash ,Key_Q     ,Key_J      ,Key_K     ,Key_X     ,TD(COLON)
 
-   ,OSM(LeftControl) ,Key_Backspace ,OSM(LeftShift) ,Key_Escape
+    ,Key_LeftGui ,Key_Backspace ,Key_Spacebar ,Key_Escape
    ,OSL(_NAV)
 
    ,TD(TMUXP)    ,Key_PRCNT ,Key_EXCLM ,Key_HASH ,Key_AND ,Key_RCB ,Key_PlayPause
@@ -94,7 +94,7 @@ KEYMAPS(
                  ,Key_D     ,Key_H     ,Key_T    ,Key_N   ,Key_S   ,Key_Equals
    ,Key_Minus    ,Key_B     ,Key_M     ,Key_W    ,Key_V   ,Key_Z   ,LEAD(MAIN)
 
-   ,Key_LeftGui ,Key_Enter ,Key_Spacebar ,OSM(LeftAlt)
+    ,OSM(LeftControl) ,Key_Enter ,OSM(LeftShift) ,OSM(LeftAlt)
    ,OSL(_AUX)
   ),
 
@@ -129,7 +129,7 @@ KEYMAPS(
 
    ,LGUI(Key_L) ,Key_F10    ,Key_F2     ,Key_F4      ,Key_F6     ,Key_F8 ,XXX
    ,XXX         ,Key_PageUp ,Key_Home   ,Key_UpArrow ,Key_End    ,XXX    ,XXX
-                ,Key_PageDn ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,XXX    ,XXX
+                ,Key_PageDn ,Key_LArrow ,Key_DnArrow ,Key_RArrow ,Key_F12    ,XXX
    ,MM(BtnR)    ,XXX        ,XXX        ,XXX         ,XXX        ,XXX    ,XXX
 
    ,TD(VOLD) ,___ ,___ ,___
