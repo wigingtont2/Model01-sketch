@@ -31,10 +31,6 @@
 #include <Kaleidoscope-HostOS.h>
 #include <Kaleidoscope-IdleLEDs.h>
 #include <Kaleidoscope-LED-ActiveModColor.h>
-#include <Kaleidoscope-LED-Stalker.h>
-#if WITH_MATRIX_EFFECT
-# include <Kaleidoscope-LEDEffect-DigitalRain.h>
-#endif
 #include <Kaleidoscope-LEDControl.h>
 #include <Kaleidoscope-LangPack-Hungarian.h>
 #include <Kaleidoscope-Macros.h>
@@ -66,7 +62,6 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
 
   switch (macroIndex) {
   case APPSEL_MUSIC ... APPSEL_PWMGR:
-  case APPSEL_Q:
     Serial.print(F("AS:"));
     break;
   }
@@ -102,9 +97,6 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   case BUP:
     Serial.println(F("b:u"));
     break;
-  case APPSEL_Q:
-    Serial.println(F("q"));
-    break;
   }
   return MACRO_NONE;
 }
@@ -123,12 +115,6 @@ KALEIDOSCOPE_INIT_PLUGINS(
   IdleLEDs,
 #endif
   LEDOff,
-#if WITH_STALKER_EFFECT
-  StalkerEffect,
-#endif
-#if WITH_MATRIX_EFFECT
-  LEDDigitalRainEffect,
-#endif
   HostOS,
   EEPROMSettings,
   EEPROMKeymap,
@@ -145,9 +131,6 @@ KALEIDOSCOPE_INIT_PLUGINS(
   Hungarian,
   MouseKeys,
   ActiveModColorEffect,
-#if WITH_LED_FOCUS
-  FocusLEDCommand,
-#endif
   FocusSettingsCommand,
   FocusEEPROMCommand,
   FocusHostOSCommand
@@ -159,10 +142,6 @@ KALEIDOSCOPE_INIT_PLUGINS(
 
 void setup() {
   Kaleidoscope.setup();
-
-#if WITH_STALKER_EFFECT
-  StalkerEffect.variant = STALKER(BlazingTrail);
-#endif
 
   algernon::Colormap::configure();
   algernon::Leader::configure();
